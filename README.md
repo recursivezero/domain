@@ -1,2 +1,3 @@
-# domain
-building recursivezero.com
+# Recursive Zero
+
+This is the page render as **recursivezero.com**
