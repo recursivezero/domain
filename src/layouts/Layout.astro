@@ -1,25 +1,44 @@
 ---
-import Footer from '../components/Footer.astro';
 interface Props {
 	title: string;
+	description: string;
+	url?: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+
+  <!-- HTML Meta Tags -->
+  <title>Welcome to Recursive Zero.</title>
+
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content="https://www.recursivezero.com">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:image" content="logo_large">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="logo_large">
+  <meta property="twitter:domain" content="recursivezero.com">
+  <meta property="twitter:url" content="https://www.recursivezero.com">
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content="logo_large">
+   
+	<title>{title}</title>
 	</head>
 	<body>
 		<slot />
-		<Footer/>
 	</body>
 </html>
 <style is:global>
