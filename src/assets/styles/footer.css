@@ -1,0 +1,12 @@
+.container__footer {
+  @apply h-auto w-auto;
+  border-top: 2px solid;
+}
+
+.footer__nav {
+  @apply flex flex-col items-center justify-center gap-3 text-gray-700 underline underline-offset-2 dark:text-gray-500;
+}
+
+.footer__nav--item {
+  @apply underline underline-offset-2 hover:text-blue-500 dark:hover:text-blue-400;
+}

@@ -1,0 +1,150 @@
+/*@import "./custom-font.css";*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-size-min: 16;
+    --font-size-max: 20;
+    --font-ratio-min: 1.2;
+    --font-ratio-max: 1.33;
+    --font-width-min: 375;
+    --font-width-max: 1500;
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+    --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
+  }
+
+  html {
+    color-scheme: light dark;
+    height: 100%;
+    font-family: "Mudra";
+
+    font-family: system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  [data-theme="light"] {
+    color-scheme: light only;
+  }
+
+  [data-theme="dark"] {
+    color-scheme: dark only;
+  }
+
+  *,
+  *:after,
+  *:before {
+    box-sizing: border-box;
+  }
+
+  body {
+    container-type: inline-size;
+    container-name: thread;
+    box-sizing: border-box;
+    min-height: 100vh;
+    font-family: "Roboto", "SF Pro Text", "SF Pro Icons", "AOS Icons", "Helvetica Neue", Helvetica, Arial, sans-serif,
+      system-ui;
+
+    padding-left: clamp(1rem, 5vw, 10rem);
+    padding-right: clamp(1rem, 5vw, 10rem);
+    font-family: "Livvic", sans-serif;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+
+  body::before {
+    --size: 45px;
+    --line: color-mix(in lch, canvasText, transparent 70%);
+    content: "";
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background:
+      linear-gradient(90deg, var(--line) 1px, transparent 1px var(--size)) 50% 50% / var(--size) var(--size),
+      linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% / var(--size) var(--size);
+    mask: linear-gradient(150deg, transparent 50%, white);
+    top: 0;
+    transform-style: flat;
+    pointer-events: none;
+  }
+
+  :where(.x-link):is(:hover, :focus-visible) {
+    opacity: 1;
+  }
+
+  main {
+    display: grid;
+    gap: 4px;
+    grid-template-columns: 20rem 1fr;
+    grid-auto-flow: column;
+    grid-template-areas: "sidebar content";
+
+    &.sidebar {
+      grid-area: sidebar;
+    }
+
+    &.content {
+      grid-area: content;
+    }
+  }
+
+  @container thread (max-width: 768px) {
+    main {
+      grid-template-areas: "content";
+      grid-template-columns: auto 1fr;
+
+      & .content {
+        grid-area: content;
+        grid-column: span 2;
+      }
+    }
+  }
+
+  /* Utilities */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .link__active,
+  .text__active {
+    @apply text-customLight-active dark:text-customDark-active;
+  }
+
+  .outline {
+    outline: 1px solid greenyellow;
+  }
+
+  .whiteBg {
+    background-color: #eee;
+    color: #111;
+  }
+
+  .darkBg {
+    background-color: #222;
+    color: #fff;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  .blackBtnHover:hover {
+    background-color: #1c1c1c;
+    color: #b8b8b8;
+  }
+
+  .yellowBtnHover:hover {
+    background-color: #b89405;
+  }
+}

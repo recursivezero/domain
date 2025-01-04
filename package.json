@@ -1,0 +1,102 @@
+{
+  "name": "@recursivezero/domain",
+  "version": "0.0.2",
+  "main": "src/index.js",
+  "author": {
+    "name": "",
+    "email": "recursivezero@gmail.com"
+  },
+  "license": "MIT",
+  "description": "This is a domain codebase repository.",
+  "📣": "above fields be duplicate so verify before save",
+  "private": false,
+  "displayName": "domain",
+  "publisher": "@recursivezero",
+  "homepage": "https://github.com/recursivezero/domain/blob/main/README.md",
+  "bugs": {
+    "url": "https://github.com/recursivezero/domain/issues",
+    "email": "recursivezero@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/recursivezero/domain.git"
+  },
+  "keywords": [
+    "project",
+    "github",
+    "template"
+  ],
+  "contributors": [],
+  "timestamp": {
+    "createdOn": "Sun, 07 Jan 2024 00:00:00 +05:30",
+    "updatedOn": "Sun,11 Aug 2024 00:44:39 +05:30"
+  },
+  "type": "module",
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/xkeshav"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "check": "astro check",
+    "lint": "prettier -w --cache . && prettier -w --cache **/*.astro",
+    "clean": "rm -rf dist rm -rf build",
+    "nuke": "rm -rf node_modules && rm package-lock.json && npm run clean"
+  },
+  "dependencies": {
+    "@astrojs/check": "0.9.4",
+    "@astrojs/mdx": "4.0.3",
+    "@astrojs/node": "9.0.0",
+    "@astrojs/react": "4.1.2",
+    "@astrojs/tailwind": "5.1.4",
+    "@fontsource/roboto": "5.1.0",
+    "@radix-ui/react-slot": "1.1.1",
+    "astro": "5.1.1",
+    "class-variance-authority": "0.7.0",
+    "clsx": "2.1.0",
+    "dotenv": "^16.4.5",
+    "dotenv-expand": "^11.0.6",
+    "lucide-react": "0.469.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "shadcn": "1.0.0",
+    "tailwind": "4.0.0",
+    "tailwind-merge": "2.2.0",
+    "tailwindcss": "3.4.17",
+    "typescript": "5.6.2",
+    "zod": "3.24.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/aspect-ratio": "0.4.2",
+    "@tailwindcss/typography": "0.5.10",
+    "@types/node": "22.10.2",
+    "@types/react": "19.0.0",
+    "@typescript-eslint/eslint-plugin": "6.13.2",
+    "@typescript-eslint/parser": "6.13.2",
+    "autoprefixer": "10.4.16",
+    "eslint": "8.55.0",
+    "eslint-plugin-import": "2.29.0",
+    "eslint-plugin-jsx-a11y": "6.8.0",
+    "postcss": "8.4.32",
+    "postcss-import": "16.1.0",
+    "prettier": "3.1.0",
+    "prettier-plugin-astro": "0.14.1",
+    "prettier-plugin-tailwindcss": "0.6.8"
+  }
+}

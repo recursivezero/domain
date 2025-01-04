@@ -1,0 +1,53 @@
+---
+import CalendarIcon from "@/assets/icons/calendar.svg";
+import ProfileIcon from "@/assets/icons/profile.svg";
+import MarkdownContent from "@/components/MarkdownContent.astro";
+import BaseLayout from "@/layouts/BaseLayout";
+import { type CollectionEntry, getCollection, render } from "astro:content";
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((blog) => ({
+    params: { slug: blog.slug },
+    props: blog
+  }));
+}
+type Props = CollectionEntry<"blog">;
+
+const blog = Astro.props;
+const { Content } = await render(blog);
+const { title, description, date, author, image } = blog.data;
+
+if (!Content) {
+  throw new Error(`Content could not be rendered for blog: ${blog.id}`);
+}
+---
+
+<BaseLayout meta={{ title: title, description: description, ogImage: image, articleDate: date }}>
+  <div class="mx-auto flex max-w-6xl flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
+    <h1 class="mb-4 text-4xl font-bold text-white">{title}</h1>
+    {description && <p class="mb-6 text-xl text-gray-300">{description}</p>}
+    <div class="mb-8 flex items-center gap-4 text-gray-400">
+      {
+        author && (
+          <span class="flex items-center gap-2">
+            <ProfileIcon />
+            {author}
+          </span>
+        )
+      }
+      {
+        date && (
+          <span class="flex items-center gap-2">
+            <CalendarIcon />
+            <time datetime={date.toISOString()}>{date.toLocaleDateString()}</time>
+          </span>
+        )
+      }
+    </div>
+    <MarkdownContent>
+      <Content />
+    </MarkdownContent>
+  </div>
+</BaseLayout>
