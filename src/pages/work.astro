@@ -1,0 +1,41 @@
+---
+import BlogCard from "@/components/BlogCard.astro";
+import BaseLayout from "@/layouts/BaseLayout";
+
+const pages = import.meta.glob("./work/*.astro", { eager: true });
+
+// Extract frontmatter and routes
+const pageList = Object.entries(pages).map(([path, module]) => {
+  const { frontmatter } = module;
+  const route = path.replace("./work", "/work").replace(".astro", "");
+  return {
+    title: frontmatter.title || "Untitled",
+    description: frontmatter.description || "No description available.",
+    image: frontmatter.image || "",
+    route
+  };
+});
+---
+
+<BaseLayout meta={{ title: "Work Pages" }}>
+  <main class="mx-auto flex max-w-7xl flex-col px-4 sm:px-6 lg:px-8">
+    <div class="mb-12 mt-[20px] text-center">
+      <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl">Our Work</h1>
+      <p class="mt-4 text-lg text-gray-400">Discover our latest work and Projects</p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-8 pb-12 md:grid-cols-2 lg:grid-cols-3">
+      {
+        pageList.map(({ title, description, image, route }) => (
+          <BlogCard
+            title={title}
+            description={description}
+            image={image || "https://via.placeholder.com/800x450"}
+            url={route}
+            height={200}
+          />
+        ))
+      }
+    </div>
+  </main>
+</BaseLayout>

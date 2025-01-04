@@ -1,0 +1,31 @@
+---
+import BlogCard from "@/components/BlogCard.astro";
+import BaseLayout from "@/layouts/BaseLayout";
+
+import { getCollection } from "astro:content";
+const posts = await getCollection("blog");
+---
+
+<BaseLayout meta={{ title: "Feature List" }}>
+  <main class="mx-auto flex max-w-7xl flex-col px-4 sm:px-6 lg:px-8">
+    <div class="mb-12 mt-[20px] text-center">
+      <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl">Blog Articles</h1>
+      <p class="mt-4 text-lg text-gray-400">Discover our latest blog and updates</p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-8 pb-12 md:grid-cols-2 lg:grid-cols-3">
+      {
+        posts.map((post) => (
+          <BlogCard
+            url={`/blog/${post.slug}`}
+            title={post.data.title}
+            description={post.data.description}
+            image={post.data.image}
+            author={post.data.author}
+            date={post.data.date.toLocaleDateString()}
+          />
+        ))
+      }
+    </div>
+  </main>
+</BaseLayout>

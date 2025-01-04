@@ -1,0 +1,41 @@
+<script is:inline>
+  const getThemePreference = () => {
+    const storedTheme = typeof localStorage !== "undefined" && localStorage.getItem("theme");
+    return storedTheme || window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+  };
+
+  function setTheme(newTheme) {
+    if (!newTheme || (newTheme !== "light" && newTheme !== "dark")) {
+      return console.warn(`Incorrect theme value received. Expected 'light' or 'dark', received ${newTheme}`);
+    }
+
+    const root = document.documentElement;
+
+    // class already set to newTheme, exit early
+    if (
+      (newTheme === "dark" && root.classList.contains("dark")) ||
+      (newTheme === "light" && !root.classList.contains("dark"))
+    ) {
+      return;
+    }
+
+    const colorThemeMetaTag = document.querySelector("meta[name='theme-color']");
+    document.documentElement.classList.toggle("dark", newTheme === "dark");
+    const bgColor = getComputedStyle(document.body).getPropertyValue("--theme-bg");
+
+    colorThemeMetaTag.setAttribute("content", `hsl(${bgColor})`);
+    if (typeof localStorage !== "undefined") {
+      localStorage.setItem("theme", newTheme);
+    }
+  }
+
+  // initial setup
+  setTheme(getThemePreference());
+
+  // View Transitions hook to restore theme
+  document.addEventListener("astro:after-swap", () => setTheme(getThemePreference()));
+  document.addEventListener("theme-change", (e) => {
+    console.log("caught `theme-change` event with new value as", e.detail.theme);
+    setTheme(e.detail.theme);
+  });
+</script>

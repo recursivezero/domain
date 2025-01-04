@@ -1,0 +1,36 @@
+.container__page {
+  box-sizing: border-box;
+  padding: 1rem;
+  margin: auto;
+  font-size: 1.35rem;
+  line-height: 1.5;
+
+  & :where(h2, h3) {
+    padding-block: 1rem;
+  }
+
+  > p {
+    margin-block: 1.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+
+  ul {
+    list-style: auto;
+    padding: 1rem;
+
+    li > p {
+      margin: 0.25rem;
+    }
+  }
+
+  a {
+    color: rgb(103, 103, 201);
+  }
+}

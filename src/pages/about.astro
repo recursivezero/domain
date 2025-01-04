@@ -1,0 +1,49 @@
+---
+import BaseLayout from "@/layouts/BaseLayout";
+import TitleLayout from "@/layouts/TitleLayout";
+---
+
+<BaseLayout meta={{ title: "About" }}>
+  <div class="container__about mx-auto max-w-3xl px-4 py-8">
+    <TitleLayout title="About Us" />
+    
+    <article class="prose dark:prose-invert max-w-none">
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold mb-4">Our Story</h2>
+        <p class="mb-4">
+          Welcome to our company! We're a passionate team dedicated to creating amazing solutions
+          for our clients. Founded in 2023, we've been at the forefront of innovation and
+          digital transformation.
+        </p>
+        <p class="mb-4">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+          exercitation ullamco laboris.
+        </p>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold mb-4">Our Team</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="p-4 border rounded-lg dark:border-gray-700">
+            <h3 class="text-xl font-semibold mb-2">John Doe</h3>
+            <p class="text-gray-600 dark:text-gray-400">Founder & CEO</p>
+          </div>
+          <div class="p-4 border rounded-lg dark:border-gray-700">
+            <h3 class="text-xl font-semibold mb-2">Jane Smith</h3>
+            <p class="text-gray-600 dark:text-gray-400">Lead Developer</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold mb-4">Our Mission</h2>
+        <p class="mb-4">
+          Our mission is to deliver exceptional value through innovative solutions and
+          outstanding service. We believe in creating lasting partnerships with our clients
+          and contributing to their success.
+        </p>
+      </section>
+    </article>
+  </div>
+</BaseLayout>

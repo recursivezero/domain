@@ -21,13 +21,18 @@
       "dom.iterable"
     ],
     "module": "ESNext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "noEmit": true,
     "noImplicitAny": true,
     "resolveJsonModule": true,
     "strict": true,
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false,
     "target": "ESNext",
     "paths": {
+      "@/*": [
+        "src/*"
+      ],
       "@/assets/*": [
         "src/assets/*"
       ],
@@ -52,6 +57,9 @@
       "@/models": [
         "src/models/index.ts"
       ],
+      "@/mocks/*": [
+        "src/mocks/*"
+      ],
       "@/site-config": [
         "src/site.config.ts"
       ]
@@ -68,6 +76,6 @@
     "**/node_modules/*",
     ".vscode",
     "dist",
-    ".eslintrc.js"
+    ".eslintrc.mjs"
   ]
 }
