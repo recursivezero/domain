@@ -41,6 +41,7 @@
   }
 
   body {
+    display: block;
     container-type: inline-size;
     container-name: thread;
     box-sizing: border-box;
@@ -51,7 +52,6 @@
     padding-left: clamp(1rem, 5vw, 10rem);
     padding-right: clamp(1rem, 5vw, 10rem);
     font-family: "Livvic", sans-serif;
-    color: white;
     transition: background-color 0.3s ease;
   }
 

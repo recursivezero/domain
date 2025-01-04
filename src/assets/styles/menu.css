@@ -29,10 +29,6 @@
         1 100%);
   }
 
-  body {
-    display: block;
-  }
-
   .layout {
     position: relative;
     width: max-content;
@@ -245,10 +241,6 @@
       transition-duration: var(--timing);
       transition-timing-function: var(--ease);
       transform-origin: 50% 0;
-    }
-
-    [data-dragging="true"] body {
-      transition-duration: 0s;
     }
 
     :root:has(:popover-open) body {

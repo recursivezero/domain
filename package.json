@@ -1,14 +1,13 @@
 {
   "name": "@recursivezero/domain",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "main": "src/index.js",
   "author": {
-    "name": "",
+    "name": "Founder",
     "email": "recursivezero@gmail.com"
   },
   "license": "MIT",
   "description": "This is a domain codebase repository.",
-  "📣": "above fields be duplicate so verify before save",
   "private": false,
   "displayName": "domain",
   "publisher": "@recursivezero",

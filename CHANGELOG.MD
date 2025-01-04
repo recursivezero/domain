@@ -30,7 +30,7 @@ The format is based on Keep a Changelog and this project adheres to Semantic Ver
 
 - Updated core dependencies
 - Enhanced project documentation
-- Seperated tailwind to seperate plain css files
+- Separated tailwind to separate plain css files
 
 ## [0.0.1] - 2024-01-01
 
@@ -41,6 +41,12 @@ React and Tailwind
 Lint and workspace file
 
 Changed
+
+## [1.0.0] - 2025-01-05
+
+blog added
+layout changed 
+astro boilerplate 
 
 ### [Unreleased]
 

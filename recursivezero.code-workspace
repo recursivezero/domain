@@ -184,7 +184,8 @@
       "titleBar.activeBackground": "#010125",
       "titleBar.activeForeground": "#e7e7e7",
       "titleBar.inactiveBackground": "#01012599",
-      "titleBar.inactiveForeground": "#e7e7e799"
+      "titleBar.inactiveForeground": "#e7e7e799",
+      "tab.activeBorder": "#020257"
     }
   }
 }
