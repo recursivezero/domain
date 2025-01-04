@@ -30,6 +30,7 @@ The format is based on Keep a Changelog and this project adheres to Semantic Ver
 
 - Updated core dependencies
 - Enhanced project documentation
+- Seperated tailwind to seperate plain css files
 
 ## [0.0.1] - 2024-01-01
 

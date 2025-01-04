@@ -17,7 +17,7 @@ const posts = await getCollection("blog");
       {
         posts.map((post) => (
           <BlogCard
-            url={`/blog/${post.slug}`}
+            url={`/blogs/${post.slug}`}
             title={post.data.title}
             description={post.data.description}
             image={post.data.image}

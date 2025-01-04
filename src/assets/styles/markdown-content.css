@@ -1,51 +1,105 @@
 .markdown-content {
-  @apply text-lg leading-relaxed text-gray-200 bg-black/50 px-24 py-12 rounded-2xl;
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: rgb(229, 231, 235);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 3rem 6rem;
+  border-radius: 1rem;
 }
 
 .markdown-content h1 {
-  @apply mb-8 text-4xl font-bold tracking-tight text-white;
+  margin-bottom: 2rem;
+  font-size: 2.25rem;
+  font-weight: bold;
+  letter-spacing: -0.025em;
+  background: linear-gradient(120deg, #75aac3, #8fb5b9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 10px rgba(139, 92, 246, 0.2);
 }
 
 .markdown-content h2 {
-  @apply mb-6 mt-12 text-2xl font-semibold text-white;
+  margin-bottom: 1.5rem;
+  margin-top: 3rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  background: linear-gradient(120deg, #75aac3, #8fb5b9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 8px rgba(167, 139, 250, 0.2);
 }
 
 .markdown-content h3 {
-  @apply mb-4 mt-8 text-xl font-semibold text-white;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  font-size: 1.25rem;
+  font-weight: 600;  
+  background: linear-gradient(120deg, #75aac3, #8fb5b9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 6px rgba(196, 181, 253, 0.2);
 }
 
 .markdown-content p {
-  @apply mb-6 leading-relaxed text-gray-300;
+  margin-bottom: 1.5rem;
+  line-height: 1.75;
+  color: rgb(209, 213, 219);
 }
 
 .markdown-content ul {
-  @apply mb-6 list-disc pl-6;
+  margin-bottom: 1.5rem;
+  list-style-type: disc;
+  padding-left: 1.5rem;
 }
 
 .markdown-content ol {
-  @apply mb-6 list-decimal pl-6;
+  margin-bottom: 1.5rem;
+  list-style-type: decimal;
+  padding-left: 1.5rem;
 }
 
 .markdown-content li {
-  @apply mb-2;
+  margin-bottom: 0.5rem;
 }
 
 .markdown-content a {
-  @apply text-blue-400 underline hover:text-blue-300;
+  color: rgb(96, 165, 250);
+  text-decoration: underline;
+}
+
+.markdown-content a:hover {
+  color: rgb(147, 197, 253);
 }
 
 .markdown-content img {
-  @apply my-8 rounded-lg shadow-lg;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 .markdown-content pre {
-  @apply my-6 overflow-x-auto rounded-xl bg-gray-800/50 p-4;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+  border-radius: 0.75rem;
+  background-color: rgba(31, 41, 55, 0.5);
+  padding: 1rem;
 }
 
 .markdown-content code {
-  @apply rounded px-1.5 py-0.5 text-sm text-gray-200;
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.375rem;
+  font-size: 0.875rem;
+  color: rgb(229, 231, 235);
 }
 
 .markdown-content blockquote {
-  @apply border-l-4 border-gray-600 pl-4 italic text-gray-400;
+  border-left: 4px solid rgb(75, 85, 99);
+  padding-left: 1rem;
+  font-style: italic;
+  color: rgb(156, 163, 175);
 }

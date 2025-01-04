@@ -1,67 +1,63 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout";
+import "../assets/styles/career.css";
 ---
 
 <BaseLayout meta={{ title: "Careers at RecursiveZero" }}>
-  <main class="flex flex-col mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="py-12 text-center">
-      <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl">Join Our Team</h1>
-      <p class="mt-4 text-lg text-gray-400">Build the future with us</p>
+  <main class="careers__container">
+    <div class="careers__header">
+      <h1 class="careers__title">Join Our Team</h1>
+      <p class="careers__subtitle">Build the future with us</p>
     </div>
 
     <div class="grid gap-8 pb-12">
-      <!-- Current Openings -->
-      <section class="rounded-lg bg-gray-800/50 p-6">
-        <h2 class="mb-6 text-2xl font-bold text-white">Current Openings</h2>
+      <section class="section__container">
+        <h2 class="about__title">Current Openings</h2>
         
-        <div class="space-y-6">
-          <!--Job Listing 1 -->
-          <div class="rounded-md border border-gray-700 p-6">
-            <h3 class="text-xl font-semibold text-white">Senior Frontend Developer</h3>
-            <p class="mt-2 text-gray-400">We're looking for an experienced frontend developer to join our team.</p>
-            <div class="mt-4 flex flex-wrap gap-2">
-              <span class="rounded-full bg-blue-900/50 px-3 py-1 text-sm text-blue-200">Remote</span>
-              <span class="rounded-full bg-green-900/50 px-3 py-1 text-sm text-green-200">Full-time</span>
+        <div>
+          <div class="job__card">
+            <h3 class="job__title">Senior Frontend Developer</h3>
+            <p class="job__description">We're looking for an experienced frontend developer to join our team.</p>
+            <div class="tag__container">
+              <span class="tag tag--remote">Remote</span>
+              <span class="tag tag--fulltime">Full-time</span>
             </div>
           </div>
 
-          <!--Job Listing 2 -->
-          <div class="rounded-md border border-gray-700 p-6">
-            <h3 class="text-xl font-semibold text-white">Backend Engineer</h3>
-            <p class="mt-2 text-gray-400">Join us in building scalable backend solutions.</p>
-            <div class="mt-4 flex flex-wrap gap-2">
-              <span class="rounded-full bg-blue-900/50 px-3 py-1 text-sm text-blue-200">Hybrid</span>
-              <span class="rounded-full bg-green-900/50 px-3 py-1 text-sm text-green-200">Full-time</span>
+          <div class="job__card">
+            <h3 class="job__title">Backend Engineer</h3>
+            <p class="job__description">Join us in building scalable backend solutions.</p>
+            <div class="tag__container">
+              <span class="tag tag--hybrid">Hybrid</span>
+              <span class="tag tag--fulltime">Full-time</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Why Join Us -->
-      <section class="mt-12 rounded-lg bg-gray-800/50 p-6">
-        <h2 class="mb-6 text-2xl font-bold text-white">Why Join RecursiveZero?</h2>
-        <div class="grid gap-6 md:grid-cols-3">
-          <div class="rounded-lg bg-gray-700/50 p-4">
-            <h3 class="text-lg font-semibold text-white">Remote First</h3>
-            <p class="mt-2 text-gray-400">Work from anywhere in the world</p>
+      <section class="section__container">
+        <h2 class="about__title">Why Join RecursiveZero?</h2>
+        <div class="perks__grid">
+          <div class="perk__card">
+            <h3 class="perk__title">Remote First</h3>
+            <p class="perk__description">Work from anywhere in the world</p>
           </div>
-          <div class="rounded-lg bg-gray-700/50 p-4">
-            <h3 class="text-lg font-semibold text-white">Learning & Growth</h3>
-            <p class="mt-2 text-gray-400">Continuous learning opportunities</p>
+          <div class="perk__card">
+            <h3 class="perk__title">Learning & Growth</h3>
+            <p class="perk__description">Continuous learning opportunities</p>
           </div>
-          <div class="rounded-lg bg-gray-700/50 p-4">
-            <h3 class="text-lg font-semibold text-white">Great Benefits</h3>
-            <p class="mt-2 text-gray-400">Competitive salary and benefits package</p>
+          <div class="perk__card">
+            <h3 class="perk__title">Great Benefits</h3>
+            <p class="perk__description">Competitive salary and benefits package</p>
           </div>
         </div>
       </section>
 
-      <!-- Application Process -->
-      <section class="mt-12 rounded-lg bg-gray-800/50 p-6">
-        <h2 class="mb-6 text-2xl font-bold text-white">How to Apply</h2>
-        <p class="text-gray-400">
+      <section class="section__container">
+        <h2 class="about__title">How to Apply</h2>
+        <p class="job__description">
           Send your resume and a brief cover letter to 
-          <a href="mailto:careers@recursivezero.com" class="text-blue-400 hover:underline">
+          <a href="mailto:careers@recursivezero.com" class="apply__link">
             careers@recursivezero.com
           </a>
         </p>

@@ -1,0 +1,124 @@
+.careers__container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 80rem;
+  padding: 0 1rem;
+}
+
+.careers__header {
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.careers__title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: white;
+}
+
+.careers__subtitle {
+  margin-top: 1rem;
+  font-size: 1.125rem;
+  color: #9CA3AF;
+}
+
+.section__container {
+  border-radius: 0.5rem;
+  background-color: rgba(31, 41, 55, 0.5);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.job__card {
+  border: 1px solid #374151;
+  border-radius: 0.375rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.job__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+}
+
+.job__description {
+  margin-top: 0.5rem;
+  color: #9CA3AF;
+}
+
+.tag__container {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.tag--remote {
+  background-color: rgba(30, 58, 138, 0.5);
+  color: #BFDBFE;
+}
+
+.tag--hybrid {
+  background-color: rgba(30, 58, 138, 0.5);
+  color: #BFDBFE;
+}
+
+.tag--fulltime {
+  background-color: rgba(6, 78, 59, 0.5);
+  color: #A7F3D0;
+}
+
+.perks__grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.perk__card {
+  border-radius: 0.5rem;
+  background-color: rgba(55, 65, 81, 0.5);
+  padding: 1rem;
+}
+
+.perk__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+}
+
+.perk__description {
+  margin-top: 0.5rem;
+  color: #9CA3AF;
+}
+
+.apply__link {
+  color: #60A5FA;
+}
+
+.apply__link:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .careers__container {
+    padding: 0 1.5rem;
+  }
+  
+  .perks__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .careers__container {
+    padding: 0 2rem;
+  }
+}
