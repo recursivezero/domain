@@ -1,3 +1,5 @@
+# RecursiveZero Private Limited
+
 - 👋 Hi
 - 👀 I'm interested in building technology.
 - 🌱 I'm currently learning AI and web development.
