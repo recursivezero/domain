@@ -192,7 +192,6 @@
       border-radius: 12px 12px 0 0;
       outline: 1px solid color-mix(in hsl, canvas, canvasText 25%);
       translate: 0 100%;
-      position: sticky;
     }
 
     [data-placement="bottom"] [popover] {
