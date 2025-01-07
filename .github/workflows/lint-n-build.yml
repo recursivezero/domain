@@ -1,0 +1,36 @@
+name: Lint and Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20 # Replace with your desired Node.js version
+          cache: "npm" # Cache npm dependencies for faster builds
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Run linting
+      - name: Run lint
+        run: npm run lint
+
+      # Step 5: Run build
+      - name: Run build
+        run: npm run build
