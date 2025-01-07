@@ -21,7 +21,7 @@
 .careers__subtitle {
   margin-top: 1rem;
   font-size: 1.125rem;
-  color: #9CA3AF;
+  color: #9ca3af;
 }
 
 .section__container {
@@ -46,7 +46,7 @@
 
 .job__description {
   margin-top: 0.5rem;
-  color: #9CA3AF;
+  color: #9ca3af;
 }
 
 .tag__container {
@@ -64,17 +64,17 @@
 
 .tag--remote {
   background-color: rgba(30, 58, 138, 0.5);
-  color: #BFDBFE;
+  color: #bfdbfe;
 }
 
 .tag--hybrid {
   background-color: rgba(30, 58, 138, 0.5);
-  color: #BFDBFE;
+  color: #bfdbfe;
 }
 
 .tag--fulltime {
   background-color: rgba(6, 78, 59, 0.5);
-  color: #A7F3D0;
+  color: #a7f3d0;
 }
 
 .perks__grid {
@@ -96,11 +96,11 @@
 
 .perk__description {
   margin-top: 0.5rem;
-  color: #9CA3AF;
+  color: #9ca3af;
 }
 
 .apply__link {
-  color: #60A5FA;
+  color: #60a5fa;
 }
 
 .apply__link:hover {

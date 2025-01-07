@@ -1,27 +1,18 @@
-module.exports = {
+export default {
   env: {
     browser: true,
     es6: true,
     node: true
   },
-  extends: [
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "plugin:import/typescript"
-  ],
+  extends: ["plugin:import/errors", "plugin:import/warnings", "plugin:import/typescript"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     project: "tsconfig.json",
     tsconfigRootDir: __dirname,
-    extraFileExtensions: [
-      ".astro"
-    ],
+    extraFileExtensions: [".astro"],
     sourceType: "module"
   },
-  plugins: [
-    "@typescript-eslint",
-    "import"
-  ],
+  plugins: ["@typescript-eslint", "import"],
   rules: {
     "@typescript-eslint/adjacent-overload-signatures": "error",
     "@typescript-eslint/no-empty-function": "error",
@@ -34,10 +25,7 @@ module.exports = {
     "@typescript-eslint/unified-signatures": "warn",
     "comma-dangle": "warn",
     "constructor-super": "error",
-    eqeqeq: [
-      "warn",
-      "always"
-    ],
+    eqeqeq: ["warn", "always"],
     "import/no-deprecated": "warn",
     "import/no-extraneous-dependencies": "error",
     "import/no-unassigned-import": "warn",
@@ -67,13 +55,18 @@ module.exports = {
     "no-var": "warn",
     "no-void": "error",
     "prefer-const": "warn",
-    quotes: [
-      "error",
-      "double",
-      { avoidEscape: true
-      }
-    ]
+    quotes: ["error", "double", { avoidEscape: true }]
   },
+  overrides: [
+    {
+      files: ["*.astro"],
+      parser: "astro-eslint-parser",
+      parserOptions: {
+        parser: "@typescript-eslint/parser",
+        extraFileExtensions: [".astro"]
+      }
+    }
+  ],
 
   global: {
     astro: true

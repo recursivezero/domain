@@ -72,25 +72,9 @@
       "javascript": "javascriptreact"
     },
     "eslint.options": {
-      "extensions": [
-        ".js",
-        ".jsx",
-        ".md",
-        ".mdx",
-        ".ts",
-        ".tsx",
-        ".astro"
-      ]
+      "extensions": [".js", ".jsx", ".md", ".mdx", ".ts", ".tsx", ".astro"]
     },
-    "eslint.validate": [
-      "mdx",
-      "markdown",
-      "javascript",
-      "javascriptreact",
-      "typescript",
-      "typescriptreact",
-      "astro"
-    ],
+    "eslint.validate": ["mdx", "markdown", "javascript", "javascriptreact", "typescript", "typescriptreact", "astro"],
     "explorer.compactFolders": false,
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
@@ -121,10 +105,7 @@
     },
     "git.autofetch": true,
     "git.branchPrefix": "feature/",
-    "git.branchProtection": [
-      "develop",
-      "main"
-    ],
+    "git.branchProtection": ["develop", "main"],
     "git.branchRandomName.enable": true,
     "git.confirmSync": false,
     "git.enableCommitSigning": false,
@@ -134,15 +115,12 @@
     "javascript.updateImportsOnFileMove.enabled": "always",
     "js/ts.implicitProjectConfig.checkJs": true,
     "peacock.affectSideBarBorder": true,
-    "peacock.color": "#010125",
-    "prettier.documentSelectors": [
-      "**/*.astro"
-    ],
+    "peacock.color": "#010010",
+    "prettier.documentSelectors": ["**/*.astro"],
     "prettier.printWidth": 120,
     "prettier.quoteProps": "consistent",
     "prettier.singleQuote": false,
     "prettier.trailingComma": "none",
-    "scss.lint.emptyRules": "ignore",
     "search.exclude": {
       "dist/**": true,
       "package-lock.json": true
@@ -167,25 +145,25 @@
     "cSpell.words": [],
     "workbench.editor.limit.excludeDirty": true,
     "workbench.colorCustomizations": {
-      "activityBar.activeBackground": "#020257",
-      "activityBar.background": "#020257",
+      "activityBar.activeBackground": "#040043",
+      "activityBar.background": "#040043",
       "activityBar.foreground": "#e7e7e7",
       "activityBar.inactiveForeground": "#e7e7e799",
-      "activityBarBadge.background": "#9c0404",
+      "activityBarBadge.background": "#9f0a00",
       "activityBarBadge.foreground": "#e7e7e7",
       "commandCenter.border": "#e7e7e799",
-      "sash.hoverBorder": "#020257",
-      "sideBar.border": "#020257",
-      "statusBar.background": "#010125",
+      "sash.hoverBorder": "#040043",
+      "sideBar.border": "#040043",
+      "statusBar.background": "#010010",
       "statusBar.foreground": "#e7e7e7",
-      "statusBarItem.hoverBackground": "#020257",
-      "statusBarItem.remoteBackground": "#010125",
+      "statusBarItem.hoverBackground": "#040043",
+      "statusBarItem.remoteBackground": "#010010",
       "statusBarItem.remoteForeground": "#e7e7e7",
-      "titleBar.activeBackground": "#010125",
+      "titleBar.activeBackground": "#010010",
       "titleBar.activeForeground": "#e7e7e7",
-      "titleBar.inactiveBackground": "#01012599",
+      "titleBar.inactiveBackground": "#01001099",
       "titleBar.inactiveForeground": "#e7e7e799",
-      "tab.activeBorder": "#020257"
+      "tab.activeBorder": "#040043"
     }
   }
 }

@@ -39,7 +39,7 @@ astro.config.mjs  # Astro configuration
 - **UI Components:** React v18.2.0
 - **Type Checking:** TypeScript v5.6.2
 - **Content:** MDX for blog posts
-- **Styling Utilities:** 
+- **Styling Utilities:**
   - @tailwindcss/typography
   - @tailwindcss/aspect-ratio
   - shadcn/ui components
@@ -92,18 +92,19 @@ export const NavbarLinks: LinkProps[] = [
 2. Name format: `YYYY-MM-DD-title.md`
 3. Include frontmatter:
 
-  ```md
-  ---
-  title: Your Tile
-  description: Brief description(optional)
-  date: YYYY-MM-DD
-  image: An image url
-  author: Author name(optional)
+````md
+---
+title: Your Tile
+description: Brief description(optional)
+date: YYYY-MM-DD
+image: An image url
+author: Author name(optional)
 ---
 
 ## Adding Work Pages
 
 1. Create a new `.astro` file in `src/pages/work/`:
+
 ```astro
 ---
 // src/pages/work/project-name.astro
@@ -116,6 +117,7 @@ export const frontmatter = {
 
 <YourWorkContent />
 ```
+````
 
 2. The work page (`work.astro`) will automatically:
    - Import all work pages

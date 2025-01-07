@@ -22,5 +22,5 @@ export const collections = {
       description: z.string().optional(),
       author: z.string().optional()
     })
-  }),
+  })
 };

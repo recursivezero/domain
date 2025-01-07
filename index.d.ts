@@ -1,3 +1,3 @@
 interface Element {
-  style: CSSStyleDeclaration
+  style: CSSStyleDeclaration;
 }

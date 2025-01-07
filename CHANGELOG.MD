@@ -45,8 +45,8 @@ Changed
 ## [1.0.0] - 2025-01-05
 
 blog added
-layout changed 
-astro boilerplate 
+layout changed
+astro boilerplate
 
 ### [Unreleased]
 

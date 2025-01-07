@@ -3,7 +3,7 @@ import { siteConfig } from "@/site.config";
 
 import "@/assets/styles/globals.css";
 
-//componenets
+//components
 import BaseHead from "@/layouts/BaseHead";
 import Header from "@/components/Header.astro";
 import Menu from "./common/Menu.astro";
@@ -20,7 +20,7 @@ const {
     <BaseHead title={title} description={description} ogImage={ogImage} date={articleDate} />
     <title>{title}</title>
   </head>
-  <body id="pageBody" class="darkBg">
+  <body id="pageBody">
     <!--<ThemeProvider />-->
     <header class="h-10"></header>
     <Header />
@@ -42,7 +42,7 @@ const {
         }
       }
       const themeToggle = document.querySelector("#themeToggle");
-      const bodyPart = document.querySelector("body");
+      const bodyPart = document.querySelector("body") as HTMLBodyElement;
       themeToggle?.addEventListener("click", () => {
         toggleStyle(bodyPart);
       });
