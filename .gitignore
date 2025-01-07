@@ -9,6 +9,7 @@
 /dist/*
 /.tmp/*
 /.astro/types.d.ts
+/.astro/*
 
 # misc
 .DS_Store
