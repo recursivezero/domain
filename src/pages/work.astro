@@ -6,7 +6,7 @@ const pages = import.meta.glob("./work/*.astro", { eager: true });
 
 // Extract frontmatter and routes
 const pageList = Object.entries(pages).map(([path, module]) => {
-  const { frontmatter } = module;
+  const { frontmatter } = module as any;
   const route = path.replace("./work", "/work").replace(".astro", "");
   return {
     title: frontmatter.title || "Untitled",

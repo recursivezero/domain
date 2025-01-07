@@ -64,12 +64,12 @@ import logoImage from "/public/assets/images/zero.png";
 <!--</header>-->
 
 <script>
-  const menuToggle = document.querySelector("#menuToggle");
+  const menuToggle = document.querySelector("#menuToggle") as HTMLElement;
 
   menuToggle.addEventListener("click", () => {
-    const showMenu = document.querySelector("#menu-open");
-    const openBtn = document.querySelector("#openBtn");
-    const closeBtn = document.querySelector("#closeBtn");
+    const showMenu = document.querySelector("#menu-open") as HTMLElement;
+    const openBtn = document.querySelector("#openBtn") as HTMLElement;
+    const closeBtn = document.querySelector("#closeBtn") as HTMLElement;
 
     if (showMenu.style.display === "block") {
       showMenu.style.display = "none";
