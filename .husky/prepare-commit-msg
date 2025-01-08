@@ -1,0 +1,6 @@
+# husky/prepare-commit-msg
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Call the original script
+.git/hooks/prepare-commit-msg "$@"
