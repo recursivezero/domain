@@ -2,11 +2,12 @@ name: Lint and Build
 
 on:
   push:
+    branches: ['main', 'feature/*', '!task/*']
+
+  pull_request_target:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
+      - develop
 
 jobs:
   lint-and-build:

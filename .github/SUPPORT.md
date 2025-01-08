@@ -36,7 +36,7 @@ See [`contributing guide`][contributing] on how to contribute.
 
 ## Author
 
-© Admin 
+© Admin
 
 <!-- Definitions -->
 

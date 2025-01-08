@@ -189,7 +189,7 @@ Include Other Notes on how people can contribute
 
 ## Author
 
-© Admin 
+© Admin
 
 <!-- Definitions -->
 
