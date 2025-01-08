@@ -11,7 +11,7 @@ const commitMsgFile = process.argv[2];
 let commitMsg = readFileSync(commitMsgFile, "utf8").trim();
 
 // Append the branch name to the commit message
-const newCommitMsg = `${commitMsg} [${branchName}]`;
+const newCommitMsg = ` [${branchName}]: ${commitMsg}`;
 
 // Write the new commit message back to the file
 writeFileSync(commitMsgFile, newCommitMsg);
