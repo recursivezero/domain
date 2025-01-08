@@ -8,7 +8,7 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
   site: "https://app.com",
   prefetch: true,
-  output: "server",
+  output: "static",
   devToolbar: {
     enabled: false
   },
