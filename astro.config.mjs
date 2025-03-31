@@ -30,7 +30,7 @@ export default defineConfig({
     global: true // Ensure global styles are applied
   },
   vite: {
-    plugins: [rawFonts([".ttf"])],
+    plugins: [],
     optimizeDeps: {
       exclude: ["@resvg/resvg-js"]
     }
