@@ -1,0 +1,47 @@
+.container__about {
+  margin: 0 auto;
+  max-width: 48rem;
+  padding: 2rem 1rem;
+}
+
+.about__section {
+  margin-bottom: 2rem;
+}
+
+.about__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.about__text {
+  margin-bottom: 1rem;
+}
+
+.team__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.team__card {
+  padding: 1rem;
+  border: 1px solid rgba(75, 85, 99, 0.3);
+  border-radius: 0.5rem;
+}
+
+.team__name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.team__role {
+  color: #9ca3af;
+}
+
+@media (min-width: 768px) {
+  .team__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

@@ -1,0 +1,146 @@
+---
+import "@/assets/styles/letter.css";
+import BaseLayout from "@/layouts/BaseLayout";
+
+export const frontmatter = {
+  title: "Interactive Letter",
+  description: "An interactive letter with sound effects and background options",
+  image:
+    "https://plus.unsplash.com/premium_photo-1666739032615-ecbd14dfb543?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+};
+---
+
+<BaseLayout meta={{ title: "Interactive Letter" }}>
+  <div class="controls" id="controls">
+    <div class="control-group">
+      <label>Background:</label>
+      <select id="bgSelector">
+        <option value="none">None</option>
+        <option value="gradient1">Gradient 1</option>
+        <option value="gradient2">Gradient 2</option>
+        <option value="pattern1">Pattern 1</option>
+      </select>
+      <button id="toggleBg">Toggle Background</button>
+    </div>
+
+    <div class="control-group">
+      <label>Font:</label>
+      <select id="fontSelector">
+        <option value="Arial">Arial</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Times New Roman">Times New Roman</option>
+      </select>
+      <input type="color" id="colorPicker" value="#000000" />
+    </div>
+
+    <div class="control-group">
+      <label>Sound:</label>
+      <select id="soundSelector">
+        <option value="sound1">Sound 1</option>
+        <option value="sound2">Sound 2</option>
+        <option value="sound3">Sound 3</option>
+      </select>
+      <button id="toggleSound">
+        <span class="icon">🔊</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="letter-container" id="letterContainer">
+    <div class="big-letter" id="bigLetter">A</div>
+  </div>
+
+  <div class="meaning-section">
+    <h2>Meaning</h2>
+    <p>The letter 'A' stands for...</p>
+    <div class="meaning-content">
+      <p>• First letter of the English alphabet</p>
+      <p>• Represents excellence in grading systems</p>
+      <p>• Phonetically represents various sounds across languages</p>
+      <p>• Historical origins trace back to ancient Phoenician alphabet</p>
+      <!-- Add more meaning content as needed -->
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  let isSoundEnabled = true;
+  let currentAudio = new Audio("/sounds/sound1.wav");
+
+  // DOM Elements
+  const controls = document.getElementById("controls") as HTMLElement;
+  const bigLetter = document.getElementById("bigLetter") as HTMLElement;
+  const letterContainer = document.getElementById("letterContainer") as HTMLElement;
+  const bgSelector = document.getElementById("bgSelector") as HTMLInputElement;
+  const fontSelector = document.getElementById("fontSelector") as HTMLInputElement;
+  const colorPicker = document.getElementById("colorPicker") as HTMLInputElement;
+  const soundSelector = document.getElementById("soundSelector") as HTMLInputElement;
+  const toggleSound = document.getElementById("toggleSound") as HTMLButtonElement;
+  const toggleBg = document.getElementById("toggleBg") as HTMLButtonElement;
+
+  // Event Listeners
+  document.addEventListener("keydown", handleKeyPress);
+  bgSelector?.addEventListener("change", updateBackground);
+  fontSelector?.addEventListener("change", updateFont);
+  colorPicker?.addEventListener("change", updateColor);
+  soundSelector?.addEventListener("change", updateSound);
+  toggleSound?.addEventListener("click", toggleSoundState);
+  toggleBg?.addEventListener("click", toggleBackground);
+
+  // Handle key press
+  function handleKeyPress(e: KeyboardEvent) {
+    if (e.key.toLowerCase() === "a") {
+      bigLetter.style.animation = "letterPop 0.3s ease-out";
+      if (isSoundEnabled) {
+        playSound();
+      }
+      setTimeout(() => {
+        bigLetter.style.animation = "";
+      }, 300);
+    }
+  }
+
+  // Update functions
+  function updateBackground() {
+    letterContainer.className = "letter-container";
+    if (bgSelector.value !== "none") {
+      letterContainer.classList.add(`bg-${bgSelector.value}`);
+    }
+  }
+
+  function updateFont() {
+    bigLetter.style.fontFamily = fontSelector.value;
+  }
+
+  function updateColor() {
+    bigLetter.style.color = colorPicker.value;
+  }
+
+  function updateSound() {
+    currentAudio = new Audio(`/sounds/${soundSelector.value}.wav`);
+  }
+
+  function toggleSoundState() {
+    isSoundEnabled = !isSoundEnabled;
+    (toggleSound as any).querySelector(".icon").textContent = isSoundEnabled ? "🔊" : "🔇";
+  }
+
+  function toggleBackground() {
+    letterContainer.classList.toggle("no-background");
+  }
+
+  function playSound() {
+    currentAudio.currentTime = 0;
+    currentAudio.play();
+  }
+
+  // Intersection Observer for sticky header
+  const observer = new IntersectionObserver(
+    ([e]) => {
+      controls.classList.toggle("sticky", e.intersectionRatio < 1);
+    },
+    { threshold: [1] }
+  );
+
+  observer.observe(controls);
+</script>

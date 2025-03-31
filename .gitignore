@@ -1,21 +1,36 @@
-# build output
-dist/
-
-# generated types
-.astro/
+# See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
-node_modules/
+/node_modules/*
+/bower_components/*
 
-# logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
+# testing
+/coverage/*
+/dist/*
+/.tmp/*
+/.astro/types.d.ts
+/.astro/*
+
+# misc
+.DS_Store
+**/.DS_Store
+.env.local
+Thumbs.db
+desktop.ini
+
+# IDE
+*.sublime-*
+/.idea
+.vscode/*
+*~
 
 # environment variables
 .env
 .env.production
 
-# macOS-specific files
-.DS_Store
+# log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+/.astro/astro/**

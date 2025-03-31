@@ -1,0 +1,90 @@
+---
+import "@/assets/styles/menu.css";
+import HamIcon from "@/assets/icons/ham.svg";
+import ArrowIcon from "@/assets/icons/arrow.svg";
+import ToggleIcon from "@/assets/icons/toggle.svg";
+
+import Navigation from "@/layouts/Navigation";
+import { NavbarLinks } from "@/utils/constants";
+---
+
+<button popovertarget="nav" popovertargetaction="toggle">
+  <HamIcon width={24} height={24} />
+</button>
+<div class="layout">
+  <aside popover="auto" id="nav">
+    <button popovertarget="nav" popovertargetaction="hide" class="hider" aria-label="Close drawer">
+      <span class="sr-only">Close drawer</span>
+    </button>
+    <Navigation pages={NavbarLinks} />
+    <div class="actions">
+      <button class="theme-toggle">
+        <ToggleIcon width={24} height={24} />
+      </button>
+      <button class="placement-toggle">
+        <ArrowIcon width={24} height={24} />
+      </button>
+    </div>
+  </aside>
+</div>
+
+<script>
+  // codepen: https://codepen.io/xkeshav/pen/GgKKBWm
+  const popover = document.querySelector("#nav") as HTMLElement;
+  const themer = document.querySelector(".theme-toggle") as HTMLElement;
+  const placer = document.querySelector(".placement-toggle") as HTMLElement;
+  const hider = document.querySelector(".hider") as HTMLElement;
+
+  const config = {
+    theme: "system"
+  };
+  const themeOptions = ["system", "light", "dark"];
+
+  let debounce: any;
+  document.documentElement.dataset.resizing = String(false);
+  document.documentElement.dataset.theme = "system";
+  document.documentElement.dataset.placement = "top";
+
+  window.addEventListener("resize", () => {
+    if (popover.matches(":popover-open")) popover.hidePopover();
+    document.documentElement.dataset.resizing = String(true);
+    if (debounce) clearTimeout(debounce);
+    debounce = setTimeout(() => {
+      document.documentElement.dataset.resizing = String(false);
+    }, 200);
+  });
+
+  const switchPlace = () => {
+    document.documentElement.dataset.placement =
+      document.documentElement.dataset.placement === "top" ? "bottom" : "top";
+  };
+  placer.addEventListener("click", switchPlace);
+
+  let themeIndex = 0;
+  const switchTheme = () => {
+    themeIndex += 1;
+    config.theme = themeOptions[themeIndex % 3];
+    sync();
+  };
+
+  themer.addEventListener("click", switchTheme);
+
+  const update = () => {
+    document.documentElement.dataset.theme = config.theme;
+  };
+
+  const sync = () => {
+    if (!document.startViewTransition) return update();
+    document.startViewTransition(() => update());
+  };
+
+  update();
+  hider.removeAttribute("popovertargetaction");
+  const reset = () => {
+    document.documentElement.dataset.complete = String(false);
+    document.documentElement.style.setProperty("--complete", "0");
+    popover.style.setProperty("--ty", "0");
+  };
+
+  popover.addEventListener("toggle", reset);
+</script>

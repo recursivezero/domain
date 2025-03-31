@@ -1,0 +1,16 @@
+---
+import "@/assets/styles/footer.css";
+import { FooterLinks } from "@/utils/constants";
+---
+
+<div class="container__footer">
+  <div class="footer__nav">
+    {
+      FooterLinks.map((menu) => (
+        <span class="footer__nav--item">
+          <a href={menu.path}>{menu.title}</a>
+        </span>
+      ))
+    }
+  </div>
+</div>

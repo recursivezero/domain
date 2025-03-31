@@ -1,0 +1,7 @@
+/* src/styles/custom-font.css */
+@font-face {
+  font-family: "Mudra";
+  src: url("/assets/fonts/MudraMohta-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
