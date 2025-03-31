@@ -2,7 +2,7 @@ import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 import awsAmplify from "astro-aws-amplify";
-import { defineConfig } from "astro/config";
+import { defineConfig, passthroughImageService } from "astro/config";
 
 
 // https://astro.build/config
@@ -14,6 +14,9 @@ export default defineConfig({
   },
   experimental: {
     svg: true
+  },
+    image: {
+    service: passthroughImageService()
   },
   integrations: [
     mdx(),
