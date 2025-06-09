@@ -47,7 +47,8 @@
     container-name: thread;
     box-sizing: border-box;
     min-height: 100vh;
-    font-family: "Roboto", "SF Pro Text", "SF Pro Icons", "AOS Icons", "Helvetica Neue", Helvetica, Arial, sans-serif, system-ui;
+    font-family: "Roboto", "SF Pro Text", "SF Pro Icons", "AOS Icons", "Helvetica Neue", Helvetica, Arial, sans-serif,
+      system-ui;
     padding-left: clamp(1rem, 5vw, 10rem);
     padding-right: clamp(1rem, 5vw, 10rem);
     transition: background-color 0.3s ease;
@@ -123,7 +124,7 @@
     outline: 1px solid greenyellow;
   }
 
-  /*.whiteBg {
+  .whiteBg {
     background-color: #eee;
     color: #111;
   }
@@ -131,7 +132,7 @@
   .darkBg {
     background-color: #222;
     color: #fff;
-  }*/
+  }
 
   textarea {
     resize: none;
@@ -144,5 +145,10 @@
 
   .yellowBtnHover:hover {
     background-color: #b89405;
+  }
+  .clipped-logo {
+    position: relative;
+    -webkit-clip-path: inset(30px 10px 30px 10px);
+    clip-path: inset(30px 10px 30px 10px);
   }
 }
