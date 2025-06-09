@@ -76,6 +76,7 @@
     "**/node_modules/*",
     ".vscode",
     "dist",
-    ".eslintrc.mjs"
+    ".eslintrc.mjs",
+    "env.patch.ts"
   ]
 }
