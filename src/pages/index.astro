@@ -1,40 +1,17 @@
 ---
-import Footer from '../components/Footer.astro';
-import Layout from '../layouts/Layout.astro';
+import AboutSection from "@/components/AboutSection.astro";
+import AppsSimplifySection from "@/components/AppsSimplifySection.astro";
+import BlogsSection from "@/components/BlogsSection.astro";
+import ContactSection from "@/components/ContactSection.astro";
+import NewsLetterSection from "@/components/NewsLetterSection.astro";
+import BaseLayout from "@/layouts/BaseLayout";
 ---
 
-<Layout title="Recursive Zero" description="A startup from ground zero">
-	<main>
-		<h1>Welcome to <span class="text-gradient">Recursive Zero</span></h1>
-		<p> A startup building for tomorrow. </p>
-	</main>
-	<Footer/>
-</Layout>
-
-<style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-		height: 90vh;
-	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-
-</style>
+<BaseLayout meta={{ title: "Recursive Zero" }}>
+  <AboutSection />
+  <!--<TestimonialsSection />-->
+  <BlogsSection />
+  <NewsLetterSection />
+  <AppsSimplifySection />
+  <ContactSection />
+</BaseLayout>

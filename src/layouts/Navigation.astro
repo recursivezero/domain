@@ -1,0 +1,24 @@
+---
+import Link from "@/components/Link.astro";
+import type { LinkProps } from "@/models";
+
+interface Props {
+  pages: LinkProps[];
+}
+
+const { pages } = Astro.props;
+---
+
+<nav class="nav">
+  <ul class="nav--list">
+    {
+      pages
+        .filter((p) => p.isActive)
+        .map((p) => (
+          <li class="nav--list__item">
+            <Link href={p.path} name={p.name} />
+          </li>
+        ))
+    }
+  </ul>
+</nav>

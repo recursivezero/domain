@@ -1,0 +1,35 @@
+---
+import { getCollection } from "astro:content";
+import BlogCard from "./BlogCard.astro";
+const posts = await getCollection("blog");
+const slicedPosts = posts.slice(0, 3);
+---
+
+<section>
+  <div id="featuresSection" class="p-[20px] lg:py-[50px]">
+    <div class="mx-auto">
+      <div class="section-header mb-[20px]">
+        <h2
+          class="text-[27px] font-bold leading-[32.8px] tracking-[-0.54px] md:text-[31.2px] md:leading-[37.5px] md:tracking-[-0.62px]"
+        >
+          Blogs
+        </h2>
+      </div>
+      <div class="cards-container grid grid-cols-1 gap-[10px] md:grid-cols-2 lg:grid-cols-3">
+        {
+          slicedPosts.map((post) => (
+            <BlogCard
+              url={`/blogs/${post.slug}` || "/404"}
+              title={post.data.title}
+              description={post.data.description}
+              image={post.data.image}
+              author={post.data.author}
+              date={post.data.date.toLocaleDateString()}
+            />
+          ))
+        }
+      </div>
+      <a href="/feature" class="absolute mt-2 font-bold hover:underline">Show All</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,85 @@
+---
+import { Picture } from "astro:assets";
+import logoImage from "/public/assets/images/RecursiveZero-White.jpg";
+---
+
+<header>
+  <div class="nav-container w-full">
+    <nav class="">
+      <div class="mx-5 flex w-full items-center justify-between">
+        <h1 class="text-[1.05rem] font-bold leading-[-0.03em] lg:text-[1.2rem]">
+          <a href="/" class="flex items-center gap-[0.5rem] lg:flex-row">
+            <Picture
+              src={logoImage}
+              formats={["png", "jpeg", "jpg", "webp"]}
+              alt="logo"
+              class="w-[180px] lg:w-[250px]"
+              class="clipped-logo w-[180px] lg:w-[250px]"
+              loading="eager"
+              id="clipped-logo"
+              aria-label={"RecursiveZero Logo"}
+              title={"RecursiveZero Logo"}
+            />
+            A gupt startup
+          </a>
+        </h1>
+        <ul class="menu-list flex items-center gap-[1.5rem] lg:flex-row-reverse">
+          <!--<li id="themeToggle">
+            <button class="sunBtn">
+              <i class="fa fa-sun-o" aria-hidden="true">Light</i>
+            </button>
+            <button class="moonBtn hidden">
+              <i class="fa fa-moon-o" aria-hidden="true">Dark</i>
+            </button>
+          </li>-->
+          <li id="menuToggle" class="menu-button lg:hidden">
+            <button id="closeBtn" class="ml-[3px] hidden">
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </button>
+            <button id="openBtn">
+              <i class="fa fa-bars" aria-hidden="true"></i>
+            </button>
+          </li>
+          <!-- desktop menu -->
+          <a href="/career" class="hidden lg:block">
+            <button class="yellowBtnHover rounded-md bg-[#FFCC00] px-[10px] py-[5px] text-[#111]"> Join us! </button>
+          </a>
+        </ul>
+      </div>
+    </nav>
+    <!-- mobile nav-overlay -->
+    <div id="menu-open" class="nav-overlay hidden h-dvh pt-[20px] lg:hidden">
+      <div class="pt-[10px]">
+        <div
+          class="flex flex-col items-center justify-between gap-[20px] py-[20px] text-[14px] leading-[22.4px] md:text-[16px] md:leading-[25.6px]"
+        >
+          <a href="/career" class="w-full">
+            <button class="h-[35px] w-full rounded-md bg-[#FFCC00] px-[10px] py-[5px] text-[#111]"> Join us! </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!--</header>-->
+
+<script>
+  const menuToggle = document.querySelector("#menuToggle") as HTMLElement;
+
+  menuToggle.addEventListener("click", () => {
+    const showMenu = document.querySelector("#menu-open") as HTMLElement;
+    const openBtn = document.querySelector("#openBtn") as HTMLElement;
+    const closeBtn = document.querySelector("#closeBtn") as HTMLElement;
+
+    if (showMenu.style.display === "block") {
+      showMenu.style.display = "none";
+      closeBtn.style.display = "none";
+      openBtn.style.display = "inline";
+    } else {
+      showMenu.style.display = "block";
+      closeBtn.style.display = "inline";
+      openBtn.style.display = "none";
+    }
+  });
+</script>

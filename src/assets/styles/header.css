@@ -1,0 +1,21 @@
+.container__header {
+  @apply flex h-16 items-center justify-between gap-5 p-4;
+  border-bottom: 2px solid;
+
+  & .header__brand {
+    @apply flex flex-row items-center justify-between gap-2;
+
+    & .logo {
+      width: 3rem;
+      aspect-ratio: 1;
+    }
+
+    & span {
+      @apply text-xl font-bold;
+    }
+  }
+
+  & .header__nav {
+    @apply flex items-center gap-5 text-[1rem] font-bold underline underline-offset-2;
+  }
+}
