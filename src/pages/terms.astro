@@ -1,8 +1,11 @@
 ---
+import MarkdownContent from "@/components/MarkdownContent.astro";
+import { Content } from "@/content/article/terms.md";
 import BaseLayout from "@/layouts/BaseLayout";
-import TitleLayout from "@/layouts/TitleLayout";
 ---
 
-<BaseLayout meta={{ title: "Terms and Condition" }}>
-  <TitleLayout title="Terms and Conditions" />
+<BaseLayout meta={{ title: "Terms and Conditions" }}>
+  <MarkdownContent>
+    <Content />
+  </MarkdownContent>
 </BaseLayout>
