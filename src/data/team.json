@@ -1,0 +1,57 @@
+{
+  "team": [
+    {
+      "name": "Ashutosh Kumar",
+      "role": "Founder & Lead Developer",
+      "image": "/assets/images/team/ashutosh.jpg",
+      "bio": "Full-stack developer with expertise in TypeScript, React, and Node.js. Passionate about creating elegant solutions to complex problems.",
+      "social": {
+        "github": "https://github.com/recursivezero",
+        "linkedin": "https://linkedin.com/in/recursivezero",
+        "twitter": "https://twitter.com/recursivezero"
+      }
+    },
+    {
+      "name": "Sarah Chen",
+      "role": "UI/UX Designer",
+      "image": "/assets/images/team/sarah.jpg",
+      "bio": "Creative designer with a keen eye for detail and user experience. Specialized in creating intuitive and beautiful interfaces.",
+      "social": {
+        "linkedin": "https://linkedin.com/in/sarahchen",
+        "twitter": "https://twitter.com/sarahchen_design"
+      }
+    },
+    {
+      "name": "Michael Rodriguez",
+      "role": "Backend Developer",
+      "image": "/assets/images/team/michael.jpg",
+      "bio": "Systems architect with deep knowledge of cloud infrastructure and scalable backend solutions.",
+      "social": {
+        "github": "https://github.com/mrodriguez",
+        "linkedin": "https://linkedin.com/in/michaelrodriguez"
+      }
+    },
+    {
+      "name": "Priya Patel",
+      "role": "Product Manager",
+      "image": "/assets/images/team/priya.jpg",
+      "bio": "Strategic thinker with experience in driving product vision and connecting user needs with technical solutions.",
+      "social": {
+        "linkedin": "https://linkedin.com/in/priyapatel",
+        "twitter": "https://twitter.com/priyapatel_pm"
+      }
+    },
+    {
+      "name": "David Kim",
+      "role": "DevOps Engineer",
+      "image": "/assets/images/team/david.jpg",
+      "bio": "Infrastructure specialist focused on CI/CD, containerization, and automated deployment strategies.",
+      "social": {
+        "github": "https://github.com/davidkim",
+        "linkedin": "https://linkedin.com/in/davidkim_devops"
+      }
+    }
+  ],
+  "description": "Meet our dedicated team of professionals who are passionate about technology and committed to delivering exceptional products. Each member brings unique skills and experiences, working together to achieve our mission of innovation and excellence.",
+  "title": "Our Team"
+}

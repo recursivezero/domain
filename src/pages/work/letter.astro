@@ -5,15 +5,15 @@ import BaseLayout from "@/layouts/BaseLayout";
 export const frontmatter = {
   title: "Interactive Letter",
   description: "An interactive letter with sound effects and background options",
-  image:
-    "https://plus.unsplash.com/premium_photo-1666739032615-ecbd14dfb543?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  image: "/og-images/letter.png",
+  date: "2023-10-01"
 };
 ---
 
 <BaseLayout meta={{ title: "Interactive Letter" }}>
   <div class="controls" id="controls">
     <div class="control-group">
-      <label>Background:</label>
+      <label for="bgSelector">Background:</label>
       <select id="bgSelector">
         <option value="none">None</option>
         <option value="gradient1">Gradient 1</option>
@@ -24,7 +24,7 @@ export const frontmatter = {
     </div>
 
     <div class="control-group">
-      <label>Font:</label>
+      <label for="fontSelector">Font:</label>
       <select id="fontSelector">
         <option value="Arial">Arial</option>
         <option value="Georgia">Georgia</option>
@@ -34,7 +34,7 @@ export const frontmatter = {
     </div>
 
     <div class="control-group">
-      <label>Sound:</label>
+      <label for="soundSelector">Sound:</label>
       <select id="soundSelector">
         <option value="sound1">Sound 1</option>
         <option value="sound2">Sound 2</option>
@@ -52,14 +52,14 @@ export const frontmatter = {
 
   <div class="meaning-section">
     <h2>Meaning</h2>
-    <p>The letter 'A' stands for...</p>
-    <div class="meaning-content">
-      <p>• First letter of the English alphabet</p>
-      <p>• Represents excellence in grading systems</p>
-      <p>• Phonetically represents various sounds across languages</p>
-      <p>• Historical origins trace back to ancient Phoenician alphabet</p>
+    <article class="detail">The letter 'A' stands for...</article>
+    <section class="meaning-content">
+      <p>First letter of the English alphabet</p>
+      <p>Represents excellence in grading systems</p>
+      <p>Phonetically represents various sounds across languages</p>
+      <p>Historical origins trace back to ancient Phoenician alphabet</p>
       <!-- Add more meaning content as needed -->
-    </div>
+    </section>
   </div>
 </BaseLayout>
 
@@ -135,12 +135,4 @@ export const frontmatter = {
   }
 
   // Intersection Observer for sticky header
-  const observer = new IntersectionObserver(
-    ([e]) => {
-      controls.classList.toggle("sticky", e.intersectionRatio < 1);
-    },
-    { threshold: [1] }
-  );
-
-  observer.observe(controls);
 </script>

@@ -169,7 +169,11 @@
       "*.log": "default"
     },
     "zenMode.centerLayout": false,
-    "cSpell.words": [],
+    "cSpell.words": [
+      "Chebale",
+      "frontmatter",
+      "Omkar"
+    ],
     "workbench.editor.limit.excludeDirty": true,
     "workbench.colorCustomizations": {
       "activityBar.activeBackground": "#040043",

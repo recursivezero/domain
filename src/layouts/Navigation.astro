@@ -10,12 +10,12 @@ const { pages } = Astro.props;
 ---
 
 <nav class="nav">
-  <ul class="nav--list">
+  <ul class="nav__list">
     {
       pages
         .filter((p) => p.isActive)
         .map((p) => (
-          <li class="nav--list__item">
+          <li class="nav__list__item">
             <Link href={p.path} name={p.name} />
           </li>
         ))

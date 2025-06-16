@@ -1,12 +1,12 @@
 ---
-import { siteConfig } from "@/site.config";
 import "@/assets/styles/globals.css";
+import { siteConfig } from "@/site.config";
 
 //components
-import BaseHead from "@/layouts/BaseHead";
-import Header from "@/components/Header.astro";
-import Menu from "./common/Menu.astro";
 import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+import BaseHead from "@/layouts/BaseHead";
+import Menu from "./common/Menu.astro";
 
 const {
   meta: { title, description = siteConfig.description, ogImage, articleDate }
@@ -18,8 +18,7 @@ const {
     <BaseHead title={title} description={description} ogImage={ogImage} date={articleDate} />
     <title>{title}</title>
   </head>
-  <body id="pageBody">
-    <!--<ThemeProvider />-->
+  <body id="body">
     <Header />
     <main id="main" class="main">
       <div class="sidebar"><Menu /></div>
@@ -28,22 +27,5 @@ const {
       </div>
     </main>
     <Footer />
-    <script>
-      function toggleStyle(elem: HTMLElement) {
-        if (elem.classList.contains("darkBg")) {
-          elem.classList.remove("darkBg");
-          elem.classList.add("lightBg");
-        } else if (elem.classList.contains("lightBg")) {
-          elem.classList.remove("lightBg");
-          elem.classList.add("darkBg");
-        }
-      }
-      const themeToggle = document.querySelector("#themeToggle");
-      const bodyPart = document.querySelector("body") as HTMLBodyElement;
-      themeToggle?.addEventListener("click", () => {
-        console.log("clicked");
-        toggleStyle(bodyPart);
-      });
-    </script>
   </body>
 </html>

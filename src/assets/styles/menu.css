@@ -8,25 +8,27 @@
     --header-height: 80px;
     --sidebar-width: 16ch;
     --timing: 0.42s;
-    --ease: linear(0 0%,
-        0.0036 9.62%,
-        0.0185 16.66%,
-        0.0489 23.03%,
-        0.0962 28.86%,
-        0.1705 34.93%,
-        0.269 40.66%,
-        0.3867 45.89%,
-        0.5833 52.95%,
-        0.683 57.05%,
-        0.7829 62.14%,
-        0.8621 67.46%,
-        0.8991 70.68%,
-        0.9299 74.03%,
-        0.9545 77.52%,
-        0.9735 81.21%,
-        0.9865 85%,
-        0.9949 89.15%,
-        1 100%);
+    --ease: linear(
+      0 0%,
+      0.0036 9.62%,
+      0.0185 16.66%,
+      0.0489 23.03%,
+      0.0962 28.86%,
+      0.1705 34.93%,
+      0.269 40.66%,
+      0.3867 45.89%,
+      0.5833 52.95%,
+      0.683 57.05%,
+      0.7829 62.14%,
+      0.8621 67.46%,
+      0.8991 70.68%,
+      0.9299 74.03%,
+      0.9545 77.52%,
+      0.9735 81.21%,
+      0.9865 85%,
+      0.9949 89.15%,
+      1 100%
+    );
   }
 
   .layout {
@@ -68,8 +70,59 @@
     font-weight: 600;
     display: flex;
     flex-direction: column;
-    font-family: "Livvic", sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Oxygen,
+      Ubuntu,
+      Cantarell,
+      "Open Sans",
+      "Helvetica Neue",
+      sans-serif;
     gap: 0.5rem;
+  }
+  [popover] ul li:first-of-type {
+    margin-top: 0.5rem;
+  }
+  [popover] ul li:last-of-type {
+    margin-bottom: 0.5rem;
+  }
+  [popover] ul li:has(> a) {
+    position: relative;
+  }
+
+  [popover] ul li:has(> a):is(:active, :hover, :focus-visible)::before {
+    opacity: 1;
+  }
+
+  [popover] ul li {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background-color 0.2s ease-in-out;
+  }
+  [popover] ul li:hover {
+    background-color: color-mix(in hsl, canvas, canvasText 15%);
+  }
+  [popover] ul li a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  [popover] ul li a:hover {
+    color: inherit;
+  }
+  [popover] ul li a:focus-visible {
+    outline: 2px solid color-mix(in hsl, canvas, canvasText 25%);
+    outline-offset: 2px;
+  }
+  [popover] ul li a:focus {
+    outline: 2px solid color-mix(in hsl, canvas, canvasText 25%);
+    outline-offset: 2px;
   }
 
   [popover] a {
@@ -78,7 +131,7 @@
     padding-block: 0.5rem;
     padding-inline: 1rem;
     text-decoration: none;
-    color: inherit;
+    color: red;
   }
 
   [popover] {
