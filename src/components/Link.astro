@@ -1,7 +1,27 @@
 ---
-const { href, name } = Astro.props;
+interface Props {
+  href: string;
+  name: string;
+  class?: string;
+}
+
+const { href, name, class: className } = Astro.props;
 ---
 
-<a class="link" href={href} aria-label={name}>
+<a class:list={["link", className]} href={href} aria-label={name}>
   <span>{name}</span>
 </a>
+
+<style>
+  .link {
+    @apply relative inline-block px-2 py-1 text-current no-underline transition-colors duration-200;
+  }
+
+  .link:hover {
+    @apply text-current opacity-80;
+  }
+
+  .link span {
+    @apply relative z-10;
+  }
+</style>
