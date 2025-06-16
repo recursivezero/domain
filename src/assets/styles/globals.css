@@ -1,4 +1,4 @@
-/*@import "./custom-font.css";*/
+@import url("./custom-font.css");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -37,7 +37,7 @@ export const NavbarLinks: LinkProps[] = [
 
 export const FooterLinks: LinkProps[] = [
   {
-    title: "privacy Policy",
+    title: "Privacy Policy",
     path: "/privacy",
     isActive: true
   },
