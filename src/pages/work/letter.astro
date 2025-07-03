@@ -10,39 +10,71 @@ export const frontmatter = {
 };
 ---
 
+<style>
+  :root {
+    --red: #ff0000;
+    --green: #00ff00;
+    --blue: #0000ff;
+    --yellow: #ffff00;
+    --magenta: #ff00ff;
+  }
+
+  #bgSelector {
+    padding: 8px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    appearance: none; /* Removes default styling */
+    -webkit-appearance: none; /* For Safari */
+  }
+
+  select option:hover {
+    box-shadow: 0 0 10px 100px #000 inset;
+  }
+
+  select option:checked {
+    background: linear-gradient(#000, #000);
+  }
+
+  .bg__selector {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 4px;
+    grid-auto-columns: max-content;
+    & div {
+      cursor: pointer;
+      border-radius: 2px;
+      width: 3rem;
+      aspect-ratio: 1;
+      padding: 0.5rem;
+      display: grid;
+      place-content: center;
+    }
+  }
+</style>
+
 <BaseLayout meta={{ title: "Interactive Letter" }}>
   <div class="controls" id="controls">
     <div class="control-group">
-      <label for="bgSelector">Background:</label>
-      <select id="bgSelector">
-        <option value="none">None</option>
-        <option value="gradient1">Gradient 1</option>
-        <option value="gradient2">Gradient 2</option>
-        <option value="pattern1">Pattern 1</option>
-      </select>
-      <button id="toggleBg">Toggle Background</button>
+      <div class="custom-select">
+        <div id="bgSelector" class="bg__selector">
+          <div data-value="#ff0000" style="background-color: #ff0000;"></div>
+          <div data-value="#00ff00" style="background-color: #00ff00;"></div>
+          <div data-value="#0000ff" style="background-color: #0000ff;"></div>
+          <div data-value="#ffff00" style="background-color: #ffff00;"></div>
+          <div data-value="#ff00ff" style="background-color: #ff00ff;"></div>
+        </div>
+      </div>
     </div>
 
     <div class="control-group">
-      <label for="fontSelector">Font:</label>
+      <label for="fontSelector">Font</label>
       <select id="fontSelector">
         <option value="Arial">Arial</option>
         <option value="Georgia">Georgia</option>
         <option value="Times New Roman">Times New Roman</option>
       </select>
       <input type="color" id="colorPicker" value="#000000" />
-    </div>
-
-    <div class="control-group">
-      <label for="soundSelector">Sound:</label>
-      <select id="soundSelector">
-        <option value="sound1">Sound 1</option>
-        <option value="sound2">Sound 2</option>
-        <option value="sound3">Sound 3</option>
-      </select>
-      <button id="toggleSound">
-        <span class="icon">🔊</span>
-      </button>
     </div>
   </div>
 
@@ -64,36 +96,40 @@ export const frontmatter = {
 </BaseLayout>
 
 <script>
-  let isSoundEnabled = true;
-  let currentAudio = new Audio("/sounds/sound1.wav");
-
   // DOM Elements
   const controls = document.getElementById("controls") as HTMLElement;
   const bigLetter = document.getElementById("bigLetter") as HTMLElement;
   const letterContainer = document.getElementById("letterContainer") as HTMLElement;
-  const bgSelector = document.getElementById("bgSelector") as HTMLInputElement;
+  //const bgSelector = document.getElementById("bgSelector") as HTMLInputElement;
   const fontSelector = document.getElementById("fontSelector") as HTMLInputElement;
   const colorPicker = document.getElementById("colorPicker") as HTMLInputElement;
-  const soundSelector = document.getElementById("soundSelector") as HTMLInputElement;
-  const toggleSound = document.getElementById("toggleSound") as HTMLButtonElement;
   const toggleBg = document.getElementById("toggleBg") as HTMLButtonElement;
+
+  //const selectSelected = document.querySelector(".select-selected");
+  const selectItems = document.querySelectorAll("#bgSelector div");
 
   // Event Listeners
   document.addEventListener("keydown", handleKeyPress);
-  bgSelector?.addEventListener("change", updateBackground);
+  //bgSelector?.addEventListener("input", updateBackground);
   fontSelector?.addEventListener("change", updateFont);
-  colorPicker?.addEventListener("change", updateColor);
-  soundSelector?.addEventListener("change", updateSound);
-  toggleSound?.addEventListener("click", toggleSoundState);
+  colorPicker?.addEventListener("input", updateColor);
   toggleBg?.addEventListener("click", toggleBackground);
+
+  // Hover effect for options
+  selectItems.forEach((item) => {
+    // Preview color on hover
+    item.addEventListener("mouseenter", function (e: any) {
+      letterContainer.style.backgroundColor = e.target.getAttribute("data-value");
+    });
+    item.addEventListener("click", function (e: any) {
+      letterContainer.style.backgroundColor = e.target.getAttribute("data-value");
+    });
+  });
 
   // Handle key press
   function handleKeyPress(e: KeyboardEvent) {
     if (e.key.toLowerCase() === "a") {
       bigLetter.style.animation = "letterPop 0.3s ease-out";
-      if (isSoundEnabled) {
-        playSound();
-      }
       setTimeout(() => {
         bigLetter.style.animation = "";
       }, 300);
@@ -101,12 +137,12 @@ export const frontmatter = {
   }
 
   // Update functions
-  function updateBackground() {
-    letterContainer.className = "letter-container";
-    if (bgSelector.value !== "none") {
-      letterContainer.classList.add(`bg-${bgSelector.value}`);
-    }
-  }
+  //function updateBackground() {
+  //  letterContainer.className = "letter-container";
+  //  if (bgSelector.value !== "none") {
+  //    letterContainer.style.backgroundColor = bgSelector.value;
+  //  }
+  //}
 
   function updateFont() {
     bigLetter.style.fontFamily = fontSelector.value;
@@ -116,22 +152,8 @@ export const frontmatter = {
     bigLetter.style.color = colorPicker.value;
   }
 
-  function updateSound() {
-    currentAudio = new Audio(`/sounds/${soundSelector.value}.wav`);
-  }
-
-  function toggleSoundState() {
-    isSoundEnabled = !isSoundEnabled;
-    (toggleSound as any).querySelector(".icon").textContent = isSoundEnabled ? "🔊" : "🔇";
-  }
-
   function toggleBackground() {
     letterContainer.classList.toggle("no-background");
-  }
-
-  function playSound() {
-    currentAudio.currentTime = 0;
-    currentAudio.play();
   }
 
   // Intersection Observer for sticky header

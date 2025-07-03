@@ -45,11 +45,11 @@ button:hover {
 }
 
 .letter-container {
-  min-height: 100vh;
+  height: 100ch;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 60px;
+  flex-wrap: wrap;
+  place-content: center;
+  border: 1px solid currentColor;
 }
 
 .big-letter {

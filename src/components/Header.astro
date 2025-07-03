@@ -1,6 +1,6 @@
 ---
 import { Picture } from "astro:assets";
-//import logoImage from "/public/assets/images/RecursiveZero-White.jpg";
+import logoImage from "/public/assets/images/logo.png";
 ---
 
 <header>
@@ -9,7 +9,7 @@ import { Picture } from "astro:assets";
       <div class="mx-5 flex w-full items-center justify-between">
         <h1 class="text-[1.05rem] font-bold leading-[-0.03em] lg:text-[1.2rem]">
           <a href="/" class="flex items-center gap-[0.5rem] lg:flex-row">
-            <!--<Picture
+            <Picture
               src={logoImage}
               formats={["png", "jpeg", "jpg", "webp"]}
               alt="logo"
@@ -19,7 +19,7 @@ import { Picture } from "astro:assets";
               id="clipped-logo"
               aria-label={"RecursiveZero Logo"}
               title={"RecursiveZero Logo"}
-            />-->
+            />
             A gupt startup
           </a>
         </h1>
