@@ -1,7 +1,6 @@
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
-//import awsAmplify from "astro-aws-amplify";
 import { defineConfig, passthroughImageService } from "astro/config";
 
 // https://astro.build/config

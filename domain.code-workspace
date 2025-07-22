@@ -169,7 +169,9 @@
       "*.log": "default"
     },
     "zenMode.centerLayout": false,
-    "cSpell.words": [],
+    "cSpell.words": [
+      "withastro"
+    ],
     "workbench.editor.limit.excludeDirty": true,
     "workbench.colorCustomizations": {
       "activityBar.activeBackground": "#040043",
