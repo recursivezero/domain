@@ -22,16 +22,27 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
       - name: Setup Pages
         uses: actions/configure-pages@v4
-        
+      
+      - name: Install dependencies
+        run: npm ci
+      
       - name: Build with Astro
-        uses: withastro/action@v2
+        run: |
+          npm run build
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
         with:
-          path: .
-          node-version: 18
-          package-manager: npm
-          
+          path: ./dist
+
   deploy:
     environment:
       name: github-pages
@@ -41,4 +52,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v3

@@ -6,6 +6,7 @@ import { defineConfig, passthroughImageService } from "astro/config";
 // https://astro.build/config
 export default defineConfig({
   site: "https://recursivezero.com",
+  base: "/",
   devToolbar: {
     enabled: false
   },
@@ -28,7 +29,8 @@ export default defineConfig({
   //adapter: node({ mode: "standalone" }),
   output: "static",
   build: {
-    format: "directory"
+    format: "directory",
+    assets: "assets"
   },
   prefetch: {
     prefetchAll: true
