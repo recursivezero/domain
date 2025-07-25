@@ -1,6 +1,27 @@
 ---
 import { Picture } from "astro:assets";
 import logoImage from "/public/assets/images/RecursiveZero-White.jpg";
+const currentPath = Astro.url.pathname;
+const base = import.meta.env.BASE_URL;
+
+// Helper function to normalize paths for comparison
+const normalizePath = (path: string) => {
+  return path.endsWith("/") && path !== "/" ? path.slice(0, -1) : path;
+};
+
+// Helper function to check if a link is active
+const isActive = (linkPath: string) => {
+  const normalizedCurrent = normalizePath(currentPath);
+  const normalizedLink = normalizePath(linkPath);
+
+  if (linkPath === base) {
+    // Home page - exact match
+    return normalizedCurrent === normalizedLink || normalizedCurrent === base.slice(0, -1);
+  }
+
+  // Other pages - check if current path starts with link path
+  return normalizedCurrent.startsWith(normalizedLink);
+};
 ---
 
 <header>
@@ -8,7 +29,7 @@ import logoImage from "/public/assets/images/RecursiveZero-White.jpg";
     <nav class="">
       <div class="mx-5 flex w-full items-center justify-between">
         <h1 class="text-[1.05rem] font-bold leading-[-0.03em] lg:text-[1.2rem]">
-          <a href="/" class="flex items-center gap-[0.5rem] lg:flex-row">
+          <a href={base} class="flex items-center gap-[0.5rem] lg:flex-row">
             <Picture
               src={logoImage}
               formats={["png", "jpeg", "jpg", "webp"]}
@@ -25,7 +46,14 @@ import logoImage from "/public/assets/images/RecursiveZero-White.jpg";
         </h1>
         <ul class="menu-list flex items-center gap-[1.5rem] lg:flex-row-reverse">
           <!--<li id="themeToggle">
-            <button class="sunBtn">
+            <button class="sunBtn">const currentPath = Astro.url.pathname;
+const base = import.meta.env.BASE_URL || '/';
+
+// Helper function to create correct paths
+const createPath = (path: string) => {
+  if (path === '/') return base;
+  return `${base}${path}`.replace(/\/+/g, '/');
+};
               <i class="fa fa-sun-o" aria-hidden="true">Light</i>
             </button>
             <button class="moonBtn hidden">

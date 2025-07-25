@@ -1,12 +1,12 @@
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
-import awsAmplify from "astro-aws-amplify";
 import { defineConfig, passthroughImageService } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://recursivezero.com",
+  base: "/",
   devToolbar: {
     enabled: false
   },
@@ -31,7 +31,8 @@ export default defineConfig({
   output: "server",
   adapter: awsAmplify(),
   build: {
-    format: "directory"
+    format: "directory",
+    assets: "assets"
   },
   prefetch: {
     prefetchAll: true
