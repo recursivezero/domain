@@ -27,9 +27,7 @@ export default defineConfig({
     })
   ],
   //adapter: node({ mode: "standalone" }),
-  //output: "static",
-  output: "server",
-  adapter: awsAmplify(),
+  output: "static",
   build: {
     format: "directory",
     assets: "assets"

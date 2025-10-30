@@ -21,7 +21,6 @@
   html {
     color-scheme: light dark;
     height: 100%;
-    font-family: "Mudra";
 
     font-family: system-ui, sans-serif;
     scroll-behavior: smooth;
@@ -146,6 +145,7 @@
   .yellowBtnHover:hover {
     background-color: #b89405;
   }
+
   .clipped-logo {
     position: relative;
     -webkit-clip-path: inset(30px 10px 30px 10px);
