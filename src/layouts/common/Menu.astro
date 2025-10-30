@@ -71,6 +71,8 @@ import { NavbarLinks } from "@/utils/constants";
 
   const update = () => {
     document.documentElement.dataset.theme = config.theme;
+    themer.setAttribute("aria-pressed", String(config.theme === "dark"));
+    localStorage.setItem("theme", config.theme);
   };
 
   const sync = () => {

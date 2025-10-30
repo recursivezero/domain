@@ -1,5 +1,6 @@
 ---
 import BlogCard from "@/components/BlogCard.astro";
+import Card from "@/components/Card.astro";
 import BaseLayout from "@/layouts/BaseLayout";
 
 const pages = import.meta.glob("./work/*.astro", { eager: true });
@@ -36,6 +37,17 @@ const pageList = Object.entries(pages).map(([path, module]) => {
           />
         ))
       }
+      <Card href="http://abcdkbd.com" title="ABCDKBD" body="An interactive kids learning platform." />
+      <Card
+        href="http://app.threadzip.com"
+        title="ThreadZip"
+        body="A B2B marketplace for textile raw material businesses."
+      />
+      <Card
+        href="http://lab.threadzip.com"
+        title="ThreadZip Lab"
+        body="A python tool that uses computer vision to identify and generate fabric patterns."
+      />
     </div>
   </main>
 </BaseLayout>
