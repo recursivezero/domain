@@ -10,6 +10,8 @@ interface Props {
 }
 
 const { url, title, description, image, author, date, height = "auto" } = Astro.props;
+const imageUrl = image;
+console.log({ image });
 ---
 
 <article class="group relative transition-all duration-300 hover:-translate-y-1">
@@ -18,7 +20,7 @@ const { url, title, description, image, author, date, height = "auto" } = Astro.
       <div class="relative">
         <figure class={`overflow-hidden ${typeof height === "number" ? `h-[${height}px]` : `h-[${height}]`}`}>
           <img
-            src={image}
+            src={imageUrl}
             alt={title}
             loading="lazy"
             class="h-full w-full object-cover duration-700 group-hover:scale-110"
