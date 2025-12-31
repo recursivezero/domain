@@ -170,6 +170,7 @@
     },
     "zenMode.centerLayout": false,
     "cSpell.words": [
+      "Poorna",
       "withastro"
     ],
     "workbench.editor.limit.excludeDirty": true,
@@ -191,7 +192,8 @@
       "titleBar.activeBackground": "#010010",
       "titleBar.activeForeground": "#e7e7e7",
       "titleBar.inactiveBackground": "#01001099",
-      "titleBar.inactiveForeground": "#e7e7e799"
+      "titleBar.inactiveForeground": "#e7e7e799",
+      "tab.activeBorder": "#040043"
     },
   }
 }

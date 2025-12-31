@@ -48,6 +48,10 @@ blog added
 layout changed
 astro boilerplate
 
+## [1.0.0] - 2025-12-31
+
+- Update team, career and blog
+
 ### [Unreleased]
 
 Here we write upgrading notes for brands. It's a team effort to make them as straightforward as possible.
