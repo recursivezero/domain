@@ -4,14 +4,7 @@ description: "Reflections on my journey as a Software Developer Trainee "
 image: "/assets/images/blog/blog-5.png"
 author: "Chhavi Sharma"
 date: 2025-07-19
-
-
-tags:
-  - internship
-  - frontend
-  - learning
 ---
-
 
 ## 🌟 My Internship Journey: What I’ve Learned So Far
 
