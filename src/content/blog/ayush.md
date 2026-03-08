@@ -2,7 +2,7 @@
 title: "My Internship Journey"
 description: "A summary of my learnings and contributions during my recent internship."
 date: 2025-07-20
-image: "/assets/images/blog-6.png"
+image: "/assets/images/blog/blog-6.png"
 author: "Ayush Tyagi"
 ---
 
@@ -17,7 +17,7 @@ It provided me with a practical glimpse into the corporate world. Our mentor was
 
 I worked on the following things during the internship:
 
-### 🏠 [Panel](/panel)
+### 🏠 [Panel](https://abcdkbd.com/panel)
 
 I designed and structured header of the panel page, and added new features.
 
@@ -25,12 +25,12 @@ I designed and structured header of the panel page, and added new features.
 
 The canvas section was broken down into two interactive sub-pages. Both designed for creating quotes with unique features:
 
-- [**Text**](/canvas/text) – This subpage allows users to create and display quotes, including the current time.
-- [**Quote**](/canvas/quote) – This subpage allows user to create, style, and download custom quotes.
+- [**Text**](https://abcdkbd.com/canvas/text) – This subpage allows users to create and display quotes, including the current time.
+- [**Quote**](https://abcdkbd.com/canvas/quote) – This subpage allows user to create, style, and download custom quotes.
 
 This section is feature rich and can be used to create cool designs!
 
-### 🔤 [HidenSeek](/hidenseek/grid)
+### 🔤 [HideNSeek](https://abcdkbd.com/hidenseek/grid)
 
 I improved the style and layout of the grid, index and kbd pages.My goal was to make them look a lot better and feel more polished.
 
