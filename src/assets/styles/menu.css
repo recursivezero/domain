@@ -8,27 +8,25 @@
     --header-height: 80px;
     --sidebar-width: 16ch;
     --timing: 0.42s;
-    --ease: linear(
-      0 0%,
-      0.0036 9.62%,
-      0.0185 16.66%,
-      0.0489 23.03%,
-      0.0962 28.86%,
-      0.1705 34.93%,
-      0.269 40.66%,
-      0.3867 45.89%,
-      0.5833 52.95%,
-      0.683 57.05%,
-      0.7829 62.14%,
-      0.8621 67.46%,
-      0.8991 70.68%,
-      0.9299 74.03%,
-      0.9545 77.52%,
-      0.9735 81.21%,
-      0.9865 85%,
-      0.9949 89.15%,
-      1 100%
-    );
+    --ease: linear(0 0%,
+        0.0036 9.62%,
+        0.0185 16.66%,
+        0.0489 23.03%,
+        0.0962 28.86%,
+        0.1705 34.93%,
+        0.269 40.66%,
+        0.3867 45.89%,
+        0.5833 52.95%,
+        0.683 57.05%,
+        0.7829 62.14%,
+        0.8621 67.46%,
+        0.8991 70.68%,
+        0.9299 74.03%,
+        0.9545 77.52%,
+        0.9735 81.21%,
+        0.9865 85%,
+        0.9949 89.15%,
+        1 100%);
   }
 
   .layout {
@@ -341,23 +339,37 @@
     }
   }
 
-  .theme-toggle {
-    & svg {
-      & symbol {
-        display: none;
-      }
-    }
-  }
 
-  /*.theme-toggle svg use {
-    display: none;
-  }*/
-
-  [data-theme="system"] .theme-toggle svg symbol:nth-of-type(1),
-  [data-theme="light"] .theme-toggle svg symbol:nth-of-type(2),
-  [data-theme="dark"] .theme-toggle svg symbol:nth-of-type(3) {
+  [data-theme="system"] .theme-toggle use[href="#icon-system"],
+  [data-theme="light"] .theme-toggle use[href="#icon-sun"],
+  [data-theme="dark"] .theme-toggle use[href="#icon-moon"] {
     display: block;
   }
+
+  .theme-toggle svg symbol {
+    display: none;
+  }
+
+  .theme-toggle use {
+    display: none;
+  }
+
+  [data-theme="system"] .footer-theme-toggle use[href="#icon-system"],
+  [data-theme="light"] .footer-theme-toggle use[href="#icon-sun"],
+  [data-theme="dark"] .footer-theme-toggle use[href="#icon-moon"] {
+    display: block;
+  }
+
+  .footer-theme-toggle svg symbol {
+    display: none;
+    transition: transform 0.3s ease;
+  }
+
+  .footer-theme-toggle use {
+    display: none;
+  }
+
+
 
   [data-theme="light"] .placement-toggle,
   [data-theme="system"] .placement-toggle {
