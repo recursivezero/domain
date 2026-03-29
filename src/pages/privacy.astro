@@ -1,8 +1,12 @@
 ---
+import MarkdownContent from "@/components/MarkdownContent.astro";
+
+import { Content } from "@/content/article/privacy.md";
 import BaseLayout from "@/layouts/BaseLayout";
-import TitleLayout from "@/layouts/TitleLayout";
 ---
 
 <BaseLayout meta={{ title: "Privacy Policy" }}>
-  <TitleLayout title="Privacy Policy" />
+  <MarkdownContent>
+    <Content />
+  </MarkdownContent>
 </BaseLayout>
