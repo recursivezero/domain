@@ -1,4 +1,4 @@
----
+<!-- ---
 import workplace from "@/assets/images/workplace.jpg";
 import { Image } from "astro:assets";
 ---
@@ -43,6 +43,83 @@ import { Image } from "astro:assets";
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section> -->
+
+
+---
+import workplace from "@/assets/images/workplace.jpg";
+import { Image } from "astro:assets";
+---
+
+<section class="bg-white text-black">
+  <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+
+    <div class="grid items-center gap-14 lg:grid-cols-2">
+
+      <!-- Left Content -->
+      <div>
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">
+          What We Build
+        </p>
+
+        <h2 class="text-4xl font-bold leading-tight tracking-tight md:text-5xl">
+          Simplifying daily tasks <br />
+          with handy mini apps
+        </h2>
+
+        <p class="mt-6 max-w-xl text-lg leading-8 text-gray-600">
+          Based in Bengaluru, Recursive Zero creates compact yet powerful apps
+          designed to streamline your workflow, improve storage efficiency,
+          and enhance everyday productivity.
+        </p>
+
+        <p class="mt-4 max-w-xl text-lg leading-8 text-gray-600">
+          Our solutions combine simplicity with smart technology, helping
+          users and businesses achieve more with less effort.
+        </p>
+
+        <!-- Features -->
+        <div class="mt-8 grid gap-4 sm:grid-cols-2">
+          <div class="rounded-2xl border border-gray-200 p-5">
+            <h3 class="font-semibold">Fast & Lightweight</h3>
+            <p class="mt-2 text-sm text-gray-500">
+              Built for speed and smooth performance.
+            </p>
+          </div>
+
+          <div class="rounded-2xl border border-gray-200 p-5">
+            <h3 class="font-semibold">Easy to Use</h3>
+            <p class="mt-2 text-sm text-gray-500">
+              Clean UI focused on user productivity.
+            </p>
+          </div>
+        </div>
+
+        <!-- Button -->
+        <div class="mt-10">
+          <a
+            href="/work"
+            class="rounded-xl bg-black px-7 py-4 font-semibold text-white transition hover:bg-cyan-500 hover:text-black"
+          >
+            Explore Apps →
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Image -->
+      <div class="relative">
+        <div class="absolute -right-8 top-8 h-40 w-40 rounded-full bg-cyan-100 blur-3xl"></div>
+
+        <Image
+          src={workplace}
+          width={800}
+          alt="Workplace"
+          class="relative z-10 h-[420px] w-full rounded-3xl object-cover shadow-xl"
+        />
+      </div>
+
     </div>
   </div>
 </section>
