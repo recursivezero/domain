@@ -1,35 +1,52 @@
 ---
 import { getCollection } from "astro:content";
 import BlogCard from "./BlogCard.astro";
+
 const posts = await getCollection("blog");
 const slicedPosts = posts.slice(0, 3);
 ---
 
-<section>
-  <div id="featuresSection" class="p-[20px] lg:py-[50px]">
-    <div class="mx-auto">
-      <div class="section-header mb-[20px]">
-        <h2
-          class="text-[27px] font-bold leading-[32.8px] tracking-[-0.54px] md:text-[31.2px] md:leading-[37.5px] md:tracking-[-0.62px]"
-        >
-          Blogs
+<section class="bg-[#f8fafc] py-20">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10">
+
+    <!-- Top Heading -->
+    <div class="mb-14 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+
+      <div>
+        <p class="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">
+          Recent Blogs
+        </p>
+
+        <h2 class="text-4xl font-bold tracking-tight text-black md:text-5xl">
+          Insights, Updates <br class="hidden md:block" />
+          & Stories
         </h2>
       </div>
-      <div class="cards-container grid grid-cols-1 gap-[10px] md:grid-cols-2 lg:grid-cols-3">
-        {
-          slicedPosts.map((post) => (
-            <BlogCard
-              url={`/blogs/${post.slug}` || "/404"}
-              title={post.data.title}
-              description={post.data.description}
-              image={post.data.image}
-              author={post.data.author}
-              date={post.data.date.toLocaleDateString()}
-            />
-          ))
-        }
-      </div>
-      <a href="/feature" class="absolute mt-2 font-bold hover:underline">Show All</a>
+
+      <a
+        href="/blogs"
+        class="inline-flex items-center gap-2 text-base font-semibold text-cyan-600 transition hover:gap-3"
+      >
+        View All Blogs →
+      </a>
+
     </div>
+
+    <!-- Blog Grid -->
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {
+        slicedPosts.map((post) => (
+          <BlogCard
+            url={`/blogs/${post.slug}`}
+            title={post.data.title}
+            description={post.data.description}
+            image={post.data.image}
+            author={post.data.author}
+            date={post.data.date.toLocaleDateString()}
+          />
+        ))
+      }
+    </div>
+
   </div>
 </section>

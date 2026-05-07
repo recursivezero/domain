@@ -1,59 +1,114 @@
+
+
+
 ---
 import GitHubIcon from "@/assets/icons/github.svg";
 import MailIcon from "@/assets/icons/mail.svg";
 import TwitterIcon from "@/assets/icons/x.svg";
 ---
 
-<footer>
-  <div class="h-[1px] w-full bg-white/70"></div>
+<footer class="bg-white text-black">
+  <!-- Top Border -->
+  <div class="h-[1px] w-full bg-black/10"></div>
 
-  <div class="p-[20px] lg:py-[50px]">
-    <div class="mx-auto flex max-w-[100rem] flex-row items-center justify-between">
-      <div class="footer-bottom mb-[30px] lg:mb-[40px] lg:pt-[20px]">
-        <div>
-          <p class="text-[12.5px] leading-[20px] text-[#999]">
-            ©2025
-            <a href="/" class="text-[#d95555] hover:text-black dark:hover:text-white">
-              <strong> RecursiveZero Private Limited</strong>
-            </a>
-            | All Rights Reserved |
-            <a href="/terms" class="hover:text-black dark:hover:text-white">Terms & Conditions</a> |
-            <a href="/privacy" class="hover:text-black dark:hover:text-white">Privacy Policy</a>
-          </p>
-        </div>
+  <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+
+    <!-- Main Grid -->
+    <div class="grid gap-14 lg:grid-cols-3">
+
+      <!-- Brand -->
+      <div>
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">
+          Recursive Zero
+        </p>
+
+        <h3 class="text-4xl font-bold leading-tight">
+          Building Future Ready <br />
+          Digital Products
+        </h3>
+
+        <p class="mt-5 max-w-md text-lg leading-8 text-gray-600">
+          We create premium web apps, internal systems and modern software
+          experiences that help businesses grow faster.
+        </p>
       </div>
-      <div class="footer-top justify-between border-b border-[#222] pb-[30px] lg:flex lg:pb-[10px]">
-        <div class="footer-links flex justify-end">
-          <ul class="flex gap-[0.62rem] font-bold">
-            <li>
-              <a
-                href="https://www.twitter.com/recursivezero"
-                target="_blank"
-                class="social-link inline-flex size-[40px] items-center justify-center rounded-[5px]"
-              >
-                <TwitterIcon />
-              </a>
-            </li>
-            <li>
-              <a
-                href="mailto:recursivezero@outlook.com"
-                class="social-link inline-flex size-[40px] items-center justify-center rounded-[5px]"
-              >
-                <MailIcon />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.github.com/recursivezero"
-                target="_blank"
-                class="social-link inline-flex size-[40px] items-center justify-center rounded-[5px]"
-              >
-                <GitHubIcon />
-              </a>
-            </li>
-          </ul>
+
+    <!-- Replace only Quick Links section -->
+
+<div>
+  <h4 class="mb-6 text-xl font-bold">Quick Links</h4>
+
+  <ul class="grid grid-cols-2 gap-x-10 gap-y-4 text-gray-600">
+    <li><a href="/" class="transition hover:text-cyan-500">Home</a></li>
+    <li><a href="/about" class="transition hover:text-cyan-500">About</a></li>
+    <li><a href="/blogs" class="transition hover:text-cyan-500">Blogs</a></li>
+    <li><a href="/career" class="transition hover:text-cyan-500">Career</a></li>
+    <li><a href="/work" class="transition hover:text-cyan-500">Work</a></li>
+    <li><a href="/contact" class="transition hover:text-cyan-500">Contact</a></li>
+  </ul>
+</div>
+
+      <!-- Social -->
+      <div>
+        <h4 class="mb-6 text-xl font-bold">Connect With Us</h4>
+
+        <div class="flex gap-4">
+
+          <a
+            href="https://www.twitter.com/recursivezero"
+            target="_blank"
+            class="flex h-12 w-12 items-center justify-center rounded-2xl border border-gray-200 bg-gray-50 transition hover:bg-cyan-500 hover:text-white"
+          >
+            <TwitterIcon />
+          </a>
+
+          <a
+            href="mailto:recursivezero@outlook.com"
+            class="flex h-12 w-12 items-center justify-center rounded-2xl border border-gray-200 bg-gray-50 transition hover:bg-cyan-500 hover:text-white"
+          >
+            <MailIcon />
+          </a>
+
+          <a
+            href="https://www.github.com/recursivezero"
+            target="_blank"
+            class="flex h-12 w-12 items-center justify-center rounded-2xl border border-gray-200 bg-gray-50 transition hover:bg-cyan-500 hover:text-white"
+          >
+            <GitHubIcon />
+          </a>
+
         </div>
+
+        <p class="mt-6 text-gray-600">
+          hello@recursivezero.com
+        </p>
+
+        <p class="mt-2 text-gray-600">
+          Bengaluru, India
+        </p>
       </div>
+
     </div>
+
+    <!-- Bottom -->
+    <div class="mt-16 border-t border-black/10 pt-8 lg:flex lg:items-center lg:justify-between">
+
+      <p class="text-sm text-gray-500">
+        © 2025 Recursive Zero Private Limited. All rights reserved.
+      </p>
+
+      <div class="mt-4 flex gap-6 text-sm lg:mt-0">
+        <a href="/terms" class="text-gray-500 transition hover:text-cyan-500">
+          Terms & Conditions
+        </a>
+
+        <a href="/privacy" class="text-gray-500 transition hover:text-cyan-500">
+          Privacy Policy
+        </a>
+      </div>
+
+    </div>
+
   </div>
 </footer>
+
