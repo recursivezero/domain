@@ -3,51 +3,120 @@ import CalendarIcon from "@/assets/icons/calendar.svg";
 import ProfileIcon from "@/assets/icons/profile.svg";
 import MarkdownContent from "@/components/MarkdownContent.astro";
 import BaseLayout from "@/layouts/BaseLayout";
-import { type CollectionEntry, getCollection, render } from "astro:content";
+
+import {
+  type CollectionEntry,
+  getCollection,
+  render
+} from "astro:content";
+
 export const prerender = true;
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
+
   return posts.map((blog) => ({
     params: { slug: blog.slug },
     props: blog
   }));
 }
+
 type Props = CollectionEntry<"blog">;
 
 const blog = Astro.props;
+
 const { Content } = await render(blog);
-const { title, description, date, author, image } = blog.data;
+
+const {
+  title,
+  description,
+  date,
+  author,
+  image
+} = blog.data;
 
 if (!Content) {
-  throw new Error(`Content could not be rendered for blog: ${blog.id}`);
+  throw new Error(
+    `Content could not be rendered for blog: ${blog.id}`
+  );
 }
 ---
 
-<BaseLayout meta={{ title: title, description: description, ogImage: image, articleDate: date }}>
-  <div class="mx-auto flex max-w-6xl flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-    <h1 class="mb-4 text-4xl font-bold">{title}</h1>
-    {description && <p class="mb-6 text-xl text-gray-300">{description}</p>}
-    <div class="mb-8 flex items-center gap-4 text-gray-400">
+<BaseLayout
+  meta={{
+    title: title,
+    description: description,
+    ogImage: image,
+    articleDate: date
+  }}
+>
+  <main class="bg-background text-foreground">
+    
+    <!-- BLOG HERO -->
+    <section class="mx-auto max-w-4xl px-6 py-20 lg:px-10">
+      
+      <!-- LABEL -->
+      <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">
+        Blog Article
+      </p>
+
+      <!-- TITLE -->
+      <h1 class="text-4xl font-bold leading-tight tracking-tight text-foreground md:text-6xl">
+        {title}
+      </h1>
+
+      <!-- DESCRIPTION -->
       {
-        author && (
-          <span class="flex items-center gap-2">
-            <ProfileIcon />
-            {author}
-          </span>
+        description && (
+          <p class="mt-6 text-xl leading-8 text-foreground/70">
+            {description}
+          </p>
         )
       }
-      {
-        date && (
-          <span class="flex items-center gap-2">
-            <CalendarIcon />
-            <time datetime={date.toISOString()}>{date.toLocaleDateString()}</time>
-          </span>
-        )
-      }
-    </div>
-    <MarkdownContent>
-      <Content />
-    </MarkdownContent>
-  </div>
+
+      <!-- META -->
+      <div class="mt-8 flex flex-wrap items-center gap-6 text-sm text-foreground/60">
+        
+        {
+          author && (
+            <span class="flex items-center gap-2">
+              <span class="text-foreground">
+                <ProfileIcon />
+              </span>
+
+              {author}
+            </span>
+          )
+        }
+
+        {
+          date && (
+            <span class="flex items-center gap-2">
+              <span class="text-foreground">
+                <CalendarIcon />
+              </span>
+
+              <time datetime={date.toISOString()}>
+                {date.toLocaleDateString()}
+              </time>
+            </span>
+          )
+        }
+
+      </div>
+    </section>
+
+    <!-- BLOG CONTENT -->
+    <section class="mx-auto max-w-4xl px-6 pb-24 lg:px-10">
+      <div
+        class="rounded-3xl border border-foreground/10 
+        bg-background/60 p-6 backdrop-blur-md md:p-10"
+      >
+        <MarkdownContent>
+          <Content />
+        </MarkdownContent>
+      </div>
+    </section>
+
+  </main>
 </BaseLayout>

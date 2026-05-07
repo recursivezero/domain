@@ -6,18 +6,18 @@ const posts = await getCollection("blog");
 const slicedPosts = posts.slice(0, 3);
 ---
 
-<section class="bg-[#f8fafc] py-20">
+<section class="bg-background py-20">
   <div class="mx-auto max-w-7xl px-6 lg:px-10">
-
+    
     <!-- Top Heading -->
     <div class="mb-14 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-
+      
       <div>
         <p class="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">
           Recent Blogs
         </p>
 
-        <h2 class="text-4xl font-bold tracking-tight text-black md:text-5xl">
+        <h2 class="text-4xl font-bold tracking-tight text-foreground md:text-5xl">
           Insights, Updates <br class="hidden md:block" />
           & Stories
         </h2>
@@ -29,7 +29,6 @@ const slicedPosts = posts.slice(0, 3);
       >
         View All Blogs →
       </a>
-
     </div>
 
     <!-- Blog Grid -->

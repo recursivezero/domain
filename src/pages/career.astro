@@ -4,75 +4,200 @@ import "../assets/styles/career.css";
 ---
 
 <BaseLayout meta={{ title: "Careers at RecursiveZero" }}>
-  <main class="careers__container">
-    <div class="careers__header">
-      <h1 class="careers__title">Join Our Team</h1>
-      <p class="careers__subtitle">Build the future with us</p>
-    </div>
-
-    <div class="grid gap-8 pb-12">
-      <section class="section__container">
-        <h2 class="about__title">Current Openings</h2>
-
-        <div>
-          <div class="job__card">
-            <h3 class="job__title">MBA Interns</h3>
-            <p class="job__description">
-              We're looking for an MBA Interns who can help us to do Field work and Demos of our product and user
-              onboarding, preferred candidate from Surat, Gujarat.
-            </p>
-            <div class="tag__container">
-              <span class="tag tag--remote">Remote</span>
-              <span class="tag tag--fulltime">Full-time</span>
-            </div>
-          </div>
-          <div class="job__card">
-            <h3 class="job__title">Frontend Developer</h3>
-            <p class="job__description">We're looking for an experienced frontend developer to join our team.</p>
-            <div class="tag__container">
-              <span class="tag tag--remote">Remote</span>
-              <span class="tag tag--fulltime">Full-time</span>
-            </div>
-          </div>
-
-          <div class="job__card">
-            <h3 class="job__title">Backend Engineer</h3>
-            <p class="job__description">
-              Join us in building scalable backend solutions, experienced with nodejs based backend technologies.
-            </p>
-            <div class="tag__container">
-              <span class="tag tag--hybrid">Hybrid</span>
-              <span class="tag tag--fulltime">Full-time</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section__container">
-        <h2 class="about__title">Why Join RecursiveZero?</h2>
-        <div class="perks__grid">
-          <div class="perk__card">
-            <h3 class="perk__title">Remote First</h3>
-            <p class="perk__description">Work from anywhere in the world</p>
-          </div>
-          <div class="perk__card">
-            <h3 class="perk__title">Learning & Growth</h3>
-            <p class="perk__description">Continuous learning opportunities</p>
-          </div>
-          <div class="perk__card">
-            <h3 class="perk__title">Great Benefits</h3>
-            <p class="perk__description">Competitive salary and benefits package</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section__container">
-        <h2 class="about__title">How to Apply</h2>
-        <p class="job__description">
-          Send your resume and a brief cover letter to
-          <a href="mailto:hello@recursivezero.com" class="apply__link"> hello@recursivezero.com </a>
+  <main class="bg-background text-foreground">
+    
+    <!-- HERO -->
+    <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+      
+      <div class="text-center">
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">
+          Careers
         </p>
-      </section>
-    </div>
+
+        <h1 class="text-5xl font-bold tracking-tight md:text-6xl">
+          Join Our Team
+        </h1>
+
+        <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-foreground/70">
+          Build the future with us and work on modern digital products
+          with a talented remote-first team.
+        </p>
+      </div>
+
+      <!-- CONTENT -->
+      <div class="mt-20 grid gap-12">
+
+        <!-- OPENINGS -->
+        <section>
+          <h2 class="mb-8 text-3xl font-bold text-foreground">
+            Current Openings
+          </h2>
+
+          <div class="grid gap-6">
+            
+            <!-- JOB -->
+            <div
+              class="rounded-3xl border border-foreground/10 
+              bg-background/60 p-8 backdrop-blur-md"
+            >
+              <h3 class="text-2xl font-bold text-foreground">
+                MBA Interns
+              </h3>
+
+              <p class="mt-4 leading-8 text-foreground/70">
+                We're looking for MBA Interns who can help us with
+                field work, product demos and user onboarding.
+                Preferred candidates from Surat, Gujarat.
+              </p>
+
+              <div class="mt-6 flex flex-wrap gap-3">
+                <span
+                  class="rounded-full bg-cyan-500/10 px-4 py-2 text-sm font-medium text-cyan-500"
+                >
+                  Remote
+                </span>
+
+                <span
+                  class="rounded-full bg-foreground/10 px-4 py-2 text-sm font-medium text-foreground"
+                >
+                  Full-time
+                </span>
+              </div>
+            </div>
+
+            <!-- JOB -->
+            <div
+              class="rounded-3xl border border-foreground/10 
+              bg-background/60 p-8 backdrop-blur-md"
+            >
+              <h3 class="text-2xl font-bold text-foreground">
+                Frontend Developer
+              </h3>
+
+              <p class="mt-4 leading-8 text-foreground/70">
+                We're looking for an experienced frontend developer
+                to join our team and build modern interfaces.
+              </p>
+
+              <div class="mt-6 flex flex-wrap gap-3">
+                <span
+                  class="rounded-full bg-cyan-500/10 px-4 py-2 text-sm font-medium text-cyan-500"
+                >
+                  Remote
+                </span>
+
+                <span
+                  class="rounded-full bg-foreground/10 px-4 py-2 text-sm font-medium text-foreground"
+                >
+                  Full-time
+                </span>
+              </div>
+            </div>
+
+            <!-- JOB -->
+            <div
+              class="rounded-3xl border border-foreground/10 
+              bg-background/60 p-8 backdrop-blur-md"
+            >
+              <h3 class="text-2xl font-bold text-foreground">
+                Backend Engineer
+              </h3>
+
+              <p class="mt-4 leading-8 text-foreground/70">
+                Join us in building scalable backend solutions using
+                Node.js and modern backend technologies.
+              </p>
+
+              <div class="mt-6 flex flex-wrap gap-3">
+                <span
+                  class="rounded-full bg-cyan-500/10 px-4 py-2 text-sm font-medium text-cyan-500"
+                >
+                  Hybrid
+                </span>
+
+                <span
+                  class="rounded-full bg-foreground/10 px-4 py-2 text-sm font-medium text-foreground"
+                >
+                  Full-time
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- WHY JOIN -->
+        <section>
+          <h2 class="mb-8 text-3xl font-bold text-foreground">
+            Why Join RecursiveZero?
+          </h2>
+
+          <div class="grid gap-6 md:grid-cols-3">
+            
+            <div
+              class="rounded-3xl border border-foreground/10 
+              bg-background/60 p-8 backdrop-blur-md"
+            >
+              <h3 class="text-xl font-bold text-foreground">
+                Remote First
+              </h3>
+
+              <p class="mt-4 text-foreground/70">
+                Work from anywhere in the world.
+              </p>
+            </div>
+
+            <div
+              class="rounded-3xl border border-foreground/10 
+              bg-background/60 p-8 backdrop-blur-md"
+            >
+              <h3 class="text-xl font-bold text-foreground">
+                Learning & Growth
+              </h3>
+
+              <p class="mt-4 text-foreground/70">
+                Continuous learning opportunities and mentorship.
+              </p>
+            </div>
+
+            <div
+              class="rounded-3xl border border-foreground/10 
+              bg-background/60 p-8 backdrop-blur-md"
+            >
+              <h3 class="text-xl font-bold text-foreground">
+                Great Benefits
+              </h3>
+
+              <p class="mt-4 text-foreground/70">
+                Competitive salary and exciting benefits package.
+              </p>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- APPLY -->
+        <section
+          class="rounded-3xl border border-foreground/10 
+          bg-background/60 p-10 text-center backdrop-blur-md"
+        >
+          <h2 class="text-3xl font-bold text-foreground">
+            How to Apply
+          </h2>
+
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-foreground/70">
+            Send your resume and a brief cover letter to
+            <a
+              href="mailto:hello@recursivezero.com"
+              class="font-semibold text-cyan-500 hover:underline"
+            >
+              hello@recursivezero.com
+            </a>
+          </p>
+        </section>
+
+      </div>
+    </section>
+
   </main>
 </BaseLayout>

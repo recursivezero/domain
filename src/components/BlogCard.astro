@@ -8,21 +8,22 @@ interface Props {
   date?: string;
 }
 
-const {
-  url,
-  title,
-  description,
-  image,
-  author,
-  date
-} = Astro.props;
+const { url, title, description, image, author, date } = Astro.props;
 
 const imageUrl = image;
 ---
 
 <article class="group h-full">
   <a href={url} class="block h-full">
-    <div class="flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-md transition duration-300 hover:-translate-y-2 hover:shadow-2xl">
+    
+    <!-- Card -->
+    <div
+      class="flex h-full flex-col overflow-hidden rounded-3xl 
+      bg-background/80 backdrop-blur-md 
+      border border-foreground/10 
+      shadow-md transition duration-300 
+      hover:-translate-y-2 hover:shadow-2xl"
+    >
 
       <!-- Image -->
       <figure class="h-64 overflow-hidden">
@@ -36,21 +37,21 @@ const imageUrl = image;
 
       <!-- Content -->
       <div class="flex flex-1 flex-col p-6">
-
-        <h3 class="line-clamp-2 text-xl font-bold leading-snug text-black">
+        
+        <!-- Title -->
+        <h3 class="line-clamp-2 text-xl font-bold leading-snug text-foreground">
           {title}
         </h3>
 
-        {
-          description && (
-            <p class="mt-3 line-clamp-3 flex-1 text-sm leading-7 text-gray-600">
-              {description}
-            </p>
-          )
-        }
+        <!-- Description -->
+        {description && (
+          <p class="mt-3 line-clamp-3 flex-1 text-sm leading-7 text-foreground/80">
+            {description}
+          </p>
+        )}
 
         <!-- Bottom Meta -->
-        <div class="mt-6 flex items-center justify-between border-t pt-4 text-sm text-gray-500">
+        <div class="mt-6 flex items-center justify-between border-t border-foreground/10 pt-4 text-sm text-foreground/70">
           <span>
             {author ? `By ${author}` : "Recursive Zero"}
           </span>
@@ -60,5 +61,6 @@ const imageUrl = image;
 
       </div>
     </div>
+
   </a>
 </article>

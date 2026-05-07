@@ -3,11 +3,10 @@ import image from "@/assets/images/about.jpg";
 import { Image } from "astro:assets";
 ---
 
-<section class="overflow-hidden bg-[#07111f] text-white">
+<section class="overflow-hidden bg-background text-foreground">
   <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
-
     <div class="grid items-center gap-14 lg:grid-cols-2">
-
+      
       <!-- Left Content -->
       <div>
         <p class="mb-5 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-400">
@@ -20,31 +19,30 @@ import { Image } from "astro:assets";
           Drive <span class="text-cyan-400">Results.</span>
         </h1>
 
-        <p class="mt-7 max-w-xl text-lg leading-8 text-white/70">
-          Recursive Zero crafts high-performance web apps, internal tools,
-          and scalable digital solutions that simplify operations and
-          accelerate business growth.
+        <p class="mt-7 max-w-xl text-lg leading-8 text-foreground/70">
+          Recursive Zero crafts high-performance web apps, internal tools, and scalable digital solutions that simplify
+          operations and accelerate business growth.
         </p>
 
         <!-- Buttons -->
         <div class="mt-10 flex flex-wrap gap-4">
           <a
             href="#contactForm"
-            class="rounded-xl bg-white px-7 py-4 font-semibold text-black transition hover:scale-105"
+            class="rounded-xl bg-foreground px-7 py-4 font-semibold text-background transition hover:scale-105"
           >
             Contact Us →
           </a>
 
           <a
             href="/work"
-            class="rounded-xl border border-white/20 px-7 py-4 font-semibold text-white transition hover:bg-white hover:text-black"
+            class="rounded-xl border border-foreground/20 px-7 py-4 font-semibold text-foreground transition hover:bg-foreground hover:text-background"
           >
             View Our Work
           </a>
         </div>
 
         <!-- Points -->
-        <div class="mt-10 flex flex-wrap gap-6 text-sm text-white/70">
+        <div class="mt-10 flex flex-wrap gap-6 text-sm text-foreground/70">
           <span>✓ Fast Delivery</span>
           <span>✓ Scalable</span>
           <span>✓ Client-Focused</span>
@@ -60,10 +58,9 @@ import { Image } from "astro:assets";
           src={image}
           width={1000}
           alt="Dashboard Preview"
-          class="relative z-10 w-full rounded-3xl border border-white/10 object-cover shadow-2xl"
+          class="relative z-10 w-full rounded-3xl border border-foreground/10 object-cover shadow-2xl"
         />
       </div>
-
     </div>
   </div>
 </section>

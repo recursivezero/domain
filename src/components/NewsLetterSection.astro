@@ -1,36 +1,49 @@
-<section class="bg-[#07111f] text-white">
+<section class="bg-background text-foreground">
   <div class="mx-auto max-w-7xl px-6 py-14 lg:px-10 lg:py-16">
-
-    <div class="mx-auto max-w-3xl rounded-3xl border border-white/10 bg-white/5 px-6 py-10 text-center backdrop-blur-xl lg:px-10">
-
+    <div
+      class="mx-auto max-w-3xl rounded-3xl 
+      border border-foreground/10 
+      bg-background/60 backdrop-blur-xl 
+      px-6 py-10 text-center lg:px-10"
+    >
       <!-- Label -->
-      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-cyan-400">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-cyan-500">
         Stay Updated
       </p>
 
       <!-- Heading -->
-      <h2 class="text-3xl font-bold tracking-tight md:text-4xl">
+      <h2 class="text-3xl font-bold tracking-tight md:text-4xl text-foreground">
         Subscribe to our newsletter
       </h2>
 
       <!-- Description -->
-      <p class="mx-auto mt-4 max-w-xl text-base leading-7 text-white/70">
+      <p class="mx-auto mt-4 max-w-xl text-base leading-7 text-foreground/70">
         Receive latest updates, blogs and important announcements directly in your inbox.
       </p>
 
       <!-- Form -->
       <form class="mx-auto mt-8 max-w-2xl">
         <div class="flex flex-col gap-3 sm:flex-row">
-
+          
+          <!-- INPUT FIXED -->
           <input
             type="email"
             placeholder="Enter your email address"
-            class="h-12 w-full rounded-xl border border-white/10 bg-white/10 px-4 text-white placeholder:text-white/40 outline-none focus:border-cyan-400"
+            class="h-12 w-full rounded-xl 
+            border border-foreground/10 
+            bg-white dark:bg-background 
+            px-4 text-foreground outline-none 
+            placeholder:text-foreground/40 
+            focus:border-cyan-500"
           />
 
+          <!-- BUTTON -->
           <button
             type="submit"
-            class="h-12 rounded-xl bg-cyan-400 px-7 font-semibold text-black transition hover:scale-105"
+            class="h-12 rounded-xl 
+            bg-cyan-500 px-7 
+            font-semibold text-black 
+            transition hover:scale-105"
           >
             Subscribe
           </button>
@@ -39,10 +52,9 @@
       </form>
 
       <!-- Bottom Note -->
-      <p class="mt-4 text-sm text-white/50">
+      <p class="mt-4 text-sm text-foreground/50">
         No spam. Only quality updates.
       </p>
-
     </div>
   </div>
 </section>

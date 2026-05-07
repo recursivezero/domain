@@ -5,7 +5,6 @@ import "@/assets/styles/globals.css";
 import BaseHead from "@/layouts/BaseHead";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
-import ThemeProvider from "@/components/ThemeProvider.astro";
 
 const {
   meta: { title, description = siteConfig.description, ogImage, articleDate }
@@ -14,7 +13,18 @@ const {
 
 <html lang={siteConfig.lang}>
   <head>
-    <script src="/theme.js" is:inline></script>
+    <!-- 🔥 theme load BEFORE render -->
+    <script is:inline>
+      if (
+        localStorage.theme === "dark" ||
+        (!localStorage.theme &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
 
     <BaseHead
       title={title}
@@ -27,8 +37,6 @@ const {
   </head>
 
   <body id="pageBody" class="w-full overflow-x-hidden">
-    <ThemeProvider />
-
     <Header />
 
     <main class="w-full">
@@ -37,13 +45,18 @@ const {
 
     <Footer />
 
+    <!-- 🌗 THEME TOGGLE SCRIPT -->
     <script is:inline>
       const themeToggle = document.querySelector("#themeToggle");
-      const bodyPart = document.querySelector("body");
 
       themeToggle?.addEventListener("click", () => {
-        bodyPart.classList.toggle("darkBg");
-        bodyPart.classList.toggle("lightBg");
+        document.documentElement.classList.toggle("dark");
+
+        if (document.documentElement.classList.contains("dark")) {
+          localStorage.theme = "dark";
+        } else {
+          localStorage.theme = "light";
+        }
       });
     </script>
   </body>

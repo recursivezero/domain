@@ -6,10 +6,7 @@ import { z } from "zod";
 // Load .env file
 expand(
   config({
-    path: path.resolve(
-      process.cwd(),
-      process.env.NODE_ENV === "test" ? ".env.test" : ".env"
-    )
+    path: path.resolve(process.cwd(), process.env.NODE_ENV === "test" ? ".env.test" : ".env")
   })
 );
 
@@ -18,15 +15,7 @@ const EnvSchema = z
   .object({
     NODE_ENV: z.string().default("development"),
     PORT: z.coerce.number().default(4321),
-    LOG_LEVEL: z.enum([
-      "fatal",
-      "error",
-      "warn",
-      "info",
-      "debug",
-      "trace",
-      "silent"
-    ])
+    LOG_LEVEL: z.enum(["fatal", "error", "warn", "info", "debug", "trace", "silent"])
   })
   .superRefine((input, ctx) => {
     if (input.NODE_ENV === "production" && !input.LOG_LEVEL) {

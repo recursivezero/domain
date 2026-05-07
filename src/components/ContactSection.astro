@@ -3,14 +3,13 @@ import contactUs from "@/assets/images/contact-us.jpeg";
 import { Image } from "astro:assets";
 ---
 
-<section id="contactForm" class="bg-[#07111f] text-white">
+<section id="contactForm" class="bg-background text-foreground">
   <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-
     <div class="grid items-center gap-14 lg:grid-cols-2">
 
       <!-- Left Content -->
       <div>
-        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-400">
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">
           Contact Us
         </p>
 
@@ -18,14 +17,13 @@ import { Image } from "astro:assets";
           Reach Recursive Zero
         </h2>
 
-        <p class="mt-6 max-w-xl text-lg leading-8 text-white/70">
-          Tech simplified — Harness the power of modern technology with
-          Recursive Zero. Send us a message and let’s build something
-          impactful together.
+        <p class="mt-6 max-w-xl text-lg leading-8 text-foreground/70">
+          Tech simplified — Harness the power of modern technology with Recursive Zero. Send us a message and let’s
+          build something impactful together.
         </p>
 
         <!-- Contact Info -->
-        <div class="mt-8 space-y-4 text-white/70">
+        <div class="mt-8 space-y-4 text-foreground/70">
           <p>📧 hello@recursivezero.com</p>
           <p>📞 +91 98765 43210</p>
           <p>📍 Bengaluru, India</p>
@@ -33,7 +31,7 @@ import { Image } from "astro:assets";
 
         <!-- Image -->
         <div class="relative mt-10">
-          <div class="absolute -left-5 top-5 h-32 w-32 rounded-full bg-cyan-400/20 blur-3xl"></div>
+          <div class="absolute -left-5 top-5 h-32 w-32 rounded-full bg-cyan-500/20 blur-3xl"></div>
 
           <Image
             src={contactUs}
@@ -45,46 +43,68 @@ import { Image } from "astro:assets";
       </div>
 
       <!-- Right Form -->
-      <div class="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl lg:p-10">
+      <div
+        class="rounded-3xl 
+        border border-foreground/10 
+        bg-background/60 backdrop-blur-xl 
+        p-8 lg:p-10"
+      >
+        <h3 class="text-2xl font-bold text-foreground">Let's Talk</h3>
 
-        <h3 class="text-2xl font-bold">
-          Let's Talk
-        </h3>
-
-        <p class="mt-2 text-white/60">
+        <p class="mt-2 text-foreground/60">
           Fill the form and we’ll get back to you shortly.
         </p>
 
         <form class="mt-8 space-y-5">
-
+          
+          <!-- NAME -->
           <input
             type="text"
             placeholder="Full Name"
-            class="h-14 w-full rounded-xl border border-white/10 bg-white/10 px-5 text-white placeholder:text-white/40 outline-none focus:border-cyan-400"
+            class="h-14 w-full rounded-xl 
+            border border-foreground/10 
+            bg-white dark:bg-background 
+            px-5 text-foreground outline-none 
+            placeholder:text-foreground/40 
+            focus:border-cyan-500"
           />
 
+          <!-- EMAIL -->
           <input
             type="email"
             placeholder="Email Address"
-            class="h-14 w-full rounded-xl border border-white/10 bg-white/10 px-5 text-white placeholder:text-white/40 outline-none focus:border-cyan-400"
+            class="h-14 w-full rounded-xl 
+            border border-foreground/10 
+            bg-white dark:bg-background 
+            px-5 text-foreground outline-none 
+            placeholder:text-foreground/40 
+            focus:border-cyan-500"
           />
 
+          <!-- MESSAGE -->
           <textarea
             rows="5"
             placeholder="Your Message"
-            class="w-full rounded-xl border border-white/10 bg-white/10 px-5 py-4 text-white placeholder:text-white/40 outline-none focus:border-cyan-400"
+            class="w-full rounded-xl 
+            border border-foreground/10 
+            bg-white dark:bg-background 
+            px-5 py-4 text-foreground outline-none 
+            placeholder:text-foreground/40 
+            focus:border-cyan-500"
           ></textarea>
 
+          <!-- BUTTON -->
           <button
             type="submit"
-            class="h-14 w-full rounded-xl bg-cyan-400 font-semibold text-black transition hover:scale-[1.02]"
+            class="h-14 w-full rounded-xl 
+            bg-cyan-500 font-semibold text-black 
+            transition hover:scale-[1.02]"
           >
             Send Message
           </button>
 
         </form>
       </div>
-
     </div>
   </div>
 </section>

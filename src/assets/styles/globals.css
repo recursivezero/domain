@@ -1,22 +1,31 @@
-/*@import "./custom-font.css";*/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-  
     --font-size-min: 16;
     --font-size-max: 20;
     --font-ratio-min: 1.2;
     --font-ratio-max: 1.33;
     --font-width-min: 375;
     --font-width-max: 1500;
+
+    /* 🎨 LIGHT THEME */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
     --accent: 136, 58, 234;
     --accent-light: 224, 204, 250;
     --accent-dark: 49, 10, 101;
   }
- 
+
+  /* 🌙 DARK THEME */
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 0 0% 100%;
+  }
+
   html {
     color-scheme: light dark;
     height: 100%;
@@ -39,28 +48,38 @@
     overflow-x: hidden;
     display: block;
     font-family: "Roboto", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
-    transition: background-color 0.3s ease;
-   
+
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
-  /* Grid Background */
+  /* ❌ LIGHT MODE → NO GRID */
   body::before {
-    --size: 45px;
-    --line: rgba(255, 255, 255, 0.06);
+    display: none;
+  }
+
+  /* ✅ DARK MODE → GRID */
+  .dark body::before {
     content: "";
     position: fixed;
     inset: 0;
     width: 100%;
     height: 100%;
-    background:
-      linear-gradient(90deg, var(--line) 1px, transparent 1px),
+
+    --size: 45px;
+    --line: rgba(255, 255, 255, 0.06);
+
+    background: linear-gradient(90deg, var(--line) 1px, transparent 1px),
       linear-gradient(var(--line) 1px, transparent 1px);
+
     background-size: var(--size) var(--size);
+
     pointer-events: none;
     z-index: -1;
   }
 
-  /* MAIN FIX */
   main {
     display: block !important;
     width: 100% !important;
@@ -88,16 +107,6 @@
 
   textarea {
     resize: none;
-  }
-
-  .whiteBg {
-    background: #ffffff;
-    color: #111111;
-  }
-
-  .darkBg {
-    background: #050505;
-    color: #ffffff;
   }
 
   .yellowBtnHover:hover {
