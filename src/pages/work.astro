@@ -7,8 +7,8 @@ const pages = import.meta.glob("./work/*.astro", {
 });
 
 // Extract frontmatter and routes
-const pageList = Object.entries(pages).map(
-  ([path, module]) => {
+const pageList = Object.entries(pages)
+  .map(([path, module]) => {
     const { frontmatter } = module as any;
 
     const route = path
@@ -23,17 +23,24 @@ const pageList = Object.entries(pages).map(
       image: frontmatter.image || "",
       route
     };
-  }
-);
+  })
+
+  // REMOVE INTERACTIVE LETTER CARD
+  .filter(
+    (item) =>
+      item.title.toLowerCase() !==
+      "interactive letter"
+  );
 ---
 
 <BaseLayout meta={{ title: "Our Work" }}>
   <main class="bg-background text-foreground">
-    
+
     <!-- HERO -->
     <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-      
+
       <div class="text-center">
+
         <!-- LABEL -->
         <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">
           Portfolio
@@ -49,11 +56,12 @@ const pageList = Object.entries(pages).map(
           Explore our latest projects, products, platforms and
           engineering solutions crafted by Recursive Zero.
         </p>
+
       </div>
 
       <!-- GRID -->
       <div class="mt-16 grid grid-cols-1 gap-8 pb-12 md:grid-cols-2 lg:grid-cols-3">
-        
+
         <!-- DYNAMIC PROJECTS -->
         {
           pageList.map(
@@ -81,7 +89,7 @@ const pageList = Object.entries(pages).map(
           url="http://abcdkbd.com"
           title="ABCDKBD"
           description="An interactive kids learning platform."
-          image="https://abcdkbd.com/_astro/48x48.Uhmpc0nK_ZnUDXw.png"
+          image="https://github.com/recursivezero/abcd/blob/main/public/assets/images/512x512.png?raw=true"
         />
 
         <!-- THREADZIP -->
@@ -99,6 +107,14 @@ const pageList = Object.entries(pages).map(
           description="A python tool that uses computer vision to identify and generate fabric patterns."
           image="https://lab.threadzip.com/media/4506a1f4769fb57c54b53e6189d5b405971d3595e689f77360792546.jpg"
         />
+        <!-- RZRO LINK -->
+<BlogCard
+  url="https://rzro.link/"
+  title="RZRO Link"
+  description="A modern smart link and URL shortening platform by Recursive Zero."
+  image="https://rzro.link/favicon.ico"
+/>
+
 
       </div>
     </section>
