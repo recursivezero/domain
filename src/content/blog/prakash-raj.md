@@ -4,7 +4,14 @@ description: "A transformative internship experience that shaped my frontend dev
 image: "/assets/images/blog/internship.png"
 author: "Prakash Raj"
 date: 2025-07-18
+
+
+tags:
+  - internship
+  - frontend
+  - learning
 ---
+
 
 ## **From Student to Developer: My Internship Experience**
 

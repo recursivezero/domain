@@ -25,6 +25,13 @@ type Props = CollectionEntry<"blog">;
 
 const blog = Astro.props;
 
+// BLOG NOT FOUND REDIRECT
+if (!Astro.props?.id) {
+  return Astro.redirect(
+    "/blogs/tag?error=notfound"
+  );
+}
+
 const { Content } = await render(blog);
 
 const {
@@ -32,7 +39,8 @@ const {
   description,
   date,
   author,
-  image
+  image,
+  tags
 } = blog.data;
 
 if (!Content) {
@@ -51,10 +59,10 @@ if (!Content) {
   }}
 >
   <main class="bg-background text-foreground">
-    
+
     <!-- BLOG HERO -->
     <section class="mx-auto max-w-4xl px-6 py-20 lg:px-10">
-      
+
       <!-- LABEL -->
       <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">
         Blog Article
@@ -76,7 +84,7 @@ if (!Content) {
 
       <!-- META -->
       <div class="mt-8 flex flex-wrap items-center gap-6 text-sm text-foreground/60">
-        
+
         {
           author && (
             <span class="flex items-center gap-2">
@@ -104,13 +112,33 @@ if (!Content) {
         }
 
       </div>
+
+      <!-- TAGS -->
+      {
+        tags?.length > 0 && (
+          <div class="mt-6 flex flex-wrap gap-3">
+
+            {
+              tags.map((tag) => (
+                <a
+                  href={`/blogs/tag/${tag}`}
+                  class="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-sm font-medium text-cyan-500 transition duration-300 hover:bg-cyan-500 hover:text-black"
+                >
+                  #{tag}
+                </a>
+              ))
+            }
+
+          </div>
+        )
+      }
+
     </section>
 
     <!-- BLOG CONTENT -->
     <section class="mx-auto max-w-4xl px-6 pb-24 lg:px-10">
       <div
-        class="rounded-3xl border border-foreground/10 
-        bg-background/60 p-6 backdrop-blur-md md:p-10"
+        class="rounded-3xl border border-foreground/10 bg-background/60 p-6 backdrop-blur-md md:p-10"
       >
         <MarkdownContent>
           <Content />

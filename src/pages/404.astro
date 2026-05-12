@@ -3,11 +3,51 @@ import BaseLayout from "@/layouts/BaseLayout";
 
 const meta = {
   title: "Oops! You found a missing page!",
-  description: "Oops! It looks like this page is lost in space!"
+  description:
+    "Oops! It looks like this page is lost in space!"
 };
+
+const path = Astro.url.pathname;
+
+const isBlogRoute =
+  path.startsWith("/blogs");
 ---
 
 <BaseLayout meta={meta}>
-  <h1 class="title mb-6">404 | Oops something went wrong</h1>
-  <p class="mb-8">Please use the navigation to find your way back</p>
+
+  <section class="mx-auto flex min-h-[70vh] max-w-4xl flex-col items-center justify-center px-6 text-center">
+
+    <h1 class="mb-4 text-5xl font-bold text-foreground md:text-7xl">
+      404
+    </h1>
+
+    <h2 class="mb-4 text-2xl font-semibold text-foreground md:text-4xl">
+      Oops something went wrong
+    </h2>
+
+    <p class="mb-8 max-w-xl text-lg text-foreground/70">
+      The page you are trying to access does not exist.
+    </p>
+
+    <!-- BLOG REDIRECT BUTTON -->
+    {
+      isBlogRoute ? (
+        <a
+          href="/blogs/tag"
+          class="rounded-2xl bg-cyan-500 px-6 py-3 text-lg font-semibold text-black transition duration-300 hover:scale-105"
+        >
+          Go to Blog Tags
+        </a>
+      ) : (
+        <a
+          href="/"
+          class="rounded-2xl bg-cyan-500 px-6 py-3 text-lg font-semibold text-black transition duration-300 hover:scale-105"
+        >
+          Go Home
+        </a>
+      )
+    }
+
+  </section>
+
 </BaseLayout>

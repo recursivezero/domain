@@ -3,6 +3,11 @@ title: "The new era of state management with Zustand ?"
 description: "The simple and easy to understand all about Zustand the new and simple way to manage the state in client side. "
 date: 2024-12-12
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c"
+
+tags:
+  - react
+  - zustand
+  - frontend
 ---
 
 ## Zustand Documentation

@@ -1,0 +1,72 @@
+---
+import BaseLayout from "@/layouts/BaseLayout";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("blog");
+
+// ALL UNIQUE TAGS
+const tags = [
+  ...new Set(
+    posts.flatMap(
+      (post) => post.data.tags || []
+    )
+  )
+];
+
+// ERROR MESSAGE
+const showError =
+  Astro.url.searchParams.get("error")
+  === "notfound";
+---
+
+<BaseLayout meta={{ title: "Blog Tags" }}>
+  <main class="bg-background text-foreground min-h-screen">
+
+    <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+
+      <!-- TITLE -->
+      <div class="text-center">
+
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">
+          Explore Blogs
+        </p>
+
+        <h1 class="text-4xl font-bold md:text-6xl">
+          Browse by Tags
+        </h1>
+
+        <p class="mx-auto mt-6 max-w-2xl text-lg text-foreground/70">
+          Select a tag to explore related blogs.
+        </p>
+
+      </div>
+
+      <!-- ERROR POPUP -->
+      {
+        showError && (
+          <div class="mx-auto mt-8 max-w-md rounded-2xl border border-red-500/20 bg-red-500/10 px-6 py-4 text-center text-red-500">
+            Blog does not exist
+          </div>
+        )
+      }
+
+      <!-- TAGS -->
+      <div class="mt-16 flex flex-wrap justify-center gap-5">
+
+        {
+          tags.map((tag) => (
+            <a
+              href={`/blogs/tag/${tag}`}
+              class="rounded-2xl border border-cyan-500/20 bg-cyan-500/10 px-6 py-4 text-lg font-semibold text-cyan-500 transition duration-300 hover:bg-cyan-500 hover:text-black"
+            >
+              #{tag}
+            </a>
+          ))
+        }
+
+      </div>
+
+    </section>
+
+  </main>
+</BaseLayout>

@@ -4,6 +4,11 @@ description: "A deep dive into my two-month internship experience, working with 
 date: 2025-07-21
 author: "Suresh Chelani"
 image: "/assets/images/blog/blog-7.png"
+
+tags:
+  - internship
+  - astro
+  - fullstack
 ---
 
 ## Internship Experience at RecursiveZero Pvt. Ltd
