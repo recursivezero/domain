@@ -58,10 +58,10 @@ if (!Content) {
     articleDate: date
   }}
 >
-  <main class="bg-background text-foreground">
+  <main class="bg-background text-foreground min-h-screen">
 
     <!-- BLOG HERO -->
-    <section class="mx-auto max-w-4xl px-6 py-20 lg:px-10">
+    <section class="mx-auto max-w-4xl px-5 py-16 sm:px-6 lg:px-10 lg:py-20">
 
       <!-- LABEL -->
       <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">
@@ -69,21 +69,25 @@ if (!Content) {
       </p>
 
       <!-- TITLE -->
-      <h1 class="text-4xl font-bold leading-tight tracking-tight text-foreground md:text-6xl">
+      <h1
+        class="text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-6xl"
+      >
         {title}
       </h1>
 
       <!-- DESCRIPTION -->
       {
         description && (
-          <p class="mt-6 text-xl leading-8 text-foreground/70">
+          <p class="mt-5 text-base leading-7 text-foreground/70 sm:text-lg md:text-xl md:leading-8">
             {description}
           </p>
         )
       }
 
       <!-- META -->
-      <div class="mt-8 flex flex-wrap items-center gap-6 text-sm text-foreground/60">
+      <div
+        class="mt-8 flex flex-col gap-4 text-sm text-foreground/60 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6"
+      >
 
         {
           author && (
@@ -116,13 +120,13 @@ if (!Content) {
       <!-- TAGS -->
       {
         tags?.length > 0 && (
-          <div class="mt-6 flex flex-wrap gap-3">
+          <div class="mt-6 flex flex-wrap gap-2 sm:gap-3">
 
             {
               tags.map((tag) => (
                 <a
                   href={`/blogs/tag/${tag}`}
-                  class="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-sm font-medium text-cyan-500 transition duration-300 hover:bg-cyan-500 hover:text-black"
+                  class="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-3 py-2 text-xs font-medium text-cyan-500 transition duration-300 hover:bg-cyan-500 hover:text-black sm:px-4 sm:text-sm"
                 >
                   #{tag}
                 </a>
@@ -136,14 +140,63 @@ if (!Content) {
     </section>
 
     <!-- BLOG CONTENT -->
-    <section class="mx-auto max-w-4xl px-6 pb-24 lg:px-10">
+    <section class="mx-auto max-w-4xl px-5 pb-20 sm:px-6 lg:px-10 lg:pb-24">
+
       <div
-        class="rounded-3xl border border-foreground/10 bg-background/60 p-6 backdrop-blur-md md:p-10"
+       class="rounded-3xl border border-foreground/10 bg-background p-5 sm:p-6 md:p-10"
       >
-        <MarkdownContent>
-          <Content />
-        </MarkdownContent>
+     <MarkdownContent>
+  <article
+    class="max-w-none text-foreground
+    [&_h1]:mb-6
+    [&_h1]:text-4xl
+    [&_h1]:font-bold
+    [&_h1]:text-foreground
+
+    [&_h2]:mt-12
+    [&_h2]:mb-5
+    [&_h2]:text-3xl
+    [&_h2]:font-bold
+    [&_h2]:text-foreground
+
+    [&_h3]:mt-8
+    [&_h3]:mb-4
+    [&_h3]:text-2xl
+    [&_h3]:font-semibold
+    [&_h3]:text-foreground
+
+    [&_p]:mb-5
+    [&_p]:text-base
+    [&_p]:leading-8
+    [&_p]:text-foreground/80
+
+    [&_li]:mb-2
+    [&_li]:leading-8
+    [&_li]:text-foreground/80
+
+    [&_ul]:my-5
+    [&_ol]:my-5
+
+    [&_a]:font-medium
+    [&_a]:text-cyan-500
+    hover:[&_a]:underline
+
+    [&_strong]:text-foreground
+    [&_img]:rounded-2xl
+
+    [&_hr]:my-10
+    [&_hr]:border-foreground/10
+    [&_blockquote]:border-l-4
+    [&_blockquote]:border-cyan-500
+    [&_blockquote]:pl-4
+    [&_blockquote]:italic
+    [&_blockquote]:text-foreground/70"
+  >
+    <Content />
+  </article>
+</MarkdownContent>
       </div>
+
     </section>
 
   </main>

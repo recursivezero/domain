@@ -72,13 +72,14 @@ const allTags = [
         {
           posts.map((post) => (
             <BlogCard
-              url={`/blogs/${post.slug}`}
-              title={post.data.title}
-              description={post.data.description}
-              image={post.data.image}
-              author={post.data.author}
-              date={post.data.date.toLocaleDateString()}
-            />
+  url={`/blogs/${post.slug}`}
+  title={post.data.title}
+  description={post.data.description}
+  image={post.data.image}
+  author={post.data.author}
+  date={post.data.date.toLocaleDateString()}
+  tags={post.data.tags}
+/>
           ))
         }
 

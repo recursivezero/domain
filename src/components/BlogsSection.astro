@@ -3,6 +3,15 @@ import { getCollection } from "astro:content";
 import BlogCard from "./BlogCard.astro";
 
 const posts = await getCollection("blog");
+
+console.log(
+  posts.map((p) => ({
+    slug: p.slug,
+    title: p.data.title,
+    tags: p.data.tags,
+  }))
+);
+
 const slicedPosts = posts.slice(0, 3);
 ---
 
@@ -42,6 +51,7 @@ const slicedPosts = posts.slice(0, 3);
             image={post.data.image}
             author={post.data.author}
             date={post.data.date.toLocaleDateString()}
+            tags={post.data.tags}
           />
         ))
       }
