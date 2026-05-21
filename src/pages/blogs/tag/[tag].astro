@@ -61,14 +61,17 @@ const filteredBlogs = blogs.filter((blog) =>
           filteredBlogs.length > 0 ? (
             filteredBlogs.map((blog) => (
               <BlogCard
-                title={blog.data.title}
-                description={
-                  blog.data.description ||
-                  "No description available"
-                }
-                image={blog.data.image}
-                url={`/blogs/${blog.slug}`}
-              />
+          url={`/blogs/${blog.slug}`}
+          title={blog.data.title}
+          description={
+          blog.data.description ||
+          "No description available"
+              }
+          image={blog.data.image}
+          author={blog.data.author}
+          date={blog.data.date.toLocaleDateString()}
+          tags={blog.data.tags}
+            />
             ))
           ) : (
             <p class="text-center text-lg text-foreground/60">

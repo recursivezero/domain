@@ -16,8 +16,14 @@ const navLinks = [
   { name: "Work", href: "/work" }
 ];
 
+
+
 const isActive = (path: string) => {
-  return currentPath === path;
+  if (path === "/") {
+    return currentPath === "/";
+  }
+
+  return currentPath.startsWith(path);
 };
 ---
 
@@ -31,10 +37,10 @@ const isActive = (path: string) => {
     <a href="/" class="flex items-center gap-3 lg:gap-4">
 
       <Picture
-        src={logoImage}
+      src={logoImage}
         formats={["png", "webp", "jpg"]}
         alt="Recursive Zero"
-        class="h-12 w-12 rounded-full object-cover lg:h-14 lg:w-14"
+        class="logo h-12 w-12 rounded-full object-cover lg:h-14 lg:w-14"
         loading="eager"
       />
 
@@ -51,16 +57,17 @@ const isActive = (path: string) => {
         {
           navLinks.map((item) => (
             <li>
-              <a
+             <a
                 href={item.href}
-                class={`text-xl font-semibold transition duration-300 hover:text-cyan-500 ${
+                class:list={[
+                  "relative text-xl font-semibold transition duration-300 hover:text-cyan-500",
                   isActive(item.href)
-                    ? "text-cyan-500"
+                    ? "text-cyan-500 underline underline-offset-8 decoration-2"
                     : "text-foreground"
-                }`}
+                ]}
               >
-                {item.name}
-              </a>
+              {item.name}
+            </a>
             </li>
           ))
         }
@@ -226,7 +233,12 @@ const isActive = (path: string) => {
 
 <style>
   .brand {
-    font-family: "Sora", sans-serif;
-    letter-spacing: -0.03em;
-  }
+  font-family: "Sora", sans-serif;
+  letter-spacing: -0.03em;
+}
+
+/* DARK MODE LOGO FIX */
+:global(.dark) .logo {
+  filter: brightness(0) invert(1);
+}
 </style>
