@@ -11,10 +11,10 @@ import BaseLayout from "@/layouts/BaseLayout";
       "Learn how Recursive Zero collects, uses, and protects your information."
   }}
 >
-  <main class="bg-background text-foreground">
+  <main class="bg-background text-foreground min-h-screen">
 
     <!-- HERO -->
-    <section class=" bg-gradient-to-b from-cyan-500/5 to-transparent">
+    <section>
       <div class="mx-auto max-w-5xl px-6 py-20 lg:px-10">
 
         <!-- LABEL -->
@@ -34,21 +34,22 @@ import BaseLayout from "@/layouts/BaseLayout";
           information while using our products and services.
         </p>
 
-        <!-- UPDATED BADGE -->
-        <div class="mt-8 inline-flex items-center rounded-full border border-cyan-500/20 bg-cyan-500/10 px-5 py-2 text-sm font-medium text-cyan-500">
+        <!-- UPDATED -->
+        <p class="mt-6 text-sm text-foreground/50">
           Last Updated: July 2025
-        </div>
+        </p>
 
       </div>
     </section>
 
     <!-- CONTENT -->
-    <section class="mx-auto max-w-5xl px-6 py-16 lg:px-10">
+    <section class="mx-auto max-w-5xl px-6 pb-24 lg:px-10">
 
       <div
-        class="rounded-[2rem] border border-foreground/10 bg-background shadow-xl"
+        class="rounded-[2rem] border border-foreground/10 bg-background shadow-sm"
       >
-        <div class="p-8 md:p-12 lg:p-16">
+        <!-- TOP SPACE FIXED -->
+        <div class="px-8 pt-6 pb-10 md:px-12 md:pt-8 md:pb-12 lg:px-16 lg:pt-10 lg:pb-16">
           <MarkdownContent>
             <Content />
           </MarkdownContent>

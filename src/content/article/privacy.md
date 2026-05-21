@@ -3,9 +3,7 @@ title: "Privacy Policy"
 author: "Admin"
 ---
 
-# Privacy Policy
 
-## Last Updated: Mar 29, 2026
 
 Welcome to **recursivezero.com**! Your child’s privacy and safety are our highest priority.
 This Privacy Policy outlines how we handle personal data in compliance with the **Digital Personal Data Protection Act, 2023 (India)** and international child privacy standards.
