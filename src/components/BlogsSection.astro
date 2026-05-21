@@ -4,14 +4,6 @@ import BlogCard from "./BlogCard.astro";
 
 const posts = await getCollection("blog");
 
-console.log(
-  posts.map((p) => ({
-    slug: p.slug,
-    title: p.data.title,
-    tags: p.data.tags,
-  }))
-);
-
 const slicedPosts = posts.slice(0, 3);
 ---
 
