@@ -9,7 +9,7 @@ import TwitterIcon from "@/assets/icons/x.svg";
   <div class="h-[1px] w-full bg-foreground/10"></div>
 
   <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-    
+
     <!-- Main Grid -->
     <div class="grid gap-14 lg:grid-cols-3">
 
@@ -31,80 +31,159 @@ import TwitterIcon from "@/assets/icons/x.svg";
 
       <!-- Quick Links -->
       <div>
-        <h4 class="mb-6 text-xl font-bold text-foreground">Quick Links</h4>
+        <h4 class="mb-6 text-xl font-bold text-foreground">
+          Quick Links
+        </h4>
 
         <ul class="grid grid-cols-2 gap-x-10 gap-y-4 text-foreground/70">
-          <li><a href="/" class="transition hover:text-cyan-500">Home</a></li>
-          <li><a href="/about" class="transition hover:text-cyan-500">About</a></li>
-          <li><a href="/blogs" class="transition hover:text-cyan-500">Blogs</a></li>
-          <li><a href="/career" class="transition hover:text-cyan-500">Career</a></li>
-          <li><a href="/work" class="transition hover:text-cyan-500">Work</a></li>
-          <li><a href="/contact" class="transition hover:text-cyan-500">Contact</a></li>
+          <li>
+            <a
+              href="/"
+              class="transition hover:text-cyan-500"
+            >
+              Home
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="/about"
+              class="transition hover:text-cyan-500"
+            >
+              About
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="/blogs"
+              class="transition hover:text-cyan-500"
+            >
+              Blogs
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="/career"
+              class="transition hover:text-cyan-500"
+            >
+              Career
+            </a>
+          </li>
+
+          <!-- Work same tab -->
+          <li>
+            <a
+              href="/work"
+              class="transition hover:text-cyan-500"
+            >
+              Work
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="/contact"
+              class="transition hover:text-cyan-500"
+            >
+              Contact
+            </a>
+          </li>
         </ul>
       </div>
 
       <!-- Social -->
       <div>
-        <h4 class="mb-6 text-xl font-bold text-foreground">Connect With Us</h4>
+        <h4 class="mb-6 text-xl font-bold text-foreground">
+          Connect With Us
+        </h4>
 
         <div class="flex gap-4">
-          
-         <a
-         href="https://www.twitter.com/recursivezero"
-         target="_blank"
-         class="flex h-12 w-12 items-center justify-center rounded-2xl 
-         border border-foreground/10 
-         bg-background 
-          text-foreground
-          transition hover:bg-cyan-500 hover:text-white"
-         >
-  <span class="h-5 w-5 fill-current">
-    <TwitterIcon />
-  </span>
-</a>
 
+          <!-- Twitter -->
           <a
-            href="mailto:recursivezero@outlook.com"
-            class="flex h-12 w-12 items-center justify-center rounded-2xl 
-            border border-foreground/10 
-            bg-background 
+            href="https://www.twitter.com/recursivezero"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex h-12 w-12 items-center justify-center rounded-2xl
+            border border-foreground/10
+            bg-background
+            text-foreground
+            transition hover:bg-cyan-500 hover:text-white"
+          >
+            <span class="h-5 w-5 fill-current">
+              <TwitterIcon />
+            </span>
+          </a>
+
+          <!-- Mail -->
+          <a
+            href="mailto:hello@recursivezero.com"
+            class="flex h-12 w-12 items-center justify-center rounded-2xl
+            border border-foreground/10
+            bg-background
             transition hover:bg-cyan-500 hover:text-white"
           >
             <MailIcon />
           </a>
 
+          <!-- GitHub -->
           <a
-        href="https://www.github.com/recursivezero"
-         target="_blank"
-       class="flex h-12 w-12 items-center justify-center rounded-2xl 
-        border border-foreground/10 
-        bg-background 
-        text-foreground
-        transition hover:bg-cyan-500 hover:text-white"
-                >
-        <span class="h-5 w-5 fill-current">
-          <GitHubIcon />
-        </span>
+            href="https://www.github.com/recursivezero"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex h-12 w-12 items-center justify-center rounded-2xl
+            border border-foreground/10
+            bg-background
+            text-foreground
+            transition hover:bg-cyan-500 hover:text-white"
+          >
+            <span class="h-5 w-5 fill-current">
+              <GitHubIcon />
+            </span>
           </a>
         </div>
 
-        <p class="mt-6 text-foreground/70">hello@recursivezero.com</p>
-        <p class="mt-2 text-foreground/70">Bengaluru, India</p>
+        <!-- Highlighted Responsive Email -->
+        <a
+          href="mailto:hello@recursivezero.com"
+          class="mt-6 inline-block break-all rounded-xl
+          border border-cyan-500/20
+          bg-cyan-500/10
+          px-4 py-2
+          font-medium text-cyan-600
+          transition hover:bg-cyan-500 hover:text-white"
+        >
+          hello@recursivezero.com
+        </a>
+
+        <!-- Location -->
+        <p class="mt-4 text-foreground/70">
+          Bengaluru, India
+        </p>
       </div>
     </div>
 
     <!-- Bottom -->
     <div class="mt-16 border-t border-foreground/10 pt-8 lg:flex lg:items-center lg:justify-between">
       <p class="text-sm text-foreground/60">
-        © 2025 Recursive Zero Private Limited. All rights reserved.
+        © 2025 Recursive Zero Private Limited.
+        All rights reserved.
       </p>
 
       <div class="mt-4 flex gap-6 text-sm lg:mt-0">
-        <a href="/terms" class="text-foreground/60 transition hover:text-cyan-500">
+        <a
+          href="/terms"
+          class="text-foreground/60 transition hover:text-cyan-500"
+        >
           Terms & Conditions
         </a>
 
-        <a href="/privacy" class="text-foreground/60 transition hover:text-cyan-500">
+        <a
+          href="/privacy"
+          class="text-foreground/60 transition hover:text-cyan-500"
+        >
           Privacy Policy
         </a>
       </div>

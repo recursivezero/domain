@@ -11,15 +11,23 @@ const tags = props.tags ?? [];
 ---
 
 <article class="group h-full">
-  <a href={url} class="block h-full">
-
+  <a
+    href={url}
+    target={url.startsWith("http") ? "_blank" : undefined}
+    rel={
+      url.startsWith("http")
+        ? "noopener noreferrer"
+        : undefined
+    }
+    class="block h-full"
+  >
     <div
       class="flex h-full flex-col overflow-hidden rounded-3xl
-      bg-background/80 backdrop-blur-md
       border border-foreground/10
+      bg-background/80 backdrop-blur-md
       shadow-lg transition-all duration-300
-      hover:-translate-y-3 hover:shadow-2xl
-      hover:border-cyan-400/30"
+      hover:-translate-y-3 hover:border-cyan-400/30
+      hover:shadow-2xl"
     >
 
       <!-- Image -->
@@ -45,7 +53,7 @@ const tags = props.tags ?? [];
             </span>
           ))}
         </div>
-        
+
         <!-- Title -->
         <h3
           class="line-clamp-2 text-2xl font-bold leading-snug text-foreground transition-colors duration-300 group-hover:text-cyan-600"
@@ -62,23 +70,29 @@ const tags = props.tags ?? [];
           )
         }
 
-        {
-        url.startsWith("http") && (
-          <p class="mt-3 text-sm text-cyan-600">
-          <span class="font-semibold text-foreground">
-             Website:
-          </span>{" "}
-          {url}
-          </p>
-            )
-          }
-
         <!-- Bottom Meta -->
         <div class="mt-6 flex items-center justify-between border-t border-foreground/10 pt-4 text-sm text-foreground/70">
+
+          <!-- Website / Author -->
           <span>
-            {author ? `By ${author}` : "Recursive Zero"}
+            {
+              url.startsWith("http") ? (
+                <span
+                  class="truncate underline underline-offset-4 text-cyan-600 dark:text-white transition"
+                >
+                  {new URL(url).origin}
+                </span>
+              ) : (
+                <span>
+                  {author
+                    ? `By ${author}`
+                    : "Recursive Zero"}
+                </span>
+              )
+            }
           </span>
 
+          <!-- Date -->
           {date && (
             <time datetime={date}>
               {date}
@@ -88,6 +102,5 @@ const tags = props.tags ?? [];
 
       </div>
     </div>
-
   </a>
 </article>

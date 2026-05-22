@@ -6,7 +6,7 @@ import { Image } from "astro:assets";
 <section class="overflow-hidden bg-background text-foreground">
   <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
     <div class="grid items-center gap-14 lg:grid-cols-2">
-      
+
       <!-- Left Content -->
       <div>
         <p class="mb-5 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-400">
@@ -20,22 +20,26 @@ import { Image } from "astro:assets";
         </h1>
 
         <p class="mt-7 max-w-xl text-lg leading-8 text-foreground/70">
-          Recursive Zero crafts high-performance web apps, internal tools, and scalable digital solutions that simplify
-          operations and accelerate business growth.
+          Recursive Zero crafts high-performance web apps, internal tools,
+          and scalable digital solutions that simplify operations and
+          accelerate business growth.
         </p>
 
         <!-- Buttons -->
         <div class="mt-10 flex flex-wrap gap-4">
+
+          <!-- Contact -->
           <a
             href="#contactForm"
-            class="rounded-xl bg-foreground px-7 py-4 font-semibold text-background transition hover:scale-105"
+            class="rounded-xl border-2 border-gray-500 dark:border-foreground/20 px-7 py-4 font-semibold text-foreground transition hover:bg-foreground hover:text-background"
           >
             Contact Us →
           </a>
 
+          <!-- Work (same tab) -->
           <a
             href="/work"
-            class="rounded-xl border border-foreground/20 px-7 py-4 font-semibold text-foreground transition hover:bg-foreground hover:text-background"
+            class="rounded-xl border-2 border-gray-500 dark:border-foreground/20 px-7 py-4 font-semibold text-foreground transition hover:bg-foreground hover:text-background"
           >
             View Our Work
           </a>
@@ -52,6 +56,7 @@ import { Image } from "astro:assets";
       <!-- Right Image -->
       <div class="relative">
         <div class="absolute -left-10 top-10 h-40 w-40 rounded-full bg-cyan-400/20 blur-3xl"></div>
+
         <div class="absolute right-0 top-0 h-52 w-52 rounded-full bg-blue-500/20 blur-3xl"></div>
 
         <Image

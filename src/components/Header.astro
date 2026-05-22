@@ -54,9 +54,7 @@ const isActive = (path: string) => {
     </a>
 
     <!-- CENTER NAV -->
-    <nav
-      class="absolute left-1/2 hidden -translate-x-1/2 lg:flex"
-    >
+    <nav class="absolute left-1/2 hidden -translate-x-1/2 lg:flex">
       <ul class="flex items-center gap-10">
         {
           navLinks.map((item) => (
@@ -80,6 +78,7 @@ const isActive = (path: string) => {
 
     <!-- RIGHT -->
     <div class="flex items-center gap-4">
+
       <!-- THEME TOGGLE -->
       <button
         id="themeToggle"
@@ -169,7 +168,9 @@ const isActive = (path: string) => {
 </header>
 
 <script is:inline>
-  const btn = document.getElementById("menuBtn");
+  const btn =
+    document.getElementById("menuBtn");
+
   const menu =
     document.getElementById("mobileMenu");
 
@@ -178,19 +179,14 @@ const isActive = (path: string) => {
   });
 
   const themeToggle =
-    document.getElementById("themeToggle");
+    document.getElementById(
+      "themeToggle"
+    );
 
   const themeIcon =
-    document.getElementById("themeIcon");
-
-  const savedTheme =
-    localStorage.getItem("theme");
-
-  if (savedTheme === "dark") {
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
-  }
+    document.getElementById(
+      "themeIcon"
+    );
 
   const updateThemeIcon = () => {
     const isDark =

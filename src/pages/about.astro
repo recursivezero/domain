@@ -27,14 +27,15 @@ import BaseLayout from "@/layouts/BaseLayout";
       <div class="mt-10 flex flex-wrap justify-center gap-4">
         <a
           href="/contact"
-          class="rounded-xl bg-cyan-500 px-6 py-3 font-semibold text-black transition hover:scale-105"
+          class="rounded-xl border-2 border-gray-500 dark:border-foreground/20 px-6 py-3 font-semibold text-foreground transition hover:bg-foreground hover:text-background"
         >
           Contact Us
         </a>
 
+        <!-- Work (same tab) -->
         <a
           href="/work"
-          class="rounded-xl border border-foreground/10 px-6 py-3 font-semibold text-foreground transition hover:bg-foreground hover:text-background"
+          class="rounded-xl border-2 border-gray-500 dark:border-foreground/20 px-6 py-3 font-semibold text-foreground transition hover:bg-foreground hover:text-background"
         >
           View Our Work
         </a>
@@ -45,7 +46,9 @@ import BaseLayout from "@/layouts/BaseLayout";
   <!-- STORY -->
   <section class="bg-background text-foreground">
     <div class="mx-auto max-w-3xl px-6 py-20 text-center">
-      <h2 class="text-4xl font-bold text-foreground">Our Story</h2>
+      <h2 class="text-4xl font-bold text-foreground">
+        Our Story
+      </h2>
 
       <p class="mt-6 text-lg leading-8 text-foreground/70">
         Founded in 2024, Recursive Zero focuses on crafting efficient,
@@ -67,28 +70,36 @@ import BaseLayout from "@/layouts/BaseLayout";
           class="rounded-xl border border-foreground/10 bg-background/60 p-6 text-center backdrop-blur-md"
         >
           <h3 class="text-3xl font-bold">50+</h3>
-          <p class="text-foreground/70">Projects</p>
+          <p class="text-foreground/70">
+            Projects
+          </p>
         </div>
 
         <div
           class="rounded-xl border border-foreground/10 bg-background/60 p-6 text-center backdrop-blur-md"
         >
           <h3 class="text-3xl font-bold">20+</h3>
-          <p class="text-foreground/70">Clients</p>
+          <p class="text-foreground/70">
+            Clients
+          </p>
         </div>
 
         <div
           class="rounded-xl border border-foreground/10 bg-background/60 p-6 text-center backdrop-blur-md"
         >
           <h3 class="text-3xl font-bold">99%</h3>
-          <p class="text-foreground/70">Satisfaction</p>
+          <p class="text-foreground/70">
+            Satisfaction
+          </p>
         </div>
 
         <div
           class="rounded-xl border border-foreground/10 bg-background/60 p-6 text-center backdrop-blur-md"
         >
           <h3 class="text-3xl font-bold">4+</h3>
-          <p class="text-foreground/70">Years</p>
+          <p class="text-foreground/70">
+            Years
+          </p>
         </div>
       </div>
     </div>
@@ -108,7 +119,10 @@ import BaseLayout from "@/layouts/BaseLayout";
           <h3 class="text-xl font-bold text-foreground">
             Keshav Mohta
           </h3>
-          <p class="text-foreground/60">Founder & CEO</p>
+
+          <p class="text-foreground/60">
+            Founder & CEO
+          </p>
         </div>
 
         <div
@@ -117,7 +131,10 @@ import BaseLayout from "@/layouts/BaseLayout";
           <h3 class="text-xl font-bold text-foreground">
             Poorna Chandra
           </h3>
-          <p class="text-foreground/60">Python Developer</p>
+
+          <p class="text-foreground/60">
+            Python Developer
+          </p>
         </div>
       </div>
     </div>
@@ -150,17 +167,17 @@ import BaseLayout from "@/layouts/BaseLayout";
       </p>
 
       <a
-  href="/contact"
-  class="group mt-8 inline-flex items-center gap-2 rounded-2xl bg-cyan-500 px-7 py-4 text-lg font-semibold text-black shadow-lg transition duration-300 hover:scale-105 hover:shadow-cyan-500/40"
->
-  <span>Contact Us</span>
+        href="/contact"
+        class="group mt-8 inline-flex items-center gap-2 rounded-2xl bg-cyan-500 px-7 py-4 text-lg font-semibold text-black shadow-lg transition duration-300 hover:scale-105 hover:shadow-cyan-500/40"
+      >
+        <span>Contact Us</span>
 
-  <span
-    class="transition duration-300 group-hover:translate-x-1"
-  >
-    →
-  </span>
-</a>
+        <span
+          class="transition duration-300 group-hover:translate-x-1"
+        >
+          →
+        </span>
+      </a>
     </div>
   </section>
 </BaseLayout>
