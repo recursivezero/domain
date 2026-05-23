@@ -18,30 +18,56 @@ import { Image } from "astro:assets";
         </h2>
 
         <p class="mt-6 max-w-xl text-lg leading-8 text-foreground/70">
-          Tech simplified — Harness the power of modern technology with Recursive Zero. Send us a message and let’s
-          build something impactful together.
+          Tech simplified — Harness the power of modern technology with
+          Recursive Zero. Send us a message and let’s build something
+          impactful together.
         </p>
 
         <!-- Contact Info -->
         <div class="mt-8 space-y-4 text-foreground/70">
-         <a
-    href="mailto:hello@recursivezero.com"
-    class="inline-block break-all rounded-xl
-    border border-cyan-500/20
-    bg-cyan-500/10
-    px-4 py-3
-    font-medium text-cyan-600
-    transition hover:bg-cyan-500 hover:text-white"
-  >
-    📧 hello@recursivezero.com
-  </a>
-                 <p>📞 +91 93140 01007</p>
-          <p>📍 Bengaluru, India</p>
+
+          <!-- Email -->
+          <div class="text-lg">
+            <span class="font-semibold text-foreground">
+              Email:
+            </span>
+
+            <a
+              href="mailto:hello@recursivezero.com"
+              class="ml-1 break-all text-cyan-500 transition hover:underline"
+            >
+              hello@recursivezero.com
+            </a>
+          </div>
+
+          <!-- Phone (Not Clickable) -->
+          <!-- Phone -->
+<div class="text-lg">
+  <span class="font-semibold text-foreground">
+    Phone:
+  </span>
+
+  <span class="ml-1 text-foreground/70">
+    +91 93140 01007
+  </span>
+</div>
+          <!-- Location -->
+          <div class="text-lg">
+            <span class="font-semibold text-foreground">
+              Location:
+            </span>
+
+            <span class="ml-1 text-foreground/70">
+              Bengaluru, India
+            </span>
+          </div>
         </div>
 
         <!-- Image -->
         <div class="relative mt-10">
-          <div class="absolute -left-5 top-5 h-32 w-32 rounded-full bg-cyan-500/20 blur-3xl"></div>
+          <div
+            class="absolute -left-5 top-5 h-32 w-32 rounded-full bg-cyan-500/20 blur-3xl"
+          ></div>
 
           <Image
             src={contactUs}
@@ -54,28 +80,30 @@ import { Image } from "astro:assets";
 
       <!-- Right Form -->
       <div
-        class="rounded-3xl 
-        border border-foreground/10 
-        bg-background/60 backdrop-blur-xl 
+        class="rounded-3xl
+        border border-foreground/10
+        bg-background/60 backdrop-blur-xl
         p-8 lg:p-10"
       >
-        <h3 class="text-2xl font-bold text-foreground">Let's Talk</h3>
+        <h3 class="text-2xl font-bold text-foreground">
+          Let's Talk
+        </h3>
 
         <p class="mt-2 text-foreground/60">
           Fill the form and we’ll get back to you shortly.
         </p>
 
         <form class="mt-8 space-y-5">
-          
+
           <!-- NAME -->
           <input
             type="text"
             placeholder="Full Name"
-            class="h-14 w-full rounded-xl 
-            border border-foreground/10 
-            bg-white dark:bg-background 
-            px-5 text-foreground outline-none 
-            placeholder:text-foreground/40 
+            class="h-14 w-full rounded-xl
+            border border-foreground/10
+            bg-white dark:bg-background
+            px-5 text-foreground outline-none
+            placeholder:text-foreground/40
             focus:border-cyan-500"
           />
 
@@ -83,11 +111,11 @@ import { Image } from "astro:assets";
           <input
             type="email"
             placeholder="Email Address"
-            class="h-14 w-full rounded-xl 
-            border border-foreground/10 
-            bg-white dark:bg-background 
-            px-5 text-foreground outline-none 
-            placeholder:text-foreground/40 
+            class="h-14 w-full rounded-xl
+            border border-foreground/10
+            bg-white dark:bg-background
+            px-5 text-foreground outline-none
+            placeholder:text-foreground/40
             focus:border-cyan-500"
           />
 
@@ -95,19 +123,19 @@ import { Image } from "astro:assets";
           <textarea
             rows="5"
             placeholder="Your Message"
-            class="w-full rounded-xl 
-            border border-foreground/10 
-            bg-white dark:bg-background 
-            px-5 py-4 text-foreground outline-none 
-            placeholder:text-foreground/40 
+            class="w-full rounded-xl
+            border border-foreground/10
+            bg-white dark:bg-background
+            px-5 py-4 text-foreground outline-none
+            placeholder:text-foreground/40
             focus:border-cyan-500"
           ></textarea>
 
           <!-- BUTTON -->
           <button
             type="submit"
-            class="h-14 w-full rounded-xl 
-            bg-cyan-500 font-semibold text-black 
+            class="h-14 w-full rounded-xl
+            bg-cyan-500 font-semibold text-black
             transition hover:scale-[1.02]"
           >
             Send Message

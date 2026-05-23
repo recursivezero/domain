@@ -1,6 +1,7 @@
 ---
 import BlogCard from "@/components/BlogCard.astro";
 import BaseLayout from "@/layouts/BaseLayout";
+import fabricAI from "@/assets/images/fabric-ai.png";
 
 const pages = import.meta.glob("./work/*.astro", {
   eager: true
@@ -91,14 +92,15 @@ const pageList = Object.entries(pages)
           description="An interactive kids learning platform."
           image="https://github.com/recursivezero/abcd/blob/main/public/assets/images/512x512.png?raw=true"
         />
-
-        <!-- THREADZIP -->
+        <!----Threaszip -->
         <BlogCard
-          url="http://app.threadzip.com"
-          title="ThreadZip"
-          description="A B2B marketplace for textile raw material businesses."
-          image="https://app.threadzip.com/threadzip_logo_white.png"
-        />
+              url="https://threadzip.com/"
+              title="Threadzip"
+              description="A digital textile sourcing and business platform connecting manufacturers, suppliers, and buyers."
+              image="https://threadzip.com/images/icon-circle.svg"
+            />
+
+       
 
         <!-- THREADZIP LAB -->
         <BlogCard
@@ -107,14 +109,30 @@ const pageList = Object.entries(pages)
           description="A python tool that uses computer vision to identify and generate fabric patterns."
           image="https://lab.threadzip.com/media/4506a1f4769fb57c54b53e6189d5b405971d3595e689f77360792546.jpg"
         />
- <!-- RZRO LINK -->
+      <!-- RZRO LINK -->
+      <BlogCard
+        url="https://rzro.link/"
+        title="RZRO Link"
+        description="A modern smart link and URL shortening platform by Recursive Zero."
+        image="https://rzro.link/static/og-image.jpg"
+      />
+
+     <!-- FABRICAI -->
 <BlogCard
-  url="https://rzro.link/"
-  title="RZRO Link"
-  description="A modern smart link and URL shortening platform by Recursive Zero."
-  image="https://rzro.link/static/og-image.jpg"
+  url="https://pro.threadzip.com/"
+  title="FabricAI"
+  description="An AI-powered platform for fabric intelligence and textile analysis."
+  image={fabricAI.src}
 />
 
+
+      <!-- THREADZIP -->
+        <BlogCard
+          url="http://app.threadzip.com"
+          title="ThreadzipApp"
+          description="A B2B marketplace for textile raw material businesses."
+          image="https://app.threadzip.com/threadzip_logo_white.png"
+        />
 
       </div>
     </section>

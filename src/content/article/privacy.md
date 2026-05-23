@@ -129,7 +129,7 @@ We may update this policy to reflect changes in law or our practices. All update
 
 For general inquiries or questions:
 
-**Email**: [recursivezero@outlook.com](mailto:recursivezero@outlook.com)  
+**Email**: [hello@recursivezero.com](mailto:hello@recursivezero.com)  
 **Website**: [recursivezero.com](https://recursivezero.com)
 
 ---
