@@ -7,7 +7,7 @@ const pages = import.meta.glob("./work/*.astro", {
   eager: true
 });
 
-// Extract frontmatter and routes
+// Dynamic pages
 const pageList = Object.entries(pages)
   .map(([path, module]) => {
     const { frontmatter } = module as any;
@@ -25,13 +25,62 @@ const pageList = Object.entries(pages)
       route
     };
   })
-
-  // REMOVE INTERACTIVE LETTER CARD
   .filter(
     (item) =>
       item.title.toLowerCase() !==
       "interactive letter"
   );
+
+// External work cards
+const externalProjects = [
+  {
+    url: "https://abcdkbd.com",
+    title: "ABCDKBD",
+    description:
+      "An interactive kids learning platform.",
+    image:
+      "https://github.com/recursivezero/abcd/blob/main/public/assets/images/512x512.png?raw=true"
+  },
+  {
+    url: "https://threadzip.com/",
+    title: "Threadzip",
+    description:
+      "A digital textile sourcing and business platform connecting manufacturers, suppliers, and buyers.",
+    image:
+      "https://threadzip.com/images/icon-circle.svg"
+  },
+  {
+    url: "https://lab.threadzip.com",
+    title: "ThreadZip Lab",
+    description:
+      "A python tool that uses computer vision to identify and generate fabric patterns.",
+    image:
+      "https://lab.threadzip.com/media/4506a1f4769fb57c54b53e6189d5b405971d3595e689f77360792546.jpg"
+  },
+  {
+    url: "https://rzro.link/",
+    title: "RZRO Link",
+    description:
+      "A modern smart link and URL shortening platform by Recursive Zero.",
+    image:
+      "https://rzro.link/static/og-image.jpg"
+  },
+  {
+    url: "https://pro.threadzip.com/",
+    title: "FabricAI",
+    description:
+      "An AI-powered platform for fabric intelligence and textile analysis.",
+    image: fabricAI.src
+  },
+  {
+    url: "https://app.threadzip.com",
+    title: "ThreadzipApp",
+    description:
+      "A B2B marketplace for textile raw material businesses.",
+    image:
+      "https://app.threadzip.com/threadzip_logo_white.png"
+  }
+];
 ---
 
 <BaseLayout meta={{ title: "Our Work" }}>
@@ -41,29 +90,25 @@ const pageList = Object.entries(pages)
     <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
 
       <div class="text-center">
-
-        <!-- LABEL -->
         <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">
           Portfolio
         </p>
 
-        <!-- TITLE -->
         <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl">
           Our Work
         </h1>
 
-        <!-- DESCRIPTION -->
         <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-foreground/70">
-          Explore our latest projects, products, platforms and
-          engineering solutions crafted by Recursive Zero.
+          Explore our latest projects, products,
+          platforms and engineering solutions
+          crafted by Recursive Zero.
         </p>
-        
       </div>
 
       <!-- GRID -->
       <div class="mt-16 grid grid-cols-1 gap-8 pb-12 md:grid-cols-2 lg:grid-cols-3">
 
-        <!-- DYNAMIC PROJECTS -->
+        <!-- Dynamic Internal Projects -->
         {
           pageList.map(
             ({
@@ -85,54 +130,24 @@ const pageList = Object.entries(pages)
           )
         }
 
-        <!-- ABCDKBD -->
-        <BlogCard
-          url="http://abcdkbd.com"
-          title="ABCDKBD"
-          description="An interactive kids learning platform."
-          image="https://github.com/recursivezero/abcd/blob/main/public/assets/images/512x512.png?raw=true"
-        />
-        <!----Threaszip -->
-        <BlogCard
-              url="https://threadzip.com/"
-              title="Threadzip"
-              description="A digital textile sourcing and business platform connecting manufacturers, suppliers, and buyers."
-              image="https://threadzip.com/images/icon-circle.svg"
-            />
-
-       
-
-        <!-- THREADZIP LAB -->
-        <BlogCard
-          url="http://lab.threadzip.com"
-          title="ThreadZip Lab"
-          description="A python tool that uses computer vision to identify and generate fabric patterns."
-          image="https://lab.threadzip.com/media/4506a1f4769fb57c54b53e6189d5b405971d3595e689f77360792546.jpg"
-        />
-      <!-- RZRO LINK -->
-      <BlogCard
-        url="https://rzro.link/"
-        title="RZRO Link"
-        description="A modern smart link and URL shortening platform by Recursive Zero."
-        image="https://rzro.link/static/og-image.jpg"
-      />
-
-     <!-- FABRICAI -->
-<BlogCard
-  url="https://pro.threadzip.com/"
-  title="FabricAI"
-  description="An AI-powered platform for fabric intelligence and textile analysis."
-  image={fabricAI.src}
-/>
-
-
-      <!-- THREADZIP -->
-        <BlogCard
-          url="http://app.threadzip.com"
-          title="ThreadzipApp"
-          description="A B2B marketplace for textile raw material businesses."
-          image="https://app.threadzip.com/threadzip_logo_white.png"
-        />
+        <!-- External Projects -->
+        {
+          externalProjects.map(
+            ({
+              url,
+              title,
+              description,
+              image
+            }) => (
+              <BlogCard
+                url={url}
+                title={title}
+                description={description}
+                image={image}
+              />
+            )
+          )
+        }
 
       </div>
     </section>
