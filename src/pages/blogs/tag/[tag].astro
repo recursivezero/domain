@@ -8,11 +8,7 @@ export const prerender = true;
 export async function getStaticPaths() {
   const blogs = await getCollection("blog");
 
-  const allTags = [
-    ...new Set(
-      blogs.flatMap((blog) => blog.data.tags || [])
-    )
-  ];
+  const allTags = [...new Set(blogs.flatMap((blog) => blog.data.tags || []))];
 
   return allTags.map((tag) => ({
     params: { tag }
@@ -23,9 +19,7 @@ const { tag } = Astro.params;
 
 const blogs = await getCollection("blog");
 
-const filteredBlogs = blogs.filter((blog) =>
-  blog.data.tags?.includes(tag!)
-);
+const filteredBlogs = blogs.filter((blog) => blog.data.tags?.includes(tag!));
 ---
 
 <BaseLayout
@@ -35,18 +29,15 @@ const filteredBlogs = blogs.filter((blog) =>
 >
   <main class="bg-background text-foreground">
     <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-
       <!-- TITLE -->
       <div class="mb-12 text-center">
-        <p class="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">
-          Filtered Blogs
-        </p>
+        <p class="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">Filtered Blogs</p>
 
         <h1 class="text-4xl font-bold md:text-5xl">
           #{tag}
         </h1>
 
-        <p class="mt-4 text-foreground/70">
+        <p class="text-foreground/70 mt-4">
           Showing blogs related to
           <span class="font-semibold text-cyan-500">
             #{tag}
@@ -56,32 +47,24 @@ const filteredBlogs = blogs.filter((blog) =>
 
       <!-- BLOG GRID -->
       <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-
         {
           filteredBlogs.length > 0 ? (
             filteredBlogs.map((blog) => (
               <BlogCard
-          url={`/blogs/${blog.slug}`}
-          title={blog.data.title}
-          description={
-          blog.data.description ||
-          "No description available"
-              }
-          image={blog.data.image}
-          author={blog.data.author}
-          date={blog.data.date.toLocaleDateString()}
-          tags={blog.data.tags}
-            />
+                url={`/blogs/${blog.slug}`}
+                title={blog.data.title}
+                description={blog.data.description || "No description available"}
+                image={blog.data.image}
+                author={blog.data.author}
+                date={blog.data.date.toLocaleDateString()}
+                tags={blog.data.tags}
+              />
             ))
           ) : (
-            <p class="text-center text-lg text-foreground/60">
-              No blogs found for this tag.
-            </p>
+            <p class="text-foreground/60 text-center text-lg">No blogs found for this tag.</p>
           )
         }
-
       </div>
-
     </section>
   </main>
 </BaseLayout>

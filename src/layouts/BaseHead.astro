@@ -1,7 +1,7 @@
 ---
 import "@/assets/styles/globals.css";
 import { siteConfig } from "@/site-config";
-import "@fontsource/roboto";
+import { ClientRouter } from "astro:transitions";
 
 const { title, description, ogImage, articleDate } = Astro.props;
 
@@ -66,3 +66,4 @@ const socialImageURL = new URL(ogImage ? ogImage : "/assets/images/RecursiveZero
 <link rel="alternate" type="application/rss+xml" title={siteConfig.title} href="/rss.xml" />
 
 <meta name="generator" content={Astro.generator} />
+<ClientRouter />
