@@ -3,12 +3,7 @@ const { url, title, description, image, author, date, tags = [] } = Astro.props;
 ---
 
 <article class="group h-full">
-  <a
-    href={url}
-    target={url.startsWith("http") ? "_blank" : undefined}
-    rel={url.startsWith("http") ? "noopener noreferrer" : undefined}
-    class="block h-full"
-  >
+  <a href={url} target="_blank" rel="noopener noreferrer" class="block h-full">
     <div
       class="border-foreground/10 bg-background/80 flex h-full flex-col overflow-hidden rounded-3xl border shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-3 hover:border-cyan-400/30 hover:shadow-2xl"
     >
