@@ -7,22 +7,15 @@ import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 
 // Safe meta handling
-const meta =
-  Astro.props.meta ?? {};
+const meta = Astro.props.meta ?? {};
 
-const title =
-  meta.title ??
-  siteConfig.title;
+const title = meta.title ?? siteConfig.title;
 
-const description =
-  meta.description ??
-  siteConfig.description;
+const description = meta.description ?? siteConfig.description;
 
-const ogImage =
-  meta.ogImage;
+const ogImage = meta.ogImage;
 
-const articleDate =
-  meta.articleDate;
+const articleDate = meta.articleDate;
 ---
 
 <html lang={siteConfig.lang}>
@@ -31,108 +24,52 @@ const articleDate =
     <script is:inline>
       (() => {
         try {
-          const savedTheme =
-            localStorage.getItem(
-              "theme"
-            );
+          const savedTheme = localStorage.getItem("theme");
 
-          const theme =
-            savedTheme ||
-            (window.matchMedia(
-              "(prefers-color-scheme: dark)"
-            ).matches
-              ? "dark"
-              : "light");
+          const theme = savedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 
-          document.documentElement.classList.toggle(
-            "dark",
-            theme ===
-              "dark"
-          );
+          document.documentElement.classList.toggle("dark", theme === "dark");
         } catch (_) {}
       })();
     </script>
 
     <!-- Theme Manager -->
     <script is:inline>
-      const getThemePreference =
-        () => {
-          const storedTheme =
-            localStorage.getItem(
-              "theme"
-            );
+      const getThemePreference = () => {
+        const storedTheme = localStorage.getItem("theme");
 
-          if (
-            storedTheme ===
-              "dark" ||
-            storedTheme ===
-              "light"
-          ) {
-            return storedTheme;
-          }
+        if (storedTheme === "dark" || storedTheme === "light") {
+          return storedTheme;
+        }
 
-          return window.matchMedia(
-            "(prefers-color-scheme: dark)"
-          ).matches
-            ? "dark"
-            : "light";
-        };
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      };
 
-      function setTheme(
-        newTheme
-      ) {
-        const root =
-          document.documentElement;
+      function setTheme(newTheme) {
+        const root = document.documentElement;
 
-        root.classList.toggle(
-          "dark",
-          newTheme ===
-            "dark"
-        );
+        root.classList.toggle("dark", newTheme === "dark");
 
-        localStorage.setItem(
-          "theme",
-          newTheme
-        );
+        localStorage.setItem("theme", newTheme);
       }
 
       // Astro navigation
-      document.addEventListener(
-        "astro:page-load",
-        () => {
-          setTheme(
-            getThemePreference()
-          );
-        }
-      );
+      document.addEventListener("astro:page-load", () => {
+        setTheme(getThemePreference());
+      });
 
       // Theme toggle event
-      document.addEventListener(
-        "theme-change",
-        (e) => {
-          setTheme(
-            e.detail.theme
-          );
-        }
-      );
+      document.addEventListener("theme-change", (e) => {
+        setTheme(e.detail.theme);
+      });
     </script>
 
-    <BaseHead
-      title={title}
-      description={
-        description
-      }
-      ogImage={ogImage}
-      date={articleDate}
-    />
+    <BaseHead title={title} description={description} ogImage={ogImage} date={articleDate} />
 
     <title>{title}</title>
   </head>
 
-  <body
-    id="pageBody"
-    class="bg-background text-foreground w-full overflow-x-hidden"
-  >
+  <body id="pageBody" class="bg-background text-foreground w-full overflow-x-hidden">
     <!-- Header -->
     <Header />
 

@@ -1,73 +1,36 @@
 <script is:inline>
   const getThemePreference = () => {
-    const storedTheme =
-      typeof localStorage !== "undefined"
-        ? localStorage.getItem("theme")
-        : null;
+    const storedTheme = typeof localStorage !== "undefined" ? localStorage.getItem("theme") : null;
 
-    return (
-      storedTheme ||
-      (window.matchMedia(
-        "(prefers-color-scheme: light)"
-      ).matches
-        ? "light"
-        : "dark")
-    );
+    return storedTheme || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
   };
 
   function setTheme(newTheme) {
-    if (
-      !newTheme ||
-      (newTheme !== "light" &&
-        newTheme !== "dark")
-    ) {
-      console.warn(
-        `Incorrect theme value received. Expected 'light' or 'dark', received ${newTheme}`
-      );
+    if (!newTheme || (newTheme !== "light" && newTheme !== "dark")) {
+      console.warn(`Incorrect theme value received. Expected 'light' or 'dark', received ${newTheme}`);
       return;
     }
 
-    const root =
-      document.documentElement;
+    const root = document.documentElement;
 
     // Exit if already applied
     if (
-      (newTheme === "dark" &&
-        root.classList.contains("dark")) ||
-      (newTheme === "light" &&
-        !root.classList.contains("dark"))
+      (newTheme === "dark" && root.classList.contains("dark")) ||
+      (newTheme === "light" && !root.classList.contains("dark"))
     ) {
       return;
     }
 
-    const colorThemeMetaTag =
-      document.querySelector(
-        "meta[name='theme-color']"
-      );
+    const colorThemeMetaTag = document.querySelector("meta[name='theme-color']");
 
-    root.classList.toggle(
-      "dark",
-      newTheme === "dark"
-    );
+    root.classList.toggle("dark", newTheme === "dark");
 
-    const bgColor =
-      getComputedStyle(
-        document.body
-      ).getPropertyValue("--theme-bg");
+    const bgColor = getComputedStyle(document.body).getPropertyValue("--theme-bg");
 
-    colorThemeMetaTag?.setAttribute(
-      "content",
-      `hsl(${bgColor})`
-    );
+    colorThemeMetaTag?.setAttribute("content", `hsl(${bgColor})`);
 
-    if (
-      typeof localStorage !==
-      "undefined"
-    ) {
-      localStorage.setItem(
-        "theme",
-        newTheme
-      );
+    if (typeof localStorage !== "undefined") {
+      localStorage.setItem("theme", newTheme);
     }
   }
 
@@ -75,25 +38,16 @@
   setTheme(getThemePreference());
 
   // Astro page navigation fix
-  document.addEventListener(
-    "astro:after-swap",
-    () => {
-      setTheme(getThemePreference());
-    }
-  );
+  document.addEventListener("astro:after-swap", () => {
+    setTheme(getThemePreference());
+  });
 
-  document.addEventListener(
-    "astro:page-load",
-    () => {
-      setTheme(getThemePreference());
-    }
-  );
+  document.addEventListener("astro:page-load", () => {
+    setTheme(getThemePreference());
+  });
 
   // Theme toggle event
-  document.addEventListener(
-    "theme-change",
-    (e) => {
-      setTheme(e.detail.theme);
-    }
-  );
+  document.addEventListener("theme-change", (e) => {
+    setTheme(e.detail.theme);
+  });
 </script>

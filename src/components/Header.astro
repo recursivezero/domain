@@ -5,8 +5,7 @@ import ThemeToggle from "@/components/ThemeToggle.astro";
 
 import logoImage from "@/assets/images/logo.png";
 
-const currentPath =
-  Astro.url.pathname;
+const currentPath = Astro.url.pathname;
 
 const navLinks = [
   {
@@ -31,25 +30,18 @@ const navLinks = [
   }
 ];
 
-const isActive = (
-  path: string
-) => {
+const isActive = (path: string) => {
   if (path === "/") {
-    return (
-      currentPath === "/"
-    );
+    return currentPath === "/";
   }
 
-  return currentPath.startsWith(
-    path
-  );
+  return currentPath.startsWith(path);
 };
 ---
 
 <style>
   .brand {
-    font-family: Boisu,
-      sans-serif;
+    font-family: Boisu, sans-serif;
   }
 </style>
 
@@ -57,59 +49,36 @@ const isActive = (
   class="sticky top-0 z-50 w-full border-b-2 border-black/30 dark:border-white/40"
   style="background: hsl(var(--background));"
 >
-  <div
-    class="mx-auto flex h-24 w-full items-center justify-between px-4 sm:px-6 lg:px-10"
-  >
+  <div class="mx-auto flex h-24 w-full items-center justify-between px-4 sm:px-6 lg:px-10">
     <!-- LEFT -->
-    <a
-      href="/"
-      class="flex items-center gap-3 lg:gap-4"
-    >
+    <a href="/" class="flex items-center gap-3 lg:gap-4">
       <Picture
         src={logoImage}
-        formats={[
-          "png",
-          "webp",
-          "jpg"
-        ]}
+        formats={["png", "webp", "jpg"]}
         alt="Recursive Zero"
         class="h-12 w-12 rounded-full object-contain transition duration-300 dark:brightness-200 dark:invert lg:h-14 lg:w-14"
       />
 
-      <span
-        class="brand text-foreground text-2xl font-extrabold tracking-tight lg:text-4xl"
-      >
-        RECURSIVE ZERO
-      </span>
+      <span class="brand text-foreground text-2xl font-extrabold tracking-tight lg:text-4xl"> RECURSIVE ZERO </span>
     </a>
 
     <!-- CENTER -->
     <nav class="absolute left-1/2 hidden -translate-x-1/2 lg:flex">
       <ul class="flex items-center gap-10">
         {
-          navLinks.map(
-            (item) => (
-              <li>
-                <a
-                  href={
-                    item.href
-                  }
-                  class:list={[
-                    "relative text-xl font-semibold transition duration-300 hover:text-cyan-500",
-                    isActive(
-                      item.href
-                    )
-                      ? "text-cyan-500 underline decoration-2 underline-offset-8"
-                      : "text-foreground"
-                  ]}
-                >
-                  {
-                    item.name
-                  }
-                </a>
-              </li>
-            )
-          )
+          navLinks.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class:list={[
+                  "relative text-xl font-semibold transition duration-300 hover:text-cyan-500",
+                  isActive(item.href) ? "text-cyan-500 underline decoration-2 underline-offset-8" : "text-foreground"
+                ]}
+              >
+                {item.name}
+              </a>
+            </li>
+          ))
         }
       </ul>
     </nav>

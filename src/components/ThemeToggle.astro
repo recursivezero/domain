@@ -13,31 +13,19 @@ import SunIcon from "@/assets/icons/sun.svg";
 
 <script is:inline>
   function initThemeToggle() {
-    const button =
-      document.getElementById(
-        "themeToggle"
-      );
+    const button = document.getElementById("themeToggle");
 
     if (!button) return;
 
     button.onclick = () => {
-      const isDark =
-        document.documentElement.classList.contains(
-          "dark"
-        );
+      const isDark = document.documentElement.classList.contains("dark");
 
       document.dispatchEvent(
-        new CustomEvent(
-          "theme-change",
-          {
-            detail: {
-              theme:
-                isDark
-                  ? "light"
-                  : "dark"
-            }
+        new CustomEvent("theme-change", {
+          detail: {
+            theme: isDark ? "light" : "dark"
           }
-        )
+        })
       );
     };
   }
@@ -46,8 +34,5 @@ import SunIcon from "@/assets/icons/sun.svg";
   initThemeToggle();
 
   // astro page navigation
-  document.addEventListener(
-    "astro:page-load",
-    initThemeToggle
-  );
+  document.addEventListener("astro:page-load", initThemeToggle);
 </script>
