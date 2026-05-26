@@ -1,13 +1,5 @@
 ---
-const props = Astro.props;
-
-const url = props.url;
-const title = props.title;
-const description = props.description;
-const image = props.image;
-const author = props.author;
-const date = props.date;
-const tags = props.tags ?? [];
+const { url, title, description, image, author, date, tags = [] } = Astro.props;
 ---
 
 <article class="group h-full">
