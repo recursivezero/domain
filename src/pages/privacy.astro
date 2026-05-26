@@ -1,62 +1,12 @@
 ---
 import MarkdownContent from "@/components/MarkdownContent.astro";
+
 import { Content } from "@/content/article/privacy.md";
 import BaseLayout from "@/layouts/BaseLayout";
 ---
 
-<BaseLayout
-  meta={{
-    title: "Privacy Policy",
-    description:
-      "Learn how Recursive Zero collects, uses, and protects your information."
-  }}
->
-  <main class="bg-background text-foreground min-h-screen">
-
-    <!-- HERO -->
-    <section>
-      <div class="mx-auto max-w-5xl px-6 py-20 lg:px-10">
-
-        <!-- LABEL -->
-        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">
-          Legal
-        </p>
-
-        <!-- TITLE -->
-        <h1 class="text-4xl font-bold tracking-tight md:text-6xl">
-          Privacy Policy
-        </h1>
-
-        <!-- DESCRIPTION -->
-        <p class="mt-6 max-w-3xl text-lg leading-8 text-foreground/70">
-          Your privacy matters to us. This page explains how
-          Recursive Zero collects, uses, and protects your
-          information while using our products and services.
-        </p>
-
-        <!-- UPDATED -->
-        <p class="mt-6 text-sm text-foreground/50">
-          Last Updated: July 2025
-        </p>
-
-      </div>
-    </section>
-
-    <!-- CONTENT -->
-    <section class="mx-auto max-w-5xl px-6 pb-24 lg:px-10">
-
-      <div
-        class="rounded-[2rem] border border-foreground/10 bg-background shadow-sm"
-      >
-        <!-- TOP SPACE FIXED -->
-        <div class="px-8 pt-6 pb-10 md:px-12 md:pt-8 md:pb-12 lg:px-16 lg:pt-10 lg:pb-16">
-          <MarkdownContent>
-            <Content />
-          </MarkdownContent>
-        </div>
-      </div>
-
-    </section>
-
-  </main>
+<BaseLayout meta={{ title: "Privacy Policy" }}>
+  <MarkdownContent>
+    <Content />
+  </MarkdownContent>
 </BaseLayout>
