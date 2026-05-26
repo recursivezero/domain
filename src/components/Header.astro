@@ -1,194 +1,129 @@
 ---
 import { Picture } from "astro:assets";
 import "../assets/styles/custom-font.css";
+import ThemeToggle from "@/components/ThemeToggle.astro";
 
 import logoImage from "@/assets/images/logo.png";
 
-const currentPath = Astro.url.pathname;
+const currentPath =
+  Astro.url.pathname;
 
 const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Blogs", href: "/blogs" },
-  { name: "Career", href: "/career" },
-  { name: "Work", href: "/work" }
+  {
+    name: "Home",
+    href: "/"
+  },
+  {
+    name: "About",
+    href: "/about"
+  },
+  {
+    name: "Blogs",
+    href: "/blogs"
+  },
+  {
+    name: "Career",
+    href: "/career"
+  },
+  {
+    name: "Work",
+    href: "/work"
+  }
 ];
 
-const isActive = (path: string) => {
+const isActive = (
+  path: string
+) => {
   if (path === "/") {
-    return currentPath === "/";
+    return (
+      currentPath === "/"
+    );
   }
 
-  return currentPath.startsWith(path);
+  return currentPath.startsWith(
+    path
+  );
 };
 ---
 
 <style>
   .brand {
-    font-family: Boisu, sans-serif;
+    font-family: Boisu,
+      sans-serif;
   }
 </style>
 
 <header
   class="sticky top-0 z-50 w-full border-b-2 border-black/30 dark:border-white/40"
-  style="background: hsl(var(--background)); backdrop-filter: none;"
+  style="background: hsl(var(--background));"
 >
-  <div class="mx-auto flex h-24 w-full items-center justify-between px-4 sm:px-6 lg:px-10">
-    <!-- LEFT LOGO -->
-    <a href="/" class="flex items-center gap-3 lg:gap-4">
+  <div
+    class="mx-auto flex h-24 w-full items-center justify-between px-4 sm:px-6 lg:px-10"
+  >
+    <!-- LEFT -->
+    <a
+      href="/"
+      class="flex items-center gap-3 lg:gap-4"
+    >
       <Picture
         src={logoImage}
-        formats={["png", "webp", "jpg"]}
+        formats={[
+          "png",
+          "webp",
+          "jpg"
+        ]}
         alt="Recursive Zero"
         class="h-12 w-12 rounded-full object-contain transition duration-300 dark:brightness-200 dark:invert lg:h-14 lg:w-14"
-        loading="eager"
       />
 
-      <span class="brand text-foreground text-2xl font-extrabold tracking-tight lg:text-4xl"> RECURSIVE ZERO </span>
+      <span
+        class="brand text-foreground text-2xl font-extrabold tracking-tight lg:text-4xl"
+      >
+        RECURSIVE ZERO
+      </span>
     </a>
 
-    <!-- CENTER NAV -->
+    <!-- CENTER -->
     <nav class="absolute left-1/2 hidden -translate-x-1/2 lg:flex">
       <ul class="flex items-center gap-10">
         {
-          navLinks.map((item) => (
-            <li>
-              <a
-                href={item.href}
-                class:list={[
-                  "relative text-xl font-semibold transition duration-300 hover:text-cyan-500",
-                  isActive(item.href) ? "text-cyan-500 underline decoration-2 underline-offset-8" : "text-foreground"
-                ]}
-              >
-                {item.name}
-              </a>
-            </li>
-          ))
+          navLinks.map(
+            (item) => (
+              <li>
+                <a
+                  href={
+                    item.href
+                  }
+                  class:list={[
+                    "relative text-xl font-semibold transition duration-300 hover:text-cyan-500",
+                    isActive(
+                      item.href
+                    )
+                      ? "text-cyan-500 underline decoration-2 underline-offset-8"
+                      : "text-foreground"
+                  ]}
+                >
+                  {
+                    item.name
+                  }
+                </a>
+              </li>
+            )
+          )
         }
       </ul>
     </nav>
 
     <!-- RIGHT -->
     <div class="flex items-center gap-4">
-      <!-- THEME TOGGLE -->
-      <button
-        id="themeToggle"
-        class="border-foreground/10 text-foreground hover:bg-foreground hover:text-background flex h-12 w-12 items-center justify-center rounded-2xl border transition duration-300"
-        aria-label="Toggle Theme"
-      >
-        <svg
-          id="themeIcon"
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M21 12.79A9 9 0 1111.21 3c0 .27.02.53.05.79A7 7 0 0021 12.79z"></path>
-        </svg>
-      </button>
-
-      <!-- JOIN BUTTON -->
-      <a
-        href="/career"
-        class="bg-foreground text-background hover:text-background hidden items-center gap-2 rounded-2xl px-6 py-3 text-lg font-semibold transition duration-300 hover:bg-cyan-500 lg:flex"
-      >
-        <span>Join Us</span>
-
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-        </svg>
-      </a>
-
-      <!-- MOBILE MENU BUTTON -->
-      <button id="menuBtn" class="border-foreground/10 text-foreground rounded-xl border px-4 py-2 text-xl lg:hidden">
-        ☰
-      </button>
-    </div>
-  </div>
-
-  <!-- MOBILE MENU -->
-  <div id="mobileMenu" class="border-foreground/10 bg-background hidden border-t px-6 py-6 lg:hidden">
-    <div class="flex flex-col gap-5">
-      {
-        navLinks.map((item) => (
-          <a
-            href={item.href}
-            class:list={[
-              "text-lg font-semibold transition hover:text-cyan-500",
-              isActive(item.href) ? "text-cyan-500 underline decoration-2 underline-offset-8" : "text-foreground"
-            ]}
-          >
-            {item.name}
-          </a>
-        ))
-      }
+      <ThemeToggle />
 
       <a
         href="/career"
-        class="bg-foreground text-background mt-2 rounded-2xl px-5 py-3 text-center text-lg font-semibold"
+        class="bg-foreground text-background hidden rounded-2xl px-6 py-3 text-lg font-semibold transition duration-300 hover:bg-cyan-500 lg:flex"
       >
         Join Us
       </a>
     </div>
   </div>
 </header>
-
-<script is:inline>
-  const btn = document.getElementById("menuBtn");
-
-  const menu = document.getElementById("mobileMenu");
-
-  btn?.addEventListener("click", () => {
-    menu?.classList.toggle("hidden");
-  });
-
-  const themeToggle = document.getElementById("themeToggle");
-
-  const themeIcon = document.getElementById("themeIcon");
-
-  const updateThemeIcon = () => {
-    const isDark = document.documentElement.classList.contains("dark");
-
-    if (!themeIcon) return;
-
-    themeIcon.innerHTML = isDark
-      ? `
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M21 12.79A9 9 0 1111.21 3c0 .27.02.53.05.79A7 7 0 0021 12.79z"
-        />
-      `
-      : `
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364 6.364l-1.414-1.414M7.05 7.05 5.636 5.636m12.728 0-1.414 1.414M7.05 16.95l-1.414 1.414M12 8a4 4 0 100 8 4 4 0 000-8z"
-        />
-      `;
-  };
-
-  updateThemeIcon();
-
-  themeToggle?.addEventListener("click", () => {
-    document.documentElement.classList.toggle("dark");
-
-    const isDark = document.documentElement.classList.contains("dark");
-
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-
-    updateThemeIcon();
-  });
-</script>
