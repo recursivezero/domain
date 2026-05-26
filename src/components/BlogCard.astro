@@ -14,22 +14,12 @@ const tags = props.tags ?? [];
   <a
     href={url}
     target={url.startsWith("http") ? "_blank" : undefined}
-    rel={
-      url.startsWith("http")
-        ? "noopener noreferrer"
-        : undefined
-    }
+    rel={url.startsWith("http") ? "noopener noreferrer" : undefined}
     class="block h-full"
   >
     <div
-      class="flex h-full flex-col overflow-hidden rounded-3xl
-      border border-foreground/10
-      bg-background/80 backdrop-blur-md
-      shadow-lg transition-all duration-300
-      hover:-translate-y-3 hover:border-cyan-400/30
-      hover:shadow-2xl"
+      class="border-foreground/10 bg-background/80 flex h-full flex-col overflow-hidden rounded-3xl border shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-3 hover:border-cyan-400/30 hover:shadow-2xl"
     >
-
       <!-- Image -->
       <figure class="h-64 overflow-hidden rounded-t-3xl">
         <img
@@ -42,64 +32,49 @@ const tags = props.tags ?? [];
 
       <!-- Content -->
       <div class="flex flex-1 flex-col p-6">
-
         <!-- TAGS -->
         <div class="mb-4 flex flex-wrap gap-2">
-          {tags.slice(0, 2).map((tag: string) => (
-            <span
-              class="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-3 py-1 text-xs font-medium text-cyan-500"
-            >
-              #{tag}
-            </span>
-          ))}
+          {
+            tags
+              .slice(0, 2)
+              .map((tag: string) => (
+                <span class="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-3 py-1 text-xs font-medium text-cyan-500">
+                  #{tag}
+                </span>
+              ))
+          }
         </div>
 
         <!-- Title -->
         <h3
-          class="line-clamp-2 text-2xl font-bold leading-snug text-foreground transition-colors duration-300 group-hover:text-cyan-600"
+          class="text-foreground line-clamp-2 text-2xl font-bold leading-snug transition-colors duration-300 group-hover:text-cyan-600"
         >
           {title}
         </h3>
 
         <!-- Description -->
-        {
-          description && (
-            <p class="mt-4 line-clamp-3 flex-1 text-base leading-8 text-foreground/75">
-              {description}
-            </p>
-          )
-        }
+        {description && <p class="text-foreground/75 mt-4 line-clamp-3 flex-1 text-base leading-8">{description}</p>}
 
         <!-- Bottom Meta -->
-        <div class="mt-6 flex items-center justify-between border-t border-foreground/10 pt-4 text-sm text-foreground/70">
-
+        <div
+          class="border-foreground/10 text-foreground/70 mt-6 flex items-center justify-between border-t pt-4 text-sm"
+        >
           <!-- Website / Author -->
           <span>
             {
               url.startsWith("http") ? (
-                <span
-                  class="truncate underline underline-offset-4 text-cyan-600 dark:text-white transition"
-                >
+                <span class="truncate text-cyan-600 underline underline-offset-4 transition dark:text-white">
                   {new URL(url).origin}
                 </span>
               ) : (
-                <span>
-                  {author
-                    ? `By ${author}`
-                    : "Recursive Zero"}
-                </span>
+                <span>{author ? `By ${author}` : "Recursive Zero"}</span>
               )
             }
           </span>
 
           <!-- Date -->
-          {date && (
-            <time datetime={date}>
-              {date}
-            </time>
-          )}
+          {date && <time datetime={date}>{date}</time>}
         </div>
-
       </div>
     </div>
   </a>

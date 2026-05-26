@@ -4,30 +4,27 @@ import BaseLayout from "@/layouts/BaseLayout";
 
 <BaseLayout meta={{ title: "About" }}>
   <!-- HERO -->
-  <section class="relative overflow-hidden bg-background text-foreground">
+  <section class="bg-background text-foreground relative overflow-hidden">
     <!-- subtle glow -->
     <div class="absolute -top-20 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-cyan-500/20 blur-3xl"></div>
 
     <div class="relative mx-auto max-w-5xl px-6 py-28 text-center md:py-36">
-      <p class="mb-4 text-sm uppercase tracking-[0.25em] text-cyan-500">
-        Recursive Zero
-      </p>
+      <p class="mb-4 text-sm uppercase tracking-[0.25em] text-cyan-500">Recursive Zero</p>
 
       <h1 class="text-5xl font-bold leading-tight md:text-7xl">
         Building Digital Products <br />
         That Drive <span class="text-cyan-500">Impact</span>
       </h1>
 
-      <p class="mx-auto mt-8 max-w-2xl text-lg text-foreground/70">
-        We design and build scalable web applications, internal tools,
-        and modern digital experiences.
+      <p class="text-foreground/70 mx-auto mt-8 max-w-2xl text-lg">
+        We design and build scalable web applications, internal tools, and modern digital experiences.
       </p>
 
       <!-- CTA Buttons -->
       <div class="mt-10 flex flex-wrap justify-center gap-4">
         <a
           href="/contact"
-          class="rounded-xl border-2 border-gray-500 dark:border-foreground/20 px-6 py-3 font-semibold text-foreground transition hover:bg-foreground hover:text-background"
+          class="dark:border-foreground/20 text-foreground hover:bg-foreground hover:text-background rounded-xl border-2 border-gray-500 px-6 py-3 font-semibold transition"
         >
           Contact Us
         </a>
@@ -35,7 +32,7 @@ import BaseLayout from "@/layouts/BaseLayout";
         <!-- Work (same tab) -->
         <a
           href="/work"
-          class="rounded-xl border-2 border-gray-500 dark:border-foreground/20 px-6 py-3 font-semibold text-foreground transition hover:bg-foreground hover:text-background"
+          class="dark:border-foreground/20 text-foreground hover:bg-foreground hover:text-background rounded-xl border-2 border-gray-500 px-6 py-3 font-semibold transition"
         >
           View Our Work
         </a>
@@ -46,14 +43,11 @@ import BaseLayout from "@/layouts/BaseLayout";
   <!-- STORY -->
   <section class="bg-background text-foreground">
     <div class="mx-auto max-w-3xl px-6 py-20 text-center">
-      <h2 class="text-4xl font-bold text-foreground">
-        Our Story
-      </h2>
+      <h2 class="text-foreground text-4xl font-bold">Our Story</h2>
 
-      <p class="mt-6 text-lg leading-8 text-foreground/70">
-        Founded in 2024, Recursive Zero focuses on crafting efficient,
-        scalable, and modern applications. We combine engineering
-        excellence with simplicity to deliver real impact.
+      <p class="text-foreground/70 mt-6 text-lg leading-8">
+        Founded in 2024, Recursive Zero focuses on crafting efficient, scalable, and modern applications. We combine
+        engineering excellence with simplicity to deliver real impact.
       </p>
     </div>
   </section>
@@ -61,45 +55,27 @@ import BaseLayout from "@/layouts/BaseLayout";
   <!-- WHY CHOOSE US -->
   <section class="bg-background text-foreground">
     <div class="mx-auto max-w-6xl px-6 py-20">
-      <h2 class="mb-12 text-center text-4xl font-bold">
-        Why Choose Us
-      </h2>
+      <h2 class="mb-12 text-center text-4xl font-bold">Why Choose Us</h2>
 
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        <div
-          class="rounded-xl border border-foreground/10 bg-background/60 p-6 text-center backdrop-blur-md"
-        >
+        <div class="border-foreground/10 bg-background/60 rounded-xl border p-6 text-center backdrop-blur-md">
           <h3 class="text-3xl font-bold">50+</h3>
-          <p class="text-foreground/70">
-            Projects
-          </p>
+          <p class="text-foreground/70">Projects</p>
         </div>
 
-        <div
-          class="rounded-xl border border-foreground/10 bg-background/60 p-6 text-center backdrop-blur-md"
-        >
+        <div class="border-foreground/10 bg-background/60 rounded-xl border p-6 text-center backdrop-blur-md">
           <h3 class="text-3xl font-bold">20+</h3>
-          <p class="text-foreground/70">
-            Clients
-          </p>
+          <p class="text-foreground/70">Clients</p>
         </div>
 
-        <div
-          class="rounded-xl border border-foreground/10 bg-background/60 p-6 text-center backdrop-blur-md"
-        >
+        <div class="border-foreground/10 bg-background/60 rounded-xl border p-6 text-center backdrop-blur-md">
           <h3 class="text-3xl font-bold">99%</h3>
-          <p class="text-foreground/70">
-            Satisfaction
-          </p>
+          <p class="text-foreground/70">Satisfaction</p>
         </div>
 
-        <div
-          class="rounded-xl border border-foreground/10 bg-background/60 p-6 text-center backdrop-blur-md"
-        >
+        <div class="border-foreground/10 bg-background/60 rounded-xl border p-6 text-center backdrop-blur-md">
           <h3 class="text-3xl font-bold">4+</h3>
-          <p class="text-foreground/70">
-            Years
-          </p>
+          <p class="text-foreground/70">Years</p>
         </div>
       </div>
     </div>
@@ -108,33 +84,23 @@ import BaseLayout from "@/layouts/BaseLayout";
   <!-- TEAM -->
   <section class="bg-background text-foreground">
     <div class="mx-auto max-w-5xl px-6 py-20">
-      <h2 class="mb-10 text-center text-4xl font-bold text-foreground">
-        Our Team
-      </h2>
+      <h2 class="text-foreground mb-10 text-center text-4xl font-bold">Our Team</h2>
 
       <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
         <div
-          class="rounded-2xl border border-foreground/10 bg-background/60 p-6 text-center shadow-sm transition hover:shadow-xl"
+          class="border-foreground/10 bg-background/60 rounded-2xl border p-6 text-center shadow-sm transition hover:shadow-xl"
         >
-          <h3 class="text-xl font-bold text-foreground">
-            Keshav Mohta
-          </h3>
+          <h3 class="text-foreground text-xl font-bold">Keshav Mohta</h3>
 
-          <p class="text-foreground/60">
-            Founder & CEO
-          </p>
+          <p class="text-foreground/60">Founder & CEO</p>
         </div>
 
         <div
-          class="rounded-2xl border border-foreground/10 bg-background/60 p-6 text-center shadow-sm transition hover:shadow-xl"
+          class="border-foreground/10 bg-background/60 rounded-2xl border p-6 text-center shadow-sm transition hover:shadow-xl"
         >
-          <h3 class="text-xl font-bold text-foreground">
-            Poorna Chandra
-          </h3>
+          <h3 class="text-foreground text-xl font-bold">Poorna Chandra</h3>
 
-          <p class="text-foreground/60">
-            Python Developer
-          </p>
+          <p class="text-foreground/60">Python Developer</p>
         </div>
       </div>
     </div>
@@ -143,14 +109,11 @@ import BaseLayout from "@/layouts/BaseLayout";
   <!-- MISSION -->
   <section class="bg-background text-foreground">
     <div class="mx-auto max-w-3xl px-6 py-20 text-center">
-      <h2 class="text-4xl font-bold text-foreground">
-        Our Mission
-      </h2>
+      <h2 class="text-foreground text-4xl font-bold">Our Mission</h2>
 
-      <p class="mt-6 text-lg leading-8 text-foreground/70">
-        Our mission is to deliver exceptional value through innovative
-        solutions and outstanding service, helping businesses grow
-        faster.
+      <p class="text-foreground/70 mt-6 text-lg leading-8">
+        Our mission is to deliver exceptional value through innovative solutions and outstanding service, helping
+        businesses grow faster.
       </p>
     </div>
   </section>
@@ -158,13 +121,9 @@ import BaseLayout from "@/layouts/BaseLayout";
   <!-- CTA -->
   <section class="bg-background text-foreground">
     <div class="mx-auto max-w-3xl px-6 py-20 text-center">
-      <h2 class="text-4xl font-bold">
-        Ready to build something amazing?
-      </h2>
+      <h2 class="text-4xl font-bold">Ready to build something amazing?</h2>
 
-      <p class="mt-4 text-foreground/70">
-        Let’s turn your ideas into reality.
-      </p>
+      <p class="text-foreground/70 mt-4">Let’s turn your ideas into reality.</p>
 
       <a
         href="/contact"
@@ -172,11 +131,7 @@ import BaseLayout from "@/layouts/BaseLayout";
       >
         <span>Contact Us</span>
 
-        <span
-          class="transition duration-300 group-hover:translate-x-1"
-        >
-          →
-        </span>
+        <span class="transition duration-300 group-hover:translate-x-1"> → </span>
       </a>
     </div>
   </section>

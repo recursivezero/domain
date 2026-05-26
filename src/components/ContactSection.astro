@@ -6,66 +6,44 @@ import { Image } from "astro:assets";
 <section id="contactForm" class="bg-background text-foreground">
   <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
     <div class="grid items-center gap-14 lg:grid-cols-2">
-
       <!-- Left Content -->
       <div>
-        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">
-          Contact Us
-        </p>
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">Contact Us</p>
 
-        <h2 class="text-4xl font-bold leading-tight tracking-tight md:text-5xl">
-          Reach Recursive Zero
-        </h2>
+        <h2 class="text-4xl font-bold leading-tight tracking-tight md:text-5xl">Reach Recursive Zero</h2>
 
-        <p class="mt-6 max-w-xl text-lg leading-8 text-foreground/70">
-          Tech simplified — Harness the power of modern technology with
-          Recursive Zero. Send us a message and let’s build something
-          impactful together.
+        <p class="text-foreground/70 mt-6 max-w-xl text-lg leading-8">
+          Tech simplified — Harness the power of modern technology with Recursive Zero. Send us a message and let’s
+          build something impactful together.
         </p>
 
         <!-- Contact Info -->
-        <div class="mt-8 space-y-4 text-foreground/70">
-
+        <div class="text-foreground/70 mt-8 space-y-4">
           <!-- Email -->
           <div class="text-lg">
-            <span class="font-semibold text-foreground">
-              Email:
-            </span>
+            <span class="text-foreground font-semibold"> Email: </span>
 
-            <a
-              href="mailto:hello@recursivezero.com"
-              class="ml-1 break-all text-cyan-500 transition hover:underline"
-            >
+            <a href="mailto:hello@recursivezero.com" class="ml-1 break-all text-cyan-500 transition hover:underline">
               hello@recursivezero.com
             </a>
           </div>
 
           <!-- Phone (Not Clickable) -->
           <!-- Phone -->
-<div class="text-lg">
-  <span class="font-semibold text-foreground">
-    Phone:
-  </span>
-
-  
-</div>
+          <div class="text-lg">
+            <span class="text-foreground font-semibold"> Phone: </span>
+          </div>
           <!-- Location -->
           <div class="text-lg">
-            <span class="font-semibold text-foreground">
-              Location:
-            </span>
+            <span class="text-foreground font-semibold"> Location: </span>
 
-            <span class="ml-1 text-foreground/70">
-              Bengaluru, India
-            </span>
+            <span class="text-foreground/70 ml-1"> Bengaluru, India </span>
           </div>
         </div>
 
         <!-- Image -->
         <div class="relative mt-10">
-          <div
-            class="absolute -left-5 top-5 h-32 w-32 rounded-full bg-cyan-500/20 blur-3xl"
-          ></div>
+          <div class="absolute -left-5 top-5 h-32 w-32 rounded-full bg-cyan-500/20 blur-3xl"></div>
 
           <Image
             src={contactUs}
@@ -77,68 +55,40 @@ import { Image } from "astro:assets";
       </div>
 
       <!-- Right Form -->
-      <div
-        class="rounded-3xl
-        border border-foreground/10
-        bg-background/60 backdrop-blur-xl
-        p-8 lg:p-10"
-      >
-        <h3 class="text-2xl font-bold text-foreground">
-          Let's Talk
-        </h3>
+      <div class="border-foreground/10 bg-background/60 rounded-3xl border p-8 backdrop-blur-xl lg:p-10">
+        <h3 class="text-foreground text-2xl font-bold">Let's Talk</h3>
 
-        <p class="mt-2 text-foreground/60">
-          Fill the form and we’ll get back to you shortly.
-        </p>
+        <p class="text-foreground/60 mt-2">Fill the form and we’ll get back to you shortly.</p>
 
         <form class="mt-8 space-y-5">
-
           <!-- NAME -->
           <input
             type="text"
             placeholder="Full Name"
-            class="h-14 w-full rounded-xl
-            border border-foreground/10
-            bg-white dark:bg-background
-            px-5 text-foreground outline-none
-            placeholder:text-foreground/40
-            focus:border-cyan-500"
+            class="border-foreground/10 dark:bg-background text-foreground placeholder:text-foreground/40 h-14 w-full rounded-xl border bg-white px-5 outline-none focus:border-cyan-500"
           />
 
           <!-- EMAIL -->
           <input
             type="email"
             placeholder="Email Address"
-            class="h-14 w-full rounded-xl
-            border border-foreground/10
-            bg-white dark:bg-background
-            px-5 text-foreground outline-none
-            placeholder:text-foreground/40
-            focus:border-cyan-500"
+            class="border-foreground/10 dark:bg-background text-foreground placeholder:text-foreground/40 h-14 w-full rounded-xl border bg-white px-5 outline-none focus:border-cyan-500"
           />
 
           <!-- MESSAGE -->
           <textarea
             rows="5"
             placeholder="Your Message"
-            class="w-full rounded-xl
-            border border-foreground/10
-            bg-white dark:bg-background
-            px-5 py-4 text-foreground outline-none
-            placeholder:text-foreground/40
-            focus:border-cyan-500"
+            class="border-foreground/10 dark:bg-background text-foreground placeholder:text-foreground/40 w-full rounded-xl border bg-white px-5 py-4 outline-none focus:border-cyan-500"
           ></textarea>
 
           <!-- BUTTON -->
           <button
             type="submit"
-            class="h-14 w-full rounded-xl
-            bg-cyan-500 font-semibold text-black
-            transition hover:scale-[1.02]"
+            class="h-14 w-full rounded-xl bg-cyan-500 font-semibold text-black transition hover:scale-[1.02]"
           >
             Send Message
           </button>
-
         </form>
       </div>
     </div>

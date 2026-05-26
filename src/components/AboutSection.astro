@@ -3,15 +3,12 @@ import image from "@/assets/images/about.jpg";
 import { Image } from "astro:assets";
 ---
 
-<section class="overflow-hidden bg-background text-foreground">
+<section class="bg-background text-foreground overflow-hidden">
   <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
     <div class="grid items-center gap-14 lg:grid-cols-2">
-
       <!-- Left Content -->
       <div>
-        <p class="mb-5 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-400">
-          Recursive Zero
-        </p>
+        <p class="mb-5 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-400">Recursive Zero</p>
 
         <h1 class="text-5xl font-bold leading-tight tracking-tight md:text-6xl lg:text-7xl">
           We Build Digital <br />
@@ -19,19 +16,17 @@ import { Image } from "astro:assets";
           Drive <span class="text-cyan-400">Results.</span>
         </h1>
 
-        <p class="mt-7 max-w-xl text-lg leading-8 text-foreground/70">
-          Recursive Zero crafts high-performance web apps, internal tools,
-          and scalable digital solutions that simplify operations and
-          accelerate business growth.
+        <p class="text-foreground/70 mt-7 max-w-xl text-lg leading-8">
+          Recursive Zero crafts high-performance web apps, internal tools, and scalable digital solutions that simplify
+          operations and accelerate business growth.
         </p>
 
         <!-- Buttons -->
         <div class="mt-10 flex flex-wrap gap-4">
-
           <!-- Contact -->
           <a
             href="#contactForm"
-            class="rounded-xl border-2 border-gray-500 dark:border-foreground/20 px-7 py-4 font-semibold text-foreground transition hover:bg-foreground hover:text-background"
+            class="dark:border-foreground/20 text-foreground hover:bg-foreground hover:text-background rounded-xl border-2 border-gray-500 px-7 py-4 font-semibold transition"
           >
             Contact Us →
           </a>
@@ -39,14 +34,14 @@ import { Image } from "astro:assets";
           <!-- Work (same tab) -->
           <a
             href="/work"
-            class="rounded-xl border-2 border-gray-500 dark:border-foreground/20 px-7 py-4 font-semibold text-foreground transition hover:bg-foreground hover:text-background"
+            class="dark:border-foreground/20 text-foreground hover:bg-foreground hover:text-background rounded-xl border-2 border-gray-500 px-7 py-4 font-semibold transition"
           >
             View Our Work
           </a>
         </div>
 
         <!-- Points -->
-        <div class="mt-10 flex flex-wrap gap-6 text-sm text-foreground/70">
+        <div class="text-foreground/70 mt-10 flex flex-wrap gap-6 text-sm">
           <span>✓ Fast Delivery</span>
           <span>✓ Scalable</span>
           <span>✓ Client-Focused</span>
@@ -63,7 +58,7 @@ import { Image } from "astro:assets";
           src={image}
           width={1000}
           alt="Dashboard Preview"
-          class="relative z-10 w-full rounded-3xl border border-foreground/10 object-cover shadow-2xl"
+          class="border-foreground/10 relative z-10 w-full rounded-3xl border object-cover shadow-2xl"
         />
       </div>
     </div>

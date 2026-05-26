@@ -7,42 +7,27 @@ import { getCollection } from "astro:content";
 const posts = await getCollection("blog");
 
 /* ALL UNIQUE TAGS */
-const allTags = [
-  ...new Set(
-    posts.flatMap(
-      (post) => post.data.tags || []
-    )
-  )
-];
+const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []))];
 ---
 
 <BaseLayout meta={{ title: "Blog Articles" }}>
   <main class="bg-background text-foreground">
-
     <!-- HERO -->
     <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-
       <div class="text-center">
-
         <!-- LABEL -->
-        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">
-          Recursive Zero Blogs
-        </p>
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">Recursive Zero Blogs</p>
 
         <!-- HEADING -->
-        <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl">
-          Blog Articles
-        </h1>
+        <h1 class="text-foreground text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">Blog Articles</h1>
 
         <!-- DESCRIPTION -->
-        <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-foreground/70">
-          Discover our latest blogs, development insights,
-          tutorials, product updates and engineering stories.
+        <p class="text-foreground/70 mx-auto mt-6 max-w-2xl text-lg leading-8">
+          Discover our latest blogs, development insights, tutorials, product updates and engineering stories.
         </p>
 
         <!-- TAG PREVIEW -->
         <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
-
           {
             allTags.slice(0, 3).map((tag) => (
               <a
@@ -57,35 +42,29 @@ const allTags = [
           <!-- MORE TAGS BUTTON -->
           <a
             href="/blogs/tag"
-            class="rounded-full border border-foreground/10 px-5 py-2 text-sm font-semibold text-foreground transition duration-300 hover:border-cyan-500 hover:text-cyan-500"
+            class="border-foreground/10 text-foreground rounded-full border px-5 py-2 text-sm font-semibold transition duration-300 hover:border-cyan-500 hover:text-cyan-500"
           >
             More Tags →
           </a>
-
         </div>
-
       </div>
 
       <!-- BLOG GRID -->
       <div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-
         {
           posts.map((post) => (
             <BlogCard
-  url={`/blogs/${post.slug}`}
-  title={post.data.title}
-  description={post.data.description}
-  image={post.data.image}
-  author={post.data.author}
-  date={post.data.date.toLocaleDateString()}
-  tags={post.data.tags}
-/>
+              url={`/blogs/${post.slug}`}
+              title={post.data.title}
+              description={post.data.description}
+              image={post.data.image}
+              author={post.data.author}
+              date={post.data.date.toLocaleDateString()}
+              tags={post.data.tags}
+            />
           ))
         }
-
       </div>
-
     </section>
-
   </main>
 </BaseLayout>

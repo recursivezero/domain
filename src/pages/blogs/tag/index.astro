@@ -5,40 +5,22 @@ import { getCollection } from "astro:content";
 const posts = await getCollection("blog");
 
 // ALL UNIQUE TAGS
-const tags = [
-  ...new Set(
-    posts.flatMap(
-      (post) => post.data.tags || []
-    )
-  )
-];
+const tags = [...new Set(posts.flatMap((post) => post.data.tags || []))];
 
 // ERROR MESSAGE
-const showError =
-  Astro.url.searchParams.get("error")
-  === "notfound";
+const showError = Astro.url.searchParams.get("error") === "notfound";
 ---
 
 <BaseLayout meta={{ title: "Blog Tags" }}>
   <main class="bg-background text-foreground min-h-screen">
-
     <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-
       <!-- TITLE -->
       <div class="text-center">
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">Explore Blogs</p>
 
-        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">
-          Explore Blogs
-        </p>
+        <h1 class="text-4xl font-bold md:text-6xl">Browse by Tags</h1>
 
-        <h1 class="text-4xl font-bold md:text-6xl">
-          Browse by Tags
-        </h1>
-
-        <p class="mx-auto mt-6 max-w-2xl text-lg text-foreground/70">
-          Select a tag to explore related blogs.
-        </p>
-
+        <p class="text-foreground/70 mx-auto mt-6 max-w-2xl text-lg">Select a tag to explore related blogs.</p>
       </div>
 
       <!-- ERROR POPUP -->
@@ -52,7 +34,6 @@ const showError =
 
       <!-- TAGS -->
       <div class="mt-16 flex flex-wrap justify-center gap-5">
-
         {
           tags.map((tag) => (
             <a
@@ -63,10 +44,7 @@ const showError =
             </a>
           ))
         }
-
       </div>
-
     </section>
-
   </main>
 </BaseLayout>
