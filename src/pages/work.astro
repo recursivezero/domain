@@ -1,5 +1,7 @@
 ---
 import fabricAI from "@/assets/images/fabric-ai.png";
+import techTaboo from "@/assets/images/TechTaboo.png";
+
 import BlogCard from "@/components/BlogCard.astro";
 import BaseLayout from "@/layouts/BaseLayout";
 
@@ -16,8 +18,11 @@ const pageList = Object.entries(pages)
 
     return {
       title: frontmatter.title || "Page Title",
+
       description: frontmatter.description || "Page description.",
+
       image: frontmatter.image || "No Image",
+
       route
     };
   })
@@ -32,6 +37,7 @@ const externalProjects = [
     image: "https://github.com/recursivezero/abcd/blob/main/public/assets/images/512x512.png?raw=true",
     isActive: true
   },
+
   {
     url: "https://threadzip.com/",
     title: "Threadzip",
@@ -47,6 +53,7 @@ const externalProjects = [
     image: "https://rzro.link/static/og-image.jpg",
     isActive: true
   },
+
   {
     url: "https://lab.threadzip.com",
     title: "Threadzip Lab",
@@ -54,6 +61,7 @@ const externalProjects = [
     image: "https://lab.threadzip.com/media/4506a1f4769fb57c54b53e6189d5b405971d3595e689f77360792546.jpg",
     isActive: true
   },
+
   {
     url: "https://pro.threadzip.com",
     title: "Threadzip Pro",
@@ -61,17 +69,29 @@ const externalProjects = [
     image: fabricAI.src,
     isActive: true
   },
+
   {
     url: "https://app.threadzip.com",
     title: "Threadzip App",
     description: "A B2B marketplace for textile raw material businesses.",
     image: "https://app.threadzip.com/threadzip_logo_white.png",
     isActive: true
+  },
+  {
+    url: "https://recursivezero.github.io/taboo/",
+    title: "Tech Taboo",
+    description: "A fun and interactive tech-themed taboo game platform.",
+    image: techTaboo.src,
+    isActive: true
   }
 ];
 ---
 
-<BaseLayout meta={{ title: "Our Work" }}>
+<BaseLayout
+  meta={{
+    title: "Our Work"
+  }}
+>
   <main class="bg-background text-foreground">
     <!-- HERO -->
     <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">

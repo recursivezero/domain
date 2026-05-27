@@ -4,76 +4,130 @@ import MoonIcon from "@/assets/icons/moon.svg";
 ---
 
 <button
-  id="themeToggle"
   type="button"
-  class="border-foreground/10 text-foreground hover:bg-foreground hover:text-background flex h-12 w-12 items-center justify-center rounded-2xl border transition duration-300"
+  class="themeToggle border-foreground/10 text-foreground hover:bg-foreground hover:text-background flex h-12 w-12 items-center justify-center rounded-2xl border transition duration-300"
   aria-label="Toggle Theme"
 >
   <!-- Light Mode Icon -->
-  <span id="sunIcon">
+  <span class="sunIcon">
     <SunIcon class="h-6 w-6" />
   </span>
 
   <!-- Dark Mode Icon -->
-  <span id="moonIcon" class="hidden">
+  <span class="moonIcon hidden">
     <MoonIcon class="h-6 w-6" />
   </span>
 </button>
 
 <script is:inline>
-  function updateThemeIcon() {
-    const isDark = document.documentElement.classList.contains("dark");
+  function updateThemeIcons() {
+    const isDark =
+      document.documentElement.classList.contains(
+        "dark"
+      );
 
-    const sunIcon = document.getElementById("sunIcon");
+    const toggles =
+      document.querySelectorAll(
+        ".themeToggle"
+      );
 
-    const moonIcon = document.getElementById("moonIcon");
+    toggles.forEach(
+      (toggle) => {
+        const sunIcon =
+          toggle.querySelector(
+            ".sunIcon"
+          );
 
-    if (!sunIcon || !moonIcon) return;
+        const moonIcon =
+          toggle.querySelector(
+            ".moonIcon"
+          );
 
-    if (isDark) {
-      sunIcon.classList.add("hidden");
+        if (
+          !sunIcon ||
+          !moonIcon
+        )
+          return;
 
-      moonIcon.classList.remove("hidden");
-    } else {
-      moonIcon.classList.add("hidden");
+        if (isDark) {
+          sunIcon.classList.add(
+            "hidden"
+          );
 
-      sunIcon.classList.remove("hidden");
-    }
+          moonIcon.classList.remove(
+            "hidden"
+          );
+        } else {
+          moonIcon.classList.add(
+            "hidden"
+          );
+
+          sunIcon.classList.remove(
+            "hidden"
+          );
+        }
+      }
+    );
   }
 
   function initThemeToggle() {
-    const button = document.getElementById("themeToggle");
-
-    if (!button) return;
-
-    updateThemeIcon();
-
-    button.onclick = () => {
-      const isDark = document.documentElement.classList.contains("dark");
-
-      document.dispatchEvent(
-        new CustomEvent("theme-change", {
-          detail: {
-            theme: isDark ? "light" : "dark"
-          }
-        })
+    const buttons =
+      document.querySelectorAll(
+        ".themeToggle"
       );
 
-      setTimeout(updateThemeIcon, 10);
-    };
+    buttons.forEach(
+      (button) => {
+        button.onclick = () => {
+          const isDark =
+            document.documentElement.classList.contains(
+              "dark"
+            );
+
+          document.dispatchEvent(
+            new CustomEvent(
+              "theme-change",
+              {
+                detail: {
+                  theme: isDark
+                    ? "light"
+                    : "dark"
+                }
+              }
+            )
+          );
+
+          setTimeout(
+            updateThemeIcons,
+            10
+          );
+        };
+      }
+    );
+
+    updateThemeIcons();
   }
 
-  // first load
+  // First load
   initThemeToggle();
 
-  // astro page navigation
-  document.addEventListener("astro:page-load", () => {
-    initThemeToggle();
-    updateThemeIcon();
-  });
+  // Astro page navigation
+  document.addEventListener(
+    "astro:page-load",
+    () => {
+      initThemeToggle();
+      updateThemeIcons();
+    }
+  );
 
-  // theme update
-  document.addEventListener("theme-change", () => {
-    setTimeout(updateThemeIcon, 10);
-  });
+  // Theme update
+  document.addEventListener(
+    "theme-change",
+    () => {
+      setTimeout(
+        updateThemeIcons,
+        10
+      );
+    }
+  );
 </script>
