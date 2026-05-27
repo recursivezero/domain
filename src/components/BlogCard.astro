@@ -50,7 +50,7 @@ const { url, title, description, image, author, date, tags = [] } = Astro.props;
           <span>
             {
               url.startsWith("http") ? (
-                <span class="truncate text-cyan-600 underline underline-offset-4 transition dark:text-white">
+                <span class="truncate text-blue-900 underline underline-offset-4 transition hover:text-blue-700 dark:text-white dark:hover:text-gray-300">
                   {new URL(url).origin}
                 </span>
               ) : (

@@ -6,8 +6,7 @@ import aboutImage from "@/assets/images/about.jpg";
 <BaseLayout
   meta={{
     title: "About Us",
-    description:
-      "Learn more about Recursive Zero and how we build future-ready digital products."
+    description: "Learn more about Recursive Zero and how we build future-ready digital products."
   }}
 >
   <main class="bg-background text-foreground overflow-hidden">
@@ -16,39 +15,21 @@ import aboutImage from "@/assets/images/about.jpg";
       <div class="grid items-center gap-20 lg:grid-cols-2">
         <!-- LEFT -->
         <div>
-          <p
-            class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500"
-          >
-            About Recursive Zero
-          </p>
+          <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">About Recursive Zero</p>
 
-          <h1
-            class="text-foreground text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl"
-          >
-            We Build Digital
-            Products That
-            <span class="text-cyan-500">
-              Drive Growth.
-            </span>
+          <h1 class="text-foreground text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
+            We Build Digital Products That
+            <span class="text-cyan-500"> Drive Growth. </span>
           </h1>
 
-          <p
-            class="text-foreground/75 mt-8 max-w-2xl text-xl leading-9"
-          >
-            Welcome to Recursive Zero! We’re a passionate
-            software team dedicated to building premium web
-            applications, scalable systems and digital
-            products that solve real-world business problems.
+          <p class="text-foreground/75 mt-8 max-w-2xl text-xl leading-9">
+            Welcome to Recursive Zero! We’re a passionate software team dedicated to building premium web applications,
+            scalable systems and digital products that solve real-world business problems.
           </p>
 
-          <p
-            class="text-foreground/70 mt-6 max-w-2xl text-lg leading-8"
-          >
-            Founded in 2024, we’ve been focused on combining
-            modern technologies, exceptional engineering and
-            product thinking to help startups and businesses
-            move faster, automate workflows and scale
-            confidently.
+          <p class="text-foreground/70 mt-6 max-w-2xl text-lg leading-8">
+            Founded in 2024, we’ve been focused on combining modern technologies, exceptional engineering and product
+            thinking to help startups and businesses move faster, automate workflows and scale confidently.
           </p>
 
           <div class="mt-10 flex flex-wrap gap-5">
@@ -61,7 +42,7 @@ import aboutImage from "@/assets/images/about.jpg";
 
             <a
               href="/work"
-              class="border-foreground/20 rounded-2xl border px-8 py-4 text-lg font-semibold transition duration-300 hover:bg-foreground hover:text-background"
+              class="dark:border-foreground/20 text-foreground hover:bg-foreground hover:text-background rounded-xl border-2 border-gray-500 px-7 py-4 font-semibold transition"
             >
               View Our Work
             </a>
@@ -70,9 +51,7 @@ import aboutImage from "@/assets/images/about.jpg";
 
         <!-- RIGHT IMAGE -->
         <div class="relative">
-          <div
-            class="absolute -inset-4 rounded-[3rem] bg-cyan-500/10 blur-3xl"
-          />
+          <div class="absolute -inset-4 rounded-[3rem] bg-cyan-500/10 blur-3xl"></div>
 
           <img
             src={aboutImage.src}
@@ -87,66 +66,39 @@ import aboutImage from "@/assets/images/about.jpg";
     <!-- WHAT WE DO -->
     <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
       <div class="mb-14">
-        <p
-          class="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500"
-        >
-          What We Do
-        </p>
+        <p class="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">What We Do</p>
 
-        <h2
-          class="text-foreground text-4xl font-bold sm:text-5xl"
-        >
-          Digital Solutions Built
-          For Modern Businesses
-        </h2>
+        <h2 class="text-foreground text-4xl font-bold sm:text-5xl">Digital Solutions Built For Modern Businesses</h2>
       </div>
 
       <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         <div
           class="border-foreground/10 rounded-[2rem] border p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
         >
-          <h3 class="text-2xl font-bold">
-            Web Applications
-          </h3>
+          <h3 class="text-2xl font-bold">Web Applications</h3>
 
-          <p
-            class="text-foreground/70 mt-4 leading-8"
-          >
-            High-performance, scalable web apps designed
-            with modern technologies and premium user
-            experiences.
+          <p class="text-foreground/70 mt-4 leading-8">
+            High-performance, scalable web apps designed with modern technologies and premium user experiences.
           </p>
         </div>
 
         <div
           class="border-foreground/10 rounded-[2rem] border p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
         >
-          <h3 class="text-2xl font-bold">
-            Internal Tools
-          </h3>
+          <h3 class="text-2xl font-bold">Internal Tools</h3>
 
-          <p
-            class="text-foreground/70 mt-4 leading-8"
-          >
-            We simplify operations by building internal
-            tools that improve productivity and automate
-            repetitive work.
+          <p class="text-foreground/70 mt-4 leading-8">
+            We simplify operations by building internal tools that improve productivity and automate repetitive work.
           </p>
         </div>
 
         <div
           class="border-foreground/10 rounded-[2rem] border p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
         >
-          <h3 class="text-2xl font-bold">
-            Scalable Systems
-          </h3>
+          <h3 class="text-2xl font-bold">Scalable Systems</h3>
 
-          <p
-            class="text-foreground/70 mt-4 leading-8"
-          >
-            From startups to enterprises, we engineer
-            systems built for long-term growth and
-            performance.
+          <p class="text-foreground/70 mt-4 leading-8">
+            From startups to enterprises, we engineer systems built for long-term growth and performance.
           </p>
         </div>
       </div>
@@ -158,55 +110,23 @@ import aboutImage from "@/assets/images/about.jpg";
         class="grid gap-6 rounded-[3rem] border border-cyan-500/10 bg-cyan-500/[0.04] p-10 text-center md:grid-cols-4"
       >
         <div>
-          <h3
-            class="text-5xl font-bold text-cyan-500"
-          >
-            2024
-          </h3>
-          <p
-            class="text-foreground/70 mt-2"
-          >
-            Founded
-          </p>
+          <h3 class="text-5xl font-bold text-cyan-500">2024</h3>
+          <p class="text-foreground/70 mt-2">Founded</p>
         </div>
 
         <div>
-          <h3
-            class="text-5xl font-bold text-cyan-500"
-          >
-            10+
-          </h3>
-          <p
-            class="text-foreground/70 mt-2"
-          >
-            Projects
-          </p>
+          <h3 class="text-5xl font-bold text-cyan-500">10+</h3>
+          <p class="text-foreground/70 mt-2">Projects</p>
         </div>
 
         <div>
-          <h3
-            class="text-5xl font-bold text-cyan-500"
-          >
-            100%
-          </h3>
-          <p
-            class="text-foreground/70 mt-2"
-          >
-            Client Focused
-          </p>
+          <h3 class="text-5xl font-bold text-cyan-500">100%</h3>
+          <p class="text-foreground/70 mt-2">Client Focused</p>
         </div>
 
         <div>
-          <h3
-            class="text-5xl font-bold text-cyan-500"
-          >
-            24/7
-          </h3>
-          <p
-            class="text-foreground/70 mt-2"
-          >
-            Support
-          </p>
+          <h3 class="text-5xl font-bold text-cyan-500">24/7</h3>
+          <p class="text-foreground/70 mt-2">Support</p>
         </div>
       </div>
     </section>
@@ -214,17 +134,9 @@ import aboutImage from "@/assets/images/about.jpg";
     <!-- TEAM -->
     <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
       <div class="mb-14">
-        <p
-          class="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500"
-        >
-          Meet The Team
-        </p>
+        <p class="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">Meet The Team</p>
 
-        <h2
-          class="text-foreground text-4xl font-bold sm:text-5xl"
-        >
-          People Behind Recursive Zero
-        </h2>
+        <h2 class="text-foreground text-4xl font-bold sm:text-5xl">People Behind Recursive Zero</h2>
       </div>
 
       <div class="grid gap-8 md:grid-cols-2">
@@ -237,15 +149,9 @@ import aboutImage from "@/assets/images/about.jpg";
             K
           </div>
 
-          <h3 class="text-3xl font-bold">
-            Keshav Mohta
-          </h3>
+          <h3 class="text-3xl font-bold">Keshav Mohta</h3>
 
-          <p
-            class="text-foreground/60 mt-2 text-lg"
-          >
-            Founder & CEO
-          </p>
+          <p class="text-foreground/60 mt-2 text-lg">Founder & CEO</p>
         </div>
 
         <div
@@ -257,72 +163,40 @@ import aboutImage from "@/assets/images/about.jpg";
             P
           </div>
 
-          <h3 class="text-3xl font-bold">
-            Poorna Chandra
-          </h3>
+          <h3 class="text-3xl font-bold">Poorna Chandra</h3>
 
-          <p
-            class="text-foreground/60 mt-2 text-lg"
-          >
-            Python Developer
-          </p>
+          <p class="text-foreground/60 mt-2 text-lg">Python Developer</p>
         </div>
       </div>
     </section>
 
     <!-- MISSION -->
     <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-      <div
-        class="rounded-[3rem] border border-cyan-500/10 bg-cyan-500/[0.04] p-12"
-      >
-        <p
-          class="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500"
-        >
-          Our Mission
-        </p>
+      <div class="rounded-[3rem] border border-cyan-500/10 bg-cyan-500/[0.04] p-12">
+        <p class="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">Our Mission</p>
 
-        <h2
-          class="text-foreground text-4xl font-bold sm:text-5xl"
-        >
-          Innovation With Purpose
-        </h2>
+        <h2 class="text-foreground text-4xl font-bold sm:text-5xl">Innovation With Purpose</h2>
 
-        <p
-          class="text-foreground/75 mt-8 max-w-4xl text-xl leading-9"
-        >
-          Our mission is to deliver exceptional value through
-          innovative solutions, outstanding engineering and
-          modern digital experiences. We believe in creating
-          long-term partnerships that help businesses grow
-          with confidence.
+        <p class="text-foreground/75 mt-8 max-w-4xl text-xl leading-9">
+          Our mission is to deliver exceptional value through innovative solutions, outstanding engineering and modern
+          digital experiences. We believe in creating long-term partnerships that help businesses grow with confidence.
         </p>
       </div>
     </section>
 
     <!-- CONTACT CTA -->
     <section class="mx-auto max-w-7xl px-6 pb-28 lg:px-10">
-      <div
-        class="rounded-[3rem] border border-foreground/10 p-14 text-center shadow-sm"
-      >
-        <p
-          class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500"
-        >
-          Let’s Work Together
-        </p>
+      <div class="border-foreground/10 rounded-[3rem] border p-14 text-center shadow-sm">
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">Let’s Work Together</p>
 
-        <h2
-          class="text-foreground text-4xl font-bold sm:text-5xl"
-        >
+        <h2 class="text-foreground text-4xl font-bold sm:text-5xl">
           Have an Idea?
           <br />
           Let’s Build It.
         </h2>
 
-        <p
-          class="text-foreground/70 mx-auto mt-6 max-w-2xl text-lg leading-8"
-        >
-          We’d love to hear about your next project.
-          Reach out and let’s create something impactful.
+        <p class="text-foreground/70 mx-auto mt-6 max-w-2xl text-lg leading-8">
+          We’d love to hear about your next project. Reach out and let’s create something impactful.
         </p>
 
         <a

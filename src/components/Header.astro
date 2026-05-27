@@ -10,27 +10,32 @@ const currentPath = Astro.url.pathname;
 const navLinks = [
   {
     name: "Home",
-    href: "/"
+    href: "/",
+    isActive: true
   },
   {
     name: "About",
-    href: "/about"
+    href: "/about",
+    isActive: true
   },
   {
     name: "Blogs",
-    href: "/blogs"
+    href: "/blogs",
+    isActive: true
   },
   {
     name: "Career",
-    href: "/career"
+    href: "/career",
+    isActive: true
   },
   {
     name: "Work",
-    href: "/work"
+    href: "/work",
+    isActive: true
   }
 ];
 
-const isActive = (path: string) => {
+const isCurrentPage = (path: string) => {
   if (path === "/") {
     return currentPath === "/";
   }
@@ -49,7 +54,8 @@ const isActive = (path: string) => {
   class="sticky top-0 z-50 w-full border-b-2 border-black/30 dark:border-white/40"
   style="background: hsl(var(--background));"
 >
-  <div class="mx-auto flex h-24 w-full items-center justify-between px-4 sm:px-6 lg:px-10">
+  <!-- Desktop Header -->
+  <div class="mx-auto hidden h-24 w-full items-center justify-between px-4 sm:px-6 lg:flex lg:px-10">
     <!-- LEFT -->
     <a href="/" class="flex items-center gap-3 lg:gap-4">
       <Picture
@@ -62,23 +68,27 @@ const isActive = (path: string) => {
       <span class="brand text-foreground text-2xl font-extrabold tracking-tight lg:text-4xl"> RECURSIVE ZERO </span>
     </a>
 
-    <!-- CENTER -->
-    <nav class="absolute left-1/2 hidden -translate-x-1/2 lg:flex">
+    <!-- CENTER NAV -->
+    <nav class="absolute left-1/2 -translate-x-1/2">
       <ul class="flex items-center gap-10">
         {
-          navLinks.map((item) => (
-            <li>
-              <a
-                href={item.href}
-                class:list={[
-                  "relative text-xl font-semibold transition duration-300 hover:text-cyan-500",
-                  isActive(item.href) ? "text-cyan-500 underline decoration-2 underline-offset-8" : "text-foreground"
-                ]}
-              >
-                {item.name}
-              </a>
-            </li>
-          ))
+          navLinks
+            .filter(({ isActive }) => isActive)
+            .map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class:list={[
+                    "relative text-xl font-semibold transition duration-300 hover:text-cyan-500",
+                    isCurrentPage(item.href)
+                      ? "text-cyan-500 underline decoration-2 underline-offset-8"
+                      : "text-foreground"
+                  ]}
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))
         }
       </ul>
     </nav>
@@ -89,10 +99,97 @@ const isActive = (path: string) => {
 
       <a
         href="/career"
-        class="bg-foreground text-background hidden rounded-2xl px-6 py-3 text-lg font-semibold transition duration-300 hover:bg-cyan-500 lg:flex"
+        class="bg-foreground text-background rounded-2xl px-6 py-3 text-lg font-semibold transition duration-300 hover:bg-cyan-500"
       >
         Join Us
       </a>
     </div>
   </div>
+
+  <!-- Mobile Header -->
+  <div class="lg:hidden">
+    <!-- Top Row -->
+    <div class="flex h-20 items-center justify-between px-4 sm:px-6">
+      <a href="/" class="flex items-center gap-2">
+        <Picture
+          src={logoImage}
+          formats={["png", "webp", "jpg"]}
+          alt="Recursive Zero"
+          class="h-10 w-10 rounded-full object-contain transition duration-300 dark:brightness-200 dark:invert"
+        />
+
+        <span class="brand text-foreground text-lg font-extrabold tracking-tight sm:text-2xl"> RECURSIVE ZERO </span>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <ThemeToggle />
+
+        <!-- Menu Button -->
+        <button
+          id="mobileMenuBtn"
+          type="button"
+          class="border-foreground/20 text-foreground flex h-11 w-11 items-center justify-center rounded-xl border text-2xl"
+          aria-label="Toggle Menu"
+        >
+          <span id="menuIcon">☰</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navbar -->
+    <nav id="mobileMenu" class="hidden border-t border-black/20 px-4 py-4 dark:border-white/20">
+      <ul class="flex flex-col gap-4">
+        {
+          navLinks
+            .filter(({ isActive }) => isActive)
+            .map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class:list={[
+                    "block text-base font-semibold transition duration-300 hover:text-cyan-500",
+                    isCurrentPage(item.href) ? "text-cyan-500" : "text-foreground"
+                  ]}
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))
+        }
+
+        <!-- Join Us Button Mobile -->
+        <li class="pt-2">
+          <a href="/career" class="bg-foreground text-background inline-flex rounded-xl px-5 py-3 font-semibold">
+            Join Us
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </header>
+
+<script is:inline>
+  function initMobileMenu() {
+    const btn = document.getElementById("mobileMenuBtn");
+
+    const menu = document.getElementById("mobileMenu");
+
+    const icon = document.getElementById("menuIcon");
+
+    if (!btn || !menu) return;
+
+    btn.onclick = () => {
+      menu.classList.toggle("hidden");
+
+      const isOpen = !menu.classList.contains("hidden");
+
+      if (icon) {
+        icon.textContent = isOpen ? "✕" : "☰";
+      }
+    };
+  }
+
+  initMobileMenu();
+
+  document.addEventListener("astro:page-load", initMobileMenu);
+</script>

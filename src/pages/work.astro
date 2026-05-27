@@ -29,37 +29,44 @@ const externalProjects = [
     url: "https://abcdkbd.com",
     title: "ABCDKBD",
     description: "An interactive kids learning platform.",
-    image: "https://github.com/recursivezero/abcd/blob/main/public/assets/images/512x512.png?raw=true"
+    image: "https://github.com/recursivezero/abcd/blob/main/public/assets/images/512x512.png?raw=true",
+    isActive: true
   },
   {
     url: "https://threadzip.com/",
     title: "Threadzip",
     description: "A digital textile sourcing and business platform connecting manufacturers, suppliers, and buyers.",
-    image: "https://threadzip.com/images/icon-circle.svg"
+    image: "https://threadzip.com/images/icon-circle.svg",
+    isActive: true
+  },
+
+  {
+    url: "https://rzro.link/",
+    title: "RZRO",
+    description: "A modern smart link and URL shortening platform by Recursive Zero.",
+    image: "https://rzro.link/static/og-image.jpg",
+    isActive: true
   },
   {
     url: "https://lab.threadzip.com",
-    title: "ThreadZip Lab",
+    title: "Threadzip Lab",
     description: "A python tool that uses computer vision to identify and generate fabric patterns.",
-    image: "https://lab.threadzip.com/media/4506a1f4769fb57c54b53e6189d5b405971d3595e689f77360792546.jpg"
+    image: "https://lab.threadzip.com/media/4506a1f4769fb57c54b53e6189d5b405971d3595e689f77360792546.jpg",
+    isActive: true
   },
   {
-    url: "https://rzro.link/",
-    title: "RZRO Link",
-    description: "A modern smart link and URL shortening platform by Recursive Zero.",
-    image: "https://rzro.link/static/og-image.jpg"
-  },
-  {
-    url: "https://pro.threadzip.com/",
-    title: "FabricAI",
+    url: "https://pro.threadzip.com",
+    title: "Threadzip Pro",
     description: "An AI-powered platform for fabric intelligence and textile analysis.",
-    image: fabricAI.src
+    image: fabricAI.src,
+    isActive: true
   },
   {
     url: "https://app.threadzip.com",
-    title: "ThreadzipApp",
+    title: "Threadzip App",
     description: "A B2B marketplace for textile raw material businesses.",
-    image: "https://app.threadzip.com/threadzip_logo_white.png"
+    image: "https://app.threadzip.com/threadzip_logo_white.png",
+    isActive: true
   }
 ];
 ---
@@ -94,9 +101,11 @@ const externalProjects = [
 
         <!-- External Projects -->
         {
-          externalProjects.map(({ url, title, description, image }) => (
-            <BlogCard url={url} title={title} description={description} image={image} />
-          ))
+          externalProjects
+            .filter(({ isActive }) => isActive)
+            .map(({ url, title, description, image }) => (
+              <BlogCard url={url} title={title} description={description} image={image} />
+            ))
         }
       </div>
     </section>

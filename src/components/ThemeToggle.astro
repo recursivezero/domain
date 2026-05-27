@@ -1,5 +1,6 @@
 ---
 import SunIcon from "@/assets/icons/sun.svg";
+import MoonIcon from "@/assets/icons/moon.svg";
 ---
 
 <button
@@ -8,14 +9,44 @@ import SunIcon from "@/assets/icons/sun.svg";
   class="border-foreground/10 text-foreground hover:bg-foreground hover:text-background flex h-12 w-12 items-center justify-center rounded-2xl border transition duration-300"
   aria-label="Toggle Theme"
 >
-  <SunIcon class="h-6 w-6" />
+  <!-- Light Mode Icon -->
+  <span id="sunIcon">
+    <SunIcon class="h-6 w-6" />
+  </span>
+
+  <!-- Dark Mode Icon -->
+  <span id="moonIcon" class="hidden">
+    <MoonIcon class="h-6 w-6" />
+  </span>
 </button>
 
 <script is:inline>
+  function updateThemeIcon() {
+    const isDark = document.documentElement.classList.contains("dark");
+
+    const sunIcon = document.getElementById("sunIcon");
+
+    const moonIcon = document.getElementById("moonIcon");
+
+    if (!sunIcon || !moonIcon) return;
+
+    if (isDark) {
+      sunIcon.classList.add("hidden");
+
+      moonIcon.classList.remove("hidden");
+    } else {
+      moonIcon.classList.add("hidden");
+
+      sunIcon.classList.remove("hidden");
+    }
+  }
+
   function initThemeToggle() {
     const button = document.getElementById("themeToggle");
 
     if (!button) return;
+
+    updateThemeIcon();
 
     button.onclick = () => {
       const isDark = document.documentElement.classList.contains("dark");
@@ -27,6 +58,8 @@ import SunIcon from "@/assets/icons/sun.svg";
           }
         })
       );
+
+      setTimeout(updateThemeIcon, 10);
     };
   }
 
@@ -34,5 +67,13 @@ import SunIcon from "@/assets/icons/sun.svg";
   initThemeToggle();
 
   // astro page navigation
-  document.addEventListener("astro:page-load", initThemeToggle);
+  document.addEventListener("astro:page-load", () => {
+    initThemeToggle();
+    updateThemeIcon();
+  });
+
+  // theme update
+  document.addEventListener("theme-change", () => {
+    setTimeout(updateThemeIcon, 10);
+  });
 </script>
