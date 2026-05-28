@@ -1,6 +1,6 @@
 {
   "name": "@recursivezero/domain",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "main": "src/index.js",
   "author": {
     "name": "Founder",
@@ -11,7 +11,7 @@
   "private": false,
   "displayName": "domain",
   "publisher": "@recursivezero",
-  "homepage": "https://github.com/recursivezero/domain/blob/main/README.md",
+  "homepage": "https://recursivezero.com",
   "bugs": {
     "url": "https://github.com/recursivezero/domain/issues",
     "email": "recursivezero@gmail.com"
