@@ -1,98 +1,199 @@
 ---
 import { Picture } from "astro:assets";
-import logoImage from "/public/assets/images/RecursiveZero-White.jpg";
+import "../assets/styles/custom-font.css";
+import ThemeToggle from "@/components/ThemeToggle.astro";
+import logoImage from "@/assets/images/logo.png";
+
 const currentPath = Astro.url.pathname;
-const base = import.meta.env.BASE_URL;
 
-// Helper function to normalize paths for comparison
-const normalizePath = (path: string) => {
-  return path.endsWith("/") && path !== "/" ? path.slice(0, -1) : path;
-};
+const navLinks = [
+  { name: "Home", href: "/", isActive: true },
+  { name: "About", href: "/about", isActive: true },
+  { name: "Blogs", href: "/blogs", isActive: true },
+  { name: "Career", href: "/career", isActive: true },
+  { name: "Work", href: "/work", isActive: true }
+];
 
-// Helper function to check if a link is active
-const isActive = (linkPath: string) => {
-  const normalizedCurrent = normalizePath(currentPath);
-  const normalizedLink = normalizePath(linkPath);
-
-  if (linkPath === base) {
-    // Home page - exact match
-    return normalizedCurrent === normalizedLink || normalizedCurrent === base.slice(0, -1);
-  }
-
-  // Other pages - check if current path starts with link path
-  return normalizedCurrent.startsWith(normalizedLink);
+const isCurrentPage = (path: string) => {
+  if (path === "/") return currentPath === "/";
+  return currentPath.startsWith(path);
 };
 ---
 
-<header>
-  <div class="nav-container w-full">
-    <nav class="">
-      <div class="mx-5 flex w-full items-center justify-between">
-        <h1 class="text-[1.05rem] font-bold leading-[-0.03em] lg:text-[1.2rem]">
-          <a href={base} class="flex items-center gap-[0.5rem] lg:flex-row">
-            <Picture
-              src={logoImage}
-              formats={["png", "jpeg", "jpg", "webp"]}
-              alt="logo"
-              class="w-[180px] lg:w-[250px]"
-              class="clipped-logo w-[180px] lg:w-[250px]"
-              loading="eager"
-              id="clipped-logo"
-              aria-label={"RecursiveZero Logo"}
-              title={"RecursiveZero Logo"}
-            />
-            A gupt startup
-          </a>
-        </h1>
-        <ul class="menu-list flex items-center gap-[1.5rem] lg:flex-row-reverse">
-          <li id="menuToggle" class="menu-button lg:hidden">
-            <button id="closeBtn" class="ml-[3px] hidden">
-              <i class="fa fa-times" aria-hidden="true"></i>
-            </button>
-            <button id="openBtn">
-              <i class="fa fa-bars" aria-hidden="true"></i>
-            </button>
-          </li>
-          <!-- desktop menu -->
-          <a href="/career" class="hidden lg:block">
-            <button class="yellowBtnHover rounded-md bg-[#FFCC00] px-[10px] py-[5px] text-[#111]"> Join us! </button>
-          </a>
-        </ul>
-      </div>
+<style>
+  .brand {
+    font-family: Boisu, sans-serif;
+  }
+</style>
+<header
+  class="sticky top-0 z-50 w-full border-b border-black/20 dark:border-white/20 bg-white dark:bg-[#050B1C]"
+>
+<header class="bg-background sticky top-0 z-50 w-full border-b border-black/20 dark:border-white/20">
+  <!-- DESKTOP -->
+  <div class="mx-auto hidden h-24 items-center justify-between px-4 sm:px-6 lg:flex lg:px-10">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-3">
+      <Picture
+        src={logoImage}
+        formats={["png", "webp", "jpg"]}
+        alt="Recursive Zero"
+        class="h-12 w-12 rounded-full object-contain dark:brightness-200 dark:invert"
+      />
+
+      <span class="brand text-foreground text-3xl font-extrabold"> RECURSIVE ZERO </span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="absolute left-1/2 -translate-x-1/2">
+      <ul class="flex items-center gap-10">
+        {
+          navLinks
+            .filter(({ isActive }) => isActive)
+            .map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class:list={[
+                    "text-lg font-semibold transition hover:text-cyan-500",
+                    isCurrentPage(item.href) ? "text-cyan-500 underline underline-offset-8" : "text-foreground"
+                  ]}
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))
+        }
+      </ul>
     </nav>
-    <!-- mobile nav-overlay -->
-    <div id="menu-open" class="nav-overlay hidden h-dvh pt-[20px] lg:hidden">
-      <div class="pt-[10px]">
-        <div
-          class="flex flex-col items-center justify-between gap-[20px] py-[20px] text-[14px] leading-[22.4px] md:text-[16px] md:leading-[25.6px]"
+
+    <!-- Right -->
+    <div class="flex items-center gap-4">
+      <ThemeToggle />
+
+      <a
+        href="/career"
+        class="bg-foreground text-background rounded-2xl px-6 py-3 text-lg font-semibold transition hover:bg-cyan-500"
+      >
+        Join Us
+      </a>
+    </div>
+  </div>
+
+  <!-- MOBILE -->
+  <div class="lg:hidden">
+    <!-- Top Bar -->
+    <div class="flex h-20 items-center justify-between px-5">
+      <a href="/" class="flex items-center gap-3">
+        <Picture
+          src={logoImage}
+          formats={["png", "webp", "jpg"]}
+          alt="Recursive Zero"
+          class="h-10 w-10 rounded-full object-contain dark:brightness-200 dark:invert"
+        />
+
+        <span class="brand text-foreground text-xl font-bold"> RECURSIVE ZERO </span>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <ThemeToggle />
+
+        <!-- Menu Btn -->
+        <button
+          id="mobileMenuBtn"
+          type="button"
+          class="border-foreground/15 text-foreground flex h-14 w-14 items-center justify-center rounded-3xl border text-4xl"
         >
-          <a href="/career" class="w-full">
-            <button class="h-[35px] w-full rounded-md bg-[#FFCC00] px-[10px] py-[5px] text-[#111]"> Join us! </button>
-          </a>
+          ☰
+        </button>
+      </div>
+    </div>
+
+    <!-- Fullscreen Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 z-[9999] hidden bg-white dark:bg-[#050B1C]">
+      <!-- Header -->
+      <div class="flex items-center justify-between border-b border-black/10 px-5 py-5 dark:border-white/10">
+        <div class="flex items-center gap-3">
+          <Picture
+            src={logoImage}
+            formats={["png", "webp", "jpg"]}
+            alt="Recursive Zero"
+            class="h-12 w-12 rounded-full object-contain dark:brightness-200 dark:invert"
+          />
+
+          <span class="brand text-foreground text-2xl font-bold"> RECURSIVE ZERO </span>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <ThemeToggle />
+
+          <!-- Close -->
+          <button
+            id="closeMenuBtn"
+            type="button"
+            class="border-foreground/15 text-foreground flex h-14 w-14 items-center justify-center rounded-3xl border text-4xl"
+          >
+            ✕
+          </button>
         </div>
       </div>
+
+      <!-- Nav -->
+      <nav class="px-8 pt-12">
+        <ul class="space-y-10">
+          {
+            navLinks
+              .filter(({ isActive }) => isActive)
+              .map((item) => (
+                <li>
+                  <a
+                    href={item.href}
+                    class:list={[
+                      "block text-4xl font-bold transition",
+                      isCurrentPage(item.href) ? "text-cyan-500" : "text-foreground"
+                    ]}
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              ))
+          }
+
+          <li class="pt-8">
+            <a
+              href="/career"
+              class="bg-foreground text-background inline-flex rounded-2xl px-8 py-4 text-xl font-semibold"
+            >
+              Join Us
+            </a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </div>
 </header>
 
-<!--</header>-->
+<script is:inline>
+  function initMobileMenu() {
+    const openBtn = document.getElementById("mobileMenuBtn");
 
-<script>
-  const menuToggle = document.querySelector("#menuToggle") as HTMLElement;
+    const closeBtn = document.getElementById("closeMenuBtn");
 
-  menuToggle.addEventListener("click", () => {
-    const showMenu = document.querySelector("#menu-open") as HTMLElement;
-    const openBtn = document.querySelector("#openBtn") as HTMLElement;
-    const closeBtn = document.querySelector("#closeBtn") as HTMLElement;
+    const menu = document.getElementById("mobileMenu");
 
-    if (showMenu.style.display === "block") {
-      showMenu.style.display = "none";
-      closeBtn.style.display = "none";
-      openBtn.style.display = "inline";
-    } else {
-      showMenu.style.display = "block";
-      closeBtn.style.display = "inline";
-      openBtn.style.display = "none";
-    }
-  });
+    if (!openBtn || !closeBtn || !menu) return;
+
+    openBtn.addEventListener("click", () => {
+      menu.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    });
+
+    closeBtn.addEventListener("click", () => {
+      menu.classList.add("hidden");
+      document.body.style.overflow = "auto";
+    });
+  }
+
+  initMobileMenu();
+
+  document.addEventListener("astro:page-load", initMobileMenu);
 </script>

@@ -3,21 +3,32 @@ import CalendarIcon from "@/assets/icons/calendar.svg";
 import ProfileIcon from "@/assets/icons/profile.svg";
 import MarkdownContent from "@/components/MarkdownContent.astro";
 import BaseLayout from "@/layouts/BaseLayout";
+
 import { type CollectionEntry, getCollection, render } from "astro:content";
+
 export const prerender = true;
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
+
   return posts.map((blog) => ({
-    params: { slug: blog.slug },
+    params: { slug: blog.id },
     props: blog
   }));
 }
+
 type Props = CollectionEntry<"blog">;
 
 const blog = Astro.props;
+
+// BLOG NOT FOUND REDIRECT
+if (!Astro.props?.id) {
+  return Astro.redirect("/blogs/tag?error=notfound");
+}
+
 const { Content } = await render(blog);
-const { title, description, date, author, image } = blog.data;
+
+const { title, description, date, author, image, tags } = blog.data;
 
 if (!Content) {
   throw new Error(`Content could not be rendered for blog: ${blog.id}`);
@@ -27,27 +38,65 @@ if (!Content) {
 <BaseLayout meta={{ title: title, description: description, ogImage: image, articleDate: date }}>
   <div class="mx-auto flex max-w-6xl flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
     <h1 class="mb-4 text-4xl font-bold">{title}</h1>
-    {description && <p class="mb-6 text-xl text-gray-300">{description}</p>}
+    {description && <p class="mb-6 text-xl text-gray-500">{description}</p>}
     <div class="mb-8 flex items-center gap-4 text-gray-400">
+      <!-- META -->
+      <div
+        class="text-foreground/60 mt-8 flex flex-col gap-4 text-sm sm:flex-row sm:flex-wrap sm:items-center sm:gap-6"
+      >
+        {
+          author && (
+            <span class="flex items-center gap-2">
+              <span class="text-foreground">
+                <ProfileIcon />
+              </span>
+
+              {author}
+            </span>
+          )
+        }
+
+        {
+          date && (
+            <span class="flex items-center gap-2">
+              <span class="text-foreground">
+                <CalendarIcon />
+              </span>
+
+              <time datetime={date.toISOString()}>{date.toLocaleDateString()}</time>
+            </span>
+          )
+        }
+      </div>
+
+      <!-- TAGS -->
       {
-        author && (
-          <span class="flex items-center gap-2">
-            <ProfileIcon />
-            {author}
-          </span>
-        )
-      }
-      {
-        date && (
-          <span class="flex items-center gap-2">
-            <CalendarIcon />
-            <time datetime={date.toISOString()}>{date.toLocaleDateString()}</time>
-          </span>
+        tags?.length > 0 && (
+          <div class="mt-6 flex flex-wrap gap-2 sm:gap-3">
+            {tags.map((tag: string) => (
+              <a
+                href={`/blogs/tag/${tag}`}
+                class="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-3 py-2 text-xs font-medium text-cyan-500 transition duration-300 hover:bg-cyan-500 hover:text-black sm:px-4 sm:text-sm"
+              >
+                #{tag}
+              </a>
+            ))}
+          </div>
         )
       }
     </div>
-    <MarkdownContent>
-      <Content />
-    </MarkdownContent>
+
+    <!-- BLOG CONTENT -->
+    <section class="mx-auto max-w-4xl px-5 pb-20 sm:px-6 lg:px-10 lg:pb-24">
+      <div class="border-foreground/10 bg-background rounded-3xl border p-5 sm:p-6 md:p-10">
+        <MarkdownContent>
+          <article
+            class="text-foreground [&_h1]:text-foreground [&_h2]:text-foreground [&_h3]:text-foreground [&_p]:text-foreground/80 [&_li]:text-foreground/80 [&_strong]:text-foreground [&_hr]:border-foreground/10 [&_blockquote]:text-foreground/70 max-w-none [&_a]:font-medium [&_a]:text-cyan-500 hover:[&_a]:underline [&_blockquote]:border-l-4 [&_blockquote]:border-cyan-500 [&_blockquote]:pl-4 [&_blockquote]:italic [&_h1]:mb-6 [&_h1]:text-4xl [&_h1]:font-bold [&_h2]:mb-5 [&_h2]:mt-12 [&_h2]:text-3xl [&_h2]:font-bold [&_h3]:mb-4 [&_h3]:mt-8 [&_h3]:text-2xl [&_h3]:font-semibold [&_hr]:my-10 [&_img]:rounded-2xl [&_li]:mb-2 [&_li]:leading-8 [&_ol]:my-5 [&_p]:mb-5 [&_p]:text-base [&_p]:leading-8 [&_ul]:my-5"
+          >
+            <Content />
+          </article>
+        </MarkdownContent>
+      </div>
+    </section>
   </div>
 </BaseLayout>

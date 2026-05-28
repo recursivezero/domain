@@ -1,55 +1,66 @@
 ---
-interface Props {
-  url: string;
-  title: string;
-  description?: string;
-  image: string;
-  author?: string;
-  date?: string;
-  height?: string | number; // can be '300px' or 300
-}
-
-const { url, title, description, image, author, date, height = "auto" } = Astro.props;
-const imageUrl = image;
-console.log({ image });
+const { url, title, description, image, author, date, tags = [] } = Astro.props;
 ---
 
-<article class="group relative transition-all duration-300 hover:-translate-y-1">
-  <a href={url}>
-    <div class="overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-sm">
-      <div class="relative">
-        <figure class={`overflow-hidden ${typeof height === "number" ? `h-[${height}px]` : `h-[${height}]`}`}>
-          <img
-            src={imageUrl}
-            alt={title}
-            loading="lazy"
-            class="h-full w-full object-cover duration-700 group-hover:scale-110"
-          />
-        </figure>
+<article class="group h-full">
+  <a href={url} target="_blank" rel="noopener noreferrer" class="block h-full">
+    <div
+      class="border-foreground/10 bg-background/80 flex h-full flex-col overflow-hidden rounded-3xl border shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-3 hover:border-cyan-400/30 hover:shadow-2xl"
+    >
+      <!-- Image -->
+      <figure class="h-64 overflow-hidden rounded-t-3xl">
+        <img
+          src={image}
+          alt={title}
+          loading="lazy"
+          class="h-full w-full object-cover transition duration-700 group-hover:scale-110"
+        />
+      </figure>
 
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-
-        <div class="absolute bottom-0 left-0 right-0 p-4 transition-transform duration-300 group-hover:translate-y-0">
-          <h3
-            class="translate-y-6 text-base font-bold leading-tight text-white transition-transform duration-300 ease-in-out group-hover:translate-y-0 dark:text-black"
-          >
-            {title}
-          </h3>
-
+      <!-- Content -->
+      <div class="flex flex-1 flex-col p-6">
+        <!-- TAGS -->
+        <div class="mb-4 flex flex-wrap gap-2">
           {
-            description && (
-              <p class="mt-2 line-clamp-2 translate-y-6 text-sm text-white/90 transition-transform duration-300 ease-in-out group-hover:translate-y-0">
-                {description}
-              </p>
-            )
+            tags
+              .slice(0, 2)
+              .map((tag: string) => (
+                <span class="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-3 py-1 text-xs font-medium text-cyan-500">
+                  #{tag}
+                </span>
+              ))
           }
+        </div>
 
-          <div class="mt-2 flex items-center justify-between text-xs text-white/80">
-            <div class="opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              {author && <p class="font-medium">By {author}</p>}
-            </div>
-            {date && <time datetime={date}>{date}</time>}
-          </div>
+        <!-- Title -->
+        <h3
+          class="text-foreground line-clamp-2 text-2xl font-bold leading-snug transition-colors duration-300 group-hover:text-cyan-600"
+        >
+          {title}
+        </h3>
+
+        <!-- Description -->
+        {description && <p class="text-foreground/75 mt-4 line-clamp-3 flex-1 text-base leading-8">{description}</p>}
+
+        <!-- Bottom Meta -->
+        <div
+          class="border-foreground/10 text-foreground/70 mt-6 flex items-center justify-between border-t pt-4 text-sm"
+        >
+          <!-- Website / Author -->
+          <span>
+            {
+              url.startsWith("http") ? (
+                <span class="truncate text-blue-900 underline underline-offset-4 transition hover:text-blue-700 dark:text-white dark:hover:text-gray-300">
+                  {new URL(url).origin}
+                </span>
+              ) : (
+                <span>{author ? `By ${author}` : "Recursive Zero"}</span>
+              )
+            }
+          </span>
+
+          <!-- Date -->
+          {date && <time datetime={date}>{date}</time>}
         </div>
       </div>
     </div>

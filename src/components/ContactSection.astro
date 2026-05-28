@@ -3,54 +3,93 @@ import contactUs from "@/assets/images/contact-us.jpeg";
 import { Image } from "astro:assets";
 ---
 
-<section>
-  <div class="p-[20px]">
-    <div class="mx-auto">
-      <div class="flex-row-reverse items-start gap-[20px] lg:flex">
-        <div class="mb-[10px] basis-[50%] md:mb-[40px]">
-          <figure>
-            <Image
-              src={contactUs}
-              width={800}
-              alt="contact us"
-              class="h-[200px] w-full rounded-[10px] object-cover md:h-[400px]"
-            />
-          </figure>
+<section id="contactForm" class="bg-background text-foreground">
+  <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+    <div class="grid items-center gap-14 lg:grid-cols-2">
+      <!-- Left Content -->
+      <div>
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">Contact Us</p>
+
+        <h2 class="text-4xl font-bold leading-tight tracking-tight md:text-5xl">Reach Recursive Zero</h2>
+
+        <p class="text-foreground/70 mt-6 max-w-xl text-lg leading-8">
+          Tech simplified — Harness the power of modern technology with Recursive Zero. Send us a message and let’s
+          build something impactful together.
+        </p>
+
+        <!-- Contact Info -->
+        <div class="text-foreground/70 mt-8 space-y-4">
+          <!-- Email -->
+          <div class="text-lg">
+            <span class="text-foreground font-semibold"> Email: </span>
+
+            <a href="mailto:hello@recursivezero.com" class="ml-1 break-all text-cyan-500 transition hover:underline">
+              hello@recursivezero.com
+            </a>
+          </div>
+
+          <!-- Phone (Not Clickable) -->
+          <!-- Phone -->
+          <div class="text-lg">
+            <span class="text-foreground font-semibold"> Phone: </span>
+          </div>
+          <!-- Location -->
+          <div class="text-lg">
+            <span class="text-foreground font-semibold"> Location: </span>
+
+            <span class="text-foreground/70 ml-1"> Bengaluru, India </span>
+          </div>
         </div>
-        <div class="basis-[50%]">
-          <h2
-            class="text-[27.3px] font-bold tracking-[-0.54px] md:text-[31.2px] md:leading-[37.5px] md:tracking-[-0.62px]"
-          >
-            Reach Recursive Zero
-          </h2>
-          <p
-            class="contactSectionText mt-[5px] text-[14px] leading-[22.4px] text-[#999999] md:text-[16px] md:leading-[25.6px]"
-          >
-            Tech simplified - Harness the power of modern technology with Recursive Zero; just drop a message in our
-            contact form and let's ignite your journey to digital transcendence
-          </p>
-          <form id="contactForm" action="" class="contact-form mt-[20px]">
-            <input
-              type="text"
-              name=""
-              placeholder="First name"
-              class="formInputBg mt-[5px] w-full rounded-[5px] p-[10px]"
-            />
-            <input
-              type="email"
-              name=""
-              placeholder="Email"
-              class="formInputBg mt-[5px] w-full rounded-[5px] p-[10px]"
-            />
-            <textarea
-              name=""
-              cols="30"
-              rows="10"
-              placeholder="Message"
-              class="formInputBg mt-[5px] h-[100px] w-full rounded-[10px] p-[10px] md:h-[120px]"></textarea>
-            <button class="mt-[5px] h-[40px] rounded-[5px] bg-[#ffcc00] px-[20px] text-[#111]"> Send </button>
-          </form>
+
+        <!-- Image -->
+        <div class="relative mt-10">
+          <div class="absolute -left-5 top-5 h-32 w-32 rounded-full bg-cyan-500/20 blur-3xl"></div>
+
+          <Image
+            src={contactUs}
+            width={700}
+            alt="Contact Us"
+            class="relative z-10 h-[280px] w-full rounded-3xl object-cover shadow-xl"
+          />
         </div>
+      </div>
+
+      <!-- Right Form -->
+      <div class="border-foreground/10 bg-background/60 rounded-3xl border p-8 backdrop-blur-xl lg:p-10">
+        <h3 class="text-foreground text-2xl font-bold">Let's Talk</h3>
+
+        <p class="text-foreground/60 mt-2">Fill the form and we’ll get back to you shortly.</p>
+
+        <form class="mt-8 space-y-5">
+          <!-- NAME -->
+          <input
+            type="text"
+            placeholder="Full Name"
+            class="border-foreground/10 dark:bg-background text-foreground placeholder:text-foreground/40 h-14 w-full rounded-xl border bg-white px-5 outline-none focus:border-cyan-500"
+          />
+
+          <!-- EMAIL -->
+          <input
+            type="email"
+            placeholder="Email Address"
+            class="border-foreground/10 dark:bg-background text-foreground placeholder:text-foreground/40 h-14 w-full rounded-xl border bg-white px-5 outline-none focus:border-cyan-500"
+          />
+
+          <!-- MESSAGE -->
+          <textarea
+            rows="5"
+            placeholder="Your Message"
+            class="border-foreground/10 dark:bg-background text-foreground placeholder:text-foreground/40 w-full rounded-xl border bg-white px-5 py-4 outline-none focus:border-cyan-500"
+          ></textarea>
+
+          <!-- BUTTON -->
+          <button
+            type="submit"
+            class="h-14 w-full rounded-xl bg-cyan-500 font-semibold text-black transition hover:scale-[1.02]"
+          >
+            Send Message
+          </button>
+        </form>
       </div>
     </div>
   </div>

@@ -2,51 +2,83 @@
 import { siteConfig } from "@/site.config";
 import "@/assets/styles/globals.css";
 
-//components
 import BaseHead from "@/layouts/BaseHead";
 import Header from "@/components/Header.astro";
-import Menu from "./common/Menu.astro";
 import Footer from "@/components/Footer.astro";
 
-import ThemeProvider from "@/components/ThemeProvider.astro";
+// Safe meta handling
+const meta = Astro.props.meta ?? {};
 
-const {
-  meta: { title, description = siteConfig.description, ogImage, articleDate }
-} = Astro.props;
+const title = meta.title ?? siteConfig.title;
+
+const description = meta.description ?? siteConfig.description;
+
+const ogImage = meta.ogImage;
+
+const articleDate = meta.articleDate;
 ---
 
 <html lang={siteConfig.lang}>
   <head>
-    <script src="/theme.js" is:inline></script>
-    <BaseHead title={title} description={description} ogImage={ogImage} date={articleDate} />
-    <title>{title}</title>
-  </head>
-  <body id="pageBody">
-    <ThemeProvider />
-    <Header />
-    <main id="main" class="main">
-      <div class="sidebar"><Menu /></div>
-      <div class="content">
-        <slot><p>This is my fallback content, if there is no child passed into slot</p></slot>
-      </div>
-    </main>
-    <Footer />
-    <script>
-      function toggleStyle(elem: HTMLElement) {
-        if (elem.classList.contains("darkBg")) {
-          elem.classList.remove("darkBg");
-          elem.classList.add("lightBg");
-        } else if (elem.classList.contains("lightBg")) {
-          elem.classList.remove("lightBg");
-          elem.classList.add("darkBg");
+    <!-- Instant Theme Apply (No Flash) -->
+    <script is:inline>
+      (() => {
+        try {
+          const savedTheme = localStorage.getItem("theme");
+
+          const theme = savedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+
+          document.documentElement.classList.toggle("dark", theme === "dark");
+        } catch (_) {}
+      })();
+    </script>
+
+    <!-- Theme Manager -->
+    <script is:inline>
+      const getThemePreference = () => {
+        const storedTheme = localStorage.getItem("theme");
+
+        if (storedTheme === "dark" || storedTheme === "light") {
+          return storedTheme;
         }
+
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      };
+
+      function setTheme(newTheme) {
+        const root = document.documentElement;
+
+        root.classList.toggle("dark", newTheme === "dark");
+
+        localStorage.setItem("theme", newTheme);
       }
-      const themeToggle = document.querySelector("#themeToggle");
-      const bodyPart = document.querySelector("body") as HTMLBodyElement;
-      themeToggle?.addEventListener("click", () => {
-        console.log("clicked");
-        toggleStyle(bodyPart);
+
+      // Astro navigation
+      document.addEventListener("astro:page-load", () => {
+        setTheme(getThemePreference());
+      });
+
+      // Theme toggle event
+      document.addEventListener("theme-change", (e) => {
+        setTheme(e.detail.theme);
       });
     </script>
+
+    <BaseHead title={title} description={description} ogImage={ogImage} date={articleDate} />
+
+    <title>{title}</title>
+  </head>
+
+  <body id="pageBody" class="bg-background text-foreground w-full overflow-x-hidden">
+    <!-- Header -->
+    <Header />
+
+    <!-- Main -->
+    <main class="w-full">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <Footer />
   </body>
 </html>

@@ -170,6 +170,7 @@
     },
     "zenMode.centerLayout": false,
     "cSpell.words": [
+      "Boisu",
       "Poorna",
       "Socie",
       "withastro"
@@ -196,5 +197,6 @@
       "titleBar.inactiveForeground": "#e7e7e799",
       "tab.activeBorder": "#040043"
     },
+    "folder-color.pathColors": []
   }
 }

@@ -4,6 +4,11 @@ description: "A summary of my learnings and contributions during my recent inter
 date: 2025-07-20
 image: "/assets/images/blog/blog-6.png"
 author: "Ayush Tyagi"
+
+tags:
+  - internship
+  - frontend
+  - learning
 ---
 
 ## My Internship Journey

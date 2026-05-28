@@ -1,44 +1,211 @@
 ---
+import aboutImage from "@/assets/images/about.jpg";
 import BaseLayout from "@/layouts/BaseLayout";
-import TitleLayout from "@/layouts/TitleLayout";
-import "../assets/styles/about.css";
 ---
 
-<BaseLayout meta={{ title: "About" }}>
-  <div class="container__about">
-    <TitleLayout title="About Us" />
+<BaseLayout
+  meta={{
+    title: "About Us",
+    description: "Learn more about Recursive Zero and how we build future-ready digital products."
+  }}
+>
+  <main class="bg-background text-foreground overflow-hidden">
+    <!-- HERO -->
+    <section class="mx-auto max-w-7xl px-6 py-24 lg:px-10">
+      <div class="grid items-center gap-20 lg:grid-cols-2">
+        <!-- LEFT -->
+        <div>
+          <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">About Recursive Zero</p>
 
-    <article class="prose dark:prose-invert max-w-none">
-      <section class="about__section">
-        <h2 class="about__title">Our Story</h2>
-        <p class="about__text">
-          Welcome to our company! We're a passionate team dedicated to creating amazing solutions for our clients.
-          Founded in 2024, we've been at the forefront of innovation and digital transformation.
-        </p>
-        <p class="about__text">we are leveraging latest tech stacks and bright and fresh minds</p>
-      </section>
+          <h1 class="text-foreground text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
+            We Build Digital Products That
+            <span class="text-cyan-500"> Drive Growth. </span>
+          </h1>
 
-      <section class="about__section">
-        <h2 class="about__title">Our Team</h2>
-        <div class="team__grid">
-          <div class="team__card">
-            <h3 class="team__name">Keshav Mohta</h3>
-            <p class="team__role">Founder & CEO</p>
-          </div>
-          <div class="team__card">
-            <h3 class="team__name">Poorna Chandra</h3>
-            <p class="team__role">Python Developer</p>
+          <p class="text-foreground/75 mt-8 max-w-2xl text-xl leading-9">
+            Welcome to Recursive Zero! We’re a passionate software team dedicated to building premium web applications,
+            scalable systems and digital products that solve real-world business problems.
+          </p>
+
+          <p class="text-foreground/70 mt-6 max-w-2xl text-lg leading-8">
+            Founded in 2024, we’ve been focused on combining modern technologies, exceptional engineering and product
+            thinking to help startups and businesses move faster, automate workflows and scale confidently.
+          </p>
+
+          <div class="mt-10 flex flex-wrap gap-5">
+            <a
+              href="/contact"
+              class="rounded-2xl border border-black/20 bg-cyan-500 px-8 py-4 text-lg font-semibold text-black transition duration-300 hover:scale-105"
+            >
+              Contact Us →
+            </a>
+
+            <a
+              href="/work"
+              class="dark:border-foreground/20 text-foreground hover:bg-foreground hover:text-background rounded-xl border-2 border-gray-500 px-7 py-4 font-semibold transition"
+            >
+              View Our Work
+            </a>
           </div>
         </div>
-      </section>
 
-      <section>
-        <h2 class="about__title">Our Mission</h2>
-        <p class="about__text">
-          Our mission is to deliver exceptional value through innovative solutions and outstanding service. We believe
-          in creating lasting partnerships with our clients and contributing to their success.
+        <!-- RIGHT IMAGE -->
+        <div class="relative">
+          <div class="absolute -inset-4 rounded-[3rem] bg-cyan-500/10 blur-3xl"></div>
+
+          <img
+            src={aboutImage.src}
+            alt="About Recursive Zero"
+            class="relative h-[650px] w-full rounded-[3rem] object-cover shadow-[0_25px_70px_rgba(0,0,0,0.12)]"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT WE DO -->
+    <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+      <div class="mb-14">
+        <p class="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">What We Do</p>
+
+        <h2 class="text-foreground text-4xl font-bold sm:text-5xl">Digital Solutions Built For Modern Businesses</h2>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div
+          class="border-foreground/10 rounded-[2rem] border p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+        >
+          <h3 class="text-2xl font-bold">Web Applications</h3>
+
+          <p class="text-foreground/70 mt-4 leading-8">
+            High-performance, scalable web apps designed with modern technologies and premium user experiences.
+          </p>
+        </div>
+
+        <div
+          class="border-foreground/10 rounded-[2rem] border p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+        >
+          <h3 class="text-2xl font-bold">Internal Tools</h3>
+
+          <p class="text-foreground/70 mt-4 leading-8">
+            We simplify operations by building internal tools that improve productivity and automate repetitive work.
+          </p>
+        </div>
+
+        <div
+          class="border-foreground/10 rounded-[2rem] border p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+        >
+          <h3 class="text-2xl font-bold">Scalable Systems</h3>
+
+          <p class="text-foreground/70 mt-4 leading-8">
+            From startups to enterprises, we engineer systems built for long-term growth and performance.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="mx-auto max-w-7xl px-6 py-10 lg:px-10">
+      <div
+        class="grid gap-6 rounded-[3rem] border border-cyan-500/10 bg-cyan-500/[0.04] p-10 text-center md:grid-cols-4"
+      >
+        <div>
+          <h3 class="text-5xl font-bold text-cyan-500">2024</h3>
+          <p class="text-foreground/70 mt-2">Founded</p>
+        </div>
+
+        <div>
+          <h3 class="text-5xl font-bold text-cyan-500">10+</h3>
+          <p class="text-foreground/70 mt-2">Projects</p>
+        </div>
+
+        <div>
+          <h3 class="text-5xl font-bold text-cyan-500">100%</h3>
+          <p class="text-foreground/70 mt-2">Client Focused</p>
+        </div>
+
+        <div>
+          <h3 class="text-5xl font-bold text-cyan-500">24/7</h3>
+          <p class="text-foreground/70 mt-2">Support</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+      <div class="mb-14">
+        <p class="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">Meet The Team</p>
+
+        <h2 class="text-foreground text-4xl font-bold sm:text-5xl">People Behind Recursive Zero</h2>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-2">
+        <div
+          class="border-foreground/10 rounded-[2rem] border p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+        >
+          <div
+            class="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-cyan-500/10 text-2xl font-bold text-cyan-500"
+          >
+            K
+          </div>
+
+          <h3 class="text-3xl font-bold">Keshav Mohta</h3>
+
+          <p class="text-foreground/60 mt-2 text-lg">Founder & CEO</p>
+        </div>
+
+        <!--<div
+          class="border-foreground/10 rounded-[2rem] border p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+        >
+          <div
+            class="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-cyan-500/10 text-2xl font-bold text-cyan-500"
+          >
+            P
+          </div>
+
+          <h3 class="text-3xl font-bold">Poorna Chandra</h3>
+
+          <p class="text-foreground/60 mt-2 text-lg">Python Developer</p>
+        </div>-->
+      </div>
+    </section>
+
+    <!-- MISSION -->
+    <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+      <div class="rounded-[3rem] border border-cyan-500/10 bg-cyan-500/[0.04] p-12">
+        <p class="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">Our Mission</p>
+
+        <h2 class="text-foreground text-4xl font-bold sm:text-5xl">Innovation With Purpose</h2>
+
+        <p class="text-foreground/75 mt-8 max-w-4xl text-xl leading-9">
+          Our mission is to deliver exceptional value through innovative solutions, outstanding engineering and modern
+          digital experiences. We believe in creating long-term partnerships that help businesses grow with confidence.
         </p>
-      </section>
-    </article>
-  </div>
+      </div>
+    </section>
+
+    <!-- CONTACT CTA -->
+    <section class="mx-auto max-w-7xl px-6 pb-28 lg:px-10">
+      <div class="border-foreground/10 rounded-[3rem] border p-14 text-center shadow-sm">
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">Let’s Work Together</p>
+
+        <h2 class="text-foreground text-4xl font-bold sm:text-5xl">
+          Have an Idea?
+          <br />
+          Let’s Build It.
+        </h2>
+
+        <p class="text-foreground/70 mx-auto mt-6 max-w-2xl text-lg leading-8">
+          We’d love to hear about your next project. Reach out and let’s create something impactful.
+        </p>
+
+        <a
+          href="/contact"
+          class="mt-10 inline-flex rounded-2xl bg-cyan-500 px-8 py-4 text-lg font-semibold text-black transition duration-300 hover:scale-105"
+        >
+          Contact Us →
+        </a>
+      </div>
+    </section>
+  </main>
 </BaseLayout>

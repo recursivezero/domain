@@ -52,6 +52,11 @@ astro boilerplate
 
 - Update team, career and blog
 
+## [1.2.0] - 2026-05-28
+
+- Redesign website; added font
+- update Astro version
+
 ### [Unreleased]
 
 Here we write upgrading notes for brands. It's a team effort to make them as straightforward as possible.

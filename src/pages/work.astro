@@ -1,53 +1,133 @@
 ---
+import fabricAI from "@/assets/images/fabric-ai.png";
+import techTaboo from "@/assets/images/TechTaboo.png";
+
 import BlogCard from "@/components/BlogCard.astro";
-import Card from "@/components/Card.astro";
 import BaseLayout from "@/layouts/BaseLayout";
 
-const pages = import.meta.glob("./work/*.astro", { eager: true });
-
-// Extract frontmatter and routes
-const pageList = Object.entries(pages).map(([path, module]) => {
-  const { frontmatter } = module as any;
-  const route = path.replace("./work", "/work").replace(".astro", "");
-  return {
-    title: frontmatter.title || "Untitled",
-    description: frontmatter.description || "No description available.",
-    image: frontmatter.image || "",
-    route
-  };
+const pages = import.meta.glob("./work/*.astro", {
+  eager: true
 });
+
+// Dynamic pages
+const pageList = Object.entries(pages)
+  .map(([path, module]) => {
+    const { frontmatter } = module as any;
+
+    const route = path.replace("./work", "/work").replace(".astro", "");
+
+    return {
+      title: frontmatter.title || "Page Title",
+
+      description: frontmatter.description || "Page description.",
+
+      image: frontmatter.image || "No Image",
+
+      route
+    };
+  })
+  .filter((item) => item.title.toLowerCase() !== "interactive letter");
+
+// External work cards
+const externalProjects = [
+  {
+    url: "https://abcdkbd.com",
+    title: "ABCDKBD",
+    description: "An interactive kids learning platform.",
+    image: "https://github.com/recursivezero/abcd/blob/main/public/assets/images/512x512.png?raw=true",
+    isActive: true
+  },
+
+  {
+    url: "https://threadzip.com/",
+    title: "Threadzip",
+    description: "A digital textile sourcing and business platform connecting manufacturers, suppliers, and buyers.",
+    image: "https://threadzip.com/images/icon-circle.svg",
+    isActive: true
+  },
+
+  {
+    url: "https://rzro.link/",
+    title: "RZRO",
+    description: "A modern smart link and URL shortening platform by Recursive Zero.",
+    image: "https://rzro.link/static/og-image.jpg",
+    isActive: true
+  },
+
+  {
+    url: "https://lab.threadzip.com",
+    title: "Threadzip Lab",
+    description: "A python tool that uses computer vision to identify and generate fabric patterns.",
+    image: "https://lab.threadzip.com/media/4506a1f4769fb57c54b53e6189d5b405971d3595e689f77360792546.jpg",
+    isActive: true
+  },
+
+  {
+    url: "https://pro.threadzip.com",
+    title: "Threadzip Pro",
+    description: "An AI-powered platform for fabric intelligence and textile analysis.",
+    image: fabricAI.src,
+    isActive: true
+  },
+
+  {
+    url: "https://app.threadzip.com",
+    title: "Threadzip App",
+    description: "A B2B marketplace for textile raw material businesses.",
+    image: "https://app.threadzip.com/threadzip_logo_white.png",
+    isActive: true
+  },
+  {
+    url: "https://recursivezero.github.io/taboo/",
+    title: "Tech Taboo",
+    description: "A fun and interactive tech-themed taboo game platform.",
+    image: techTaboo.src,
+    isActive: true
+  }
+];
 ---
 
-<BaseLayout meta={{ title: "Work Pages" }}>
-  <main class="mx-auto flex max-w-7xl flex-col px-4 sm:px-6 lg:px-8">
-    <div class="mb-12 mt-[20px] text-center">
-      <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl">Our Work</h1>
-      <p class="mt-4 text-lg text-gray-400">Discover our latest work and Projects</p>
-    </div>
+<BaseLayout
+  meta={{
+    title: "Our Work"
+  }}
+>
+  <main class="bg-background text-foreground">
+    <!-- HERO -->
+    <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+      <div class="text-center">
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">Portfolio</p>
 
-    <div class="grid grid-cols-1 gap-8 pb-12 md:grid-cols-2 lg:grid-cols-3">
-      {
-        pageList.map(({ title, description, image, route }) => (
-          <BlogCard
-            title={title}
-            description={description}
-            image={image || "https://via.placeholder.com/800x450"}
-            url={route}
-            height={200}
-          />
-        ))
-      }
-      <Card href="http://abcdkbd.com" title="ABCDKBD" body="An interactive kids learning platform." />
-      <Card
-        href="http://app.threadzip.com"
-        title="ThreadZip"
-        body="A B2B marketplace for textile raw material businesses."
-      />
-      <Card
-        href="http://lab.threadzip.com"
-        title="ThreadZip Lab"
-        body="A python tool that uses computer vision to identify and generate fabric patterns."
-      />
-    </div>
+        <h1 class="text-foreground text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">Our Work</h1>
+
+        <p class="text-foreground/70 mx-auto mt-6 max-w-2xl text-lg leading-8">
+          Explore our latest projects, products, platforms and engineering solutions crafted by Recursive Zero.
+        </p>
+      </div>
+
+      <!-- GRID -->
+      <div class="mt-16 grid grid-cols-1 gap-8 pb-12 md:grid-cols-2 lg:grid-cols-3">
+        <!-- Dynamic Internal Projects -->
+        {
+          pageList.map(({ title, description, image, route }) => (
+            <BlogCard
+              title={title}
+              description={description}
+              image={image || "https://via.placeholder.com/800x450"}
+              url={route}
+            />
+          ))
+        }
+
+        <!-- External Projects -->
+        {
+          externalProjects
+            .filter(({ isActive }) => isActive)
+            .map(({ url, title, description, image }) => (
+              <BlogCard url={url} title={title} description={description} image={image} />
+            ))
+        }
+      </div>
+    </section>
   </main>
 </BaseLayout>
