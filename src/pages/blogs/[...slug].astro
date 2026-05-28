@@ -12,7 +12,7 @@ export async function getStaticPaths() {
   const posts = await getCollection("blog");
 
   return posts.map((blog) => ({
-    params: { slug: blog.slug },
+    params: { slug: blog.id },
     props: blog
   }));
 }
@@ -38,14 +38,8 @@ if (!Content) {
 <BaseLayout meta={{ title: title, description: description, ogImage: image, articleDate: date }}>
   <div class="mx-auto flex max-w-6xl flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
     <h1 class="mb-4 text-4xl font-bold">{title}</h1>
-    {description && <p class="mb-6 text-xl text-gray-300">{description}</p>}
+    {description && <p class="mb-6 text-xl text-gray-500">{description}</p>}
     <div class="mb-8 flex items-center gap-4 text-gray-400">
-      {
-        description && (
-          <p class="text-foreground/70 mt-5 text-base leading-7 sm:text-lg md:text-xl md:leading-8">{description}</p>
-        )
-      }
-
       <!-- META -->
       <div
         class="text-foreground/60 mt-8 flex flex-col gap-4 text-sm sm:flex-row sm:flex-wrap sm:items-center sm:gap-6"
@@ -79,7 +73,7 @@ if (!Content) {
       {
         tags?.length > 0 && (
           <div class="mt-6 flex flex-wrap gap-2 sm:gap-3">
-            {tags.map((tag) => (
+            {tags.map((tag: string) => (
               <a
                 href={`/blogs/tag/${tag}`}
                 class="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-3 py-2 text-xs font-medium text-cyan-500 transition duration-300 hover:bg-cyan-500 hover:text-black sm:px-4 sm:text-sm"

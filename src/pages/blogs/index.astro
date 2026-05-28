@@ -54,7 +54,7 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []))];
         {
           posts.map((post) => (
             <BlogCard
-              url={`/blogs/${post.slug}`}
+              url={`/blogs/${post.id}`}
               title={post.data.title}
               description={post.data.description}
               image={post.data.image}

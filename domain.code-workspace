@@ -196,6 +196,7 @@
       "titleBar.inactiveBackground": "#01001099",
       "titleBar.inactiveForeground": "#e7e7e799",
       "tab.activeBorder": "#040043"
-    }
+    },
+    "folder-color.pathColors": []
   }
 }

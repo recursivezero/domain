@@ -33,7 +33,7 @@ const slicedPosts = posts.slice(0, 3);
       {
         slicedPosts.map((post) => (
           <BlogCard
-            url={`/blogs/${post.slug}`}
+            url={`/blogs/${post.id}`}
             title={post.data.title}
             description={post.data.description}
             image={post.data.image}

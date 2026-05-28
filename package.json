@@ -1,6 +1,6 @@
 {
   "name": "@recursivezero/domain",
-  "version": "1.0.1",
+  "version": "1.2.0",
   "main": "src/index.js",
   "author": {
     "name": "Founder",
@@ -59,19 +59,15 @@
     "nuke": "rm -rf node_modules && rm package-lock.json && npm run clean"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.4",
-    "@astrojs/mdx": "4.0.3",
-    "@astrojs/node": "9.0.0",
-    "@astrojs/react": "4.1.2",
-    "@astrojs/rss": "4.0.11",
-    "@astrojs/tailwind": "5.1.4",
-    "@fontsource/orbitron": "5.2.8",
+    "@astrojs/check": "0.9.2",
+    "@astrojs/mdx": "5.0.6",
+    "@astrojs/node": "^10.1.1",
+    "@astrojs/react": "5.0.5",
+    "@astrojs/rss": "4.0.18",
+    "@astrojs/tailwind": "6.0.2",
     "@fontsource/roboto": "5.1.0",
-    "@fontsource/sora": "5.2.8",
-    "@fontsource/space-grotesk": "5.2.10",
-    "@radix-ui/react-slot": "1.1.1",
-    "astro": "5.1.1",
-    "astro-aws-amplify": "0.1.0",
+    "@radix-ui/react-slot": "1.1.2",
+    "astro": "6.3.8",
     "class-variance-authority": "0.7.0",
     "clsx": "2.1.0",
     "dotenv": "^16.4.5",
@@ -80,7 +76,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "shadcn": "1.0.0",
-    "tailwind": "4.0.0",
+    "tailwind": "2.3.1",
     "tailwind-merge": "2.2.0",
     "tailwindcss": "3.4.17",
     "typescript": "5.6.2",
@@ -99,10 +95,11 @@
     "eslint": "8.55.0",
     "eslint-plugin-import": "2.29.0",
     "eslint-plugin-jsx-a11y": "6.8.0",
-    "postcss": "8.4.32",
+    "postcss": "8.5.15",
     "postcss-import": "16.1.0",
     "prettier": "3.1.0",
     "prettier-plugin-astro": "0.14.1",
-    "prettier-plugin-tailwindcss": "0.6.8"
+    "prettier-plugin-tailwindcss": "0.6.8",
+    "react-compiler-runtime": "1.0.0"
   }
 }

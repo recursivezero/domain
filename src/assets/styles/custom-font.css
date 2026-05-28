@@ -1,9 +1,12 @@
-/* src/styles/custom-font.css */
+/* src/assets/styles/custom-font.css */
 
 
+/* src/assets/styles/custom-font.css */
 @font-face {
   font-family: "Boisu";
-  src: url("../assets/fonts/Boisu-Stroke.woff2") format("woff2");
+  /* Path relative to this CSS file */
+  src: url("../fonts/Boisu-Stroke.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }

@@ -9,7 +9,6 @@
     ],
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
@@ -31,37 +30,37 @@
     "target": "ESNext",
     "paths": {
       "@/*": [
-        "src/*"
+        "./src/*"
       ],
       "@/assets/*": [
-        "src/assets/*"
+        "./src/assets/*"
       ],
       "@/components/*": [
-        "src/components/*"
+        "./src/components/*"
       ],
       "@/layouts/*": [
-        "src/layouts/*.astro"
+        "./src/layouts/*.astro"
       ],
       "@/utils/*": [
-        "src/utils/*"
+        "./src/utils/*"
       ],
       "@/libs": [
-        "src/libs/index.ts"
+        "./src/libs/index.ts"
       ],
       "@/types": [
-        "src/types.ts"
+        "./src/types.ts"
       ],
       "@/hooks/*": [
-        "src/hooks/*"
+        "./src/hooks/*"
       ],
       "@/models": [
-        "src/models/index.ts"
+        "./src/models/index.ts"
       ],
       "@/mocks/*": [
-        "src/mocks/*"
+        "./src/mocks/*"
       ],
       "@/site-config": [
-        "src/site.config.ts"
+        "./src/site.config.ts"
       ]
     },
     "verbatimModuleSyntax": true

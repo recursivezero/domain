@@ -51,7 +51,7 @@ const filteredBlogs = blogs.filter((blog) => blog.data.tags?.includes(tag!));
           filteredBlogs.length > 0 ? (
             filteredBlogs.map((blog) => (
               <BlogCard
-                url={`/blogs/${blog.slug}`}
+                url={`/blogs/${blog.id}`}
                 title={blog.data.title}
                 description={blog.data.description || "No description available"}
                 image={blog.data.image}
