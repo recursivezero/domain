@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout";
-import aboutImage from "@/assets/images/about.png"; // change later with unique about image
-
+import aboutImage from "@/assets/images/about.png"; 
 const founders = [
   {
     name: "Keshav Mohta",
@@ -23,6 +22,8 @@ const founders = [
     initials: "P",
     description: "Driving business expansion and strategic partnerships while helping Recursive Zero scale globally.",
     tags: ["Business Advisory", "Global Partnerships", "Growth"],
+    email: null,
+    linkedin: null,
     isActive: true
   },
 
@@ -33,8 +34,25 @@ const founders = [
     initials: "R",
     description: "Focused on operations, execution and building efficient systems that support long-term growth.",
     tags: ["Operations", "Execution", "Scalable Systems"],
+    email: null,
+    linkedin: null,
     isActive: true
   },
+  {
+  name: "Varun Daga",
+  designation: "CTO",
+  location: "Bengaluru",
+  description:
+    "Leading technology architecture and engineering strategy while building scalable and high-performance digital systems.",
+  tags: [
+    "System Architecture",
+    "Engineering Leadership",
+    "Scalable Systems"
+  ],
+  email: null,
+  linkedin: null,
+  isActive: true
+}
 
  
 ];
@@ -196,11 +214,11 @@ const founders = [
                   <div>
                     <!-- Name First -->
                     <h3 class="text-foreground text-3xl font-bold">
-                      {               founder.name}
+                      {founder.name}
                     </h3>
 
-                    <!-- Designation Below -->
-                    <span class="mt-3 inline-flex rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-sm font-semibold text-cyan-500">
+                           <!-- Designation Below -->
+                        <span class="mt-3 inline-flex rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-sm font-semibold text-cyan-500">
                       {founder.designation}
                     </span>
 
@@ -212,48 +230,64 @@ const founders = [
                 </div>
 
                   <p class="text-foreground/75 mt-8 text-lg leading-9">{founder.description}</p>
-          {
-  founder.email && (
-    <div class="mt-6 flex items-center gap-5 text-sm">
-      {/* Email */}
-      <a
-        href={`mailto:${founder.email}`}
-        class="group inline-flex items-center gap-2 font-medium text-slate-700 transition hover:text-cyan-600 dark:text-slate-300 dark:hover:text-cyan-400"
-      >
-        <span class="text-foreground/60">
-          Email:
-        </span>
+                 {
+  (founder.email || founder.linkedin) && (
+    <div class="mt-6 flex flex-wrap items-center gap-5 text-sm">
+      {
+        founder.email && (
+          <a
+            href={`mailto:${founder.email}`}
+            class="group inline-flex items-center gap-2 rounded-full border border-cyan-500/15 bg-cyan-500/[0.04] px-4 py-2 font-medium text-slate-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-500/30 hover:bg-cyan-500/[0.08] hover:text-cyan-600 dark:border-cyan-400/10 dark:bg-cyan-400/[0.04] dark:text-slate-300 dark:hover:border-cyan-400/30 dark:hover:bg-cyan-400/[0.08] dark:hover:text-cyan-400"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.8"
+              stroke="currentColor"
+              class="h-5 w-5 text-cyan-500"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21.75 7.5v9a2.25 2.25 0 0 1-2.25 2.25h-15A2.25 2.25 0 0 1 2.25 16.5v-9m19.5 0A2.25 2.25 0 0 0 19.5 5.25h-15A2.25 2.25 0 0 0 2.25 7.5m19.5 0-8.69 5.52a2.25 2.25 0 0 1-2.12 0L2.25 7.5"
+              />
+            </svg>
 
-        <span class="relative">
-          {founder.email}
+            <span class="text-foreground/60">
+              Email:
+            </span>
 
-          <span
-            class="absolute -bottom-1 left-0 h-[1px] w-full bg-cyan-500"
-          />
-        </span>
-      </a>
+            <span class="font-semibold underline decoration-cyan-500/50 underline-offset-4">
+              {founder.email}
+            </span>
+          </a>
+        )
+      }
 
-      <span class="text-foreground/20">•</span>
-
-      {/* LinkedIn */}
       {
         founder.linkedin && (
           <a
             href={founder.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            class="group inline-flex items-center gap-2 font-medium text-slate-700 transition hover:text-cyan-600 dark:text-slate-300 dark:hover:text-cyan-400"
+            class="group inline-flex items-center gap-2 rounded-full border border-cyan-500/15 bg-cyan-500/[0.04] px-4 py-2 font-medium text-slate-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-500/30 hover:bg-cyan-500/[0.08] hover:text-cyan-600 dark:border-cyan-400/10 dark:bg-cyan-400/[0.04] dark:text-slate-300 dark:hover:border-cyan-400/30 dark:hover:bg-cyan-400/[0.08] dark:hover:text-cyan-400"
           >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="h-5 w-5 text-cyan-500"
+            >
+              <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19ZM8.34 17V10.5H6.13V17H8.34ZM7.23 9.56C7.94 9.56 8.39 9.08 8.39 8.48C8.38 7.87 7.94 7.4 7.25 7.4C6.56 7.4 6.09 7.87 6.09 8.48C6.09 9.08 6.53 9.56 7.21 9.56H7.23ZM17.91 17V13.36C17.91 11.41 16.87 10.5 15.49 10.5C14.38 10.5 13.89 11.11 13.61 11.54V10.5H11.4C11.43 11.19 11.4 17 11.4 17H13.61V13.37C13.61 13.17 13.62 12.97 13.69 12.83C13.84 12.43 14.19 12.01 14.77 12.01C15.53 12.01 15.84 12.58 15.84 13.43V17H17.91Z" />
+            </svg>
+
             <span class="text-foreground/60">
               LinkedIn:
             </span>
 
-            <span class="relative">
+            <span class="font-semibold underline decoration-cyan-500/50 underline-offset-4">
               Profile
-
-              <span
-                class="absolute -bottom-1 left-0 h-[1px] w-full bg-cyan-500"
-              />
             </span>
           </a>
         )
