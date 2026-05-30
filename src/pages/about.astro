@@ -12,7 +12,7 @@ const founders = [
     tags: ["Product Engineering", "Web Platforms", "Startup Growth", "Scalable Systems"],
     email: "hello@recursivezero.com",
     linkedin: "https://www.linkedin.com/in/xkeshav/",
-    isActive: true
+    isActive: true,
   },
 
   {
@@ -24,7 +24,7 @@ const founders = [
     tags: ["Business Advisory", "Global Partnerships", "Growth"],
     email: null,
     linkedin: null,
-    isActive: true
+    isActive: true,
   },
 
   {
@@ -36,9 +36,9 @@ const founders = [
     tags: ["Operations", "Execution", "Scalable Systems"],
     email: null,
     linkedin: null,
-    isActive: true
+    isActive: true,
   },
-  {
+ {
   name: "Varun Daga",
   designation: "CTO",
   location: "Bengaluru",
@@ -51,8 +51,8 @@ const founders = [
   ],
   email: null,
   linkedin: null,
-  isActive: true
-}
+  isActive: true,
+},
 
  
 ];
@@ -60,10 +60,10 @@ const founders = [
 
 <BaseLayout meta={{ title: "About Us" }}>
   <main class="bg-background text-foreground">
-    <!-- HERO -->
+    
     <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
       <div class="grid items-center gap-16 lg:grid-cols-2">
-        <!-- LEFT -->
+        
         <div>
           <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">About Recursive Zero</p>
 
@@ -83,7 +83,7 @@ const founders = [
             meaningful digital products.
           </p>
 
-          <!-- Stats -->
+          
           <div class="mt-10 grid grid-cols-3 gap-4">
             <div
               class="border-foreground/10 bg-background dark:bg-foreground/[0.04] rounded-3xl border p-6 text-center shadow-sm backdrop-blur-sm"
@@ -111,7 +111,7 @@ const founders = [
           </div>
         </div>
 
-        <!-- RIGHT -->
+        
         <div class="space-y-6">
           <div
             class="border-foreground/10 bg-background/80 dark:bg-foreground/[0.03] overflow-hidden rounded-[3rem] border shadow-xl backdrop-blur-sm"
@@ -120,7 +120,6 @@ const founders = [
           </div>
 
           <div class="grid gap-4 md:grid-cols-2">
-            <!-- Card 1 -->
             <div
               class="border-foreground/10 rounded-[2rem] border bg-cyan-500/5 p-6 transition-colors dark:bg-cyan-500/10"
             >
@@ -128,8 +127,6 @@ const founders = [
 
               <p class="text-foreground/70 mt-3">Building scalable digital products.</p>
             </div>
-
-            <!-- Card 2 -->
             <div
               class="border-foreground/10 rounded-[2rem] border bg-cyan-500/5 p-6 transition-colors dark:bg-cyan-500/10"
             >
@@ -142,7 +139,7 @@ const founders = [
       </div>
     </section>
 
-    <!-- WHAT WE BUILD -->
+    
     <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
       <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">What We Do</p>
 
@@ -177,7 +174,7 @@ const founders = [
       </div>
     </section>
 
-    <!-- FOUNDER -->
+    
     <section class="mx-auto max-w-7xl px-6 py-24 lg:px-10">
       <div class="mb-12">
         <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">Meet The Team</p>
@@ -212,17 +209,13 @@ const founders = [
                   </div>
 
                   <div>
-                    <!-- Name First -->
                     <h3 class="text-foreground text-3xl font-bold">
                       {founder.name}
                     </h3>
-
-                           <!-- Designation Below -->
                         <span class="mt-3 inline-flex rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-sm font-semibold text-cyan-500">
                       {founder.designation}
                     </span>
 
-                    <!-- Location -->
                     <p class="text-foreground/70 mt-2 text-lg">
                       {founder.location}
                     </p>
@@ -309,16 +302,13 @@ const founders = [
       </div>
     </section>
 
-    <!-- MISSION -->
     <section class="mx-auto max-w-7xl px-6 py-24 lg:px-10">
       <div
         class="border-foreground/10 bg-background relative overflow-hidden rounded-[4rem] border p-10 shadow-sm lg:p-16"
       >
-        <!-- Glow -->
         <div class="absolute -left-20 top-0 h-72 w-72 rounded-full bg-cyan-500/10 blur-[120px]"></div>
 
         <div class="relative z-10 grid items-center gap-14 lg:grid-cols-2">
-          <!-- LEFT -->
           <div>
             <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">Our Mission</p>
 
@@ -338,7 +328,6 @@ const founders = [
             </p>
           </div>
 
-          <!-- RIGHT -->
           <div class="grid gap-5">
             <div
               class="border-foreground/10 bg-foreground/[0.03] rounded-[2rem] border p-6 transition hover:-translate-y-1"
@@ -367,8 +356,6 @@ const founders = [
         </div>
       </div>
     </section>
-
-    <!-- CTA -->
     <section class="mx-auto max-w-7xl px-6 pb-24 lg:px-10">
       <div class="border-foreground/10 rounded-[4rem] border p-16 text-center shadow-sm">
         <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">Let’s Work Together</p>
