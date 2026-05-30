@@ -25,121 +25,25 @@ const isCurrentPage = (path: string) => {
     font-family: Boisu, sans-serif;
   }
 </style>
-<header
-  class="sticky top-0 z-50 w-full border-b border-black/20 dark:border-white/20 bg-white dark:bg-[#050B1C]"
->
-<header class="bg-background sticky top-0 z-50 w-full border-b border-black/20 dark:border-white/20">
-  <!-- DESKTOP -->
-  <div class="mx-auto hidden h-24 items-center justify-between px-4 sm:px-6 lg:flex lg:px-10">
-    <!-- Logo -->
-    <a href="/" class="flex items-center gap-3">
-      <Picture
-        src={logoImage}
-        formats={["png", "webp", "jpg"]}
-        alt="Recursive Zero"
-        class="h-12 w-12 rounded-full object-contain dark:brightness-200 dark:invert"
-      />
-
-      <span class="brand text-foreground text-3xl font-extrabold"> RECURSIVE ZERO </span>
-    </a>
-
-    <!-- Desktop Nav -->
-    <nav class="absolute left-1/2 -translate-x-1/2">
-      <ul class="flex items-center gap-10">
-        {
-          navLinks
-            .filter(({ isActive }) => isActive)
-            .map((item) => (
-              <li>
-                <a
-                  href={item.href}
-                  class:list={[
-                    "text-lg font-semibold transition hover:text-cyan-500",
-                    isCurrentPage(item.href) ? "text-cyan-500 underline underline-offset-8" : "text-foreground"
-                  ]}
-                >
-                  {item.name}
-                </a>
-              </li>
-            ))
-        }
-      </ul>
-    </nav>
-
-    <!-- Right -->
-    <div class="flex items-center gap-4">
-      <ThemeToggle />
-
-      <a
-        href="/career"
-        class="bg-foreground text-background rounded-2xl px-6 py-3 text-lg font-semibold transition hover:bg-cyan-500"
-      >
-        Join Us
-      </a>
-    </div>
-  </div>
-
-  <!-- MOBILE -->
-  <div class="lg:hidden">
-    <!-- Top Bar -->
-    <div class="flex h-20 items-center justify-between px-5">
+<header class="sticky top-0 z-50 w-full border-b border-black/20 bg-white dark:border-white/20 dark:bg-[#050B1C]">
+  <header class="bg-background sticky top-0 z-50 w-full border-b border-black/20 dark:border-white/20">
+    <!-- DESKTOP -->
+    <div class="mx-auto hidden h-24 items-center justify-between px-4 sm:px-6 lg:flex lg:px-10">
+      <!-- Logo -->
       <a href="/" class="flex items-center gap-3">
         <Picture
           src={logoImage}
           formats={["png", "webp", "jpg"]}
           alt="Recursive Zero"
-          class="h-10 w-10 rounded-full object-contain dark:brightness-200 dark:invert"
+          class="h-12 w-12 rounded-full object-contain dark:brightness-200 dark:invert"
         />
 
-        <span class="brand text-foreground text-xl font-bold"> RECURSIVE ZERO </span>
+        <span class="brand text-foreground text-3xl font-extrabold"> RECURSIVE ZERO </span>
       </a>
 
-      <div class="flex items-center gap-3">
-        <ThemeToggle />
-
-        <!-- Menu Btn -->
-        <button
-          id="mobileMenuBtn"
-          type="button"
-          class="border-foreground/15 text-foreground flex h-14 w-14 items-center justify-center rounded-3xl border text-4xl"
-        >
-          ☰
-        </button>
-      </div>
-    </div>
-
-    <!-- Fullscreen Mobile Menu -->
-    <div id="mobileMenu" class="fixed inset-0 z-[9999] hidden bg-white dark:bg-[#050B1C]">
-      <!-- Header -->
-      <div class="flex items-center justify-between border-b border-black/10 px-5 py-5 dark:border-white/10">
-        <div class="flex items-center gap-3">
-          <Picture
-            src={logoImage}
-            formats={["png", "webp", "jpg"]}
-            alt="Recursive Zero"
-            class="h-12 w-12 rounded-full object-contain dark:brightness-200 dark:invert"
-          />
-
-          <span class="brand text-foreground text-2xl font-bold"> RECURSIVE ZERO </span>
-        </div>
-
-        <div class="flex items-center gap-3">
-          <ThemeToggle />
-
-          <!-- Close -->
-          <button
-            id="closeMenuBtn"
-            type="button"
-            class="border-foreground/15 text-foreground flex h-14 w-14 items-center justify-center rounded-3xl border text-4xl"
-          >
-            ✕
-          </button>
-        </div>
-      </div>
-
-      <!-- Nav -->
-      <nav class="px-8 pt-12">
-        <ul class="space-y-10">
+      <!-- Desktop Nav -->
+      <nav class="absolute left-1/2 -translate-x-1/2">
+        <ul class="flex items-center gap-10">
           {
             navLinks
               .filter(({ isActive }) => isActive)
@@ -148,8 +52,8 @@ const isCurrentPage = (path: string) => {
                   <a
                     href={item.href}
                     class:list={[
-                      "block text-4xl font-bold transition",
-                      isCurrentPage(item.href) ? "text-cyan-500" : "text-foreground"
+                      "text-lg font-semibold transition hover:text-cyan-500",
+                      isCurrentPage(item.href) ? "text-cyan-500 underline underline-offset-8" : "text-foreground"
                     ]}
                   >
                     {item.name}
@@ -157,43 +61,133 @@ const isCurrentPage = (path: string) => {
                 </li>
               ))
           }
-
-          <li class="pt-8">
-            <a
-              href="/career"
-              class="bg-foreground text-background inline-flex rounded-2xl px-8 py-4 text-xl font-semibold"
-            >
-              Join Us
-            </a>
-          </li>
         </ul>
       </nav>
+
+      <!-- Right -->
+      <div class="flex items-center gap-4">
+        <ThemeToggle />
+
+        <a
+          href="/career"
+          class="bg-foreground text-background inline-flex rounded-2xl border border-black px-8 py-4 text-xl font-semibold transition hover:border-transparent hover:bg-cyan-500 dark:border-white"
+        >
+          Join Us
+        </a>
+      </div>
     </div>
-  </div>
+
+    <!-- MOBILE -->
+    <div class="lg:hidden">
+      <!-- Top Bar -->
+      <div class="flex h-20 items-center justify-between px-5">
+        <a href="/" class="flex items-center gap-3">
+          <Picture
+            src={logoImage}
+            formats={["png", "webp", "jpg"]}
+            alt="Recursive Zero"
+            class="h-10 w-10 rounded-full object-contain dark:brightness-200 dark:invert"
+          />
+
+          <span class="brand text-foreground text-xl font-bold"> RECURSIVE ZERO </span>
+        </a>
+
+        <div class="flex items-center gap-3">
+          <ThemeToggle />
+
+          <!-- Menu Btn -->
+          <button
+            id="mobileMenuBtn"
+            type="button"
+            class="border-foreground/15 text-foreground flex h-14 w-14 items-center justify-center rounded-3xl border text-4xl"
+          >
+            ☰
+          </button>
+        </div>
+      </div>
+
+      <!-- Fullscreen Mobile Menu -->
+      <div id="mobileMenu" class="fixed inset-0 z-[9999] hidden bg-white dark:bg-[#050B1C]">
+        <!-- Header -->
+        <div class="flex items-center justify-between border-b border-black/10 px-5 py-5 dark:border-white/10">
+          <div class="flex items-center gap-3">
+            <Picture
+              src={logoImage}
+              formats={["png", "webp", "jpg"]}
+              alt="Recursive Zero"
+              class="h-12 w-12 rounded-full object-contain dark:brightness-200 dark:invert"
+            />
+
+            <span class="brand text-foreground text-2xl font-bold"> RECURSIVE ZERO </span>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <ThemeToggle />
+
+            <!-- Close -->
+            <button
+              id="closeMenuBtn"
+              type="button"
+              class="border-foreground/15 text-foreground flex h-14 w-14 items-center justify-center rounded-3xl border text-4xl"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+
+        <!-- Nav -->
+        <nav class="px-8 pt-12">
+          <ul class="space-y-10">
+            {
+              navLinks
+                .filter(({ isActive }) => isActive)
+                .map((item) => (
+                  <li>
+                    <a
+                      href={item.href}
+                      class:list={[
+                        "block text-4xl font-bold transition",
+                        isCurrentPage(item.href) ? "text-cyan-500" : "text-foreground"
+                      ]}
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                ))
+            }
+
+            <li class="pt-8">
+             class="bg-foreground text-background rounded-2xl border border-black px-6 py-3 text-lg font-semibold transition hover:border-transparent hover:bg-cyan-500 dark:border-white"
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <script is:inline>
+    function initMobileMenu() {
+      const openBtn = document.getElementById("mobileMenuBtn");
+
+      const closeBtn = document.getElementById("closeMenuBtn");
+
+      const menu = document.getElementById("mobileMenu");
+
+      if (!openBtn || !closeBtn || !menu) return;
+
+      openBtn.addEventListener("click", () => {
+        menu.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      });
+
+      closeBtn.addEventListener("click", () => {
+        menu.classList.add("hidden");
+        document.body.style.overflow = "auto";
+      });
+    }
+
+    initMobileMenu();
+
+    document.addEventListener("astro:page-load", initMobileMenu);
+  </script>
 </header>
-
-<script is:inline>
-  function initMobileMenu() {
-    const openBtn = document.getElementById("mobileMenuBtn");
-
-    const closeBtn = document.getElementById("closeMenuBtn");
-
-    const menu = document.getElementById("mobileMenu");
-
-    if (!openBtn || !closeBtn || !menu) return;
-
-    openBtn.addEventListener("click", () => {
-      menu.classList.remove("hidden");
-      document.body.style.overflow = "hidden";
-    });
-
-    closeBtn.addEventListener("click", () => {
-      menu.classList.add("hidden");
-      document.body.style.overflow = "auto";
-    });
-  }
-
-  initMobileMenu();
-
-  document.addEventListener("astro:page-load", initMobileMenu);
-</script>

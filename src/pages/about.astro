@@ -11,6 +11,8 @@ const founders = [
     description:
       "Building products with simplicity, performance and long-term scalability. Focused on helping startups and businesses grow through modern engineering and practical digital solutions.",
     tags: ["Product Engineering", "Web Platforms", "Startup Growth", "Scalable Systems"],
+    email: "hello@recursivezero.com",
+    linkedin: "https://www.linkedin.com/in/xkeshav/",
     isActive: true
   },
 
@@ -180,24 +182,85 @@ const founders = [
                 <div class="absolute -right-10 -top-10 h-64 w-64 rounded-full bg-cyan-500/10 blur-[100px]" />
 
                 <div class="relative z-10">
-                  <div class="flex items-center gap-5">
-                    <div class="flex h-24 w-24 items-center justify-center rounded-[2rem] bg-cyan-500/10 text-4xl font-bold text-cyan-500">
-                      {founder.initials}
-                    </div>
-
-                    <div>
-                      <span class="mb-3 inline-flex rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-sm font-semibold text-cyan-500">
-                        {founder.designation}
-                      </span>
-
-                      <h3 class="text-foreground text-3xl font-bold">{founder.name}</h3>
-
-                      <p class="text-foreground/70 mt-2 text-lg">{founder.location}</p>
-                    </div>
+                 <div class="flex items-center gap-5">
+                  <div class="flex h-24 w-24 items-center justify-center rounded-[2rem] bg-cyan-500/10 text-4xl font-bold text-cyan-500">
+                    {
+                      founder.name
+                        .split(" ")
+                        .map((word) => word[0])
+                        .slice(0, 2)
+                        .join("")
+                    }
                   </div>
 
-                  <p class="text-foreground/75 mt-8 text-lg leading-9">{founder.description}</p>
+                  <div>
+                    <!-- Name First -->
+                    <h3 class="text-foreground text-3xl font-bold">
+                      {               founder.name}
+                    </h3>
 
+                    <!-- Designation Below -->
+                    <span class="mt-3 inline-flex rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-sm font-semibold text-cyan-500">
+                      {founder.designation}
+                    </span>
+
+                    <!-- Location -->
+                    <p class="text-foreground/70 mt-2 text-lg">
+                      {founder.location}
+                    </p>
+                  </div>
+                </div>
+
+                  <p class="text-foreground/75 mt-8 text-lg leading-9">{founder.description}</p>
+          {
+  founder.email && (
+    <div class="mt-6 flex items-center gap-5 text-sm">
+      {/* Email */}
+      <a
+        href={`mailto:${founder.email}`}
+        class="group inline-flex items-center gap-2 font-medium text-slate-700 transition hover:text-cyan-600 dark:text-slate-300 dark:hover:text-cyan-400"
+      >
+        <span class="text-foreground/60">
+          Email:
+        </span>
+
+        <span class="relative">
+          {founder.email}
+
+          <span
+            class="absolute -bottom-1 left-0 h-[1px] w-full bg-cyan-500"
+          />
+        </span>
+      </a>
+
+      <span class="text-foreground/20">•</span>
+
+      {/* LinkedIn */}
+      {
+        founder.linkedin && (
+          <a
+            href={founder.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group inline-flex items-center gap-2 font-medium text-slate-700 transition hover:text-cyan-600 dark:text-slate-300 dark:hover:text-cyan-400"
+          >
+            <span class="text-foreground/60">
+              LinkedIn:
+            </span>
+
+            <span class="relative">
+              Profile
+
+              <span
+                class="absolute -bottom-1 left-0 h-[1px] w-full bg-cyan-500"
+              />
+            </span>
+          </a>
+        )
+      }
+    </div>
+  )
+}
                   <div class="mt-8 flex flex-wrap gap-3">
                     {founder.tags.map((tag) => (
                       <span class="border-foreground/10 bg-foreground/5 text-foreground/80 rounded-full border px-4 py-2 text-sm font-medium">
