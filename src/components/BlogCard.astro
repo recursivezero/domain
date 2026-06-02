@@ -1,11 +1,19 @@
 ---
-const { url, title, description, image, author, date, tags = [] } = Astro.props;
+const {
+  url,
+  title,
+  description,
+  image,
+  author,
+  date,
+  tags = [],
+  priority = false
+} = Astro.props;
 
 // Safe Date Formatter
 const formatDate = (dateString: string) => {
   if (!dateString) return "";
 
-  // If already in DD/MM/YYYY format
   const parts = dateString.split("/");
 
   if (parts.length === 3) {
@@ -20,7 +28,6 @@ const formatDate = (dateString: string) => {
     });
   }
 
-  // fallback
   const parsedDate = new Date(dateString);
 
   return isNaN(parsedDate.getTime())
@@ -45,7 +52,11 @@ const formattedDate = formatDate(date);
         <img
           src={image}
           alt={title}
-          loading="lazy"
+          width="800"
+          height="450"
+          loading={priority ? "eager" : "lazy"}
+          fetchpriority={priority ? "high" : "auto"}
+          decoding="async"
           class="h-full w-full object-cover transition duration-700 group-hover:scale-110"
         />
       </figure>
@@ -73,46 +84,39 @@ const formattedDate = formatDate(date);
         </h3>
 
         <!-- Description -->
-        {
-          description && (
-            <p class="text-foreground/75 mt-4 line-clamp-3 flex-1 text-base leading-8">
-              {description}
-            </p>
-          )
-        }
+        {description && (
+          <p class="text-foreground/75 mt-4 line-clamp-3 flex-1 text-base leading-8">
+            {description}
+          </p>
+        )}
 
         <!-- Bottom Meta -->
         <div
-  class="border-foreground/10 text-foreground/70 mt-6 flex items-center justify-between border-t pt-4 text-sm"
->
-  <span>
-    {
-      url.startsWith("http") ? (
-        <span class="truncate text-blue-900 underline underline-offset-4 transition hover:text-blue-700 dark:text-white dark:hover:text-gray-300">
-          {new URL(url).origin}
-        </span>
-      ) : (
-        <span class="text-foreground/80">
-          By{" "}
-          <span class="font-bold text-slate-900 dark:text-white">
-            {author || "Recursive Zero"}
+          class="border-foreground/10 text-foreground/70 mt-6 flex items-center justify-between border-t pt-4 text-sm"
+        >
+          <span>
+            {
+              url.startsWith("http") ? (
+                <span class="truncate text-blue-900 underline underline-offset-4 transition hover:text-blue-700 dark:text-white dark:hover:text-gray-300">
+                  {new URL(url).origin}
+                </span>
+              ) : (
+                <span class="text-foreground/80">
+                  By{" "}
+                  <span class="font-bold text-slate-900 dark:text-white">
+                    {author || "Recursive Zero"}
+                  </span>
+                </span>
+              )
+            }
           </span>
-        </span>
-      )
-    }
-  </span>
 
-  {
-    formattedDate && (
-      <time
-        datetime={date}
-        class="text-foreground/60 italic"
-      >
-        {formattedDate}
-      </time>
-    )
-  }
-</div>
+          {formattedDate && (
+            <time datetime={date} class="text-foreground/60 italic">
+              {formattedDate}
+            </time>
+          )}
+        </div>
       </div>
     </div>
   </a>
