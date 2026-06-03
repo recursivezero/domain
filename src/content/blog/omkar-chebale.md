@@ -3,7 +3,7 @@ title: "Looking Back at Recursive Zero — The Internship That Changed Everythin
 description: "A reflection on how a simple Twitter reply led to a life-changing internship at Recursive Zero, shaping my career through frontend, full-stack development, mentorship, and real-world product engineering."
 author: "Omkar Chebale"
 date: 2025-05-15
-image: "/assets/images/blog/omkar-chebale.png"
+image: "/assets/images/blog/omkar-chebale.webp"
 tags:
   - internship
   - astro

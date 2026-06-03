@@ -2,7 +2,7 @@
 title: "My Internship Journey"
 description: "A summary of my learnings and contributions during my recent internship."
 date: 2025-07-20
-image: "/assets/images/blog/blog-6.png"
+image: "/assets/images/blog/blog-6.webp"
 author: "Ayush Tyagi"
 
 tags:

@@ -1,7 +1,7 @@
 ---
 title: "My Internship Journey from Zero to Something"
 description: "A Moth who found his flames to chase! : A transformative internship experience that shaped my frontend development career"
-image: "/assets/images/blog/blog-8.png"
+image: "/assets/images/blog/blog-8.webp"
 author: "Rupesh Rathore"
 date: 2025-07-23
 tags:
