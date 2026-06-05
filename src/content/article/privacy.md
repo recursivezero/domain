@@ -3,7 +3,7 @@ title: "Privacy Policy"
 author: "Admin"
 ---
 
-# Privacy Policy
+
 
 ## Last Updated: Mar 29, 2026
 
