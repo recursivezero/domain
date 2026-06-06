@@ -26,18 +26,19 @@ if (typeof document !== "undefined") {
       input.value = "";
     });
 
-    themeBtn?.addEventListener("click", () => {
-      document.body.classList.toggle("dark");
-    });
+    // themeBtn?.addEventListener("click", () => {
+    //   document.body.classList.toggle("dark");
+    // });
 
     function render(entry) {
       const div = document.createElement("div");
       div.className = "card";
 
       div.innerHTML = `
+      <div class="user">👤 ${entry.user}</div>
       <div class="value">${entry.value}</div>
       <div class="meta">${entry.date} • ${entry.time}</div>
-      <div class="user">👤 ${entry.user}</div>
+      
 
       <div class="actions">
         <button class="deleteBtn">🗑 Delete</button>
@@ -47,8 +48,10 @@ if (typeof document !== "undefined") {
       const deleteBtn = div.querySelector(".deleteBtn");
 
       deleteBtn.addEventListener("click", () => {
-        deleteEntry(entry.value);
-        div.remove();
+        if (window.confirm("Are you sure you want to delete this entry?")) {
+          deleteEntry(entry.value);
+          div.remove();
+        }
       });
 
       timeline.prepend(div);

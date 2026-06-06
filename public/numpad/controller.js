@@ -18,12 +18,11 @@ export const createEntry = (value) => {
   }
 
   const { date, time } = getDateTime();
-
   const entry = {
     value,
     date,
     time,
-    user: CONFIG.USER_NAME
+    user: CONFIG.CURRENT_USER.name
   };
 
   addEntry(entry);
@@ -32,8 +31,6 @@ export const createEntry = (value) => {
     success: true,
     entry
   };
-
-  
 };
 
 export const deleteEntry = (value) => {

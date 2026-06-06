@@ -1,5 +1,10 @@
 export const CONFIG = {
   MAX_LENGTH: 16,
   ALLOW_DUPLICATES: false,
-  USER_NAME: "Abdul"
+
+  CURRENT_USER: {
+    id: 1,
+    name: "Abdul",
+    role: "admin"
+  }
 };
