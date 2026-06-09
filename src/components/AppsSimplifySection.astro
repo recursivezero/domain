@@ -1,5 +1,6 @@
 ---
-import workplaceImage from "@/assets/images/workplace.jpg";
+import { Image } from "astro:assets";
+import workplaceImage from "@/assets/images/workplace.webp";
 ---
 
 <section class="bg-background text-foreground">
@@ -47,17 +48,17 @@ import workplaceImage from "@/assets/images/workplace.jpg";
           </a>
         </div>
       </div>
-
       <!-- Right Image -->
       <div class="relative">
         <div class="absolute -right-8 top-8 h-40 w-40 rounded-full bg-cyan-500/20 blur-3xl"></div>
-
-        <img
-          src={workplaceImage.src}
-          width={800}
-          alt="Workplace"
-          class="relative z-10 h-[420px] w-full rounded-3xl object-cover shadow-xl"
-        />
+     <Image
+       src={workplaceImage}
+       alt="Workplace"
+       width={800}
+       loading="lazy"
+       format="webp"
+       class="relative z-10 h-[420px] w-full rounded-3xl object-cover shadow-xl"
+     />
       </div>
     </div>
   </div>

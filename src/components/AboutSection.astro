@@ -1,5 +1,5 @@
 ---
-import image from "@/assets/images/about.jpg";
+import image from "@/assets/images/hero.webp";
 import { Image } from "astro:assets";
 ---
 
@@ -58,6 +58,8 @@ import { Image } from "astro:assets";
           src={image}
           width={1000}
           alt="Dashboard Preview"
+          loading="eager"
+          fetchpriority="high"
           class="border-foreground/10 relative z-10 w-full rounded-3xl border object-cover shadow-2xl"
         />
       </div>

@@ -3,7 +3,7 @@ title: "My Journey Python and AI Intern at Recursive Zero"
 description: "A reflection on my internship experience at Recursive Zero, working on AI-powered fabric applications, computer vision systems, backend engineering, deployment pipelines, and production-ready machine learning solutions."
 author: "Poorna Chandra"
 date: 2026-02-28
-image: "/assets/images/blog/Poorna.png"
+image: "/assets/images/blog/Poorna.webp"
 tags:
   - internship
   - ai

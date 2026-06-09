@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout";
-import aboutImage from "@/assets/images/about.png"; 
+import aboutImage from "@/assets/images/about.webp"; 
 const founders = [
   {
     name: "Keshav Mohta",
@@ -130,7 +130,16 @@ const founders = [
           <div
             class="border-foreground/10 bg-background/80 dark:bg-foreground/[0.03] overflow-hidden rounded-[3rem] border shadow-xl backdrop-blur-sm"
           >
-            <img src={aboutImage.src} alt="About Recursive Zero" class="h-full w-full object-cover" />
+           <img
+              src={aboutImage.src}
+              alt="About Recursive Zero"
+              width="1200"
+              height="800"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              class="h-full w-full object-cover"
+            />            
           </div>
 
           <div class="grid gap-4 md:grid-cols-2">

@@ -1,7 +1,7 @@
 ---
 title: "My Internship Journey with RecursiveZero Pvt. Ltd"
 description: "A transformative internship experience that shaped my frontend development career"
-image: "/assets/images/blog/internship.png"
+image: "/assets/images/blog/internship.webp"
 author: "Prakash Raj"
 date: 2025-07-18
 tags:

@@ -3,7 +3,7 @@ title: "Internship at RecursiveZero as a SDE intern"
 description: "A deep dive into my two-month internship experience, working with Astro.js and Hono.js, and growing as a full-stack developer."
 date: 2025-07-21
 author: "Suresh Chelani"
-image: "/assets/images/blog/blog-7.png"
+image: "/assets/images/blog/blog-7.webp"
 tags:
   - internship
   - astro

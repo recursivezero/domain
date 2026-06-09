@@ -3,7 +3,7 @@ title: "Internship at RecursiveZero as a SDE intern"
 description: "A deep dive into my two-month internship experience, working with Astro.js and growing as a frontend developer."
 date: 2025-07-21
 author: "Azmat Raza"
-image: "/assets/images/blog/blog-4.jpg"
+image: "/assets/images/blog/blog-4.webp"
 tags:
   - internship
   - astro
