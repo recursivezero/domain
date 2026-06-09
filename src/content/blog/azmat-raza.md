@@ -4,6 +4,10 @@ description: "A deep dive into my two-month internship experience, working with 
 date: 2025-07-21
 author: "Azmat Raza"
 image: "/assets/images/blog/blog-4.jpg"
+tags:
+  - internship
+  - astro
+  - frontend
 ---
 
 ## Internship Experience at RecursiveZero Pvt. Ltd

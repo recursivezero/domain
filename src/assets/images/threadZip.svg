@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Black circular background -->
+  <circle cx="256" cy="256" r="250" fill="black" />
+
+  <!-- White glowing perimeter -->
+  <circle cx="256" cy="256" r="245" fill="none" stroke="white" stroke-width="10" filter="url(#glow)" />
+
+  <!-- Centered white icon, slightly enlarged -->
+  <g transform="translate(256,256) scale(3.8) translate(-50,-50)" fill="white">
+    <path d="M 38 71.4 c 0 0.8 0.7 1.5 1.5 1.5 h 4.5 L 61.1 58 V 47.6 L 38 67.7 V 71.4 z"/>
+    <path d="M 61.1 28.8 c 0 -0.8 -0.7 -1.5 -1.5 -1.5 h -1.5 L 38 44.8 v 9.6 L 61.1 34.2 V 28.8 z"/>
+    <path d="M 59.6 72.9 c 0.8 0 1.5 -0.7 1.5 -1.5 v -2.3 l -4.3 3.8 H 59.6 z"/>
+    <polygon points="45.3,76.2 53.1,76.2 53.1,72.9 55.1,72.9 61.1,67.7 61.1,59.5 45.3,73.3"/>
+    <path d="M 39.5 27.3 c -0.8 0 -1.5 0.7 -1.5 1.5 v 3.1 l 5.3 -4.6 H 39.5 z"/>
+    <polygon points="53.1,27.3 53.1,23.8 45.3,23.8 45.3,27.3 45,27.3 38,33.3 38,43.3 56.4,27.3"/>
+    <path d="M 76.9 27.4 c 0 0 -0.1 0 -0.1 -0.1 c 0 -0.1 -0.1 -0.1 -0.1 -0.2 c -1.6 -1.6 -4.7 1 -4.7 1 l -0.7 0.5 l -1.3 1.1 c -0.1 0 -0.1 0.1 -0.2 0.1 c 0 0 -0.1 0.1 -0.1 0.1 l -2.4 2.1 l -6.3 6 v -2.4 L 38 55.8 v 4.6 L 22.8 75.2 l 15.2 -12.4 v 3.4 L 61.1 46.1 v -2 l 10.4 -8.4 l 0.9 -0.9 c 0.3 -0.3 0.7 -0.5 1 -0.8 C 76.4 31.5 77.9 28.5 76.9 27.4 z M 73.6 31.8 c -1.4 1.2 -2.9 1.8 -3.3 1.3 c -0.4 -0.5 0.3 -1.9 1.7 -3.1 c 1.4 -1.2 2.9 -1.8 3.3 -1.3 C 75.8 29.2 75 30.6 73.6 31.8 z"/>
+  </g>
+
+  <!-- White glow filter -->
+  <defs>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+</svg>

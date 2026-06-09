@@ -1,6 +1,11 @@
 ---
 import fabricAI from "@/assets/images/fabric-ai.png";
 import techTaboo from "@/assets/images/TechTaboo.png";
+import abcd from "@/assets/images/abcd.png";
+import threadzip from "@/assets/images/threadZip.svg";
+import rzro from "@/assets/images/rzro.jpg";
+import threadzipLab from "@/assets/images/threadzipLab.jpg";
+import threadzipApp from "@/assets/images/ThreadzipApp.png";
 
 import BlogCard from "@/components/BlogCard.astro";
 import BaseLayout from "@/layouts/BaseLayout";
@@ -34,7 +39,7 @@ const externalProjects = [
     url: "https://abcdkbd.com",
     title: "ABCDKBD",
     description: "An interactive kids learning platform.",
-    image: "https://github.com/recursivezero/abcd/blob/main/public/assets/images/512x512.png?raw=true",
+    image: abcd.src,
     isActive: true
   },
 
@@ -42,7 +47,7 @@ const externalProjects = [
     url: "https://threadzip.com/",
     title: "Threadzip",
     description: "A digital textile sourcing and business platform connecting manufacturers, suppliers, and buyers.",
-    image: "https://threadzip.com/images/icon-circle.svg",
+    image: threadzip.src,
     isActive: true
   },
 
@@ -50,7 +55,7 @@ const externalProjects = [
     url: "https://rzro.link/",
     title: "RZRO",
     description: "A modern smart link and URL shortening platform by Recursive Zero.",
-    image: "https://rzro.link/static/og-image.jpg",
+    image: rzro.src,
     isActive: true
   },
 
@@ -58,7 +63,7 @@ const externalProjects = [
     url: "https://lab.threadzip.com",
     title: "Threadzip Lab",
     description: "A python tool that uses computer vision to identify and generate fabric patterns.",
-    image: "https://lab.threadzip.com/media/4506a1f4769fb57c54b53e6189d5b405971d3595e689f77360792546.jpg",
+    image: threadzipLab.src,
     isActive: true
   },
 
@@ -74,7 +79,7 @@ const externalProjects = [
     url: "https://app.threadzip.com",
     title: "Threadzip App",
     description: "A B2B marketplace for textile raw material businesses.",
-    image: "https://app.threadzip.com/threadzip_logo_white.png",
+    image: threadzipApp.src,
     isActive: true
   },
   {
@@ -119,12 +124,11 @@ const externalProjects = [
           ))
         }
 
-        <!-- External Projects -->
         {
           externalProjects
             .filter(({ isActive }) => isActive)
-            .map(({ url, title, description, image }) => (
-              <BlogCard url={url} title={title} description={description} image={image} />
+            .map(({ url, title, description, image }, index) => (
+              <BlogCard url={url} title={title} description={description} image={image} priority={index === 0} />
             ))
         }
       </div>

@@ -1,9 +1,49 @@
 ---
-const { url, title, description, image, author, date, tags = [] } = Astro.props;
+const {
+  url,
+  title,
+  description,
+  image,
+  author,
+  date,
+  tags = [],
+  priority = false
+} = Astro.props;
+
+// Safe Date Formatter
+const formatDate = (dateString: string) => {
+  if (!dateString) return "";
+
+  const parts = dateString.split("/");
+
+  if (parts.length === 3) {
+    const [day, month, year] = parts;
+
+    const dateObj = new Date(Number(year), Number(month) - 1, Number(day));
+
+    return dateObj.toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric"
+    });
+  }
+
+  const parsedDate = new Date(dateString);
+
+  return isNaN(parsedDate.getTime())
+    ? dateString
+    : parsedDate.toLocaleDateString("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric"
+      });
+};
+
+const formattedDate = formatDate(date);
 ---
 
 <article class="group h-full">
-  <a href={url} target="_blank" rel="noopener noreferrer" class="block h-full">
+  <a href={url} class="block h-full">
     <div
       class="border-foreground/10 bg-background/80 flex h-full flex-col overflow-hidden rounded-3xl border shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-3 hover:border-cyan-400/30 hover:shadow-2xl"
     >
@@ -12,7 +52,11 @@ const { url, title, description, image, author, date, tags = [] } = Astro.props;
         <img
           src={image}
           alt={title}
-          loading="lazy"
+          width="800"
+          height="450"
+          loading={priority ? "eager" : "lazy"}
+          fetchpriority={priority ? "high" : "auto"}
+          decoding="async"
           class="h-full w-full object-cover transition duration-700 group-hover:scale-110"
         />
       </figure>
@@ -40,13 +84,16 @@ const { url, title, description, image, author, date, tags = [] } = Astro.props;
         </h3>
 
         <!-- Description -->
-        {description && <p class="text-foreground/75 mt-4 line-clamp-3 flex-1 text-base leading-8">{description}</p>}
+        {description && (
+          <p class="text-foreground/75 mt-4 line-clamp-3 flex-1 text-base leading-8">
+            {description}
+          </p>
+        )}
 
         <!-- Bottom Meta -->
         <div
           class="border-foreground/10 text-foreground/70 mt-6 flex items-center justify-between border-t pt-4 text-sm"
         >
-          <!-- Website / Author -->
           <span>
             {
               url.startsWith("http") ? (
@@ -54,13 +101,21 @@ const { url, title, description, image, author, date, tags = [] } = Astro.props;
                   {new URL(url).origin}
                 </span>
               ) : (
-                <span>{author ? `By ${author}` : "Recursive Zero"}</span>
+                <span class="text-foreground/80">
+                  By{" "}
+                  <span class="font-bold text-slate-900 dark:text-white">
+                    {author || "Recursive Zero"}
+                  </span>
+                </span>
               )
             }
           </span>
 
-          <!-- Date -->
-          {date && <time datetime={date}>{date}</time>}
+          {formattedDate && (
+            <time datetime={date} class="text-foreground/60 italic">
+              {formattedDate}
+            </time>
+          )}
         </div>
       </div>
     </div>
