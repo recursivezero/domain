@@ -2,7 +2,7 @@
 title: "The tech stack that we preferred"
 description: "The tech stack that we work with and why we choose it ? "
 date: 2024-12-24
-image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97"
+image: "/assets/images/blog/TechStack.webp"
 tags:
   - tech
   - frontend

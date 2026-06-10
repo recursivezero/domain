@@ -5,7 +5,7 @@ if (typeof document !== "undefined") {
     const input = document.getElementById("input");
     const addBtn = document.getElementById("addBtn");
     const timeline = document.getElementById("timeline");
-    const themeBtn = document.getElementById("themeBtn");
+    // const themeBtn = document.getElementById("themeBtn");
 
     addBtn?.addEventListener("click", () => {
       const rawValue = input.value;

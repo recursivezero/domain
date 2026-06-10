@@ -2,7 +2,7 @@
 title: "How routing works in Astro ?"
 description: "The full guide on routing in astro framework . The easy and simple guide to understand and implement routing "
 date: 2024-12-12
-image: "https://images.unsplash.com/photo-1556075798-4825dfaaf498"
+image: "/assets/images/blog/AstroRouting.webp"
 
 tags:
   - astro
