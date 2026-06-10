@@ -31,7 +31,7 @@ const slicedPosts = posts.slice(0, 3);
     <!-- Blog Grid -->
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
       {
-        slicedPosts.map((post) => (
+        slicedPosts.map((post, index) => (
           <BlogCard
             url={`/blogs/${post.id}`}
             title={post.data.title}
@@ -40,6 +40,7 @@ const slicedPosts = posts.slice(0, 3);
             author={post.data.author}
             date={post.data.date.toLocaleDateString()}
             tags={post.data.tags}
+            priority={index === 0}
           />
         ))
       }
