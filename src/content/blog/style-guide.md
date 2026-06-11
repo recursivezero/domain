@@ -2,8 +2,7 @@
 title: "The style guide the must know to start the code"
 description: "The full guid on file structure , css naming convention , tailwind usage and , css classes naming convention . "
 date: 2024-12-26
-image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6"
-
+image: "/assets/images/blog/StyelGuide.webp"
 tags:
   - css
   - tailwind
