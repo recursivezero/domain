@@ -57,6 +57,11 @@ astro boilerplate
 - Redesign website; added font
 - update Astro version
 
+## [1.3.0] - 2026-06-12
+
+- Update lighthouse score
+-
+
 ### [Unreleased]
 
 Here we write upgrading notes for brands. It's a team effort to make them as straightforward as possible.

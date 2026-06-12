@@ -51,8 +51,8 @@ const isCurrentPage = (path: string) => {
                   <a
                     href={item.href}
                     class:list={[
-                      "text-lg font-semibold transition hover:text-cyan-500",
-                      isCurrentPage(item.href) ? "text-cyan-500 underline underline-offset-8" : "text-foreground"
+                      "text-lg font-semibold transition hover:text-blue-600",
+                      isCurrentPage(item.href) ? "text-blue-600 underline underline-offset-8" : "text-foreground"
                     ]}
                   >
                     {item.name}
@@ -69,7 +69,7 @@ const isCurrentPage = (path: string) => {
 
         <a
           href="/career"
-          class="bg-foreground text-background inline-flex rounded-2xl border border-black px-8 py-4 text-xl font-semibold transition hover:border-transparent hover:bg-cyan-500 dark:border-white"
+          class="bg-foreground text-background hover:bg-brandBlue inline-flex rounded-2xl border border-black px-8 py-4 text-xl font-semibold transition hover:border-transparent hover:text-white dark:border-white"
         >
           Join Us
         </a>
@@ -108,7 +108,7 @@ const isCurrentPage = (path: string) => {
       <!-- Fullscreen Mobile Menu -->
       <div id="mobileMenu" class="fixed inset-0 z-[9999] hidden bg-white dark:bg-[#050B1C]">
         <!-- Header -->
-       <div class="flex h-20 items-center justify-between border-b border-black/10 px-5 dark:border-white/10">
+        <div class="flex h-20 items-center justify-between border-b border-black/10 px-5 dark:border-white/10">
           <div class="flex items-center gap-3">
             <Picture
               src={logoImage}
@@ -146,7 +146,7 @@ const isCurrentPage = (path: string) => {
                       href={item.href}
                       class:list={[
                         "block text-4xl font-bold transition",
-                        isCurrentPage(item.href) ? "text-cyan-500" : "text-foreground"
+                        isCurrentPage(item.href) ? "text-blue-600" : "text-foreground"
                       ]}
                     >
                       {item.name}
@@ -158,7 +158,7 @@ const isCurrentPage = (path: string) => {
             <li class="pt-8">
               <a
                 href="/career"
-                class="bg-foreground text-background inline-flex rounded-xl border border-black px-6 py-3 text-lg font-semibold transition hover:border-transparent hover:bg-cyan-500 dark:border-white"
+                class="bg-foreground text-background hover:bg-brandBlue inline-flex rounded-xl border border-black px-6 py-3 text-lg font-semibold transition hover:border-transparent dark:border-white"
               >
                 Join Us
               </a>
@@ -168,32 +168,32 @@ const isCurrentPage = (path: string) => {
       </div>
     </div>
   </div>
-<script is:inline>
-  function initMobileMenu() {
-    const openBtn = document.getElementById("mobileMenuBtn");
-    const closeBtn = document.getElementById("closeMenuBtn");
-    const menu = document.getElementById("mobileMenu");
+  <script is:inline>
+    function initMobileMenu() {
+      const openBtn = document.getElementById("mobileMenuBtn");
+      const closeBtn = document.getElementById("closeMenuBtn");
+      const menu = document.getElementById("mobileMenu");
 
-    if (!openBtn || !closeBtn || !menu) return;
+      if (!openBtn || !closeBtn || !menu) return;
 
-    openBtn.addEventListener("click", () => {
-      menu.classList.remove("hidden");
+      openBtn.addEventListener("click", () => {
+        menu.classList.remove("hidden");
 
-      document.body.style.overflow = "hidden";
-      document.body.style.position = "fixed";
-      document.body.style.width = "100%";
-    });
+        document.body.style.overflow = "hidden";
+        document.body.style.position = "fixed";
+        document.body.style.width = "100%";
+      });
 
-    closeBtn.addEventListener("click", () => {
-      menu.classList.add("hidden");
+      closeBtn.addEventListener("click", () => {
+        menu.classList.add("hidden");
 
-      document.body.style.overflow = "";
-      document.body.style.position = "";
-      document.body.style.width = "";
-    });
-  }
+        document.body.style.overflow = "";
+        document.body.style.position = "";
+        document.body.style.width = "";
+      });
+    }
 
-  initMobileMenu();
-  document.addEventListener("astro:page-load", initMobileMenu);
-</script>
+    initMobileMenu();
+    document.addEventListener("astro:page-load", initMobileMenu);
+  </script>
 </header>

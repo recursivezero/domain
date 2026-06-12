@@ -1,14 +1,5 @@
 ---
-const {
-  url,
-  title,
-  description,
-  image,
-  author,
-  date,
-  tags = [],
-  priority = false
-} = Astro.props;
+const { url, title, description, image, author, date, tags = [], priority = false } = Astro.props;
 
 // Safe Date Formatter
 const formatDate = (dateString: string) => {
@@ -74,7 +65,7 @@ const formattedDate = formatDate(date);
             tags
               .slice(0, 2)
               .map((tag: string) => (
-                <span class="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-3 py-1 text-xs font-medium text-cyan-500">
+                <span class="bg-brandBlue rounded-full border border-cyan-500/20 px-3 py-1 text-xs font-medium text-white">
                   #{tag}
                 </span>
               ))
@@ -83,17 +74,13 @@ const formattedDate = formatDate(date);
 
         <!-- Title -->
         <h3
-          class="text-foreground line-clamp-2 text-2xl font-bold leading-snug transition-colors duration-300 group-hover:text-cyan-600"
+          class="text-foreground line-clamp-2 text-2xl font-bold leading-snug transition-colors duration-300 group-hover:text-blue-600"
         >
           {title}
         </h3>
 
         <!-- Description -->
-        {description && (
-          <p class="text-foreground/75 mt-4 line-clamp-3 flex-1 text-base leading-8">
-            {description}
-          </p>
-        )}
+        {description && <p class="text-foreground/75 mt-4 line-clamp-3 flex-1 text-base leading-8">{description}</p>}
 
         <!-- Bottom Meta -->
         <div
@@ -107,20 +94,19 @@ const formattedDate = formatDate(date);
                 </span>
               ) : (
                 <span class="text-foreground/80">
-                  By{" "}
-                  <span class="font-bold text-slate-900 dark:text-white">
-                    {author || "Recursive Zero"}
-                  </span>
+                  By <span class="font-bold text-slate-900 dark:text-white">{author || "Recursive Zero"}</span>
                 </span>
               )
             }
           </span>
 
-          {formattedDate && (
-            <time datetime={date} class="text-foreground/60 italic">
-              {formattedDate}
-            </time>
-          )}
+          {
+            formattedDate && (
+              <time datetime={date} class="text-foreground/60 italic">
+                {formattedDate}
+              </time>
+            )
+          }
         </div>
       </div>
     </div>

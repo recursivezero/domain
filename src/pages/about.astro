@@ -1,6 +1,6 @@
 ---
+import aboutImage from "@/assets/images/about.webp";
 import BaseLayout from "@/layouts/BaseLayout";
-import aboutImage from "@/assets/images/about.webp"; 
 const founders = [
   {
     name: "Keshav Mohta",
@@ -9,14 +9,10 @@ const founders = [
     initials: "KM",
     description:
       "Building products with simplicity, performance and long-term scalability. Focused on helping startups and businesses grow through modern engineering and practical digital solutions.",
-    tags: [
-      "Product Innovation",
-      "Business Strategy",
-      "Digital Transformation"
-    ],
+    tags: ["Product Innovation", "Business Strategy", "Digital Transformation"],
     email: "hello@recursivezero.com",
     linkedin: "https://www.linkedin.com/in/xkeshav/",
-    isActive: true,
+    isActive: true
   },
 
   {
@@ -24,16 +20,11 @@ const founders = [
     designation: "Business Advisor",
     location: "Hong Kong",
     initials: "PA",
-    description:
-      "Driving business expansion and strategic partnerships while helping Recursive Zero scale globally.",
-    tags: [
-      "Global Partnerships",
-      "Market Expansion",
-      "Strategic Growth"
-    ],
+    description: "Driving business expansion and strategic partnerships while helping Recursive Zero scale globally.",
+    tags: ["Global Partnerships", "Market Expansion", "Strategic Growth"],
     email: null,
     linkedin: null,
-    isActive: true,
+    isActive: false
   },
 
   {
@@ -41,16 +32,11 @@ const founders = [
     designation: "Chief Operating Officer",
     location: "Jaipur",
     initials: "RC",
-    description:
-      "Focused on operations, execution and building efficient systems that support long-term growth.",
-    tags: [
-      "Process Management",
-      "Execution Excellence",
-      "Team Operations"
-    ],
+    description: "Focused on operations, execution and building efficient systems that support long-term growth.",
+    tags: ["Process Management", "Execution Excellence", "Team Operations"],
     email: null,
     linkedin: null,
-    isActive: true,
+    isActive: false
   },
 
   {
@@ -60,31 +46,25 @@ const founders = [
     initials: "VD",
     description:
       "Leading technology architecture and engineering strategy while building scalable and high-performance digital systems.",
-    tags: [
-      "System Architecture",
-      "Technology Strategy",
-      "Platform Engineering"
-    ],
+    tags: ["System Architecture", "Technology Strategy", "Platform Engineering"],
     email: null,
     linkedin: null,
-    isActive: true,
-  },
+    isActive: false
+  }
 ];
 ---
 
 <BaseLayout meta={{ title: "About Us" }}>
   <main class="bg-background text-foreground">
-    
     <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
       <div class="grid items-center gap-16 lg:grid-cols-2">
-        
         <div>
-          <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">About Recursive Zero</p>
+          <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">About Recursive Zero</p>
 
           <h1 class="text-5xl font-bold leading-tight tracking-tight md:text-7xl">
             Building Technology <br />
             That Creates <br />
-            <span class="text-cyan-500"> Real Impact. </span>
+            <span class="text-blue-600"> Real Impact. </span>
           </h1>
 
           <p class="text-foreground/75 mt-8 max-w-2xl text-lg leading-9">
@@ -97,12 +77,11 @@ const founders = [
             meaningful digital products.
           </p>
 
-          
-         <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
             <div
               class="border-foreground/10 bg-background dark:bg-foreground/[0.04] rounded-3xl border p-6 text-center shadow-sm backdrop-blur-sm"
             >
-              <h3 class="text-5xl font-bold text-cyan-500">10+</h3>
+              <h2 class="text-5xl font-bold text-blue-600">10+</h2>
 
               <p class="text-foreground/70 mt-2 text-sm">Projects</p>
             </div>
@@ -110,7 +89,7 @@ const founders = [
             <div
               class="border-foreground/10 bg-background dark:bg-foreground/[0.04] rounded-3xl border p-6 text-center shadow-sm backdrop-blur-sm"
             >
-              <h3 class="text-5xl font-bold text-cyan-500">2024</h3>
+              <h2 class="text-5xl font-bold text-blue-600">2024</h2>
 
               <p class="text-foreground/70 mt-2 text-sm">Founded</p>
             </div>
@@ -118,19 +97,18 @@ const founders = [
             <div
               class="border-foreground/10 bg-background dark:bg-foreground/[0.04] rounded-3xl border p-6 text-center shadow-sm backdrop-blur-sm"
             >
-              <h3 class="text-5xl font-bold text-cyan-500">24/7</h3>
+              <h2 class="text-5xl font-bold text-blue-600">24/7</h2>
 
               <p class="text-foreground/70 mt-2 text-sm">Support</p>
             </div>
           </div>
         </div>
 
-        
         <div class="space-y-6">
           <div
             class="border-foreground/10 bg-background/80 dark:bg-foreground/[0.03] overflow-hidden rounded-[3rem] border shadow-xl backdrop-blur-sm"
           >
-           <img
+            <img
               src={aboutImage.src}
               alt="About Recursive Zero"
               width="1200"
@@ -139,21 +117,21 @@ const founders = [
               fetchpriority="high"
               decoding="async"
               class="h-full w-full object-cover"
-            />            
+            />
           </div>
 
           <div class="grid gap-4 md:grid-cols-2">
             <div
-              class="border-foreground/10 rounded-[2rem] border bg-cyan-500/5 p-6 transition-colors dark:bg-cyan-500/10"
+              class="border-foreground/10 bg-brandBlue dark:bg-brandBlue/10 rounded-[2rem] border p-6 text-white transition-colors"
             >
-              <h3 class="text-foreground text-xl font-bold">Product Engineering</h3>
+              <h2 class="text-foreground text-xl font-bold">Product Engineering</h2>
 
               <p class="text-foreground/70 mt-3">Building scalable digital products.</p>
             </div>
             <div
-              class="border-foreground/10 rounded-[2rem] border bg-cyan-500/5 p-6 transition-colors dark:bg-cyan-500/10"
+              class="border-foreground/10 bg-brandBlue dark:bg-brandBlue/10 rounded-[2rem] border p-6 text-white transition-colors"
             >
-              <h3 class="text-foreground text-xl font-bold">Modern Tech</h3>
+              <h2 class="text-foreground text-xl font-bold">Modern Tech</h2>
 
               <p class="text-foreground/70 mt-3">Fast, secure and future-ready systems.</p>
             </div>
@@ -162,9 +140,8 @@ const founders = [
       </div>
     </section>
 
-    
     <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-      <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">What We Do</p>
+      <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">What We Do</p>
 
       <h2 class="max-w-4xl text-4xl font-bold tracking-tight md:text-6xl">
         Digital Solutions Built For Modern Businesses
@@ -172,7 +149,7 @@ const founders = [
 
       <div class="mt-16 grid gap-8 md:grid-cols-3">
         <div class="border-foreground/10 rounded-[2.5rem] border p-10 shadow-sm transition hover:-translate-y-1">
-          <h3 class="text-2xl font-bold">Web Applications</h3>
+          <h2 class="text-2xl font-bold">Web Applications</h2>
 
           <p class="text-foreground/70 mt-5 text-lg leading-8">
             High-performance, scalable web apps designed with modern technologies and premium user experiences.
@@ -180,7 +157,7 @@ const founders = [
         </div>
 
         <div class="border-foreground/10 rounded-[2.5rem] border p-10 shadow-sm transition hover:-translate-y-1">
-          <h3 class="text-2xl font-bold">Internal Tools</h3>
+          <h2 class="text-2xl font-bold">Internal Tools</h2>
 
           <p class="text-foreground/70 mt-5 text-lg leading-8">
             We simplify operations by building internal tools that improve productivity and automate repetitive work.
@@ -188,7 +165,7 @@ const founders = [
         </div>
 
         <div class="border-foreground/10 rounded-[2.5rem] border p-10 shadow-sm transition hover:-translate-y-1">
-          <h3 class="text-2xl font-bold">Scalable Systems</h3>
+          <h2 class="text-2xl font-bold">Scalable Systems</h2>
 
           <p class="text-foreground/70 mt-5 text-lg leading-8">
             From startups to enterprises, we engineer systems built for long-term growth and performance.
@@ -197,10 +174,9 @@ const founders = [
       </div>
     </section>
 
-    
     <section class="mx-auto max-w-7xl px-6 py-24 lg:px-10">
       <div class="mb-12">
-        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">Meet The Team</p>
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">Meet The Team</p>
 
         <h2 class="text-4xl font-bold tracking-tight md:text-6xl">People Behind Recursive Zero</h2>
 
@@ -217,100 +193,82 @@ const founders = [
             .map((founder) => (
               <div class="border-foreground/10 bg-background dark:bg-foreground/[0.03] group relative overflow-hidden rounded-[3rem] border p-8 shadow-sm transition duration-500 hover:-translate-y-1 hover:shadow-2xl">
                 {/* glow */}
-                <div class="absolute -right-10 -top-10 h-64 w-64 rounded-full bg-cyan-500/10 blur-[100px]" />
+                <div class="bg-brandBlue/10 absolute -right-10 -top-10 h-64 w-64 rounded-full blur-[100px]" />
 
                 <div class="relative z-10">
-                 <div class="flex items-center gap-5">
-                  <div class="flex h-24 w-24 items-center justify-center rounded-[2rem] bg-cyan-500/10 text-4xl font-bold text-cyan-500">
-                    {
-                      founder.name
+                  <div class="flex items-center gap-5">
+                    <div class="bg-brandBlue/10 flex h-24 w-24 items-center justify-center rounded-[2rem] text-4xl font-bold text-blue-600">
+                      {founder.name
                         .split(" ")
                         .map((word) => word[0])
                         .slice(0, 2)
-                        .join("")
-                    }
-                  </div>
+                        .join("")}
+                    </div>
 
-                  <div>
-                    <h3 class="text-foreground text-3xl font-bold">
-                      {founder.name}
-                    </h3>
-                        <span class="mt-3 inline-flex rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-sm font-semibold text-cyan-500">
-                      {founder.designation}
-                    </span>
+                    <div>
+                      <h2 class="text-foreground text-3xl font-bold">{founder.name}</h2>
+                      <span class="bg-brandBlue mt-3 inline-flex rounded-full border border-cyan-500/20 px-4 py-2 text-sm font-semibold text-white">
+                        {founder.designation}
+                      </span>
 
-                    <p class="text-foreground/70 mt-2 text-lg">
-                      {founder.location}
-                    </p>
+                      <p class="text-foreground/70 mt-2 text-lg">{founder.location}</p>
+                    </div>
                   </div>
-                </div>
 
                   <p class="text-foreground/75 mt-8 text-lg leading-9">{founder.description}</p>
-                 {
-  (founder.email || founder.linkedin) && (
-    <div class="mt-6 flex flex-wrap items-center gap-5 text-sm">
-      {
-        founder.email && (
-          <a
-            href={`mailto:${founder.email}`}
-            class="group inline-flex items-center gap-2 rounded-full border border-cyan-500/15 bg-cyan-500/[0.04] px-4 py-2 font-medium text-slate-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-500/30 hover:bg-cyan-500/[0.08] hover:text-cyan-600 dark:border-cyan-400/10 dark:bg-cyan-400/[0.04] dark:text-slate-300 dark:hover:border-cyan-400/30 dark:hover:bg-cyan-400/[0.08] dark:hover:text-cyan-400"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.8"
-              stroke="currentColor"
-              class="h-5 w-5 text-cyan-500"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M21.75 7.5v9a2.25 2.25 0 0 1-2.25 2.25h-15A2.25 2.25 0 0 1 2.25 16.5v-9m19.5 0A2.25 2.25 0 0 0 19.5 5.25h-15A2.25 2.25 0 0 0 2.25 7.5m19.5 0-8.69 5.52a2.25 2.25 0 0 1-2.12 0L2.25 7.5"
-              />
-            </svg>
+                  {(founder.email || founder.linkedin) && (
+                    <div class="mt-6 flex flex-wrap items-center gap-5 text-sm">
+                      {founder.email && (
+                        <a
+                          href={`mailto:${founder.email}`}
+                          class="bg-brandBlue/[0.04] hover:bg-brandBlue/[0.08] group inline-flex items-center gap-2 rounded-full border border-cyan-500/15 px-4 py-2 font-medium text-slate-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-500/30 hover:text-blue-600 dark:border-cyan-400/10 dark:bg-cyan-400/[0.04] dark:text-slate-300 dark:hover:border-cyan-400/30 dark:hover:bg-cyan-400/[0.08] dark:hover:text-blue-600"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.8"
+                            stroke="currentColor"
+                            class="h-5 w-5 text-blue-600"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M21.75 7.5v9a2.25 2.25 0 0 1-2.25 2.25h-15A2.25 2.25 0 0 1 2.25 16.5v-9m19.5 0A2.25 2.25 0 0 0 19.5 5.25h-15A2.25 2.25 0 0 0 2.25 7.5m19.5 0-8.69 5.52a2.25 2.25 0 0 1-2.12 0L2.25 7.5"
+                            />
+                          </svg>
 
-            <span class="text-foreground/60">
-              Email:
-            </span>
+                          <span class="text-foreground/60">Email:</span>
 
-            <span class="font-semibold underline decoration-cyan-500/50 underline-offset-4">
-              {founder.email}
-            </span>
-          </a>
-        )
-      }
+                          <span class="font-semibold underline decoration-cyan-500/50 underline-offset-4">
+                            {founder.email}
+                          </span>
+                        </a>
+                      )}
 
-      {
-        founder.linkedin && (
-          <a
-            href={founder.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="group inline-flex items-center gap-2 rounded-full border border-cyan-500/15 bg-cyan-500/[0.04] px-4 py-2 font-medium text-slate-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-500/30 hover:bg-cyan-500/[0.08] hover:text-cyan-600 dark:border-cyan-400/10 dark:bg-cyan-400/[0.04] dark:text-slate-300 dark:hover:border-cyan-400/30 dark:hover:bg-cyan-400/[0.08] dark:hover:text-cyan-400"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="h-5 w-5 text-cyan-500"
-            >
-              <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19ZM8.34 17V10.5H6.13V17H8.34ZM7.23 9.56C7.94 9.56 8.39 9.08 8.39 8.48C8.38 7.87 7.94 7.4 7.25 7.4C6.56 7.4 6.09 7.87 6.09 8.48C6.09 9.08 6.53 9.56 7.21 9.56H7.23ZM17.91 17V13.36C17.91 11.41 16.87 10.5 15.49 10.5C14.38 10.5 13.89 11.11 13.61 11.54V10.5H11.4C11.43 11.19 11.4 17 11.4 17H13.61V13.37C13.61 13.17 13.62 12.97 13.69 12.83C13.84 12.43 14.19 12.01 14.77 12.01C15.53 12.01 15.84 12.58 15.84 13.43V17H17.91Z" />
-            </svg>
+                      {founder.linkedin && (
+                        <a
+                          href={founder.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="bg-brandBlue/[0.04] hover:bg-brandBlue/[0.08] group inline-flex items-center gap-2 rounded-full border border-cyan-500/15 px-4 py-2 font-medium text-slate-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-500/30 hover:text-blue-600 dark:border-cyan-400/10 dark:bg-cyan-400/[0.04] dark:text-slate-300 dark:hover:border-cyan-400/30 dark:hover:bg-cyan-400/[0.08] dark:hover:text-blue-600"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="h-5 w-5 text-blue-600"
+                          >
+                            <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19ZM8.34 17V10.5H6.13V17H8.34ZM7.23 9.56C7.94 9.56 8.39 9.08 8.39 8.48C8.38 7.87 7.94 7.4 7.25 7.4C6.56 7.4 6.09 7.87 6.09 8.48C6.09 9.08 6.53 9.56 7.21 9.56H7.23ZM17.91 17V13.36C17.91 11.41 16.87 10.5 15.49 10.5C14.38 10.5 13.89 11.11 13.61 11.54V10.5H11.4C11.43 11.19 11.4 17 11.4 17H13.61V13.37C13.61 13.17 13.62 12.97 13.69 12.83C13.84 12.43 14.19 12.01 14.77 12.01C15.53 12.01 15.84 12.58 15.84 13.43V17H17.91Z" />
+                          </svg>
 
-            <span class="text-foreground/60">
-              LinkedIn:
-            </span>
+                          <span class="text-foreground/60">LinkedIn:</span>
 
-            <span class="font-semibold underline decoration-cyan-500/50 underline-offset-4">
-              Profile
-            </span>
-          </a>
-        )
-      }
-    </div>
-  )
-}
+                          <span class="font-semibold underline decoration-cyan-500/50 underline-offset-4">Profile</span>
+                        </a>
+                      )}
+                    </div>
+                  )}
                   <div class="mt-8 flex flex-wrap gap-3">
                     {founder.tags.map((tag) => (
                       <span class="border-foreground/10 bg-foreground/5 text-foreground/80 rounded-full border px-4 py-2 text-sm font-medium">
@@ -329,11 +287,11 @@ const founders = [
       <div
         class="border-foreground/10 bg-background relative overflow-hidden rounded-[4rem] border p-10 shadow-sm lg:p-16"
       >
-        <div class="absolute -left-20 top-0 h-72 w-72 rounded-full bg-cyan-500/10 blur-[120px]"></div>
+        <div class="absolute -left-20 top-0 h-72 w-72 rounded-full blur-[120px]"></div>
 
         <div class="relative z-10 grid items-center gap-14 lg:grid-cols-2">
           <div>
-            <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">Our Mission</p>
+            <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">Our Mission</p>
 
             <h2 class="text-4xl font-bold tracking-tight md:text-6xl">
               Innovation With <br />
@@ -355,7 +313,7 @@ const founders = [
             <div
               class="border-foreground/10 bg-foreground/[0.03] rounded-[2rem] border p-6 transition hover:-translate-y-1"
             >
-              <h3 class="text-xl font-semibold">Product Innovation</h3>
+              <h2 class="text-xl font-semibold">Product Innovation</h2>
 
               <p class="text-foreground/70 mt-2">Building meaningful digital products with modern engineering.</p>
             </div>
@@ -363,7 +321,7 @@ const founders = [
             <div
               class="border-foreground/10 bg-foreground/[0.03] rounded-[2rem] border p-6 transition hover:-translate-y-1"
             >
-              <h3 class="text-xl font-semibold">Faster Execution</h3>
+              <h2 class="text-xl font-semibold">Faster Execution</h2>
 
               <p class="text-foreground/70 mt-2">Delivering scalable systems with speed and reliability.</p>
             </div>
@@ -371,7 +329,7 @@ const founders = [
             <div
               class="border-foreground/10 bg-foreground/[0.03] rounded-[2rem] border p-6 transition hover:-translate-y-1"
             >
-              <h3 class="text-xl font-semibold">Long-Term Partnerships</h3>
+              <h2 class="text-xl font-semibold">Long-Term Partnerships</h2>
 
               <p class="text-foreground/70 mt-2">Helping startups and businesses grow through technology.</p>
             </div>
@@ -381,7 +339,7 @@ const founders = [
     </section>
     <section class="mx-auto max-w-7xl px-6 pb-24 lg:px-10">
       <div class="border-foreground/10 rounded-[4rem] border p-16 text-center shadow-sm">
-        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">Let’s Work Together</p>
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">Let’s Work Together</p>
 
         <h2 class="text-5xl font-bold md:text-7xl">
           Have an Idea? <br />
@@ -394,7 +352,7 @@ const founders = [
 
         <a
           href="/contact"
-          class="mt-10 inline-flex rounded-3xl bg-cyan-500 px-10 py-5 text-xl font-semibold text-white transition hover:scale-105"
+          class="bg-brandBlue mt-10 inline-flex rounded-3xl px-10 py-5 text-xl font-semibold text-white transition hover:scale-105"
         >
           Contact Us →
         </a>

@@ -3,8 +3,8 @@ import GitHubIcon from "@/assets/icons/github.svg";
 import MailIcon from "@/assets/icons/mail.svg";
 import TwitterIcon from "@/assets/icons/x.svg";
 
-import cloudflareLogo from "@/assets/images/cloudflare.svg";
 import awsLogo from "@/assets/images/aws.webp";
+import cloudflareLogo from "@/assets/images/cloudflare.svg";
 
 const quickLinks = [
   {
@@ -50,7 +50,7 @@ const partners = [
     name: "AWS",
     logo: awsLogo,
     href: "https://aws.amazon.com",
-    isActive: true
+    isActive: false
   }
 ];
 ---
@@ -64,7 +64,7 @@ const partners = [
     <div class="grid gap-12 lg:grid-cols-3">
       <!-- Brand -->
       <div>
-        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">Recursive Zero</p>
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">Recursive Zero</p>
 
         <h3 class="text-4xl font-bold leading-tight">
           Building Future Ready
@@ -87,7 +87,7 @@ const partners = [
               .filter(({ isActive }) => isActive)
               .map((link) => (
                 <li>
-                  <a href={link.href} class="transition hover:text-cyan-500">
+                  <a href={link.href} class="transition hover:text-blue-600">
                     {link.label}
                   </a>
                 </li>
@@ -107,19 +107,19 @@ const partners = [
             href="https://www.twitter.com/recursivezero"
             target="_blank"
             rel="noopener noreferrer"
-            class="border-foreground/10 bg-background text-foreground flex h-12 w-12 items-center justify-center rounded-2xl border transition hover:bg-cyan-500 hover:text-white"
+            class="border-foreground/10 bg-background text-foreground hover:bg-brandBlue flex h-12 w-12 items-center justify-center rounded-2xl border transition hover:text-white"
           >
             <span class="h-5 w-5 fill-current">
-              <TwitterIcon />
+              <TwitterIcon aria-label="Visit our Twitter page" />
             </span>
           </a>
 
           <!-- Mail -->
           <a
             href="mailto:hello@recursivezero.com"
-            class="border-foreground/10 bg-background text-foreground flex h-12 w-12 items-center justify-center rounded-2xl border transition hover:bg-cyan-500 hover:text-white"
+            class="border-foreground/10 bg-background text-foreground hover:bg-brandBlue flex h-12 w-12 items-center justify-center rounded-2xl border transition hover:text-white"
           >
-            <MailIcon />
+            <MailIcon aria-label="Mail us" />
           </a>
 
           <!-- GitHub -->
@@ -127,19 +127,19 @@ const partners = [
             href="https://www.github.com/recursivezero"
             target="_blank"
             rel="noopener noreferrer"
-            class="border-foreground/10 bg-background text-foreground flex h-12 w-12 items-center justify-center rounded-2xl border transition hover:bg-cyan-500 hover:text-white"
+            class="border-foreground/10 bg-background text-foreground hover:bg-brandBlue flex h-12 w-12 items-center justify-center rounded-2xl border transition hover:text-white"
           >
             <span class="h-5 w-5 fill-current">
-              <GitHubIcon />
+              <GitHubIcon aria-label="Find our GitHub repo" />
             </span>
           </a>
         </div>
 
         <!-- Email -->
         <div class="mt-5 text-lg">
-          <span class="text-foreground font-semibold"> Email: </span>
+          <span class="text-foreground font-semibold">Email: </span>
 
-          <a href="mailto:hello@recursivezero.com" class="ml-1 break-all text-cyan-500 transition hover:underline">
+          <a href="mailto:hello@recursivezero.com" class="ml-1 break-all text-blue-600 transition hover:underline">
             hello@recursivezero.com
           </a>
         </div>
@@ -154,9 +154,9 @@ const partners = [
 
         <!-- Links -->
         <div class="flex gap-6 text-sm">
-          <a href="/terms" class="text-foreground/60 transition hover:text-cyan-500"> Terms & Conditions </a>
+          <a href="/terms" class="text-foreground/60 transition hover:text-blue-600"> Terms & Conditions </a>
 
-          <a href="/privacy" class="text-foreground/60 transition hover:text-cyan-500"> Privacy Policy </a>
+          <a href="/privacy" class="text-foreground/60 transition hover:text-blue-600"> Privacy Policy </a>
         </div>
       </div>
 

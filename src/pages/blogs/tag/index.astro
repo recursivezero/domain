@@ -16,7 +16,7 @@ const showError = Astro.url.searchParams.get("error") === "notfound";
     <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
       <!-- TITLE -->
       <div class="text-center">
-        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">Explore Blogs</p>
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">Explore Blogs</p>
 
         <h1 class="text-4xl font-bold md:text-6xl">Browse by Tags</h1>
 
@@ -38,7 +38,7 @@ const showError = Astro.url.searchParams.get("error") === "notfound";
           tags.map((tag) => (
             <a
               href={`/blogs/tag/${tag}`}
-              class="rounded-2xl border border-cyan-500/20 bg-cyan-500/10 px-6 py-4 text-lg font-semibold text-cyan-500 transition duration-300 hover:bg-cyan-500 hover:text-black"
+              class="bg-brandBlue/10 hover:bg-brandBlue rounded-2xl border border-cyan-500/20 px-6 py-4 text-lg font-semibold text-blue-600 transition duration-300 hover:text-white"
             >
               #{tag}
             </a>
