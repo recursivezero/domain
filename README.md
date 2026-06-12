@@ -51,17 +51,33 @@ npm run build
 npm run preview
 ```
 
-## Screenshots
+
 
 ## Screenshots
 
-![Home Page](./public/screenshots/home-page.png)
+## Dark Mode
+![Home Page](./public/screenshots/darkmode/home.png)
 
-![About Page](./public/screenshots/about-page.png)
+![About Page](./public/screenshots/darkmode/about.png)
 
-![Blogs Page](./public/screenshots/blogs-page.png)
+![Blogs Page](./public/screenshots/darkmode/blogs.png)
 
-![Mobile View](./public/screenshots/mobile-view.png)
+![Career Page](./public/screenshots/darkmode/Career.png)
+
+![Work Page](./public/screenshots/darkmode/Work.png)
+
+## LightMode
+
+![Home Page](./public/screenshots/lightmode/home.png)
+
+![About Page](./public/screenshots/lightmode/about.png)
+
+![Blogs Page](./public/screenshots/lightmode/blogs.png)
+
+![Career Page](./public/screenshots/lightmode/Career.png)
+
+![Work Page](./public/screenshots/lightmode/Work.png)
+
 
 ## Contact
 

@@ -1,0 +1,154 @@
+---
+import "../assets/styles/brand.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brand Information Portal</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  </head>
+  <body>
+    <!-- Aurora Background -->
+    <div class="aurora-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+      <div class="blob blob-4"></div>
+      <div class="shimmer-line"></div>
+      <div class="grain"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-inner">
+        <div class="logo">
+          <span class="logo-icon"><i class="fa-solid fa-layer-group"></i></span>
+          <span class="logo-text">BrandVault</span>
+        </div>
+        <p class="header-sub">Your Brand Intelligence Hub</p>
+      </div>
+    </header>
+
+    <!-- Controls -->
+    <div class="controls-bar">
+      <div class="search-wrap">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search brands, tags, industry..." />
+        <button class="clear-btn" id="clearSearch" title="Clear">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="filter-tags" id="filterTags">
+        <span class="filter-label">Filter:</span>
+        <button class="tag-filter active" data-tag="all">All</button>
+        <button class="tag-filter" data-tag="tech">Tech</button>
+        <button class="tag-filter" data-tag="fashion">Fashion</button>
+        <button class="tag-filter" data-tag="food">Food</button>
+        <button class="tag-filter" data-tag="auto">Auto</button>
+        <button class="tag-filter" data-tag="lifestyle">Lifestyle</button>
+      </div>
+      <button class="add-btn" id="openModal">
+        <i class="fa-solid fa-plus"></i> Add Brand
+      </button>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat"><span id="totalCount">0</span><label>Total Brands</label></div>
+      <div class="stat"><span id="visibleCount">0</span><label>Showing</label></div>
+      <div class="stat"><span id="tagCount">0</span><label>Unique Tags</label></div>
+    </div>
+
+    <!-- Brand Grid -->
+    <main class="brand-grid" id="brandGrid"></main>
+
+    <div class="no-results hidden" id="noResults">
+      <i class="fa-solid fa-ghost"></i>
+      <p>No brands found. Try a different search!</p>
+    </div>
+
+    <!-- Add / Edit Modal -->
+    <div class="modal-overlay hidden" id="modalOverlay">
+      <div class="modal-box">
+        <div class="modal-header">
+          <h2 id="modalTitle">Add New Brand</h2>
+          <button class="modal-close" id="closeModal"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="editIndex" value="-1" />
+          <div class="form-group">
+            <label>Brand Name *</label><input type="text" id="brandName" placeholder="e.g. Apple" />
+          </div>
+          <div class="form-group">
+            <label>Tagline</label><input type="text" id="brandTagline" placeholder="e.g. Think Different" />
+          </div>
+          <div class="form-group">
+            <label>Industry</label><input type="text" id="brandIndustry" placeholder="e.g. Technology" />
+          </div>
+          <div class="form-group">
+            <label>Founded Year</label><input
+              type="number"
+              id="brandFounded"
+              placeholder="e.g. 1976"
+              min="1800"
+              max="2030"
+            />
+          </div>
+          <div class="form-group">
+            <label>Headquarters</label><input type="text" id="brandHQ" placeholder="e.g. Cupertino, CA" />
+          </div>
+          <div class="form-group">
+            <label>Brand Colors (comma separated hex)</label><input
+              type="text"
+              id="brandColors"
+              placeholder="e.g. #000000, #ffffff"
+            />
+          </div>
+          <div class="form-group">
+            <label>Description</label><textarea id="brandDesc" rows="3" placeholder="Short brand description..."
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label>Tags (comma separated)</label><input
+              type="text"
+              id="brandTags"
+              placeholder="e.g. tech, innovation, premium"
+            />
+          </div>
+          <div class="form-group">
+            <label>Logo Emoji / Icon</label><input type="text" id="brandEmoji" placeholder="e.g. 🍎" maxlength="4" />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-cancel" id="cancelModal">Cancel</button>
+          <button class="btn-save" id="saveBrand">Save Brand</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Detail Modal -->
+    <div class="modal-overlay hidden" id="detailOverlay">
+      <div class="modal-box detail-box">
+        <div class="modal-header">
+          <h2 id="detailTitle">Brand Details</h2>
+          <button class="modal-close" id="closeDetail"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="detail-body" id="detailBody"></div>
+        <div class="modal-footer">
+          <button class="btn-cancel" id="editFromDetail">Edit Brand</button>
+          <button class="btn-save" id="closeDetailBtn">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS from public/assets/js/ -->
+    <script src="/js/brand.js" is:inline></script>
+  </body>
+</html>
