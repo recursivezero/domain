@@ -3,16 +3,9 @@ import { Picture } from "astro:assets";
 import "../assets/styles/custom-font.css";
 import ThemeToggle from "@/components/ThemeToggle.astro";
 import logoImage from "@/assets/images/logo.png";
+import navLinks from "@/data/navLinks.json";
 
 const currentPath = Astro.url.pathname;
-
-const navLinks = [
-  { name: "Home", href: "/", isActive: true },
-  { name: "About", href: "/about", isActive: true },
-  { name: "Blogs", href: "/blogs", isActive: true },
-  { name: "Career", href: "/career", isActive: true },
-  { name: "Work", href: "/work", isActive: true }
-];
 
 const isCurrentPage = (path: string) => {
   if (path === "/") return currentPath === "/";
@@ -36,12 +29,13 @@ const isCurrentPage = (path: string) => {
           alt="Recursive Zero"
           class="h-10 w-10 rounded-full object-contain dark:brightness-200 dark:invert"
         />
-
-        <span class="brand text-foreground text-xl font-bold"> RECURSIVE ZERO </span>
+       <span class="brand text-foreground text-3xl xl:text-4xl 2xl:text-5xl font-bold">
+  RECURSIVE ZERO
+</span>
       </a>
 
       <!-- Desktop Nav -->
-      <nav class="absolute left-1/2 -translate-x-1/2">
+    <nav class="absolute left-[55%] -translate-x-1/2">
         <ul class="flex items-center gap-10">
           {
             navLinks
@@ -69,7 +63,7 @@ const isCurrentPage = (path: string) => {
 
         <a
           href="/career"
-          class="bg-foreground text-background hover:bg-brandBlue inline-flex rounded-2xl border border-black px-8 py-4 text-xl font-semibold transition hover:border-transparent hover:text-white dark:border-white"
+          class="bg-foreground text-background inline-flex rounded-2xl border border-black px-8 py-4 text-xl font-semibold transition hover:border-transparent hover:bg-brandBlue hover:text-white dark:border-white"
         >
           Join Us
         </a>
@@ -158,7 +152,7 @@ const isCurrentPage = (path: string) => {
             <li class="pt-8">
               <a
                 href="/career"
-                class="bg-foreground text-background hover:bg-brandBlue inline-flex rounded-xl border border-black px-6 py-3 text-lg font-semibold transition hover:border-transparent dark:border-white"
+                class="bg-foreground text-background inline-flex rounded-xl border border-black px-6 py-3 text-lg font-semibold transition hover:border-transparent hover:bg-brandBlue dark:border-white"
               >
                 Join Us
               </a>

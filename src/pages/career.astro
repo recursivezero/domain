@@ -1,32 +1,10 @@
+
 ---
 import BaseLayout from "@/layouts/BaseLayout";
 import "../assets/styles/career.css";
-
-const openings = [
-  {
-    title: "MBA Interns",
-    description:
-      "We're looking for MBA Interns who can help us with field work, product demos and user onboarding. Preferred candidates from Surat, Gujarat.",
-    location: "Remote",
-    type: "Full-time",
-    isVisible: true
-  },
-  {
-    title: "Frontend Developer",
-    description: "We're looking for an experienced frontend developer to join our team and build modern interfaces.",
-    location: "Remote",
-    type: "Full-time",
-    isVisible: true
-  },
-  {
-    title: "Backend Engineer",
-    description: "Join us in building scalable backend solutions using Node.js and modern backend technologies.",
-    location: "Hybrid",
-    type: "Full-time",
-    isVisible: true
-  }
-];
+import openings from "@/data/career.json";
 ---
+
 
 <BaseLayout meta={{ title: "Careers at RecursiveZero" }}>
   <main class="bg-background text-foreground">
@@ -51,7 +29,7 @@ const openings = [
           <div class="grid gap-6">
             {
               openings
-                .filter((job) => job.isVisible)
+                .filter((job) => job.isActive)
                 .map((job) => (
                   <div class="dark:border-foreground/10 bg-background/60 rounded-3xl border-2 border-gray-300 p-8 shadow-sm backdrop-blur-md">
                     <h3 class="text-foreground text-2xl font-bold">{job.title}</h3>

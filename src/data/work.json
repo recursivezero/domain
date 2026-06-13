@@ -1,0 +1,51 @@
+[
+  {
+    "url": "https://abcdkbd.com",
+    "title": "ABCDKBD",
+    "description": "An interactive kids learning platform.",
+    "image": "abcd",
+    "isActive": true
+  },
+  {
+    "url": "https://threadzip.com/",
+    "title": "Threadzip",
+    "description": "A digital textile sourcing and business platform connecting manufacturers, suppliers, and buyers.",
+    "image": "threadzip",
+    "isActive": true
+  },
+  {
+    "url": "https://rzro.link/",
+    "title": "RZRO",
+    "description": "A modern smart link and URL shortening platform by Recursive Zero.",
+    "image": "rzro",
+    "isActive": true
+  },
+  {
+    "url": "https://lab.threadzip.com",
+    "title": "Threadzip Lab",
+    "description": "A python tool that uses computer vision to identify and generate fabric patterns.",
+    "image": "threadzipLab",
+    "isActive": true
+  },
+  {
+    "url": "https://pro.threadzip.com",
+    "title": "Threadzip Pro",
+    "description": "An AI-powered platform for fabric intelligence and textile analysis.",
+    "image": "fabricAI",
+    "isActive": true
+  },
+  {
+    "url": "https://app.threadzip.com",
+    "title": "Threadzip App",
+    "description": "A B2B marketplace for textile raw material businesses.",
+    "image": "threadzipApp",
+    "isActive": true
+  },
+  {
+    "url": "https://recursivezero.github.io/taboo/",
+    "title": "Tech Taboo",
+    "description": "A fun and interactive tech-themed taboo game platform.",
+    "image": "techTaboo",
+    "isActive": true
+  }
+]
