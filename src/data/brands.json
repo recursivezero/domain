@@ -53,16 +53,5 @@
     "description": "Louis Vuitton is a French luxury fashion house and the flagship brand of LVMH. Famous for its LV monogram on luggage, handbags, and leather goods.",
     "tags": ["fashion", "luxury", "lifestyle", "premium", "heritage"],
     "emoji": "👜"
-  },
-  {
-    "name": "Spotify",
-    "tagline": "Music for Everyone",
-    "industry": "Music & Streaming",
-    "founded": 2006,
-    "hq": "Stockholm, Sweden",
-    "colors": ["#1db954", "#191414", "#ffffff"],
-    "description": "Spotify is the world's largest music streaming service with over 600 million users offering songs, podcasts, and audiobooks.",
-    "tags": ["tech", "music", "streaming", "entertainment", "lifestyle"],
-    "emoji": "🎵"
   }
 ]
