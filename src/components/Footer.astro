@@ -2,13 +2,14 @@
 import GitHubIcon from "@/assets/icons/github.svg";
 import MailIcon from "@/assets/icons/mail.svg";
 import TwitterIcon from "@/assets/icons/x.svg";
-import quickLinks from "@/data/footer-links.json";
-import partners from "@/data/footer-partners.json";
 import FooterLink from "@/components/FooterLink.astro";
 import PartnerLogo from "@/components/PartnerLogo.astro";
+import quickLinks from "@/data/footer-links.json";
+import partners from "@/data/footer-partners.json";
 
 import awsLogo from "@/assets/images/aws.webp";
 import cloudflareLogo from "@/assets/images/cloudflare.svg";
+import { CONTACT_EMAIL } from "@/utils/constants";
 
 const logoMap: Record<string, any> = {
   cloudflare: cloudflareLogo,
@@ -67,7 +68,7 @@ const logoMap: Record<string, any> = {
 
           <!-- Mail -->
           <a
-            href="mailto:hello@recursivezero.com"
+            href=`mailto:${CONTACT_EMAIL}`
             class="border-foreground/10 bg-background text-foreground flex h-12 w-12 items-center justify-center rounded-2xl border transition hover:bg-brandBlue hover:text-white"
           >
             <MailIcon aria-label="Mail us" />
@@ -90,8 +91,8 @@ const logoMap: Record<string, any> = {
         <div class="mt-5 text-lg">
           <span class="text-foreground font-semibold">Email: </span>
 
-          <a href="mailto:hello@recursivezero.com" class="ml-1 break-all text-blue-600 transition hover:underline">
-            hello@recursivezero.com
+          <a href=`mailto:${CONTACT_EMAIL}` class="ml-1 break-all text-blue-600 transition hover:underline">
+            {CONTACT_EMAIL}
           </a>
         </div>
       </div>

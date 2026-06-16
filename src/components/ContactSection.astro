@@ -1,5 +1,6 @@
 ---
 import contactUsImage from "@/assets/images/contact-us.webp";
+import { CONTACT_EMAIL } from "@/utils/constants";
 import { Image } from "astro:assets";
 ---
 
@@ -23,16 +24,16 @@ import { Image } from "astro:assets";
           <div class="text-lg">
             <span class="text-foreground font-semibold"> Email: </span>
 
-            <a href="mailto:hello@recursivezero.com" class="ml-1 break-all text-blue-600 transition hover:underline">
-              hello@recursivezero.com
+            <a href=`mailto:${CONTACT_EMAIL}` class="ml-1 break-all text-blue-600 transition hover:underline">
+              {CONTACT_EMAIL}
             </a>
           </div>
 
           <!-- Phone (Not Clickable) -->
           <!-- Phone -->
-          <div class="text-lg">
+          <!--<div class="text-lg">
             <span class="text-foreground font-semibold"> Phone: </span>
-          </div>
+          </div>-->
           <!-- Location -->
           <div class="text-lg">
             <span class="text-foreground font-semibold"> Location: </span>
@@ -43,7 +44,7 @@ import { Image } from "astro:assets";
 
         <!-- Image -->
         <div class="relative mt-10">
-          <div class="bg-brandBlue/20 absolute -left-5 top-5 h-32 w-32 rounded-full blur-3xl"></div>
+          <div class="absolute -left-5 top-5 h-32 w-32 rounded-full bg-brandBlue/20 blur-3xl"></div>
 
           <Image
             src={contactUsImage}
@@ -87,7 +88,7 @@ import { Image } from "astro:assets";
           <!-- BUTTON -->
           <button
             type="submit"
-            class="bg-brandBlue h-14 w-full rounded-xl font-semibold text-white transition hover:scale-[1.02]"
+            class="h-14 w-full rounded-xl bg-brandBlue font-semibold text-white transition hover:scale-[1.02]"
           >
             Send Message
           </button>

@@ -1,11 +1,10 @@
-
 ---
-import BaseLayout from "@/layouts/BaseLayout";
-import "../assets/styles/career.css";
-import openings from "@/data/career.json";
 import JobTile from "@/components/JobTile.astro";
+import openings from "@/data/career.json";
+import BaseLayout from "@/layouts/BaseLayout";
+import { HR_EMAIL } from "@/utils/constants";
+import "../assets/styles/career.css";
 ---
-
 
 <BaseLayout meta={{ title: "Careers at RecursiveZero" }}>
   <main class="bg-background text-foreground">
@@ -28,13 +27,7 @@ import JobTile from "@/components/JobTile.astro";
           <h2 class="text-foreground mb-8 text-3xl font-bold">Current Openings</h2>
 
           <div class="grid gap-6">
-           {
-  openings
-    .filter((job) => job.isActive)
-    .map((job) => (
-      <JobTile job={job} />
-    ))
-}
+            {openings.filter((job) => job.isActive).map((job) => <JobTile job={job} />)}
           </div>
         </section>
 
@@ -78,8 +71,8 @@ import JobTile from "@/components/JobTile.astro";
           <p class="text-foreground/70 mx-auto mt-6 max-w-2xl text-lg leading-8">
             Send your resume and a brief cover letter to
 
-            <a href="mailto:hello@recursivezero.com" class="font-semibold text-blue-600 underline underline-offset-4">
-              hello@recursivezero.com
+            <a href=`mailto:${HR_EMAIL}` class="font-semibold text-blue-600 underline underline-offset-4">
+              {HR_EMAIL}
             </a>
           </p>
         </section>
