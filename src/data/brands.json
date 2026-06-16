@@ -1,0 +1,57 @@
+[
+  {
+    "name": "Apple",
+    "tagline": "Think Different",
+    "industry": "Technology",
+    "founded": 1976,
+    "hq": "Cupertino, California",
+    "colors": ["#000000", "#ffffff", "#a2aaad"],
+    "description": "Apple Inc. is a global technology leader that designs, manufactures and sells smartphones, computers, tablets, wearables and services. Known for its iconic iPhone, Mac, iPad, and the App Store ecosystem.",
+    "tags": ["tech", "innovation", "premium", "consumer electronics", "software"],
+    "emoji": "🍎"
+  },
+  {
+    "name": "Nike",
+    "tagline": "Just Do It",
+    "industry": "Sportswear & Lifestyle",
+    "founded": 1964,
+    "hq": "Beaverton, Oregon",
+    "colors": ["#111111", "#fa5400", "#ffffff"],
+    "description": "Nike is the world's leading athletic footwear and apparel brand, inspiring athletes through innovative performance products and powerful storytelling.",
+    "tags": ["fashion", "lifestyle", "sports", "footwear", "apparel"],
+    "emoji": "✔️"
+  },
+  {
+    "name": "Coca-Cola",
+    "tagline": "Open Happiness",
+    "industry": "Beverages",
+    "founded": 1892,
+    "hq": "Atlanta, Georgia",
+    "colors": ["#f40009", "#ffffff", "#000000"],
+    "description": "The Coca-Cola Company is the world's largest beverage corporation, with over 500 brands sold in more than 200 countries.",
+    "tags": ["food", "beverages", "fmcg", "global", "iconic"],
+    "emoji": "🥤"
+  },
+  {
+    "name": "Tesla",
+    "tagline": "Accelerating the World's Transition to Sustainable Energy",
+    "industry": "Electric Vehicles & Energy",
+    "founded": 2003,
+    "hq": "Austin, Texas",
+    "colors": ["#cc0000", "#000000", "#ffffff"],
+    "description": "Tesla designs and manufactures electric vehicles, battery energy storage, solar panels and solar roof tiles.",
+    "tags": ["auto", "tech", "ev", "innovation", "sustainability"],
+    "emoji": "⚡"
+  },
+  {
+    "name": "Louis Vuitton",
+    "tagline": "The Art of Travel",
+    "industry": "Luxury Fashion",
+    "founded": 1854,
+    "hq": "Paris, France",
+    "colors": ["#b08850", "#1a1a1a", "#f5f0e8"],
+    "description": "Louis Vuitton is a French luxury fashion house and the flagship brand of LVMH. Famous for its LV monogram on luggage, handbags, and leather goods.",
+    "tags": ["fashion", "luxury", "lifestyle", "premium", "heritage"],
+    "emoji": "👜"
+  }
+]

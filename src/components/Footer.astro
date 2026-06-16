@@ -2,57 +2,19 @@
 import GitHubIcon from "@/assets/icons/github.svg";
 import MailIcon from "@/assets/icons/mail.svg";
 import TwitterIcon from "@/assets/icons/x.svg";
+import FooterLink from "@/components/FooterLink.astro";
+import PartnerLogo from "@/components/PartnerLogo.astro";
+import quickLinks from "@/data/footer-links.json";
+import partners from "@/data/footer-partners.json";
 
 import awsLogo from "@/assets/images/aws.webp";
 import cloudflareLogo from "@/assets/images/cloudflare.svg";
+import { CONTACT_EMAIL } from "@/utils/constants";
 
-const quickLinks = [
-  {
-    label: "Home",
-    href: "/",
-    isActive: true
-  },
-  {
-    label: "About",
-    href: "/about",
-    isActive: true
-  },
-  {
-    label: "Blogs",
-    href: "/blogs",
-    isActive: true
-  },
-  {
-    label: "Career",
-    href: "/career",
-    isActive: true
-  },
-  {
-    label: "Work",
-    href: "/work",
-    isActive: true
-  },
-  {
-    label: "Contact",
-    href: "/contact",
-    isActive: true
-  }
-];
-
-const partners = [
-  {
-    name: "Cloudflare",
-    logo: cloudflareLogo,
-    href: "https://www.cloudflare.com/startups/",
-    isActive: true
-  },
-  {
-    name: "AWS",
-    logo: awsLogo,
-    href: "https://aws.amazon.com",
-    isActive: false
-  }
-];
+const logoMap: Record<string, any> = {
+  cloudflare: cloudflareLogo,
+  aws: awsLogo
+};
 ---
 
 <footer class="bg-background text-foreground">
@@ -82,17 +44,7 @@ const partners = [
         <h4 class="text-foreground mb-6 text-xl font-bold">Quick Links</h4>
 
         <ul class="text-foreground/70 grid grid-cols-2 gap-x-10 gap-y-4">
-          {
-            quickLinks
-              .filter(({ isActive }) => isActive)
-              .map((link) => (
-                <li>
-                  <a href={link.href} class="transition hover:text-blue-600">
-                    {link.label}
-                  </a>
-                </li>
-              ))
-          }
+          {quickLinks.filter(({ isActive }) => isActive).map((link) => <FooterLink link={link} />)}
         </ul>
       </div>
 
@@ -107,7 +59,7 @@ const partners = [
             href="https://www.twitter.com/recursivezero"
             target="_blank"
             rel="noopener noreferrer"
-            class="border-foreground/10 bg-background text-foreground hover:bg-brandBlue flex h-12 w-12 items-center justify-center rounded-2xl border transition hover:text-white"
+            class="border-foreground/10 bg-background text-foreground flex h-12 w-12 items-center justify-center rounded-2xl border transition hover:bg-brandBlue hover:text-white"
           >
             <span class="h-5 w-5 fill-current">
               <TwitterIcon aria-label="Visit our Twitter page" />
@@ -116,8 +68,8 @@ const partners = [
 
           <!-- Mail -->
           <a
-            href="mailto:hello@recursivezero.com"
-            class="border-foreground/10 bg-background text-foreground hover:bg-brandBlue flex h-12 w-12 items-center justify-center rounded-2xl border transition hover:text-white"
+            href=`mailto:${CONTACT_EMAIL}`
+            class="border-foreground/10 bg-background text-foreground flex h-12 w-12 items-center justify-center rounded-2xl border transition hover:bg-brandBlue hover:text-white"
           >
             <MailIcon aria-label="Mail us" />
           </a>
@@ -127,7 +79,7 @@ const partners = [
             href="https://www.github.com/recursivezero"
             target="_blank"
             rel="noopener noreferrer"
-            class="border-foreground/10 bg-background text-foreground hover:bg-brandBlue flex h-12 w-12 items-center justify-center rounded-2xl border transition hover:text-white"
+            class="border-foreground/10 bg-background text-foreground flex h-12 w-12 items-center justify-center rounded-2xl border transition hover:bg-brandBlue hover:text-white"
           >
             <span class="h-5 w-5 fill-current">
               <GitHubIcon aria-label="Find our GitHub repo" />
@@ -139,8 +91,8 @@ const partners = [
         <div class="mt-5 text-lg">
           <span class="text-foreground font-semibold">Email: </span>
 
-          <a href="mailto:hello@recursivezero.com" class="ml-1 break-all text-blue-600 transition hover:underline">
-            hello@recursivezero.com
+          <a href=`mailto:${CONTACT_EMAIL}` class="ml-1 break-all text-blue-600 transition hover:underline">
+            {CONTACT_EMAIL}
           </a>
         </div>
       </div>
@@ -168,19 +120,7 @@ const partners = [
           {
             partners
               .filter(({ isActive }) => isActive)
-              .map((partner) => (
-                <a href={partner.href} target="_blank" rel="noopener noreferrer">
-                  <img
-                    src={partner.logo.src}
-                    alt={partner.name}
-                    width="120"
-                    height="32"
-                    loading="lazy"
-                    decoding="async"
-                    class="h-8 w-auto object-contain"
-                  />
-                </a>
-              ))
+              .map((partner) => <PartnerLogo partner={partner} logoSrc={logoMap[partner.logo]?.src} />)
           }
         </div>
       </div>

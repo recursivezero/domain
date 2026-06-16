@@ -1,0 +1,33 @@
+---
+interface Props {
+  job: {
+    title: string;
+    description: string;
+    location: string;
+    type: string;
+    isActive?: boolean;
+  };
+}
+
+const { job } = Astro.props;
+---
+
+<div class="dark:border-foreground/10 bg-background/60 rounded-3xl border-2 border-gray-300 p-8 shadow-sm backdrop-blur-md">
+  <h3 class="text-foreground text-2xl font-bold">
+    {job.title}
+  </h3>
+
+  <p class="text-foreground/70 mt-4 leading-8">
+    {job.description}
+  </p>
+
+  <div class="mt-6 flex flex-wrap gap-3">
+    <span class="rounded-full bg-brandBlue px-4 py-2 text-sm font-medium text-white">
+      {job.location}
+    </span>
+
+    <span class="text-foreground rounded-full bg-brandBlue/10 px-4 py-2 text-sm font-medium">
+      {job.type}
+    </span>
+  </div>
+</div>

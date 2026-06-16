@@ -1,5 +1,8 @@
 ---
+import JobTile from "@/components/JobTile.astro";
+import openings from "@/data/career.json";
 import BaseLayout from "@/layouts/BaseLayout";
+import { HR_EMAIL } from "@/utils/constants";
 import "../assets/styles/career.css";
 ---
 
@@ -24,63 +27,7 @@ import "../assets/styles/career.css";
           <h2 class="text-foreground mb-8 text-3xl font-bold">Current Openings</h2>
 
           <div class="grid gap-6">
-            <!-- MBA Interns -->
-            <div
-              class="dark:border-foreground/10 bg-background/60 rounded-3xl border-2 border-gray-300 p-8 shadow-sm backdrop-blur-md"
-            >
-              <h3 class="text-foreground text-2xl font-bold">MBA Interns</h3>
-
-              <p class="text-foreground/70 mt-4 leading-8">
-                We're looking for MBA Interns who can help us with field work, product demos and user onboarding.
-                Preferred candidates from Surat, Gujarat.
-              </p>
-
-              <div class="mt-6 flex flex-wrap gap-3">
-                <span class="bg-brandBlue rounded-full px-4 py-2 text-sm font-medium text-white"> Remote </span>
-
-                <span class="bg-brandBlue/10 text-foreground rounded-full px-4 py-2 text-sm font-medium">
-                  Full-time
-                </span>
-              </div>
-            </div>
-
-            <!-- Frontend Developer -->
-            <div
-              class="dark:border-foreground/10 bg-background/60 rounded-3xl border-2 border-gray-300 p-8 shadow-sm backdrop-blur-md"
-            >
-              <h3 class="text-foreground text-2xl font-bold">Frontend Developer</h3>
-
-              <p class="text-foreground/70 mt-4 leading-8">
-                We're looking for an experienced frontend developer to join our team and build modern interfaces.
-              </p>
-
-              <div class="mt-6 flex flex-wrap gap-3">
-                <span class="bg-brandBlue rounded-full px-4 py-2 text-sm font-medium text-white"> Remote </span>
-
-                <span class="bg-brandBlue/10 text-foreground rounded-full px-4 py-2 text-sm font-medium">
-                  Full-time
-                </span>
-              </div>
-            </div>
-
-            <!-- Backend Engineer -->
-            <div
-              class="dark:border-foreground/10 bg-background/60 rounded-3xl border-2 border-gray-300 p-8 shadow-sm backdrop-blur-md"
-            >
-              <h3 class="text-foreground text-2xl font-bold">Backend Engineer</h3>
-
-              <p class="text-foreground/70 mt-4 leading-8">
-                Join us in building scalable backend solutions using Node.js and modern backend technologies.
-              </p>
-
-              <div class="mt-6 flex flex-wrap gap-3">
-                <span class="bg-brandBlue rounded-full px-4 py-2 text-sm font-medium text-white"> Hybrid </span>
-
-                <span class="bg-brandBlue/10 text-foreground rounded-full px-4 py-2 text-sm font-medium">
-                  Full-time
-                </span>
-              </div>
-            </div>
+            {openings.filter((job) => job.isActive).map((job) => <JobTile job={job} />)}
           </div>
         </section>
 
@@ -124,8 +71,8 @@ import "../assets/styles/career.css";
           <p class="text-foreground/70 mx-auto mt-6 max-w-2xl text-lg leading-8">
             Send your resume and a brief cover letter to
 
-            <a href="mailto:hello@recursivezero.com" class="font-semibold text-blue-600 underline underline-offset-4">
-              hello@recursivezero.com
+            <a href=`mailto:${HR_EMAIL}` class="font-semibold text-blue-600 underline underline-offset-4">
+              {HR_EMAIL}
             </a>
           </p>
         </section>

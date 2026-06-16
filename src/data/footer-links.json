@@ -1,0 +1,32 @@
+[
+  {
+    "label": "Home",
+    "href": "/",
+    "isActive": true
+  },
+  {
+    "label": "About",
+    "href": "/about",
+    "isActive": true
+  },
+  {
+    "label": "Blogs",
+    "href": "/blogs",
+    "isActive": true
+  },
+  {
+    "label": "Career",
+    "href": "/career",
+    "isActive": true
+  },
+  {
+    "label": "Work",
+    "href": "/work",
+    "isActive": true
+  },
+  {
+    "label": "Contact",
+    "href": "/contact",
+    "isActive": true
+  }
+]

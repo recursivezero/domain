@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Cloudflare",
+    "logo": "cloudflare",
+    "href": "https://www.cloudflare.com/startups/",
+    "isActive": true
+  },
+  {
+    "name": "AWS",
+    "logo": "aws",
+    "href": "https://aws.amazon.com",
+    "isActive": false
+  }
+]

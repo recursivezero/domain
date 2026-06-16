@@ -1,0 +1,46 @@
+[
+  {
+    "name": "Keshav Mohta",
+    "designation": "Founder & CEO",
+    "location": "India",
+    "initials": "KM",
+    "description": "Building products with simplicity, performance and long-term scalability. Focused on helping startups and businesses grow through modern engineering and practical digital solutions.",
+    "tags": ["Product Innovation", "Business Strategy", "Digital Transformation"],
+    "email": "hello@recursivezero.com",
+    "linkedin": "https://www.linkedin.com/in/xkeshav/",
+    "isActive": true
+  },
+  {
+    "name": "Parvez Akhtar",
+    "designation": "Business Advisor",
+    "location": "Hong Kong",
+    "initials": "PA",
+    "description": "Driving business expansion and strategic partnerships while helping Recursive Zero scale globally.",
+    "tags": ["Global Partnerships", "Market Expansion", "Strategic Growth"],
+    "email": null,
+    "linkedin": null,
+    "isActive": false
+  },
+  {
+    "name": "Rajeev Chaturvedi",
+    "designation": "Chief Operating Officer",
+    "location": "Jaipur",
+    "initials": "RC",
+    "description": "Focused on operations, execution and building efficient systems that support long-term growth.",
+    "tags": ["Process Management", "Execution Excellence", "Team Operations"],
+    "email": null,
+    "linkedin": null,
+    "isActive": false
+  },
+  {
+    "name": "Varun Daga",
+    "designation": "Chief Technology Officer",
+    "location": "Bengaluru",
+    "initials": "VD",
+    "description": "Leading technology architecture and engineering strategy while building scalable and high-performance digital systems.",
+    "tags": ["System Architecture", "Technology Strategy", "Platform Engineering"],
+    "email": null,
+    "linkedin": null,
+    "isActive": false
+  }
+]
