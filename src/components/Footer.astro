@@ -4,6 +4,8 @@ import MailIcon from "@/assets/icons/mail.svg";
 import TwitterIcon from "@/assets/icons/x.svg";
 import quickLinks from "@/data/footer-links.json";
 import partners from "@/data/footer-partners.json";
+import FooterLink from "@/components/FooterLink.astro";
+import PartnerLogo from "@/components/PartnerLogo.astro";
 
 import awsLogo from "@/assets/images/aws.webp";
 import cloudflareLogo from "@/assets/images/cloudflare.svg";
@@ -41,17 +43,7 @@ const logoMap: Record<string, any> = {
         <h4 class="text-foreground mb-6 text-xl font-bold">Quick Links</h4>
 
         <ul class="text-foreground/70 grid grid-cols-2 gap-x-10 gap-y-4">
-          {
-            quickLinks
-              .filter(({ isActive }) => isActive)
-              .map((link) => (
-                <li>
-                  <a href={link.href} class="transition hover:text-blue-600">
-                    {link.label}
-                  </a>
-                </li>
-              ))
-          }
+          {quickLinks.filter(({ isActive }) => isActive).map((link) => <FooterLink link={link} />)}
         </ul>
       </div>
 
@@ -127,19 +119,7 @@ const logoMap: Record<string, any> = {
           {
             partners
               .filter(({ isActive }) => isActive)
-              .map((partner) => (
-                <a href={partner.href} target="_blank" rel="noopener noreferrer">
-                  <img
-                    src={logoMap[partner.logo]?.src}
-                    alt={partner.name}
-                    width="120"
-                    height="32"
-                    loading="lazy"
-                    decoding="async"
-                    class="h-8 w-auto object-contain"
-                  />
-                </a>
-              ))
+              .map((partner) => <PartnerLogo partner={partner} logoSrc={logoMap[partner.logo]?.src} />)
           }
         </div>
       </div>

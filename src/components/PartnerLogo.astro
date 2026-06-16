@@ -1,0 +1,24 @@
+---
+interface Props {
+  partner: {
+    href: string;
+    name: string;
+    logo: string;
+  };
+  logoSrc: string;
+}
+
+const { partner, logoSrc } = Astro.props;
+---
+
+<a href={partner.href} target="_blank" rel="noopener noreferrer">
+  <img
+    src={logoSrc}
+    alt={partner.name}
+    width="120"
+    height="32"
+    loading="lazy"
+    decoding="async"
+    class="h-8 w-auto object-contain"
+  />
+</a>

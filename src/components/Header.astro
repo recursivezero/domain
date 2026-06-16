@@ -4,6 +4,7 @@ import "../assets/styles/custom-font.css";
 import ThemeToggle from "@/components/ThemeToggle.astro";
 import logoImage from "@/assets/images/logo.png";
 import navLinks from "@/data/navLinks.json";
+import NavItem from "@/components/NavItem.astro";
 
 const currentPath = Astro.url.pathname;
 
@@ -16,6 +17,26 @@ const isCurrentPage = (path: string) => {
 <style>
   .brand {
     font-family: Boisu, sans-serif;
+    font-size: 1.5rem;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 480px) {
+    .brand {
+      font-size: 0.85rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .brand {
+      font-size: 2rem;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .brand {
+      font-size: 2.5rem;
+    }
   }
 </style>
 <header class="sticky top-0 z-50 w-full border-b border-black/20 bg-white dark:border-white/20 dark:bg-[#050B1C]">
@@ -29,30 +50,16 @@ const isCurrentPage = (path: string) => {
           alt="Recursive Zero"
           class="h-10 w-10 rounded-full object-contain dark:brightness-200 dark:invert"
         />
-       <span class="brand text-foreground text-3xl xl:text-4xl 2xl:text-5xl font-bold">
-  RECURSIVE ZERO
-</span>
+        <span class="brand text-foreground font-bold"> RECURSIVE ZERO </span>
       </a>
 
       <!-- Desktop Nav -->
-    <nav class="absolute left-[55%] -translate-x-1/2">
+      <nav class="absolute left-[55%] -translate-x-1/2">
         <ul class="flex items-center gap-10">
           {
             navLinks
               .filter(({ isActive }) => isActive)
-              .map((item) => (
-                <li>
-                  <a
-                    href={item.href}
-                    class:list={[
-                      "text-lg font-semibold transition hover:text-blue-600",
-                      isCurrentPage(item.href) ? "text-blue-600 underline underline-offset-8" : "text-foreground"
-                    ]}
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              ))
+              .map((item) => <NavItem item={item} active={isCurrentPage(item.href)} />)
           }
         </ul>
       </nav>
@@ -73,8 +80,8 @@ const isCurrentPage = (path: string) => {
     <!-- MOBILE -->
     <div class="lg:hidden">
       <!-- Top Bar -->
-      <div class="flex h-20 items-center justify-between px-5">
-        <a href="/" class="flex items-center gap-3">
+      <div class="flex h-20 items-center justify-between gap-2 px-4">
+        <a href="/" class="flex min-w-0 items-center gap-2">
           <Picture
             src={logoImage}
             formats={["png", "webp", "jpg"]}
@@ -82,7 +89,7 @@ const isCurrentPage = (path: string) => {
             class="h-10 w-10 rounded-full object-contain dark:brightness-200 dark:invert"
           />
 
-          <span class="brand text-foreground text-xl font-bold"> RECURSIVE ZERO </span>
+          <span class="brand text-foreground truncate font-bold"> RECURSIVE ZERO </span>
         </a>
 
         <div class="flex items-center gap-3">
@@ -108,7 +115,7 @@ const isCurrentPage = (path: string) => {
               src={logoImage}
               formats={["png", "webp", "jpg"]}
               alt="Recursive Zero"
-              class="h-10 w-10 rounded-full object-contain dark:brightness-200 dark:invert"
+              class="h-10 w-10 shrink-0 rounded-full object-contain dark:brightness-200 dark:invert"
             />
 
             <span class="brand text-foreground text-xl font-bold"> RECURSIVE ZERO </span>
@@ -134,19 +141,7 @@ const isCurrentPage = (path: string) => {
             {
               navLinks
                 .filter(({ isActive }) => isActive)
-                .map((item) => (
-                  <li>
-                    <a
-                      href={item.href}
-                      class:list={[
-                        "block text-4xl font-bold transition",
-                        isCurrentPage(item.href) ? "text-blue-600" : "text-foreground"
-                      ]}
-                    >
-                      {item.name}
-                    </a>
-                  </li>
-                ))
+                .map((item) => <NavItem item={item} active={isCurrentPage(item.href)} mobile={true} />)
             }
 
             <li class="pt-8">
