@@ -1,0 +1,23 @@
+[
+  {
+    "title": "MBA Interns",
+    "description": "We're looking for MBA Interns who can help us with field work, product demos and user onboarding. Preferred candidates from Surat, Gujarat.",
+    "location": "Remote",
+    "type": "Full-time",
+    "isActive": true
+  },
+  {
+    "title": "Frontend Developer",
+    "description": "We're looking for an experienced frontend developer to join our team and build modern interfaces.",
+    "location": "Remote",
+    "type": "Full-time",
+    "isActive": true
+  },
+  {
+    "title": "Backend Engineer",
+    "description": "Join us in building scalable backend solutions using Node.js and modern backend technologies.",
+    "location": "Hybrid",
+    "type": "Full-time",
+    "isActive": true
+  }
+]

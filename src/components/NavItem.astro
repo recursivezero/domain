@@ -1,0 +1,26 @@
+---
+interface Props {
+  item: {
+    name: string;
+    href: string;
+  };
+  active: boolean;
+  mobile?: boolean;
+}
+
+const { item, active, mobile = false } = Astro.props;
+---
+
+<li>
+  <a
+    href={item.href}
+    class:list={[
+      mobile
+        ? "block text-4xl font-bold transition"
+        : "text-lg font-semibold transition hover:text-blue-600",
+      active ? "text-blue-600 underline underline-offset-8" : "text-foreground"
+    ]}
+  >
+    {item.name}
+  </a>
+</li>

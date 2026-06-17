@@ -16,7 +16,7 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []))];
     <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
       <div class="text-center">
         <!-- LABEL -->
-        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">Recursive Zero Blogs</p>
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">Recursive Zero Blogs</p>
 
         <!-- HEADING -->
         <h1 class="text-foreground text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">Blog Articles</h1>
@@ -32,7 +32,7 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []))];
             allTags.slice(0, 3).map((tag) => (
               <a
                 href={`/blogs/tag/${tag}`}
-                class="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-sm font-medium text-cyan-500 transition duration-300 hover:bg-cyan-500 hover:text-black"
+                class="rounded-full border border-cyan-500/20 bg-brandBlue/20 px-4 py-2 text-sm font-medium text-blue-700 transition duration-300 hover:bg-brandBlue hover:text-white"
               >
                 #{tag}
               </a>
@@ -42,7 +42,7 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []))];
           <!-- MORE TAGS BUTTON -->
           <a
             href="/blogs/tag"
-            class="border-foreground/10 text-foreground rounded-full border px-5 py-2 text-sm font-semibold transition duration-300 hover:border-cyan-500 hover:text-cyan-500"
+            class="border-foreground/10 text-foreground rounded-full border px-5 py-2 text-sm font-semibold transition duration-300 hover:border-cyan-500 hover:text-blue-600"
           >
             More Tags →
           </a>

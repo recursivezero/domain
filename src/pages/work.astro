@@ -1,14 +1,24 @@
 ---
-import fabricAI from "@/assets/images/fabric-ai.png";
-import techTaboo from "@/assets/images/TechTaboo.png";
+import externalProjects from "@/data/work.json";
 import abcd from "@/assets/images/abcd.png";
-import threadzip from "@/assets/images/threadZip.svg";
+import fabricAI from "@/assets/images/fabric-ai.png";
 import rzro from "@/assets/images/rzro.jpg";
-import threadzipLab from "@/assets/images/threadzipLab.jpg";
+import techTaboo from "@/assets/images/TechTaboo.png";
+import threadzip from "@/assets/images/threadZip.svg";
 import threadzipApp from "@/assets/images/ThreadzipApp.png";
-
+import threadzipLab from "@/assets/images/threadzipLab.jpg";
 import BlogCard from "@/components/BlogCard.astro";
 import BaseLayout from "@/layouts/BaseLayout";
+
+const imageMap: Record<string, string> = {
+  abcd: abcd.src,
+  threadzip: threadzip.src,
+  rzro: rzro.src,
+  threadzipLab: threadzipLab.src,
+  fabricAI: fabricAI.src,
+  threadzipApp: threadzipApp.src,
+  techTaboo: techTaboo.src
+};
 
 const pages = import.meta.glob("./work/*.astro", {
   eager: true
@@ -32,64 +42,6 @@ const pageList = Object.entries(pages)
     };
   })
   .filter((item) => item.title.toLowerCase() !== "interactive letter");
-
-// External work cards
-const externalProjects = [
-  {
-    url: "https://abcdkbd.com",
-    title: "ABCDKBD",
-    description: "An interactive kids learning platform.",
-    image: abcd.src,
-    isActive: true
-  },
-
-  {
-    url: "https://threadzip.com/",
-    title: "Threadzip",
-    description: "A digital textile sourcing and business platform connecting manufacturers, suppliers, and buyers.",
-    image: threadzip.src,
-    isActive: true
-  },
-
-  {
-    url: "https://rzro.link/",
-    title: "RZRO",
-    description: "A modern smart link and URL shortening platform by Recursive Zero.",
-    image: rzro.src,
-    isActive: true
-  },
-
-  {
-    url: "https://lab.threadzip.com",
-    title: "Threadzip Lab",
-    description: "A python tool that uses computer vision to identify and generate fabric patterns.",
-    image: threadzipLab.src,
-    isActive: true
-  },
-
-  {
-    url: "https://pro.threadzip.com",
-    title: "Threadzip Pro",
-    description: "An AI-powered platform for fabric intelligence and textile analysis.",
-    image: fabricAI.src,
-    isActive: true
-  },
-
-  {
-    url: "https://app.threadzip.com",
-    title: "Threadzip App",
-    description: "A B2B marketplace for textile raw material businesses.",
-    image: threadzipApp.src,
-    isActive: true
-  },
-  {
-    url: "https://recursivezero.github.io/taboo/",
-    title: "Tech Taboo",
-    description: "A fun and interactive tech-themed taboo game platform.",
-    image: techTaboo.src,
-    isActive: true
-  }
-];
 ---
 
 <BaseLayout
@@ -101,7 +53,7 @@ const externalProjects = [
     <!-- HERO -->
     <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
       <div class="text-center">
-        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">Portfolio</p>
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">Portfolio</p>
 
         <h1 class="text-foreground text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">Our Work</h1>
 
@@ -128,7 +80,13 @@ const externalProjects = [
           externalProjects
             .filter(({ isActive }) => isActive)
             .map(({ url, title, description, image }, index) => (
-              <BlogCard url={url} title={title} description={description} image={image} priority={index === 0} />
+              <BlogCard
+                url={url}
+                title={title}
+                description={description}
+                image={imageMap[image] || ""}
+                priority={index === 0}
+              />
             ))
         }
       </div>

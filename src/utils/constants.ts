@@ -2,6 +2,10 @@ import type { LinkProps } from "@/models";
 
 export const APP_NAME = "RecursiveZero";
 
+export const CONTACT_EMAIL = "hello@recursivezero.com";
+
+export const HR_EMAIL = "hr@recursivezero.com";
+
 export const NavbarLinks: LinkProps[] = [
   {
     name: "Home",

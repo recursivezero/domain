@@ -12,7 +12,7 @@ const slicedPosts = posts.slice(0, 3);
     <!-- Top Heading -->
     <div class="mb-14 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
       <div>
-        <p class="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-500">Recent Blogs</p>
+        <p class="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">Recent Blogs</p>
 
         <h2 class="text-foreground text-4xl font-bold tracking-tight md:text-5xl">
           Insights, Updates <br class="hidden md:block" />
@@ -22,7 +22,7 @@ const slicedPosts = posts.slice(0, 3);
 
       <a
         href="/blogs"
-        class="inline-flex items-center gap-2 text-base font-semibold text-cyan-600 transition hover:gap-3"
+        class="inline-flex items-center gap-2 text-base font-semibold text-blue-600 transition hover:gap-3"
       >
         View All Blogs →
       </a>
@@ -31,7 +31,7 @@ const slicedPosts = posts.slice(0, 3);
     <!-- Blog Grid -->
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
       {
-        slicedPosts.map((post) => (
+        slicedPosts.map((post, index) => (
           <BlogCard
             url={`/blogs/${post.id}`}
             title={post.data.title}
@@ -40,6 +40,7 @@ const slicedPosts = posts.slice(0, 3);
             author={post.data.author}
             date={post.data.date.toLocaleDateString()}
             tags={post.data.tags}
+            priority={index === 0}
           />
         ))
       }

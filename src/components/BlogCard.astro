@@ -34,7 +34,12 @@ const formattedDate = formatDate(date);
 ---
 
 <article class="group h-full">
-  <a href={url} class="block h-full">
+  <a
+    href={url}
+    target={url.startsWith("http") ? "_blank" : undefined}
+    rel={url.startsWith("http") ? "noopener noreferrer" : undefined}
+    class="block h-full"
+  >
     <div
       class="border-foreground/10 bg-background/80 flex h-full flex-col overflow-hidden rounded-3xl border shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-3 hover:border-cyan-400/30 hover:shadow-2xl"
     >
@@ -60,7 +65,7 @@ const formattedDate = formatDate(date);
             tags
               .slice(0, 2)
               .map((tag: string) => (
-                <span class="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-3 py-1 text-xs font-medium text-cyan-500">
+                <span class="bg-brandBlue rounded-full border border-cyan-500/20 px-3 py-1 text-xs font-medium text-white">
                   #{tag}
                 </span>
               ))
@@ -69,7 +74,7 @@ const formattedDate = formatDate(date);
 
         <!-- Title -->
         <h3
-          class="text-foreground line-clamp-2 text-2xl font-bold leading-snug transition-colors duration-300 group-hover:text-cyan-600"
+          class="text-foreground line-clamp-2 text-2xl font-bold leading-snug transition-colors duration-300 group-hover:text-blue-600"
         >
           {title}
         </h3>

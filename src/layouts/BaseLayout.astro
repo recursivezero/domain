@@ -20,7 +20,22 @@ const articleDate = meta.articleDate;
 
 <html lang={siteConfig.lang}>
   <head>
-    <!-- Instant Theme Apply (No Flash) -->
+    <BaseHead title={title} description={description} ogImage={ogImage} date={articleDate} />
+
+    <title>{title}</title>
+  </head>
+
+  <body id="pageBody" class="bg-background text-foreground w-full overflow-x-hidden">
+    <!-- Header -->
+    <Header />
+
+    <!-- Main -->
+    <main class="w-full">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <Footer />
     <script is:inline>
       (() => {
         try {
@@ -63,22 +78,5 @@ const articleDate = meta.articleDate;
         setTheme(e.detail.theme);
       });
     </script>
-
-    <BaseHead title={title} description={description} ogImage={ogImage} date={articleDate} />
-
-    <title>{title}</title>
-  </head>
-
-  <body id="pageBody" class="bg-background text-foreground w-full overflow-x-hidden">
-    <!-- Header -->
-    <Header />
-
-    <!-- Main -->
-    <main class="w-full">
-      <slot />
-    </main>
-
-    <!-- Footer -->
-    <Footer />
   </body>
 </html>

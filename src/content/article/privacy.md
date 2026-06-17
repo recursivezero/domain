@@ -3,8 +3,6 @@ title: "Privacy Policy"
 author: "Admin"
 ---
 
-
-
 ## Last Updated: Mar 29, 2026
 
 Welcome to **recursivezero.com**! Your child’s privacy and safety are our highest priority.
