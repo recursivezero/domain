@@ -2,7 +2,7 @@
 import { Picture } from "astro:assets";
 import "../assets/styles/custom-font.css";
 import ThemeToggle from "@/components/ThemeToggle.astro";
-import logoImage from "@/assets/images/logo.png";
+import logoImage from "@/assets/images/logo.webp";
 import navLinks from "@/data/navLinks.json";
 import NavItem from "@/components/NavItem.astro";
 
@@ -163,7 +163,9 @@ const isCurrentPage = (path: string) => {
       const closeBtn = document.getElementById("closeMenuBtn");
       const menu = document.getElementById("mobileMenu");
 
-      if (!openBtn || !closeBtn || !menu) return;
+      if (!openBtn || !closeBtn || !menu || openBtn.dataset.initialized) return;
+
+      openBtn.dataset.initialized = "true";
 
       openBtn.addEventListener("click", () => {
         menu.classList.remove("hidden");

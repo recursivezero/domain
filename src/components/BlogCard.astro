@@ -48,8 +48,8 @@ const formattedDate = formatDate(date);
         <img
           src={image}
           alt={title}
-          width="800"
-          height="450"
+          width="400"
+          height="225"
           loading={priority ? "eager" : "lazy"}
           fetchpriority={priority ? "high" : "auto"}
           decoding="async"
@@ -65,7 +65,7 @@ const formattedDate = formatDate(date);
             tags
               .slice(0, 2)
               .map((tag: string) => (
-                <span class="bg-brandBlue rounded-full border border-cyan-500/20 px-3 py-1 text-xs font-medium text-white">
+                <span class="rounded-full border border-cyan-500/20 bg-brandBlue px-3 py-1 text-xs font-medium text-white">
                   #{tag}
                 </span>
               ))
