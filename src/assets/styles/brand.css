@@ -786,6 +786,41 @@ body {
   margin-bottom: 7px;
   font-weight: 500;
 }
+.required {
+  color: #ef4444;
+  font-weight: 700;
+}
+.show-more-btn {
+  width: 100%;
+
+  padding: 12px 16px;
+
+  margin-bottom: 18px;
+
+  border: 1px solid var(--glass-border);
+
+  border-radius: var(--radius-sm);
+
+  background: var(--glass-bg);
+
+  color: var(--text-secondary);
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: var(--transition);
+}
+
+.show-more-btn:hover {
+  background: var(--glass-bg-hover);
+
+  border-color: var(--clr-cyan);
+
+  color: var(--clr-cyan-light);
+}
 
 .form-group input,
 .form-group textarea {

@@ -8,16 +8,24 @@ import "@/assets/styles/numpad.css";
     <h2>NumPad Timeline</h2>
 
     <div class="input-box">
-      <input
-        id="input"
-        placeholder="Enter value..."
-        maxlength="16"
-      />
+      <input id="input" placeholder="Enter value..." maxlength="16" />
       <button id="addBtn">Add</button>
     </div>
 
     <div id="timeline" class="timeline"></div>
   </div>
+
+  <dialog id="deleteDialog" class="delete-dialog">
+    <h3>Delete Entry</h3>
+
+    <p>Are you sure you want to delete this entry?</p>
+
+    <div class="dialog-actions">
+      <button id="cancelDelete" type="button"> Cancel </button>
+
+      <button id="confirmDelete" type="button"> Delete </button>
+    </div>
+  </dialog>
 
   <script is:inline>
     const CONFIG = {
@@ -25,7 +33,7 @@ import "@/assets/styles/numpad.css";
       ALLOW_DUPLICATES: false,
       CURRENT_USER: {
         id: 1,
-        name: "Abdul",
+        name: "User",
         role: "admin"
       }
     };
@@ -49,9 +57,7 @@ import "@/assets/styles/numpad.css";
     }
 
     function isDuplicate(value) {
-      return state.entries.some(
-        (entry) => entry.value === value
-      );
+      return state.entries.some((entry) => entry.value === value);
     }
 
     function addEntry(entry) {
@@ -59,9 +65,7 @@ import "@/assets/styles/numpad.css";
     }
 
     function removeEntry(value) {
-      const index = state.entries.findIndex(
-        (entry) => entry.value === value
-      );
+      const index = state.entries.findIndex((entry) => entry.value === value);
 
       if (index !== -1) {
         state.entries.splice(index, 1);
@@ -69,22 +73,14 @@ import "@/assets/styles/numpad.css";
     }
 
     function createEntry(value) {
-      if (
-        !isValidInput(
-          value,
-          CONFIG.MAX_LENGTH
-        )
-      ) {
+      if (!isValidInput(value, CONFIG.MAX_LENGTH)) {
         return {
           success: false,
           message: "Invalid input"
         };
       }
 
-      if (
-        !CONFIG.ALLOW_DUPLICATES &&
-        isDuplicate(value)
-      ) {
+      if (!CONFIG.ALLOW_DUPLICATES && isDuplicate(value)) {
         return {
           success: false,
           message: "Duplicate not allowed"
@@ -116,61 +112,39 @@ import "@/assets/styles/numpad.css";
       };
     }
 
-    document.addEventListener(
-      "DOMContentLoaded",
-      () => {
-        const input =
-          document.getElementById("input");
+    document.addEventListener("DOMContentLoaded", () => {
+      const input = document.getElementById("input");
 
-        const addBtn =
-          document.getElementById("addBtn");
+      const addBtn = document.getElementById("addBtn");
 
-        const timeline =
-          document.getElementById(
-            "timeline"
-          );
+      const timeline = document.getElementById("timeline");
 
-        addBtn?.addEventListener(
-          "click",
-          () => {
-            const rawValue =
-              input.value;
+      addBtn?.addEventListener("click", () => {
+        const rawValue = input.value;
 
-            if (
-              !rawValue ||
-              !rawValue.trim()
-            ) {
-              alert(
-                "Please enter a valid value"
-              );
-              return;
-            }
+        if (!rawValue || !rawValue.trim()) {
+          alert("Please enter a valid value");
+          return;
+        }
 
-            const result =
-              createEntry(
-                rawValue.trim()
-              );
+        const result = createEntry(rawValue.trim());
 
-            if (!result.success) {
-              alert(result.message);
-              return;
-            }
+        if (!result.success) {
+          alert(result.message);
+          return;
+        }
 
-            render(result.entry);
+        render(result.entry);
 
-            input.value = "";
-          }
-        );
+        input.value = "";
+      });
 
-        function render(entry) {
-          const div =
-            document.createElement(
-              "div"
-            );
+      function render(entry) {
+        const div = document.createElement("div");
 
-          div.className = "card";
+        div.className = "card";
 
-          div.innerHTML = `
+        div.innerHTML = `
             <div class="user">
               👤 ${entry.user}
             </div>
@@ -185,36 +159,44 @@ import "@/assets/styles/numpad.css";
 
             <div class="actions">
               <button class="deleteBtn">
-                🗑 Delete
-              </button>
+  Delete
+</button>
             </div>
           `;
 
-          const deleteBtn =
-            div.querySelector(
-              ".deleteBtn"
-            );
+        const deleteBtn = div.querySelector(".deleteBtn");
 
-          deleteBtn?.addEventListener(
-            "click",
-            () => {
-              if (
-                window.confirm(
-                  "Are you sure you want to delete this entry?"
-                )
-              ) {
-                deleteEntry(
-                  entry.value
-                );
+        deleteBtn?.addEventListener("click", () => {
+          const dialog = document.getElementById("deleteDialog");
 
-                div.remove();
-              }
-            }
-          );
+          const confirmBtn = document.getElementById("confirmDelete");
 
-          timeline?.prepend(div);
-        }
+          const cancelBtn = document.getElementById("cancelDelete");
+
+          dialog?.showModal();
+
+          const handleConfirm = () => {
+            deleteEntry(entry.value);
+
+            div.remove();
+
+            dialog?.close();
+
+            confirmBtn?.removeEventListener("click", handleConfirm);
+          };
+
+          const handleCancel = () => {
+            dialog?.close();
+
+            cancelBtn?.removeEventListener("click", handleCancel);
+          };
+
+          confirmBtn?.addEventListener("click", handleConfirm);
+
+          cancelBtn?.addEventListener("click", handleCancel);
+        });
+        timeline?.prepend(div);
       }
-    );
+    });
   </script>
 </BaseLayout>
