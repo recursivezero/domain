@@ -110,7 +110,7 @@ import tagColors from "@/data/tagColors.json";
             <input type="text" id="brandTagline" placeholder="e.g. Think Different" />
           </div>
 
-          <button type="button" id="toggleFields" class="show-more-btn"> Show More </button>
+          <button type="button" id="showMoreBtn" class="show-more-btn"> Show More </button>
 
           <!-- Extra Fields -->
 
@@ -156,6 +156,7 @@ import tagColors from "@/data/tagColors.json";
 
               <input type="text" id="brandEmoji" placeholder="e.g. 🍎" maxlength="4" />
             </div>
+            <button type="button" id="showLessBtn" class="show-more-btn"> Show Less </button>
           </div>
         </div>
 
@@ -181,6 +182,22 @@ import tagColors from "@/data/tagColors.json";
         </div>
       </div>
     </div>
+    <!-- DELETE MODAL -->
+    <div class="modal-overlay hidden" id="deleteModal">
+      <div class="modal-box">
+        <div class="modal-header">
+          <h2>Delete Brand</h2>
+        </div>
+
+        <div class="modal-body">Are you sure you want to delete this brand?</div>
+
+        <div class="modal-footer">
+          <button class="btn-cancel" id="cancelDelete"> Cancel </button>
+
+          <button class="btn-save" id="confirmDelete"> Delete </button>
+        </div>
+      </div>
+    </div>
 
     <!-- JS from public/assets/js/ -->
     <script define:vars={{ defaultBrands, tagColors }} is:inline>
@@ -188,6 +205,7 @@ import tagColors from "@/data/tagColors.json";
       let currentFilter = "all";
       let currentSearch = "";
       let detailIndex = -1;
+      let deleteIndex = -1;
 
       function getTagColor(tag) {
         let hash = 0;
@@ -305,7 +323,10 @@ import tagColors from "@/data/tagColors.json";
         document.querySelectorAll(".del-btn").forEach((btn) => {
           btn.addEventListener("click", (e) => {
             e.stopPropagation();
-            deleteBrand(parseInt(btn.dataset.idx));
+
+            deleteIndex = parseInt(btn.dataset.idx);
+
+            document.getElementById("deleteModal").classList.remove("hidden");
           });
         });
 
@@ -390,6 +411,19 @@ import tagColors from "@/data/tagColors.json";
           document.getElementById("detailOverlay").classList.add("hidden");
       });
 
+      document.getElementById("cancelDelete").addEventListener("click", () => {
+        document.getElementById("deleteModal").classList.add("hidden");
+      });
+
+      document.getElementById("confirmDelete").addEventListener("click", () => {
+        brands.splice(deleteIndex, 1);
+
+        save();
+        renderCards();
+
+        document.getElementById("deleteModal").classList.add("hidden");
+      });
+
       // ===== ADD / EDIT MODAL =====
       function openAddModal() {
         document.getElementById("modalTitle").textContent = "Add New Brand";
@@ -432,16 +466,21 @@ import tagColors from "@/data/tagColors.json";
         document.getElementById("modalOverlay").classList.add("hidden");
       }
 
-      const toggleBtn = document.getElementById("toggleFields");
+      const showMoreBtn = document.getElementById("showMoreBtn");
+
+      const showLessBtn = document.getElementById("showLessBtn");
 
       const extraFields = document.getElementById("extraFields");
 
-      toggleBtn?.addEventListener("click", () => {
-        extraFields.classList.toggle("hidden");
-
-        toggleBtn.textContent = extraFields.classList.contains("hidden") ? "Show More" : "Show Less";
+      showMoreBtn?.addEventListener("click", () => {
+        extraFields.classList.remove("hidden");
+        showMoreBtn.classList.add("hidden");
       });
 
+      showLessBtn?.addEventListener("click", () => {
+        extraFields.classList.add("hidden");
+        showMoreBtn.classList.remove("hidden");
+      });
       document.getElementById("openModal").addEventListener("click", openAddModal);
       document.getElementById("closeModal").addEventListener("click", closeModal);
       document.getElementById("cancelModal").addEventListener("click", closeModal);
@@ -463,6 +502,7 @@ import tagColors from "@/data/tagColors.json";
         }
 
         document.getElementById("brandName").style.borderColor = "";
+        document.getElementById("brandTagline").style.borderColor = "";
 
         const rawColors = document.getElementById("brandColors").value;
         const colors = rawColors
@@ -481,12 +521,24 @@ import tagColors from "@/data/tagColors.json";
           tags: document
             .getElementById("brandTags")
             .value.split(",")
-            .map((t) => t.trim())
+            .map((t) => t.trim().toLowerCase())
             .filter(Boolean),
           emoji: document.getElementById("brandEmoji").value.trim() || "🏷️"
         };
 
         const idx = parseInt(document.getElementById("editIndex").value);
+
+        const duplicate = brands.some((b, i) => i !== idx && b.name.trim().toLowerCase() === name.toLowerCase());
+
+        if (duplicate) {
+          alert("Brand name already exists");
+
+          document.getElementById("brandName").focus();
+          document.getElementById("brandName").style.borderColor = "#f43f5e";
+
+          return;
+        }
+
         if (idx === -1) {
           brands.unshift(brand);
         } else {
@@ -509,9 +561,16 @@ import tagColors from "@/data/tagColors.json";
 
       // ===== SEARCH =====
       const searchInput = document.getElementById("searchInput");
+
+      let searchTimeout;
+
       searchInput.addEventListener("input", () => {
-        currentSearch = searchInput.value;
-        renderCards();
+        clearTimeout(searchTimeout);
+
+        searchTimeout = setTimeout(() => {
+          currentSearch = searchInput.value;
+          renderCards();
+        }, 200);
       });
       document.getElementById("clearSearch").addEventListener("click", () => {
         searchInput.value = "";
