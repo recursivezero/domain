@@ -199,6 +199,22 @@ import tagColors from "@/data/tagColors.json";
       </div>
     </div>
 
+    <div id="errorOverlay" class="modal-overlay hidden">
+      <div class="modal-box">
+        <div class="modal-header">
+          <h2>Validation Error</h2>
+        </div>
+
+        <div class="modal-body">
+          <p id="errorMessage"></p>
+        </div>
+
+        <div class="modal-footer">
+          <button id="closeErrorBtn" class="btn-save"> OK </button>
+        </div>
+      </div>
+    </div>
+
     <!-- JS from public/assets/js/ -->
     <script define:vars={{ defaultBrands, tagColors }} is:inline>
       let brands = JSON.parse(localStorage.getItem("brandvault_brands")) || [...defaultBrands];
@@ -465,6 +481,14 @@ import tagColors from "@/data/tagColors.json";
       function closeModal() {
         document.getElementById("modalOverlay").classList.add("hidden");
       }
+      function showErrorModal(message) {
+        document.getElementById("errorMessage").textContent = message;
+
+        document.getElementById("errorOverlay").classList.remove("hidden");
+      }
+      document.getElementById("closeErrorBtn").addEventListener("click", () => {
+        document.getElementById("errorOverlay").classList.add("hidden");
+      });
 
       const showMoreBtn = document.getElementById("showMoreBtn");
 
@@ -531,7 +555,7 @@ import tagColors from "@/data/tagColors.json";
         const duplicate = brands.some((b, i) => i !== idx && b.name.trim().toLowerCase() === name.toLowerCase());
 
         if (duplicate) {
-          alert("Brand name already exists");
+          showErrorModal("Brand name already exists");
 
           document.getElementById("brandName").focus();
           document.getElementById("brandName").style.borderColor = "#f43f5e";
