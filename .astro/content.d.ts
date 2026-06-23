@@ -147,6 +147,14 @@ declare module 'astro:content' {
   rendered?: RenderedContent;
   filePath?: string;
 }>;
+"research": Record<string, {
+  id: string;
+  body?: string;
+  collection: "research";
+  data: InferEntrySchema<"research">;
+  rendered?: RenderedContent;
+  filePath?: string;
+}>;
 
 	};
 
@@ -177,6 +185,6 @@ declare module 'astro:content' {
 		LiveContentConfig['collections'][C]['loader']
 	>;
 
-	export type ContentConfig = typeof import("../src/content.config.js");
+	export type ContentConfig = typeof import("./../src/content.config.js");
 	export type LiveContentConfig = never;
 }
