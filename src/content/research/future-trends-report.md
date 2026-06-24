@@ -7,7 +7,7 @@ tags:
   - ai
   - future
 category: "AI & Technology"
-featured: false
+featured: true
 ---
 
 ## Introduction

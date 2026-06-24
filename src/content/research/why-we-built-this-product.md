@@ -7,7 +7,7 @@ tags:
   - research
   - product
 category: "Product Vision"
-featured: true
+featured: false
 ---
 
 ## Introduction

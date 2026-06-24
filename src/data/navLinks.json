@@ -23,5 +23,6 @@
     "name": "Work",
     "href": "/work",
     "isActive": true
-  }
+  },
+  { "name": "Research", "href": "/research", "isActive": true }
 ]
