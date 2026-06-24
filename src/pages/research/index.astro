@@ -6,9 +6,9 @@ import { getCollection } from "astro:content";
 
 const posts = await getCollection("research");
 
-const categories = [
-  ...new Set(posts.map((post) => post.data.category).filter(Boolean))
-];
+// const categories = [
+//   ...new Set(posts.map((post) => post.data.category).filter(Boolean))
+// ];
 
 const selectedCategory = Astro.url.searchParams.get("category");
 
