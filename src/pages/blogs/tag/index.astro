@@ -12,15 +12,17 @@ const showError = Astro.url.searchParams.get("error") === "notfound";
 ---
 
 <BaseLayout meta={{ title: "Blog Tags" }}>
-  <main class="bg-background text-foreground min-h-screen">
+  <main class="min-h-screen">
     <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
       <!-- TITLE -->
       <div class="text-center">
-        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">Explore Blogs</p>
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600 dark:text-sky-500">
+          Explore Blogs
+        </p>
 
         <h1 class="text-4xl font-bold md:text-6xl">Browse by Tags</h1>
 
-        <p class="text-foreground/70 mx-auto mt-6 max-w-2xl text-lg">Select a tag to explore related blogs.</p>
+        <p class="mx-auto mt-6 max-w-2xl text-lg">Select a tag to explore related blogs.</p>
       </div>
 
       <!-- ERROR POPUP -->
@@ -38,7 +40,7 @@ const showError = Astro.url.searchParams.get("error") === "notfound";
           tags.map((tag) => (
             <a
               href={`/blogs/tag/${tag}`}
-              class="rounded-2xl border border-cyan-500/20 bg-brandBlue/10 px-6 py-4 text-lg font-semibold text-blue-600 transition duration-300 hover:bg-brandBlue hover:text-white"
+              class="rounded-2xl border border-cyan-500/20 bg-brandBlue/10 px-6 py-4 text-lg font-semibold text-blue-600 transition duration-300 hover:bg-brandBlue hover:text-white dark:text-sky-500"
             >
               #{tag}
             </a>
