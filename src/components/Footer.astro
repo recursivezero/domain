@@ -17,16 +17,18 @@ const logoMap: Record<string, any> = {
 };
 ---
 
-<footer class="bg-background text-foreground">
+<footer class="">
   <!-- Top Border -->
-  <div class="bg-foreground/10 h-[1px] w-full"></div>
+  <div class="h-[1px] w-full"></div>
 
   <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10">
     <!-- Main Grid -->
     <div class="grid gap-12 lg:grid-cols-3">
       <!-- Brand -->
       <div>
-        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">Recursive Zero</p>
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600 dark:text-sky-500">
+          Recursive Zero
+        </p>
 
         <h3 class="text-4xl font-bold leading-tight">
           Building Future Ready
@@ -34,23 +36,23 @@ const logoMap: Record<string, any> = {
           Digital Products
         </h3>
 
-        <p class="text-foreground/70 mt-5 max-w-md text-lg leading-8">
+        <p class="mt-5 max-w-md text-lg leading-8">
           We create premium web apps, internal systems and modern software experiences that help businesses grow faster.
         </p>
       </div>
 
       <!-- Quick Links -->
       <div>
-        <h4 class="text-foreground mb-6 text-xl font-bold">Quick Links</h4>
+        <h4 class="mb-6 text-xl font-bold">Quick Links</h4>
 
-        <ul class="text-foreground/70 grid grid-cols-2 gap-x-10 gap-y-4">
+        <ul class="grid grid-cols-2 gap-x-10 gap-y-4">
           {quickLinks.filter(({ isActive }) => isActive).map((link) => <FooterLink link={link} />)}
         </ul>
       </div>
 
       <!-- Contact -->
       <div>
-        <h4 class="text-foreground mb-6 text-xl font-bold">Connect With Us</h4>
+        <h4 class="mb-6 text-xl font-bold">Connect With Us</h4>
 
         <!-- Social Icons -->
         <div class="flex gap-4">
@@ -59,7 +61,7 @@ const logoMap: Record<string, any> = {
             href="https://www.twitter.com/recursivezero"
             target="_blank"
             rel="noopener noreferrer"
-            class="border-foreground/10 bg-background text-foreground flex h-12 w-12 items-center justify-center rounded-2xl border transition hover:bg-brandBlue hover:text-white"
+            class="flex h-12 w-12 items-center justify-center rounded-2xl border transition hover:bg-brandBlue hover:text-white"
           >
             <span class="h-5 w-5 fill-current">
               <TwitterIcon aria-label="Visit our Twitter page" />
@@ -69,7 +71,7 @@ const logoMap: Record<string, any> = {
           <!-- Mail -->
           <a
             href=`mailto:${CONTACT_EMAIL}`
-            class="border-foreground/10 bg-background text-foreground flex h-12 w-12 items-center justify-center rounded-2xl border transition hover:bg-brandBlue hover:text-white"
+            class="flex h-12 w-12 items-center justify-center rounded-2xl border transition hover:bg-brandBlue hover:text-white"
           >
             <MailIcon aria-label="Mail us" />
           </a>
@@ -79,7 +81,7 @@ const logoMap: Record<string, any> = {
             href="https://www.github.com/recursivezero"
             target="_blank"
             rel="noopener noreferrer"
-            class="border-foreground/10 bg-background text-foreground flex h-12 w-12 items-center justify-center rounded-2xl border transition hover:bg-brandBlue hover:text-white"
+            class="flex h-12 w-12 items-center justify-center rounded-2xl border transition hover:bg-brandBlue hover:text-white"
           >
             <span class="h-5 w-5 fill-current">
               <GitHubIcon aria-label="Find our GitHub repo" />
@@ -88,33 +90,36 @@ const logoMap: Record<string, any> = {
         </div>
 
         <!-- Email -->
-        <div class="mt-5 text-lg">
-          <span class="text-foreground font-semibold">Email: </span>
+        <!--<div class="mt-5 text-lg">
+          <span class="font-semibold">Email: </span>
 
-          <a href=`mailto:${CONTACT_EMAIL}` class="ml-1 break-all text-blue-600 transition hover:underline">
+          <a
+            href=`mailto:${CONTACT_EMAIL}`
+            class="ml-1 break-all text-blue-600 transition hover:underline dark:text-sky-500"
+          >
             {CONTACT_EMAIL}
           </a>
-        </div>
+        </div>-->
       </div>
     </div>
 
     <!-- Bottom -->
-    <div class="border-foreground/10 mt-12 border-t pt-6">
+    <div class="mt-12 border-t pt-6">
       <div class="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
         <!-- Copyright -->
-        <p class="text-foreground/60 text-sm">© 2025 Recursive Zero Private Limited. All rights reserved.</p>
+        <p class="text-sm">© 2025 Recursive Zero Private Limited. All rights reserved.</p>
 
         <!-- Links -->
         <div class="flex gap-6 text-sm">
-          <a href="/terms" class="text-foreground/60 transition hover:text-blue-600"> Terms & Conditions </a>
+          <a href="/terms" class="transition hover:text-blue-600"> Terms & Conditions </a>
 
-          <a href="/privacy" class="text-foreground/60 transition hover:text-blue-600"> Privacy Policy </a>
+          <a href="/privacy" class="transition hover:text-blue-600"> Privacy Policy </a>
         </div>
       </div>
 
       <!-- Program Partners -->
-      <div class="border-foreground/10 mt-6 border-t pt-5 text-center">
-        <p class="text-foreground/50 text-xs font-semibold uppercase tracking-[0.3em]">Program Partners</p>
+      <div class="mt-6 border-t pt-5 text-center">
+        <p class="text-xs font-semibold uppercase tracking-[0.3em]">Program Partners</p>
 
         <div class="mt-4 flex flex-wrap items-center justify-center gap-8">
           {

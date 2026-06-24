@@ -12,12 +12,12 @@ interface Props {
 const { job } = Astro.props;
 ---
 
-<div class="dark:border-foreground/10 bg-background/60 rounded-3xl border-2 border-gray-300 p-8 shadow-sm backdrop-blur-md">
-  <h3 class="text-foreground text-2xl font-bold">
+<div class="dark: rounded-3xl border-2 border-gray-300 p-8 shadow-sm backdrop-blur-md">
+  <h3 class="text-2xl font-bold">
     {job.title}
   </h3>
 
-  <p class="text-foreground/70 mt-4 leading-8">
+  <p class="mt-4 leading-8">
     {job.description}
   </p>
 
@@ -26,7 +26,7 @@ const { job } = Astro.props;
       {job.location}
     </span>
 
-    <span class="text-foreground rounded-full bg-brandBlue/10 px-4 py-2 text-sm font-medium">
+    <span class="rounded-full bg-brandBlue/10 px-4 py-2 text-sm font-medium">
       {job.type}
     </span>
   </div>

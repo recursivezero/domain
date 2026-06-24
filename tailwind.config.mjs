@@ -7,10 +7,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        brandBlue: "#024C73",
+        brandBlue: "#024C73"
       }
-    },
+    }
   },
 
-  plugins: [],
+  plugins: []
 };

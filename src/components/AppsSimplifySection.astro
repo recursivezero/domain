@@ -3,54 +3,53 @@ import workplaceImage from "@/assets/images/workplace.webp";
 import { Image } from "astro:assets";
 ---
 
-<section class="bg-background text-foreground">
+<section class="">
   <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
     <div class="grid items-center gap-14 lg:grid-cols-2">
       <!-- Left Content -->
       <div>
-        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">What We Build</p>
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600 dark:text-sky-500">
+          What We Build
+        </p>
 
         <h2 class="text-4xl font-bold leading-tight tracking-tight md:text-5xl">
           Simplifying daily tasks <br />
           with handy mini apps
         </h2>
 
-        <p class="text-foreground/70 mt-6 max-w-xl text-lg leading-8">
+        <p class="mt-6 max-w-xl text-lg leading-8">
           Based in Bengaluru, Recursive Zero creates compact yet powerful apps designed to streamline your workflow,
           improve storage efficiency, and enhance everyday productivity.
         </p>
 
-        <p class="text-foreground/70 mt-4 max-w-xl text-lg leading-8">
+        <p class="mt-4 max-w-xl text-lg leading-8">
           Our solutions combine simplicity with smart technology, helping users and businesses achieve more with less
           effort.
         </p>
 
         <!-- Features -->
         <div class="mt-8 grid gap-4 sm:grid-cols-2">
-          <div class="border-foreground/10 bg-background/50 rounded-2xl border p-5">
-            <h3 class="text-foreground font-semibold">Fast & Lightweight</h3>
-            <p class="text-foreground/60 mt-2 text-sm">Built for speed and smooth performance.</p>
+          <div class="rounded-2xl border p-5">
+            <h3 class="font-semibold">Fast & Lightweight</h3>
+            <p class="mt-2 text-sm">Built for speed and smooth performance.</p>
           </div>
 
-          <div class="border-foreground/10 bg-background/50 rounded-2xl border p-5">
-            <h3 class="text-foreground font-semibold">Easy to Use</h3>
-            <p class="text-foreground/60 mt-2 text-sm">Clean UI focused on user productivity.</p>
+          <div class="rounded-2xl border p-5">
+            <h3 class="font-semibold">Easy to Use</h3>
+            <p class="mt-2 text-sm">Clean UI focused on user productivity.</p>
           </div>
         </div>
 
         <!-- Button -->
         <div class="mt-10">
-          <a
-            href="/work"
-            class="dark:border-foreground/20 text-foreground hover:bg-foreground hover:text-background rounded-xl border-2 border-gray-500 px-7 py-4 font-semibold transition"
-          >
+          <a href="/work" class="rounded-xl border-2 border-gray-500 px-7 py-4 font-semibold transition">
             Explore Apps →
           </a>
         </div>
       </div>
       <!-- Right Image -->
       <div class="relative">
-        <div class="bg-brandBlue/20 absolute -right-8 top-8 h-40 w-40 rounded-full blur-3xl"></div>
+        <div class="absolute -right-8 top-8 h-40 w-40 rounded-full bg-brandBlue/20 blur-3xl"></div>
         <Image
           src={workplaceImage}
           alt="Workplace"

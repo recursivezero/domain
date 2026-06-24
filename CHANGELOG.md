@@ -60,7 +60,10 @@ astro boilerplate
 ## [1.3.0] - 2026-06-12
 
 - Update lighthouse score
--
+
+## [1.3.3] - 2026-06-24
+
+- Added Numpad and brand address pages
 
 ### [Unreleased]
 

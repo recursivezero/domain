@@ -51,39 +51,37 @@ npm run build
 npm run preview
 ```
 
-
-
 ## Screenshots
 
 ## Dark Mode
-![Home Page](./public/screenshots/darkmode/home.png)
 
-![About Page](./public/screenshots/darkmode/about.png)
+![Home Page](./public/screenshots/darkmode/home.webp)
 
-![Blogs Page](./public/screenshots/darkmode/blogs.png)
+![About Page](./public/screenshots/darkmode/about.webp)
 
-![Career Page](./public/screenshots/darkmode/Career.png)
+![Blogs Page](./public/screenshots/darkmode/blogs.webp)
 
-![Work Page](./public/screenshots/darkmode/Work.png)
+![Career Page](./public/screenshots/darkmode/career.webp)
+
+![Work Page](./public/screenshots/darkmode/work.webp)
 
 ## LightMode
 
-![Home Page](./public/screenshots/lightmode/home.png)
+![Home Page](./public/screenshots/lightmode/home.webp)
 
-![About Page](./public/screenshots/lightmode/about.png)
+![About Page](./public/screenshots/lightmode/about.webp)
 
-![Blogs Page](./public/screenshots/lightmode/blogs.png)
+![Blogs Page](./public/screenshots/lightmode/blogs.webp)
 
-![Career Page](./public/screenshots/lightmode/Career.png)
+![Career Page](./public/screenshots/lightmode/career.webp)
 
-![Work Page](./public/screenshots/lightmode/Work.png)
-
+![Work Page](./public/screenshots/lightmode/work.webp)
 
 ## Contact
 
 📧 [recursivezero@outlook.com](mailto:recursivezero@outlook.com)
 
-🌐 https://recursivezero.com
+🌐 <https://recursivezero.com>
 
 ## License
 

@@ -81,56 +81,89 @@ import tagColors from "@/data/tagColors.json";
       <div class="modal-box">
         <div class="modal-header">
           <h2 id="modalTitle">Add New Brand</h2>
-          <button class="modal-close" id="closeModal"><i class="fa-solid fa-xmark"></i></button>
+
+          <button class="modal-close" id="closeModal">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
         </div>
+
         <div class="modal-body">
           <input type="hidden" id="editIndex" value="-1" />
+
+          <!-- Required Fields -->
+
           <div class="form-group">
-            <label>Brand Name *</label><input type="text" id="brandName" placeholder="e.g. Apple" />
+            <label>
+              Brand Name
+              <span class="required">*</span>
+            </label>
+
+            <input type="text" id="brandName" placeholder="e.g. Apple" />
           </div>
+
           <div class="form-group">
-            <label>Tagline</label><input type="text" id="brandTagline" placeholder="e.g. Think Different" />
+            <label>
+              Tagline
+              <span class="required">*</span>
+            </label>
+
+            <input type="text" id="brandTagline" placeholder="e.g. Think Different" />
           </div>
-          <div class="form-group">
-            <label>Industry</label><input type="text" id="brandIndustry" placeholder="e.g. Technology" />
-          </div>
-          <div class="form-group">
-            <label>Founded Year</label><input
-              type="number"
-              id="brandFounded"
-              placeholder="e.g. 1976"
-              min="1800"
-              max="2030"
-            />
-          </div>
-          <div class="form-group">
-            <label>Headquarters</label><input type="text" id="brandHQ" placeholder="e.g. Cupertino, CA" />
-          </div>
-          <div class="form-group">
-            <label>Brand Colors (comma separated hex)</label><input
-              type="text"
-              id="brandColors"
-              placeholder="e.g. #000000, #ffffff"
-            />
-          </div>
-          <div class="form-group">
-            <label>Description</label><textarea id="brandDesc" rows="3" placeholder="Short brand description..."
-            ></textarea>
-          </div>
-          <div class="form-group">
-            <label>Tags (comma separated)</label><input
-              type="text"
-              id="brandTags"
-              placeholder="e.g. tech, innovation, premium"
-            />
-          </div>
-          <div class="form-group">
-            <label>Logo Emoji / Icon</label><input type="text" id="brandEmoji" placeholder="e.g. 🍎" maxlength="4" />
+
+          <button type="button" id="showMoreBtn" class="show-more-btn"> Show More </button>
+
+          <!-- Extra Fields -->
+
+          <div id="extraFields" class="hidden">
+            <div class="form-group">
+              <label>Industry</label>
+
+              <input type="text" id="brandIndustry" placeholder="e.g. Technology" />
+            </div>
+
+            <div class="form-group">
+              <label>Founded Year</label>
+
+              <input type="number" id="brandFounded" placeholder="e.g. 1976" min="1800" max="2030" />
+            </div>
+
+            <div class="form-group">
+              <label>Headquarters</label>
+
+              <input type="text" id="brandHQ" placeholder="e.g. Cupertino, CA" />
+            </div>
+
+            <div class="form-group">
+              <label> Brand Colors (comma separated hex) </label>
+
+              <input type="text" id="brandColors" placeholder="e.g. #000000, #ffffff" />
+            </div>
+
+            <div class="form-group">
+              <label>Description</label>
+
+              <textarea id="brandDesc" rows="3" placeholder="Short brand description..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label> Tags (comma separated) </label>
+
+              <input type="text" id="brandTags" placeholder="e.g. tech, innovation, premium" />
+            </div>
+
+            <div class="form-group">
+              <label>Logo Emoji / Icon</label>
+
+              <input type="text" id="brandEmoji" placeholder="e.g. 🍎" maxlength="4" />
+            </div>
+            <button type="button" id="showLessBtn" class="show-more-btn"> Show Less </button>
           </div>
         </div>
+
         <div class="modal-footer">
-          <button class="btn-cancel" id="cancelModal">Cancel</button>
-          <button class="btn-save" id="saveBrand">Save Brand</button>
+          <button class="btn-cancel" id="cancelModal"> Cancel </button>
+
+          <button class="btn-save" id="saveBrand"> Save Brand </button>
         </div>
       </div>
     </div>
@@ -149,6 +182,38 @@ import tagColors from "@/data/tagColors.json";
         </div>
       </div>
     </div>
+    <!-- DELETE MODAL -->
+    <div class="modal-overlay hidden" id="deleteModal">
+      <div class="modal-box">
+        <div class="modal-header">
+          <h2>Delete Brand</h2>
+        </div>
+
+        <div class="modal-body">Are you sure you want to delete this brand?</div>
+
+        <div class="modal-footer">
+          <button class="btn-cancel" id="cancelDelete"> Cancel </button>
+
+          <button class="btn-save" id="confirmDelete"> Delete </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="errorOverlay" class="modal-overlay hidden">
+      <div class="modal-box">
+        <div class="modal-header">
+          <h2>Validation Error</h2>
+        </div>
+
+        <div class="modal-body">
+          <p id="errorMessage"></p>
+        </div>
+
+        <div class="modal-footer">
+          <button id="closeErrorBtn" class="btn-save"> OK </button>
+        </div>
+      </div>
+    </div>
 
     <!-- JS from public/assets/js/ -->
     <script define:vars={{ defaultBrands, tagColors }} is:inline>
@@ -156,6 +221,7 @@ import tagColors from "@/data/tagColors.json";
       let currentFilter = "all";
       let currentSearch = "";
       let detailIndex = -1;
+      let deleteIndex = -1;
 
       function getTagColor(tag) {
         let hash = 0;
@@ -273,7 +339,10 @@ import tagColors from "@/data/tagColors.json";
         document.querySelectorAll(".del-btn").forEach((btn) => {
           btn.addEventListener("click", (e) => {
             e.stopPropagation();
-            deleteBrand(parseInt(btn.dataset.idx));
+
+            deleteIndex = parseInt(btn.dataset.idx);
+
+            document.getElementById("deleteModal").classList.remove("hidden");
           });
         });
 
@@ -358,6 +427,19 @@ import tagColors from "@/data/tagColors.json";
           document.getElementById("detailOverlay").classList.add("hidden");
       });
 
+      document.getElementById("cancelDelete").addEventListener("click", () => {
+        document.getElementById("deleteModal").classList.add("hidden");
+      });
+
+      document.getElementById("confirmDelete").addEventListener("click", () => {
+        brands.splice(deleteIndex, 1);
+
+        save();
+        renderCards();
+
+        document.getElementById("deleteModal").classList.add("hidden");
+      });
+
       // ===== ADD / EDIT MODAL =====
       function openAddModal() {
         document.getElementById("modalTitle").textContent = "Add New Brand";
@@ -399,13 +481,33 @@ import tagColors from "@/data/tagColors.json";
       function closeModal() {
         document.getElementById("modalOverlay").classList.add("hidden");
       }
+      function showErrorModal(message) {
+        document.getElementById("errorMessage").textContent = message;
 
+        document.getElementById("errorOverlay").classList.remove("hidden");
+      }
+      document.getElementById("closeErrorBtn").addEventListener("click", () => {
+        document.getElementById("errorOverlay").classList.add("hidden");
+      });
+
+      const showMoreBtn = document.getElementById("showMoreBtn");
+
+      const showLessBtn = document.getElementById("showLessBtn");
+
+      const extraFields = document.getElementById("extraFields");
+
+      showMoreBtn?.addEventListener("click", () => {
+        extraFields.classList.remove("hidden");
+        showMoreBtn.classList.add("hidden");
+      });
+
+      showLessBtn?.addEventListener("click", () => {
+        extraFields.classList.add("hidden");
+        showMoreBtn.classList.remove("hidden");
+      });
       document.getElementById("openModal").addEventListener("click", openAddModal);
       document.getElementById("closeModal").addEventListener("click", closeModal);
       document.getElementById("cancelModal").addEventListener("click", closeModal);
-      document.getElementById("modalOverlay").addEventListener("click", (e) => {
-        if (e.target === document.getElementById("modalOverlay")) closeModal();
-      });
 
       // ===== SAVE BRAND =====
       document.getElementById("saveBrand").addEventListener("click", () => {
@@ -415,7 +517,16 @@ import tagColors from "@/data/tagColors.json";
           document.getElementById("brandName").style.borderColor = "#f43f5e";
           return;
         }
+        const tagline = document.getElementById("brandTagline").value.trim();
+
+        if (!tagline) {
+          document.getElementById("brandTagline").focus();
+          document.getElementById("brandTagline").style.borderColor = "#f43f5e";
+          return;
+        }
+
         document.getElementById("brandName").style.borderColor = "";
+        document.getElementById("brandTagline").style.borderColor = "";
 
         const rawColors = document.getElementById("brandColors").value;
         const colors = rawColors
@@ -434,12 +545,24 @@ import tagColors from "@/data/tagColors.json";
           tags: document
             .getElementById("brandTags")
             .value.split(",")
-            .map((t) => t.trim())
+            .map((t) => t.trim().toLowerCase())
             .filter(Boolean),
           emoji: document.getElementById("brandEmoji").value.trim() || "🏷️"
         };
 
         const idx = parseInt(document.getElementById("editIndex").value);
+
+        const duplicate = brands.some((b, i) => i !== idx && b.name.trim().toLowerCase() === name.toLowerCase());
+
+        if (duplicate) {
+          showErrorModal("Brand name already exists");
+
+          document.getElementById("brandName").focus();
+          document.getElementById("brandName").style.borderColor = "#f43f5e";
+
+          return;
+        }
+
         if (idx === -1) {
           brands.unshift(brand);
         } else {
@@ -452,19 +575,26 @@ import tagColors from "@/data/tagColors.json";
       });
 
       // ===== DELETE =====
-      function deleteBrand(idx) {
-        if (confirm(`Delete "${brands[idx].name}"?`)) {
-          brands.splice(idx, 1);
-          save();
-          renderCards();
-        }
-      }
+      //function deleteBrand(idx) {
+      //  if (confirm(`Delete "${brands[idx].name}"?`)) {
+      //    brands.splice(idx, 1);
+      //    save();
+      //    renderCards();
+      //  }
+      //}
 
       // ===== SEARCH =====
       const searchInput = document.getElementById("searchInput");
+
+      let searchTimeout;
+
       searchInput.addEventListener("input", () => {
-        currentSearch = searchInput.value;
-        renderCards();
+        clearTimeout(searchTimeout);
+
+        searchTimeout = setTimeout(() => {
+          currentSearch = searchInput.value;
+          renderCards();
+        }, 200);
       });
       document.getElementById("clearSearch").addEventListener("click", () => {
         searchInput.value = "";

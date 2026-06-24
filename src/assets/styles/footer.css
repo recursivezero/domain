@@ -8,5 +8,5 @@
 }
 
 .footer__nav--item {
-  @apply underline underline-offset-2 hover:text-blue-600 dark:hover:text-blue-600;
+  @apply underline underline-offset-2 hover:text-blue-600 dark:text-sky-500 dark:hover:text-blue-600;
 }

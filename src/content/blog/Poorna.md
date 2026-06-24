@@ -10,6 +10,7 @@ tags:
   - machine-learning
   - python
 ---
+
 # My Journey Python and AI Intern at Recursive Zero
 
 From January 2025 to February 2026, I had the opportunity to work as a Software Development Engineer (SDE) Intern at Recursive Zero, an early-stage startup focused on applying AI to fabric analysis and transformation.
