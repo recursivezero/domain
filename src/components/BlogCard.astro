@@ -1,5 +1,5 @@
 ---
-const { url, title, description, image, author, date, tags = [], priority = false } = Astro.props;
+const { url, title, description, image, author, date, tags = [], priority = false, displayUrl } = Astro.props;
 
 // Safe Date Formatter
 const formatDate = (dateString: string) => {
@@ -86,19 +86,21 @@ const formattedDate = formatDate(date);
         <div
           class="border-foreground/10 text-foreground/70 mt-6 flex items-center justify-between border-t pt-4 text-sm"
         >
-          <span>
-            {
-              url.startsWith("http") ? (
-                <span class="truncate text-blue-900 underline underline-offset-4 transition hover:text-blue-700 dark:text-white dark:hover:text-gray-300">
-                  {new URL(url).origin}
-                </span>
-              ) : (
-                <span class="text-foreground/80">
-                  By <span class="font-bold text-slate-900 dark:text-white">{author || "Recursive Zero"}</span>
-                </span>
-              )
-            }
-          </span>
+         {
+  displayUrl ? (
+    <span class="truncate text-blue-900 underline underline-offset-4 transition hover:text-blue-700 dark:text-white dark:hover:text-gray-300">
+      {displayUrl}
+    </span>
+  ) : url.startsWith("http") ? (
+    <span class="truncate text-blue-900 underline underline-offset-4 transition hover:text-blue-700 dark:text-white dark:hover:text-gray-300">
+      {new URL(url).origin}
+    </span>
+  ) : (
+    <span class="text-foreground/80">
+      By <span class="font-bold text-slate-900 dark:text-white">{author || "Recursive Zero"}</span>
+    </span>
+  )
+}
 
           {
             formattedDate && (
