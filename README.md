@@ -51,11 +51,10 @@ npm run build
 npm run preview
 ```
 
-
-
 ## Screenshots
 
 ## Dark Mode
+
 ![Home Page](./public/screenshots/darkmode/home.png)
 
 ![About Page](./public/screenshots/darkmode/about.png)
@@ -77,7 +76,6 @@ npm run preview
 ![Career Page](./public/screenshots/lightmode/Career.png)
 
 ![Work Page](./public/screenshots/lightmode/Work.png)
-
 
 ## Contact
 

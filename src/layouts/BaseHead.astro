@@ -12,15 +12,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const socialImageURL = new URL(ogImage ? ogImage : "/assets/images/RecursiveZero-White.jpg", Astro.url).href;
 ---
+
 <script is:inline>
   (() => {
     const theme = localStorage.getItem("theme");
 
-    if (
-      theme === "dark" ||
-      (!theme &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
+    if (theme === "dark" || (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
       document.documentElement.classList.add("dark");
     }
   })();

@@ -12,7 +12,9 @@ interface Props {
 const { job } = Astro.props;
 ---
 
-<div class="dark:border-foreground/10 bg-background/60 rounded-3xl border-2 border-gray-300 p-8 shadow-sm backdrop-blur-md">
+<div
+  class="dark:border-foreground/10 bg-background/60 rounded-3xl border-2 border-gray-300 p-8 shadow-sm backdrop-blur-md"
+>
   <h3 class="text-foreground text-2xl font-bold">
     {job.title}
   </h3>

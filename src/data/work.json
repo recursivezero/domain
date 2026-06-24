@@ -48,20 +48,20 @@
     "image": "techTaboo",
     "isActive": true
   },
- {
-  "url": "/numpad",
-  "displayUrl": "https://recursivezero.numpad",
-  "title": "NumPad",
-  "description": "Timeline based number tracking application.",
-  "image": "numpad",
-  "isActive": true
-},
-{
-  "url": "/brand",
-  "displayUrl": "https://recursivezero.brand",
-  "title": "BrandVault",
-  "description": "Brand management and information portal.",
-  "image": "brand",
-  "isActive": true
-}
+  {
+    "url": "/numpad",
+    "displayUrl": "https://recursivezero/numpad",
+    "title": "NumPad",
+    "description": "Timeline based number tracking application.",
+    "image": "numpad",
+    "isActive": true
+  },
+  {
+    "url": "/brand",
+    "displayUrl": "https://recursivezero/brand",
+    "title": "BrandVault",
+    "description": "Brand management and information portal.",
+    "image": "brand",
+    "isActive": true
+  }
 ]

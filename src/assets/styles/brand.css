@@ -801,11 +801,7 @@ body {
 
   border-radius: 14px;
 
-  background: linear-gradient(
-    135deg,
-    rgba(34, 211, 238, 0.12),
-    rgba(59, 130, 246, 0.12)
-  );
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.12), rgba(59, 130, 246, 0.12));
 
   color: var(--text-primary);
 
@@ -827,8 +823,7 @@ body {
 
   transform: translateY(-2px);
 
-  box-shadow:
-    0 8px 24px rgba(34, 211, 238, 0.18);
+  box-shadow: 0 8px 24px rgba(34, 211, 238, 0.18);
 }
 
 #showLessBtn {

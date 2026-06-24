@@ -15,9 +15,7 @@ const { item, active, mobile = false } = Astro.props;
   <a
     href={item.href}
     class:list={[
-      mobile
-        ? "block text-4xl font-bold transition"
-        : "text-lg font-semibold transition hover:text-blue-600",
+      mobile ? "block text-4xl font-bold transition" : "text-lg font-semibold transition hover:text-blue-600",
       active ? "text-blue-600 underline underline-offset-8" : "text-foreground"
     ]}
   >
