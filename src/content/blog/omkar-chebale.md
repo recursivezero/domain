@@ -103,6 +103,6 @@ The experience taught me far more than technical skills. It taught me ownership,
 
 The foundation I built during my internship continues to influence the way I approach software engineering today.
 
-*Thank you, Keshav Sir. Thank you, Recursive Zero. The foundation you helped me build is what everything since has been built on.*
+_Thank you, Keshav Sir. Thank you, Recursive Zero. The foundation you helped me build is what everything since has been built on._
 
 — **Omkar Chebale**

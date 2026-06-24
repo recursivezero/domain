@@ -786,7 +786,50 @@ body {
   margin-bottom: 7px;
   font-weight: 500;
 }
+.required {
+  color: #ef4444;
+  font-weight: 700;
+}
+.show-more-btn {
+  width: 100%;
 
+  padding: 12px 16px;
+
+  margin-bottom: 18px;
+
+  border: 1px solid rgba(34, 211, 238, 0.2);
+
+  border-radius: 14px;
+
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.12), rgba(59, 130, 246, 0.12));
+
+  color: var(--text-primary);
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+
+  backdrop-filter: blur(12px);
+}
+
+.show-more-btn:hover {
+  border-color: var(--clr-cyan);
+
+  color: var(--clr-cyan-light);
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 24px rgba(34, 211, 238, 0.18);
+}
+
+#showLessBtn {
+  margin-top: 12px;
+  margin-bottom: 0;
+}
 .form-group input,
 .form-group textarea {
   width: 100%;

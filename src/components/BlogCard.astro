@@ -1,5 +1,5 @@
 ---
-const { url, title, description, image, author, date, tags = [], priority = false } = Astro.props;
+const { url, title, description, image, author, date, tags = [], priority = false, displayUrl } = Astro.props;
 
 // Safe Date Formatter
 const formatDate = (dateString: string) => {
@@ -34,12 +34,7 @@ const formattedDate = formatDate(date);
 ---
 
 <article class="group h-full">
-  <a
-    href={url}
-    target={url.startsWith("http") ? "_blank" : undefined}
-    rel={url.startsWith("http") ? "noopener noreferrer" : undefined}
-    class="block h-full"
-  >
+  <a href={url} target="_blank" rel="noopener noreferrer" class="block h-full">
     <div
       class="border-foreground/10 bg-background/80 flex h-full flex-col overflow-hidden rounded-3xl border shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-3 hover:border-cyan-400/30 hover:shadow-2xl"
     >
@@ -48,8 +43,8 @@ const formattedDate = formatDate(date);
         <img
           src={image}
           alt={title}
-          width="800"
-          height="450"
+          width="400"
+          height="225"
           loading={priority ? "eager" : "lazy"}
           fetchpriority={priority ? "high" : "auto"}
           decoding="async"
@@ -65,7 +60,7 @@ const formattedDate = formatDate(date);
             tags
               .slice(0, 2)
               .map((tag: string) => (
-                <span class="bg-brandBlue rounded-full border border-cyan-500/20 px-3 py-1 text-xs font-medium text-white">
+                <span class="rounded-full border border-cyan-500/20 bg-brandBlue px-3 py-1 text-xs font-medium text-white">
                   #{tag}
                 </span>
               ))
@@ -86,19 +81,21 @@ const formattedDate = formatDate(date);
         <div
           class="border-foreground/10 text-foreground/70 mt-6 flex items-center justify-between border-t pt-4 text-sm"
         >
-          <span>
-            {
-              url.startsWith("http") ? (
-                <span class="truncate text-blue-900 underline underline-offset-4 transition hover:text-blue-700 dark:text-white dark:hover:text-gray-300">
-                  {new URL(url).origin}
-                </span>
-              ) : (
-                <span class="text-foreground/80">
-                  By <span class="font-bold text-slate-900 dark:text-white">{author || "Recursive Zero"}</span>
-                </span>
-              )
-            }
-          </span>
+          {
+            displayUrl ? (
+              <span class="truncate text-blue-900 underline underline-offset-4 transition hover:text-blue-700 dark:text-white dark:hover:text-gray-300">
+                {displayUrl}
+              </span>
+            ) : url.startsWith("http") ? (
+              <span class="truncate text-blue-900 underline underline-offset-4 transition hover:text-blue-700 dark:text-white dark:hover:text-gray-300">
+                {new URL(url).origin}
+              </span>
+            ) : (
+              <span class="text-foreground/80">
+                By <span class="font-bold text-slate-900 dark:text-white">{author || "Recursive Zero"}</span>
+              </span>
+            )
+          }
 
           {
             formattedDate && (

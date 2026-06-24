@@ -38,7 +38,7 @@ const showError = Astro.url.searchParams.get("error") === "notfound";
           tags.map((tag) => (
             <a
               href={`/blogs/tag/${tag}`}
-              class="bg-brandBlue/10 hover:bg-brandBlue rounded-2xl border border-cyan-500/20 px-6 py-4 text-lg font-semibold text-blue-600 transition duration-300 hover:text-white"
+              class="rounded-2xl border border-cyan-500/20 bg-brandBlue/10 px-6 py-4 text-lg font-semibold text-blue-600 transition duration-300 hover:bg-brandBlue hover:text-white"
             >
               #{tag}
             </a>

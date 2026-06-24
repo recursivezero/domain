@@ -1,14 +1,16 @@
 ---
 import externalProjects from "@/data/work.json";
-import abcd from "@/assets/images/abcd.png";
-import fabricAI from "@/assets/images/fabric-ai.png";
-import rzro from "@/assets/images/rzro.jpg";
-import techTaboo from "@/assets/images/TechTaboo.png";
-import threadzip from "@/assets/images/threadZip.svg";
-import threadzipApp from "@/assets/images/ThreadzipApp.png";
-import threadzipLab from "@/assets/images/threadzipLab.jpg";
+import abcd from "@/assets/images/abcd.webp";
+import fabricAI from "@/assets/images/fabric-ai.webp";
+import rzro from "@/assets/images/rzro.webp";
+import techTaboo from "@/assets/images/TechTaboo.webp";
+import threadzip from "@/assets/images/threadZip.webp";
+import threadzipApp from "@/assets/images/ThreadzipApp.webp";
+import threadzipLab from "@/assets/images/threadzipLab.webp";
 import BlogCard from "@/components/BlogCard.astro";
 import BaseLayout from "@/layouts/BaseLayout";
+import brand from "@/assets/images/brand.webp";
+import numpad from "@/assets/images/numpad.webp";
 
 const imageMap: Record<string, string> = {
   abcd: abcd.src,
@@ -17,9 +19,10 @@ const imageMap: Record<string, string> = {
   threadzipLab: threadzipLab.src,
   fabricAI: fabricAI.src,
   threadzipApp: threadzipApp.src,
-  techTaboo: techTaboo.src
+  techTaboo: techTaboo.src,
+  brand: brand.src,
+  numpad: numpad.src
 };
-
 const pages = import.meta.glob("./work/*.astro", {
   eager: true
 });
@@ -79,12 +82,13 @@ const pageList = Object.entries(pages)
         {
           externalProjects
             .filter(({ isActive }) => isActive)
-            .map(({ url, title, description, image }, index) => (
+            .map(({ url, title, description, image, displayUrl }, index) => (
               <BlogCard
                 url={url}
                 title={title}
                 description={description}
                 image={imageMap[image] || ""}
+                displayUrl={displayUrl}
                 priority={index === 0}
               />
             ))

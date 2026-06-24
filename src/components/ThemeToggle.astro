@@ -21,89 +21,47 @@ import MoonIcon from "@/assets/icons/moon.svg";
 
 <script is:inline>
   function updateThemeIcons() {
-    const isDark =
-      document.documentElement.classList.contains(
-        "dark"
-      );
+    const isDark = document.documentElement.classList.contains("dark");
 
-    const toggles =
-      document.querySelectorAll(
-        ".themeToggle"
-      );
+    const toggles = document.querySelectorAll(".themeToggle");
 
-    toggles.forEach(
-      (toggle) => {
-        const sunIcon =
-          toggle.querySelector(
-            ".sunIcon"
-          );
+    toggles.forEach((toggle) => {
+      const sunIcon = toggle.querySelector(".sunIcon");
 
-        const moonIcon =
-          toggle.querySelector(
-            ".moonIcon"
-          );
+      const moonIcon = toggle.querySelector(".moonIcon");
 
-        if (
-          !sunIcon ||
-          !moonIcon
-        )
-          return;
+      if (!sunIcon || !moonIcon) return;
 
-        if (isDark) {
-          sunIcon.classList.add(
-            "hidden"
-          );
+      if (isDark) {
+        sunIcon.classList.add("hidden");
 
-          moonIcon.classList.remove(
-            "hidden"
-          );
-        } else {
-          moonIcon.classList.add(
-            "hidden"
-          );
+        moonIcon.classList.remove("hidden");
+      } else {
+        moonIcon.classList.add("hidden");
 
-          sunIcon.classList.remove(
-            "hidden"
-          );
-        }
+        sunIcon.classList.remove("hidden");
       }
-    );
+    });
   }
 
   function initThemeToggle() {
-    const buttons =
-      document.querySelectorAll(
-        ".themeToggle"
-      );
+    const buttons = document.querySelectorAll(".themeToggle");
 
-    buttons.forEach(
-      (button) => {
-        button.onclick = () => {
-          const isDark =
-            document.documentElement.classList.contains(
-              "dark"
-            );
+    buttons.forEach((button) => {
+      button.onclick = () => {
+        const isDark = document.documentElement.classList.contains("dark");
 
-          document.dispatchEvent(
-            new CustomEvent(
-              "theme-change",
-              {
-                detail: {
-                  theme: isDark
-                    ? "light"
-                    : "dark"
-                }
-              }
-            )
-          );
+        document.dispatchEvent(
+          new CustomEvent("theme-change", {
+            detail: {
+              theme: isDark ? "light" : "dark"
+            }
+          })
+        );
 
-          setTimeout(
-            updateThemeIcons,
-            10
-          );
-        };
-      }
-    );
+        setTimeout(updateThemeIcons, 10);
+      };
+    });
 
     updateThemeIcons();
   }
@@ -112,22 +70,13 @@ import MoonIcon from "@/assets/icons/moon.svg";
   initThemeToggle();
 
   // Astro page navigation
-  document.addEventListener(
-    "astro:page-load",
-    () => {
-      initThemeToggle();
-      updateThemeIcons();
-    }
-  );
+  document.addEventListener("astro:page-load", () => {
+    initThemeToggle();
+    updateThemeIcons();
+  });
 
   // Theme update
-  document.addEventListener(
-    "theme-change",
-    () => {
-      setTimeout(
-        updateThemeIcons,
-        10
-      );
-    }
-  );
+  document.addEventListener("theme-change", () => {
+    setTimeout(updateThemeIcons, 10);
+  });
 </script>
