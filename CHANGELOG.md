@@ -65,6 +65,12 @@ astro boilerplate
 
 - Added Numpad and brand address pages
 
+## [1.4.0] - 2026-06-25
+
+- Removed Numpad and brand address pages
+- Removed unnecessary classes
+- improve page performance in light and dark mode
+
 ### [Unreleased]
 
 Here we write upgrading notes for brands. It's a team effort to make them as straightforward as possible.
