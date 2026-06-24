@@ -1,64 +1,58 @@
 ---
 import aboutImage from "@/assets/images/about.webp";
-import BaseLayout from "@/layouts/BaseLayout";
-import founders from "@/data/about.json";
 import FounderCard from "@/components/FounderCard.astro";
+import founders from "@/data/about.json";
+import BaseLayout from "@/layouts/BaseLayout";
 ---
 
 <BaseLayout meta={{ title: "About Us" }}>
-  <main class="bg-background text-foreground">
+  <main class="">
     <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
       <div class="grid items-center gap-16 lg:grid-cols-2">
         <div>
-          <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">About Recursive Zero</p>
+          <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600 dark:text-sky-500">
+            About Recursive Zero
+          </p>
 
           <h1 class="text-5xl font-bold leading-tight tracking-tight md:text-7xl">
             Building Technology <br />
             That Creates <br />
-            <span class="text-blue-600"> Real Impact. </span>
+            <span class="text-blue-600 dark:text-sky-500"> Real Impact. </span>
           </h1>
 
-          <p class="text-foreground/75 mt-8 max-w-2xl text-lg leading-9">
+          <p class="mt-8 max-w-2xl text-lg leading-9">
             Recursive Zero is a product engineering company focused on crafting scalable web applications, internal
             tools and digital systems that help startups and businesses move faster.
           </p>
 
-          <p class="text-foreground/75 mt-5 max-w-2xl text-lg leading-9">
+          <p class="mt-5 max-w-2xl text-lg leading-9">
             Since 2024, we’ve been helping teams simplify workflows, automate operations and transform ideas into
             meaningful digital products.
           </p>
 
           <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
-            <div
-              class="border-foreground/10 bg-background dark:bg-foreground/[0.04] rounded-3xl border p-6 text-center shadow-sm backdrop-blur-sm"
-            >
-              <h2 class="text-5xl font-bold text-blue-600">10+</h2>
+            <div class="rounded-3xl border p-6 text-center shadow-sm backdrop-blur-sm">
+              <h2 class="text-5xl font-bold text-blue-600 dark:text-sky-500">10+</h2>
 
-              <p class="text-foreground/70 mt-2 text-sm">Projects</p>
+              <p class="mt-2 text-sm">Projects</p>
             </div>
 
-            <div
-              class="border-foreground/10 bg-background dark:bg-foreground/[0.04] rounded-3xl border p-6 text-center shadow-sm backdrop-blur-sm"
-            >
-              <h2 class="text-5xl font-bold text-blue-600">2024</h2>
+            <div class="rounded-3xl border p-6 text-center shadow-sm backdrop-blur-sm">
+              <h2 class="text-5xl font-bold text-blue-600 dark:text-sky-500">2024</h2>
 
-              <p class="text-foreground/70 mt-2 text-sm">Founded</p>
+              <p class="mt-2 text-sm">Founded</p>
             </div>
 
-            <div
-              class="border-foreground/10 bg-background dark:bg-foreground/[0.04] rounded-3xl border p-6 text-center shadow-sm backdrop-blur-sm"
-            >
-              <h2 class="text-5xl font-bold text-blue-600">24/7</h2>
+            <div class="rounded-3xl border p-6 text-center shadow-sm backdrop-blur-sm">
+              <h2 class="text-5xl font-bold text-blue-600 dark:text-sky-500">24/7</h2>
 
-              <p class="text-foreground/70 mt-2 text-sm">Support</p>
+              <p class="mt-2 text-sm">Support</p>
             </div>
           </div>
         </div>
 
         <div class="space-y-6">
-          <div
-            class="border-foreground/10 bg-background/80 dark:bg-foreground/[0.03] overflow-hidden rounded-[3rem] border shadow-xl backdrop-blur-sm"
-          >
+          <div class="overflow-hidden rounded-[3rem] border shadow-xl backdrop-blur-sm">
             <img
               src={aboutImage.src}
               alt="About Recursive Zero"
@@ -72,19 +66,15 @@ import FounderCard from "@/components/FounderCard.astro";
           </div>
 
           <div class="grid gap-4 md:grid-cols-2">
-            <div
-              class="border-foreground/10 rounded-[2rem] border bg-brandBlue p-6 text-white transition-colors dark:bg-brandBlue/10"
-            >
-              <h2 class="text-foreground text-xl font-bold">Product Engineering</h2>
+            <div class="rounded-[2rem] border bg-brandBlue p-6 text-white transition-colors dark:bg-brandBlue/10">
+              <h2 class="text-xl font-bold">Product Engineering</h2>
 
-              <p class="text-foreground/70 mt-3">Building scalable digital products.</p>
+              <p class="mt-3">Building scalable digital products.</p>
             </div>
-            <div
-              class="border-foreground/10 rounded-[2rem] border bg-brandBlue p-6 text-white transition-colors dark:bg-brandBlue/10"
-            >
-              <h2 class="text-foreground text-xl font-bold">Modern Tech</h2>
+            <div class="rounded-[2rem] border bg-brandBlue p-6 text-white transition-colors dark:bg-brandBlue/10">
+              <h2 class="text-xl font-bold">Modern Tech</h2>
 
-              <p class="text-foreground/70 mt-3">Fast, secure and future-ready systems.</p>
+              <p class="mt-3">Fast, secure and future-ready systems.</p>
             </div>
           </div>
         </div>
@@ -92,33 +82,33 @@ import FounderCard from "@/components/FounderCard.astro";
     </section>
 
     <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-      <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">What We Do</p>
+      <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600 dark:text-sky-500">What We Do</p>
 
       <h2 class="max-w-4xl text-4xl font-bold tracking-tight md:text-6xl">
         Digital Solutions Built For Modern Businesses
       </h2>
 
       <div class="mt-16 grid gap-8 md:grid-cols-3">
-        <div class="border-foreground/10 rounded-[2.5rem] border p-10 shadow-sm transition hover:-translate-y-1">
+        <div class="rounded-[2.5rem] border p-10 shadow-sm transition hover:-translate-y-1">
           <h2 class="text-2xl font-bold">Web Applications</h2>
 
-          <p class="text-foreground/70 mt-5 text-lg leading-8">
+          <p class="mt-5 text-lg leading-8">
             High-performance, scalable web apps designed with modern technologies and premium user experiences.
           </p>
         </div>
 
-        <div class="border-foreground/10 rounded-[2.5rem] border p-10 shadow-sm transition hover:-translate-y-1">
+        <div class="rounded-[2.5rem] border p-10 shadow-sm transition hover:-translate-y-1">
           <h2 class="text-2xl font-bold">Internal Tools</h2>
 
-          <p class="text-foreground/70 mt-5 text-lg leading-8">
+          <p class="mt-5 text-lg leading-8">
             We simplify operations by building internal tools that improve productivity and automate repetitive work.
           </p>
         </div>
 
-        <div class="border-foreground/10 rounded-[2.5rem] border p-10 shadow-sm transition hover:-translate-y-1">
+        <div class="rounded-[2.5rem] border p-10 shadow-sm transition hover:-translate-y-1">
           <h2 class="text-2xl font-bold">Scalable Systems</h2>
 
-          <p class="text-foreground/70 mt-5 text-lg leading-8">
+          <p class="mt-5 text-lg leading-8">
             From startups to enterprises, we engineer systems built for long-term growth and performance.
           </p>
         </div>
@@ -127,11 +117,13 @@ import FounderCard from "@/components/FounderCard.astro";
 
     <section class="mx-auto max-w-7xl px-6 py-24 lg:px-10">
       <div class="mb-12">
-        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">Meet The Team</p>
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600 dark:text-sky-500">
+          Meet The Team
+        </p>
 
         <h2 class="text-4xl font-bold tracking-tight md:text-6xl">People Behind Recursive Zero</h2>
 
-        <p class="text-foreground/70 mt-5 max-w-3xl text-lg leading-8">
+        <p class="mt-5 max-w-3xl text-lg leading-8">
           Passionate builders focused on crafting scalable products, solving real business problems and shipping
           impactful solutions.
         </p>
@@ -143,69 +135,65 @@ import FounderCard from "@/components/FounderCard.astro";
     </section>
 
     <section class="mx-auto max-w-7xl px-6 py-24 lg:px-10">
-      <div
-        class="border-foreground/10 bg-background relative overflow-hidden rounded-[4rem] border p-10 shadow-sm lg:p-16"
-      >
+      <div class="relative overflow-hidden rounded-[4rem] border p-10 shadow-sm lg:p-16">
         <div class="absolute -left-20 top-0 h-72 w-72 rounded-full blur-[120px]"></div>
 
         <div class="relative z-10 grid items-center gap-14 lg:grid-cols-2">
           <div>
-            <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">Our Mission</p>
+            <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600 dark:text-sky-500">
+              Our Mission
+            </p>
 
             <h2 class="text-4xl font-bold tracking-tight md:text-6xl">
               Innovation With <br />
               Purpose.
             </h2>
 
-            <p class="text-foreground/75 mt-8 text-lg leading-9">
+            <p class="mt-8 text-lg leading-9">
               Our mission is to build practical technology that solves real business problems, simplifies operations and
               creates meaningful digital experiences.
             </p>
 
-            <p class="text-foreground/75 mt-5 text-lg leading-9">
+            <p class="mt-5 text-lg leading-9">
               We focus on long-term partnerships, scalable engineering and thoughtful product development that helps
               companies grow faster with confidence.
             </p>
           </div>
 
           <div class="grid gap-5">
-            <div
-              class="border-foreground/10 bg-foreground/[0.03] rounded-[2rem] border p-6 transition hover:-translate-y-1"
-            >
+            <div class="rounded-[2rem] border p-6 transition hover:-translate-y-1">
               <h2 class="text-xl font-semibold">Product Innovation</h2>
 
-              <p class="text-foreground/70 mt-2">Building meaningful digital products with modern engineering.</p>
+              <p class="mt-2">Building meaningful digital products with modern engineering.</p>
             </div>
 
-            <div
-              class="border-foreground/10 bg-foreground/[0.03] rounded-[2rem] border p-6 transition hover:-translate-y-1"
-            >
+            <div class="rounded-[2rem] border p-6 transition hover:-translate-y-1">
               <h2 class="text-xl font-semibold">Faster Execution</h2>
 
-              <p class="text-foreground/70 mt-2">Delivering scalable systems with speed and reliability.</p>
+              <p class="mt-2">Delivering scalable systems with speed and reliability.</p>
             </div>
 
-            <div
-              class="border-foreground/10 bg-foreground/[0.03] rounded-[2rem] border p-6 transition hover:-translate-y-1"
-            >
+            <div class="rounded-[2rem] border p-6 transition hover:-translate-y-1">
               <h2 class="text-xl font-semibold">Long-Term Partnerships</h2>
 
-              <p class="text-foreground/70 mt-2">Helping startups and businesses grow through technology.</p>
+              <p class="mt-2">Helping startups and businesses grow through technology.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
     <section class="mx-auto max-w-7xl px-6 pb-24 lg:px-10">
-      <div class="border-foreground/10 rounded-[4rem] border p-16 text-center shadow-sm">
-        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">Let’s Work Together</p>
+      <div class="rounded-[4rem] border p-16 text-center shadow-sm">
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600 dark:text-sky-500">
+          Let’s Work Together
+        </p>
 
         <h2 class="text-5xl font-bold md:text-7xl">
           Have an Idea? <br />
           Let’s Build It.
         </h2>
 
-        <p class="text-foreground/70 mx-auto mt-8 max-w-3xl text-xl leading-9">
+        <p class="mx-auto mt-8 max-w-3xl text-xl leading-9">
           We’d love to hear about your next project. Reach out and let’s create something impactful.
         </p>
 

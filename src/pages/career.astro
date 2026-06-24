@@ -7,15 +7,15 @@ import "../assets/styles/career.css";
 ---
 
 <BaseLayout meta={{ title: "Careers at RecursiveZero" }}>
-  <main class="bg-background text-foreground">
+  <main class="">
     <!-- HERO -->
     <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
       <div class="text-center">
-        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">Careers</p>
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600 dark:text-sky-500">Careers</p>
 
         <h1 class="text-5xl font-bold tracking-tight md:text-6xl">Join Our Team</h1>
 
-        <p class="text-foreground/70 mx-auto mt-6 max-w-2xl text-lg leading-8">
+        <p class="mx-auto mt-6 max-w-2xl text-lg leading-8">
           Build the future with us and work on modern digital products with a talented remote-first team.
         </p>
       </div>
@@ -24,7 +24,7 @@ import "../assets/styles/career.css";
       <div class="mt-20 grid gap-12">
         <!-- OPENINGS -->
         <section>
-          <h2 class="text-foreground mb-8 text-3xl font-bold">Current Openings</h2>
+          <h2 class="mb-8 text-3xl font-bold">Current Openings</h2>
 
           <div class="grid gap-6">
             {openings.filter((job) => job.isActive).map((job) => <JobTile job={job} />)}
@@ -33,45 +33,40 @@ import "../assets/styles/career.css";
 
         <!-- WHY JOIN -->
         <section>
-          <h2 class="text-foreground mb-8 text-3xl font-bold">Why Join RecursiveZero?</h2>
+          <h2 class="mb-8 text-3xl font-bold">Why Join RecursiveZero?</h2>
 
           <div class="grid gap-6 md:grid-cols-3">
-            <div
-              class="dark:border-foreground/10 bg-background/60 rounded-3xl border-2 border-gray-300 p-8 shadow-sm backdrop-blur-md"
-            >
-              <h3 class="text-foreground text-xl font-bold">Remote First</h3>
+            <div class="dark: rounded-3xl border-2 border-gray-300 p-8 shadow-sm backdrop-blur-md">
+              <h3 class="text-xl font-bold">Remote First</h3>
 
-              <p class="text-foreground/70 mt-4">Work from anywhere in the world.</p>
+              <p class="mt-4">Work from anywhere in the world.</p>
             </div>
 
-            <div
-              class="dark:border-foreground/10 bg-background/60 rounded-3xl border-2 border-gray-300 p-8 shadow-sm backdrop-blur-md"
-            >
-              <h3 class="text-foreground text-xl font-bold">Learning & Growth</h3>
+            <div class="dark: rounded-3xl border-2 border-gray-300 p-8 shadow-sm backdrop-blur-md">
+              <h3 class="text-xl font-bold">Learning & Growth</h3>
 
-              <p class="text-foreground/70 mt-4">Continuous learning opportunities and mentorship.</p>
+              <p class="mt-4">Continuous learning opportunities and mentorship.</p>
             </div>
 
-            <div
-              class="dark:border-foreground/10 bg-background/60 rounded-3xl border-2 border-gray-300 p-8 shadow-sm backdrop-blur-md"
-            >
-              <h3 class="text-foreground text-xl font-bold">Great Benefits</h3>
+            <div class="dark: rounded-3xl border-2 border-gray-300 p-8 shadow-sm backdrop-blur-md">
+              <h3 class="text-xl font-bold">Great Benefits</h3>
 
-              <p class="text-foreground/70 mt-4">Competitive salary and exciting benefits package.</p>
+              <p class="mt-4">Competitive salary and exciting benefits package.</p>
             </div>
           </div>
         </section>
 
         <!-- APPLY -->
-        <section
-          class="dark:border-foreground/10 bg-background/60 rounded-3xl border-2 border-gray-300 p-10 text-center shadow-sm backdrop-blur-md"
-        >
-          <h2 class="text-foreground text-3xl font-bold">How to Apply</h2>
+        <section class="dark: rounded-3xl border-2 border-gray-300 p-10 text-center shadow-sm backdrop-blur-md">
+          <h2 class="text-3xl font-bold">How to Apply</h2>
 
-          <p class="text-foreground/70 mx-auto mt-6 max-w-2xl text-lg leading-8">
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8">
             Send your resume and a brief cover letter to
 
-            <a href=`mailto:${HR_EMAIL}` class="font-semibold text-blue-600 underline underline-offset-4">
+            <a
+              href=`mailto:${HR_EMAIL}`
+              class="font-semibold text-blue-600 underline underline-offset-4 dark:text-sky-500"
+            >
               {HR_EMAIL}
             </a>
           </p>

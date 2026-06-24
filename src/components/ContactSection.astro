@@ -4,7 +4,7 @@ import { CONTACT_EMAIL } from "@/utils/constants";
 import { Image } from "astro:assets";
 ---
 
-<section id="contactForm" class="bg-background text-foreground">
+<section id="contactForm" class="">
   <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
     <div class="grid items-center gap-14 lg:grid-cols-2">
       <!-- Left Content -->
@@ -13,18 +13,21 @@ import { Image } from "astro:assets";
 
         <h2 class="text-4xl font-bold leading-tight tracking-tight md:text-5xl">Reach Recursive Zero</h2>
 
-        <p class="text-foreground/70 mt-6 max-w-xl text-lg leading-8">
+        <p class="mt-6 max-w-xl text-lg leading-8">
           Tech simplified — Harness the power of modern technology with Recursive Zero. Send us a message and let’s
           build something impactful together.
         </p>
 
         <!-- Contact Info -->
-        <div class="text-foreground/70 mt-8 space-y-4">
+        <div class="mt-8 space-y-4">
           <!-- Email -->
           <div class="text-lg">
-            <span class="text-foreground font-semibold"> Email: </span>
+            <span class="font-semibold"> Email: </span>
 
-            <a href=`mailto:${CONTACT_EMAIL}` class="ml-1 break-all text-blue-600 transition hover:underline">
+            <a
+              href=`mailto:${CONTACT_EMAIL}`
+              class="ml-1 break-all italic text-blue-600 transition hover:underline dark:text-sky-500"
+            >
               {CONTACT_EMAIL}
             </a>
           </div>
@@ -32,13 +35,12 @@ import { Image } from "astro:assets";
           <!-- Phone (Not Clickable) -->
           <!-- Phone -->
           <!--<div class="text-lg">
-            <span class="text-foreground font-semibold"> Phone: </span>
+            <span class=" font-semibold"> Phone: </span>
           </div>-->
           <!-- Location -->
           <div class="text-lg">
-            <span class="text-foreground font-semibold"> Location: </span>
-
-            <span class="text-foreground/70 ml-1"> Bengaluru, India </span>
+            <span class="font-semibold"> Location: </span>
+            <span class="ml-1"> Bengaluru, India </span>
           </div>
         </div>
 
@@ -58,31 +60,31 @@ import { Image } from "astro:assets";
       </div>
 
       <!-- Right Form -->
-      <div class="border-foreground/10 bg-background/60 rounded-3xl border p-8 backdrop-blur-xl lg:p-10">
-        <h3 class="text-foreground text-2xl font-bold">Let's Talk</h3>
+      <div class="rounded-3xl border p-8 backdrop-blur-xl lg:p-10">
+        <h3 class="text-2xl font-bold">Let's Talk</h3>
 
-        <p class="text-foreground/60 mt-2">Fill the form and we’ll get back to you shortly.</p>
+        <p class="mt-2">Fill the form and we’ll get back to you shortly.</p>
 
         <form class="mt-8 space-y-5">
           <!-- NAME -->
           <input
             type="text"
             placeholder="Full Name"
-            class="border-foreground/10 dark:bg-background text-foreground placeholder:text-foreground/40 h-14 w-full rounded-xl border bg-white px-5 outline-none focus:border-cyan-500"
+            class="dark: placeholder: h-14 w-full rounded-xl border bg-white px-5 outline-none focus:border-cyan-500"
           />
 
           <!-- EMAIL -->
           <input
             type="email"
             placeholder="Email Address"
-            class="border-foreground/10 dark:bg-background text-foreground placeholder:text-foreground/40 h-14 w-full rounded-xl border bg-white px-5 outline-none focus:border-cyan-500"
+            class="dark: placeholder: h-14 w-full rounded-xl border bg-white px-5 outline-none focus:border-cyan-500"
           />
 
           <!-- MESSAGE -->
           <textarea
             rows="5"
             placeholder="Your Message"
-            class="border-foreground/10 dark:bg-background text-foreground placeholder:text-foreground/40 w-full rounded-xl border bg-white px-5 py-4 outline-none focus:border-cyan-500"
+            class="dark: placeholder: w-full rounded-xl border bg-white px-5 py-4 outline-none focus:border-cyan-500"
           ></textarea>
 
           <!-- BUTTON -->

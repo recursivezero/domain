@@ -1,16 +1,16 @@
 ---
-import externalProjects from "@/data/work.json";
 import abcd from "@/assets/images/abcd.webp";
+import brand from "@/assets/images/brand.webp";
 import fabricAI from "@/assets/images/fabric-ai.webp";
+import numpad from "@/assets/images/numpad.webp";
 import rzro from "@/assets/images/rzro.webp";
 import techTaboo from "@/assets/images/TechTaboo.webp";
 import threadzip from "@/assets/images/threadZip.webp";
 import threadzipApp from "@/assets/images/ThreadzipApp.webp";
 import threadzipLab from "@/assets/images/threadzipLab.webp";
 import BlogCard from "@/components/BlogCard.astro";
+import externalProjects from "@/data/work.json";
 import BaseLayout from "@/layouts/BaseLayout";
-import brand from "@/assets/images/brand.webp";
-import numpad from "@/assets/images/numpad.webp";
 
 const imageMap: Record<string, string> = {
   abcd: abcd.src,
@@ -52,15 +52,15 @@ const pageList = Object.entries(pages)
     title: "Our Work"
   }}
 >
-  <main class="bg-background text-foreground">
+  <main class="">
     <!-- HERO -->
     <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
       <div class="text-center">
-        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">Portfolio</p>
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600 dark:text-sky-500">Portfolio</p>
 
-        <h1 class="text-foreground text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">Our Work</h1>
+        <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">Our Work</h1>
 
-        <p class="text-foreground/70 mx-auto mt-6 max-w-2xl text-lg leading-8">
+        <p class="mx-auto mt-6 max-w-2xl text-lg leading-8">
           Explore our latest projects, products, platforms and engineering solutions crafted by Recursive Zero.
         </p>
       </div>

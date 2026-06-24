@@ -17,7 +17,7 @@ const { founder } = Astro.props;
 ---
 
 <div
-  class="border-foreground/10 bg-background dark:bg-foreground/[0.03] group relative overflow-hidden rounded-[2rem] border p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+  class="group relative overflow-hidden rounded-[2rem] border p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
 >
   <!-- Glow -->
   <div class="absolute -right-10 -top-10 h-64 w-64 rounded-full bg-brandBlue/10 blur-[100px]"></div>
@@ -25,7 +25,7 @@ const { founder } = Astro.props;
   <div class="relative z-10">
     <div class="flex items-center gap-5">
       <div
-        class="flex h-16 w-16 items-center justify-center rounded-[2rem] bg-brandBlue/10 text-4xl font-bold text-brandBlue"
+        class="flex h-16 w-16 items-center justify-center rounded-[2rem] bg-brandBlue/10 text-4xl font-bold text-brandBlue dark:text-sky-500"
       >
         {
           founder.name
@@ -37,17 +37,17 @@ const { founder } = Astro.props;
       </div>
 
       <div>
-        <h2 class="text-foreground text-3xl font-bold">
+        <h2 class="text-3xl font-bold">
           {founder.name}
         </h2>
 
-        <p class="mt-1 font-medium text-brandBlue">
+        <p class="mt-1 font-medium text-brandBlue dark:text-sky-500">
           {founder.designation}
         </p>
       </div>
     </div>
 
-    <p class="text-foreground/70 mt-6 leading-8">
+    <p class="mt-6 leading-8">
       {founder.description}
     </p>
   </div>

@@ -27,19 +27,21 @@ const filteredBlogs = blogs.filter((blog) => blog.data.tags?.includes(tag!));
     title: `${tag} Blogs`
   }}
 >
-  <main class="bg-background text-foreground">
+  <main class="">
     <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
       <!-- TITLE -->
       <div class="mb-12 text-center">
-        <p class="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">Filtered Blogs</p>
+        <p class="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600 dark:text-sky-500">
+          Filtered Blogs
+        </p>
 
         <h1 class="text-4xl font-bold md:text-5xl">
           #{tag}
         </h1>
 
-        <p class="text-foreground/70 mt-4">
+        <p class="mt-4">
           Showing blogs related to
-          <span class="font-semibold text-blue-600">
+          <span class="font-semibold text-blue-600 dark:text-sky-500">
             #{tag}
           </span>
         </p>
@@ -61,7 +63,7 @@ const filteredBlogs = blogs.filter((blog) => blog.data.tags?.includes(tag!));
               />
             ))
           ) : (
-            <p class="text-foreground/60 text-center text-lg">No blogs found for this tag.</p>
+            <p class="text-center text-lg">No blogs found for this tag.</p>
           )
         }
       </div>
