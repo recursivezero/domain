@@ -59,7 +59,7 @@
     "editor.inlayHints.enabled": "offUnlessPressed",
     "editor.insertSpaces": true,
     "editor.linkedEditing": true,
-    "editor.minimap.enabled": false,
+    "editor.minimap.enabled": true,
     "editor.minimap.renderCharacters": false,
     "editor.minimap.size": "fill",
     "editor.multiCursorModifier": "alt",
@@ -72,9 +72,9 @@
       "javascript": "javascriptreact"
     },
     "eslint.options": {
-      "extensions": [".js", ".jsx", ".md", ".mdx", ".ts", ".tsx", ".astro"]
+      "extensions": [ ".js", ".jsx", ".md", ".mdx", ".ts", ".tsx", ".astro" ]
     },
-    "eslint.validate": ["mdx", "markdown", "javascript", "javascriptreact", "typescript", "typescriptreact", "astro"],
+    "eslint.validate": [ "mdx", "markdown", "javascript", "javascriptreact", "typescript", "typescriptreact", "astro" ],
     "explorer.compactFolders": false,
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
@@ -111,7 +111,7 @@
     },
     "git.autofetch": true,
     "git.branchPrefix": "feature/",
-    "git.branchProtection": ["develop", "main"],
+    "git.branchProtection": [ "develop", "main" ],
     "git.branchRandomName.enable": true,
     "git.confirmSync": false,
     "git.enableCommitSigning": false,
@@ -122,7 +122,7 @@
     "js/ts.implicitProjectConfig.checkJs": true,
     "peacock.affectSideBarBorder": true,
     "peacock.color": "#010010",
-    "prettier.documentSelectors": ["**/*.astro"],
+    "prettier.documentSelectors": [ "**/*.astro" ],
     "prettier.printWidth": 120,
     "prettier.quoteProps": "consistent",
     "prettier.singleQuote": false,
@@ -148,7 +148,13 @@
       "*.log": "default"
     },
     "zenMode.centerLayout": false,
-    "cSpell.words": ["Boisu", "Poorna", "Socie", "withastro"],
+    "cSpell.words": [
+      "Boisu",
+      "brandvault",
+      "Poorna",
+      "Socie",
+      "withastro"
+    ],
     "workbench.editor.limit.excludeDirty": true,
     "workbench.colorCustomizations": {
       "activityBar.activeBackground": "#040043",
@@ -171,6 +177,6 @@
       "titleBar.inactiveForeground": "#e7e7e799",
       "tab.activeBorder": "#040043"
     },
-    "folder-color.pathColors": []
+    "folder-color.pathColors": [ ]
   }
 }
