@@ -31,9 +31,7 @@ const { Content } = await render(blog);
 const { title, description, date, author, image, tags } = blog.data;
 const allResearch = await getCollection("research");
 
-const relatedPosts = allResearch
-  .filter((post) => post.id !== blog.id)
-  .slice(0, 3);
+const relatedPosts = allResearch.filter((post) => post.id !== blog.id).slice(0, 3);
 const readingTime = Math.ceil((blog.body?.split(/\s+/).length || 0) / 200);
 
 if (!Content) {
@@ -106,30 +104,25 @@ if (!Content) {
       </div>
     </section>
     {
-  relatedPosts.length > 0 && (
-    <section class="mx-auto mt-16 max-w-6xl px-5 pb-20">
-      <h2 class="mb-8 text-3xl font-bold">
-        Related Research Articles
-      </h2>
+      relatedPosts.length > 0 && (
+        <section class="mx-auto mt-16 max-w-6xl px-5 pb-20">
+          <h2 class="mb-8 text-3xl font-bold">Related Research Articles</h2>
 
-      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {
-          relatedPosts.map((post) => (
-            <BlogCard
-              url={`/research/${post.id}`}
-              title={post.data.title}
-              description={post.data.description}
-              image={post.data.image}
-              author={post.data.author}
-              date={post.data.date.toLocaleDateString()}
-              tags={post.data.tags}
-            />
-          ))
-        }
-      </div>
-    </section>
-  )
-}
-
+          <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {relatedPosts.map((post) => (
+              <BlogCard
+                url={`/research/${post.id}`}
+                title={post.data.title}
+                description={post.data.description}
+                image={post.data.image}
+                author={post.data.author}
+                date={post.data.date.toLocaleDateString()}
+                tags={post.data.tags}
+              />
+            ))}
+          </div>
+        </section>
+      )
+    }
   </div>
 </BaseLayout>

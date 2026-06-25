@@ -12,17 +12,11 @@ const posts = await getCollection("research");
 
 const selectedCategory = Astro.url.searchParams.get("category");
 
-const filteredPosts = selectedCategory
-  ? posts.filter((post) => post.data.category === selectedCategory)
-  : posts;
+const filteredPosts = selectedCategory ? posts.filter((post) => post.data.category === selectedCategory) : posts;
 
-const featuredPost = !selectedCategory
-  ? posts.find((post) => post.data.featured)
-  : null;
+const featuredPost = !selectedCategory ? posts.find((post) => post.data.featured) : null;
 
-const gridPosts = selectedCategory
-  ? filteredPosts
-  : filteredPosts.filter((post) => !post.data.featured);
+const gridPosts = selectedCategory ? filteredPosts : filteredPosts.filter((post) => !post.data.featured);
 ---
 
 <BaseLayout meta={{ title: "Research & White Papers" }}>
@@ -30,20 +24,18 @@ const gridPosts = selectedCategory
     <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
       <!-- HERO -->
       <div class="text-center">
-        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">
-          Research Library
-        </p>
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">Research Library</p>
 
         <h1 class="text-foreground text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
           Research & White Papers
         </h1>
 
         <p class="text-foreground/70 mx-auto mt-6 max-w-2xl text-lg leading-8">
-          Explore industry research, market analysis, case studies, AI trends,
-          sustainability insights and product vision papers.
+          Explore industry research, market analysis, case studies, AI trends, sustainability insights and product
+          vision papers.
         </p>
       </div>
- 
+
       <!-- CATEGORY FILTERS -->
       <!-- <div class="mt-8 flex flex-wrap justify-center gap-3">
         <a
@@ -113,9 +105,7 @@ const gridPosts = selectedCategory
 
         {
           gridPosts.length === 0 && (
-            <p class="mt-10 text-center text-gray-500">
-              No research articles found in this category.
-            </p>
+            <p class="mt-10 text-center text-gray-500">No research articles found in this category.</p>
           )
         }
       </section>
