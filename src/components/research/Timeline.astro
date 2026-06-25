@@ -1,0 +1,42 @@
+---
+interface Item {
+  year: string;
+  title: string;
+}
+
+interface Props {
+  items: Item[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="my-10">
+  {
+    items.map((item, index) => (
+      <div class="relative flex gap-6 pb-10">
+        <!-- Dot -->
+        <div class="relative flex flex-col items-center">
+          <div class="h-4 w-4 rounded-full bg-blue-600"></div>
+
+          {
+            index !== items.length - 1 && (
+              <div class="mt-1 h-full w-[2px] bg-blue-600"></div>
+            )
+          }
+        </div>
+
+        <!-- Content -->
+        <div>
+          <p class="text-sm font-semibold text-blue-600">
+            {item.year}
+          </p>
+
+          <h3 class="mt-1 text-xl font-bold">
+            {item.title}
+          </h3>
+        </div>
+      </div>
+    ))
+  }
+</div>
