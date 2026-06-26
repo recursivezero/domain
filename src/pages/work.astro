@@ -1,8 +1,6 @@
 ---
 import abcd from "@/assets/images/abcd.webp";
-import brand from "@/assets/images/brand.webp";
 import fabricAI from "@/assets/images/fabric-ai.webp";
-import numpad from "@/assets/images/numpad.webp";
 import rzro from "@/assets/images/rzro.webp";
 import techTaboo from "@/assets/images/TechTaboo.webp";
 import threadzip from "@/assets/images/threadZip.webp";
@@ -19,9 +17,7 @@ const imageMap: Record<string, string> = {
   threadzipLab: threadzipLab.src,
   fabricAI: fabricAI.src,
   threadzipApp: threadzipApp.src,
-  techTaboo: techTaboo.src,
-  brand: brand.src,
-  numpad: numpad.src
+  techTaboo: techTaboo.src
 };
 const pages = import.meta.glob("./work/*.astro", {
   eager: true
@@ -36,11 +32,8 @@ const pageList = Object.entries(pages)
 
     return {
       title: frontmatter.title || "Page Title",
-
       description: frontmatter.description || "Page description.",
-
       image: frontmatter.image || "No Image",
-
       route
     };
   })
@@ -82,13 +75,12 @@ const pageList = Object.entries(pages)
         {
           externalProjects
             .filter(({ isActive }) => isActive)
-            .map(({ url, title, description, image, displayUrl }, index) => (
+            .map(({ url, title, description, image }, index) => (
               <BlogCard
                 url={url}
                 title={title}
                 description={description}
                 image={imageMap[image] || ""}
-                displayUrl={displayUrl}
                 priority={index === 0}
               />
             ))
