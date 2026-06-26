@@ -1,0 +1,123 @@
+---
+// import * as d3 from "d3";
+
+interface DataPoint {
+  label: string;
+  value: number;
+}
+
+interface Props {
+  title: string;
+  data: DataPoint[];
+}
+
+const { title, data } = Astro.props;
+---
+<div class="my-10 rounded-2xl border border-foreground/10 p-6">
+  <h2 class="mb-6 text-2xl font-bold">
+    {title}
+  </h2>
+
+ <svg
+  id="d3-chart"
+  width="700"
+  height="400"
+  class="w-full"
+  data-chart={JSON.stringify(data)}
+></svg>
+<script>
+  import * as d3 from "d3";
+
+  const svg = d3.select("#d3-chart");
+
+  const svgElement = svg.node();
+
+if (!(svgElement instanceof SVGSVGElement)) {
+  throw new Error("SVG element not found");
+}
+
+const data = JSON.parse(svgElement.dataset.chart ?? "[]");
+
+  const width = 700;
+  const height = 400;
+  const margin = 50;
+
+  svg.attr("viewBox", `0 0 ${width} ${height}`);
+
+  const x = d3
+    .scaleBand()
+    .domain(data.map((d: any) => d.label))
+    .range([margin, width - margin])
+    .padding(0.3);
+
+ const maxValue = d3.max(data as any[], (d: any) => Number(d.value)) ?? 0;
+
+const y = d3
+  .scaleLinear<number>()
+  .domain([0, maxValue])
+  .nice()
+  .range([height - margin, margin]);
+
+  // Bars
+  svg
+  .selectAll("rect")
+  .data(data)
+  .enter()
+  .append("rect")
+  .attr("x", (d: any) => x(d.label)!)
+  .attr("width", x.bandwidth())
+  .attr("rx", 6)
+  .attr("fill", "#2563eb")
+  .on("mouseover", function () {
+  d3.select(this)
+    .transition()
+    .duration(200)
+    .attr("fill", "#1d4ed8");
+})
+
+.on("mouseout", function () {
+  d3.select(this)
+    .transition()
+    .duration(200)
+    .attr("fill", "#2563eb");
+})
+
+  // Start from bottom
+  .attr("y", height - margin)
+  .attr("height", 0)
+
+  // Animate
+  .transition()
+  .duration(800)
+ .delay((_: any, i: number) => i * 150)
+  .attr("y", (d: any) => y(d.value))
+  .attr("height", (d: any) => height - margin - y(d.value))
+
+  // X Axis
+  svg
+    .append("g")
+    .attr("transform", `translate(0, ${height - margin})`)
+    .call(d3.axisBottom(x));
+
+  // Y Axis
+  svg
+    .append("g")
+    .attr("transform", `translate(${margin}, 0)`)
+    .call(d3.axisLeft(y));
+
+  // Value Labels
+  svg
+    .selectAll(".value")
+    .data(data)
+    .enter()
+    .append("text")
+    .attr("class", "value")
+    .attr("x", (d: any) => x(d.label)! + x.bandwidth() / 2)
+    .attr("y", (d: any) => y(d.value) - 8)
+    .attr("text-anchor", "middle")
+    .attr("font-size", "12")
+    .attr("font-weight", "600")
+    .attr("fill", "#111827")
+    .text((d: any) => d.value);
+</script>
+</div>
