@@ -1,77 +1,54 @@
 ---
-import BlogCard from "@/components/BlogCard.astro";
+import ResearchCard from "@/components/ResearchCard.astro";
 import BaseLayout from "@/layouts/BaseLayout";
-
 import { getCollection } from "astro:content";
 
 const posts = await getCollection("research");
 
-// const categories = [
-//   ...new Set(posts.map((post) => post.data.category).filter(Boolean))
-// ];
-
 const selectedCategory = Astro.url.searchParams.get("category");
 
-const filteredPosts = selectedCategory ? posts.filter((post) => post.data.category === selectedCategory) : posts;
+const filteredPosts = selectedCategory
+  ? posts.filter((post) => post.data.category === selectedCategory)
+  : posts;
 
-const featuredPost = !selectedCategory ? posts.find((post) => post.data.featured) : null;
+const featuredPost = !selectedCategory
+  ? posts.find((post) => post.data.featured)
+  : null;
 
-const gridPosts = selectedCategory ? filteredPosts : filteredPosts.filter((post) => !post.data.featured);
+const gridPosts = selectedCategory
+  ? filteredPosts
+  : filteredPosts.filter((post) => !post.data.featured);
 ---
 
 <BaseLayout meta={{ title: "Research & White Papers" }}>
   <main class="bg-background text-foreground">
     <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-      <!-- HERO -->
-      <div class="text-center">
-        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">Research Library</p>
 
-        <h1 class="text-foreground text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+      <!-- Hero -->
+      <div class="text-center">
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-brandBlue dark:text-cyan-400">
+          Research Library
+        </p>
+
+        <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl">
           Research & White Papers
         </h1>
 
-        <p class="text-foreground/70 mx-auto mt-6 max-w-2xl text-lg leading-8">
-          Explore industry research, market analysis, case studies, AI trends, sustainability insights and product
-          vision papers.
+        <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-foreground/70">
+          Explore industry research, market analysis, case studies,
+          AI trends, sustainability insights and product vision papers.
         </p>
       </div>
 
-      <!-- CATEGORY FILTERS -->
-      <!-- <div class="mt-8 flex flex-wrap justify-center gap-3">
-        <a
-          href="/research"
-          class={`rounded-full border px-4 py-2 text-sm font-medium ${
-            !selectedCategory
-              ? "bg-brandBlue text-white"
-              : "border-cyan-500/20 bg-brandBlue/10 text-blue-700"
-          }`}
-        >
-          All
-        </a>
-
-        {
-          categories.map((category) => (
-            <a
-              href={`/research?category=${encodeURIComponent(category)}`}
-              class={`rounded-full border px-4 py-2 text-sm font-medium ${
-                selectedCategory === category
-                  ? "bg-brandBlue text-white"
-                  : "border-cyan-500/20 bg-brandBlue/10 text-blue-700"
-              }`}
-            >
-              {category}
-            </a>
-          ))
-        }
-      </div> -->
-
-      <!-- FEATURED RESEARCH -->
+      <!-- Featured -->
       {
         featuredPost && (
           <section class="mt-16">
-            <h2 class="mb-6 text-3xl font-bold">Featured Research</h2>
+            <h2 class="mb-8 text-3xl font-bold text-foreground">
+              Featured Research
+            </h2>
 
-            <BlogCard
+            <ResearchCard
               url={`/research/${featuredPost.id}`}
               title={featuredPost.data.title}
               description={featuredPost.data.description}
@@ -79,18 +56,18 @@ const gridPosts = selectedCategory ? filteredPosts : filteredPosts.filter((post)
               author={featuredPost.data.author}
               date={featuredPost.data.date.toLocaleDateString()}
               tags={featuredPost.data.tags}
-              priority={true}
+              featured={true}
             />
           </section>
         )
       }
 
-      <!-- RESEARCH GRID -->
+      <!-- Grid -->
       <section class="mt-16">
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {
             gridPosts.map((post) => (
-              <BlogCard
+              <ResearchCard
                 url={`/research/${post.id}`}
                 title={post.data.title}
                 description={post.data.description}
@@ -105,10 +82,13 @@ const gridPosts = selectedCategory ? filteredPosts : filteredPosts.filter((post)
 
         {
           gridPosts.length === 0 && (
-            <p class="mt-10 text-center text-gray-500">No research articles found in this category.</p>
+            <p class="mt-10 text-center text-foreground/60">
+              No research articles found in this category.
+            </p>
           )
         }
       </section>
+
     </section>
   </main>
 </BaseLayout>

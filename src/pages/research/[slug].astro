@@ -3,7 +3,7 @@ import CalendarIcon from "@/assets/icons/calendar.svg";
 import ProfileIcon from "@/assets/icons/profile.svg";
 import MarkdownContent from "@/components/MarkdownContent.astro";
 import BaseLayout from "@/layouts/BaseLayout";
-import BlogCard from "@/components/BlogCard.astro";
+import ResearchCard from "@/components/ResearchCard.astro";
 import { type CollectionEntry, getCollection, render } from "astro:content";
 
 export const prerender = true;
@@ -40,15 +40,15 @@ if (!Content) {
 ---
 
 <BaseLayout meta={{ title: title, description: description, ogImage: image, articleDate: date }}>
- <div class="font-serif mx-auto flex max-w-6xl flex-col items-center justify-center px-4 pt-10 sm:px-6 lg:px-8">
-  <h1 class="mb-2 text-4xl font-bold text-brandBlue">
-  {title}
-</h1>
-    {description &&<p class="mb-2 text-xl text-gray-500">{description}</p>}
+  <div class="mx-auto flex max-w-6xl flex-col items-center justify-center px-4 pt-10 font-serif sm:px-6 lg:px-8">
+    <h1 class="mb-4 text-4xl font-bold text-brandBlue dark:text-[rgb(14,165,233)]">
+      {title}
+    </h1>
+    {description && <p class="mb-2 text-xl text-gray-500">{description}</p>}
     <div class="mb-8 flex items-center gap-4 text-gray-400">
       <!-- META -->
       <div
-       class="text-foreground/60 mt-0 flex flex-col gap-4 text-sm sm:flex-row sm:flex-wrap sm:items-center sm:gap-6"
+        class="text-foreground/60 mt-0 flex flex-col gap-4 text-sm sm:flex-row sm:flex-wrap sm:items-center sm:gap-6"
       >
         {
           author && (
@@ -98,7 +98,7 @@ if (!Content) {
       <div class="border-foreground/10 bg-background rounded-3xl border p-5 sm:p-6 md:p-10">
         <MarkdownContent>
           <article
-           class="font-serif text-foreground max-w-none [&_a]:font-medium [&_a]:text-blue-600 hover:[&_a]:underline [&_blockquote]:border-l-4 [&_blockquote]:border-cyan-500 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-foreground/70 [&_h1]:mb-6 [&_h1]:text-4xl [&_h1]:font-bold [&_h1]:text-brandBlue [&_h2]:mt-12 [&_h2]:mb-5 [&_h2]:text-3xl [&_h2]:font-bold [&_h2]:text-brandBlue [&_h3]:mt-8 [&_h3]:mb-4 [&_h3]:text-2xl [&_h3]:font-semibold [&_h3]:text-brandBlue [&_h4]:mt-6 [&_h4]:mb-3 [&_h4]:text-xl [&_h4]:font-semibold [&_h4]:text-brandBlue [&_h5]:font-semibold [&_h5]:text-brandBlue [&_h6]:font-semibold [&_h6]:text-brandBlue [&_hr]:my-10 [&_hr]:border-foreground/10 [&_img]:rounded-2xl [&_ol]:my-5 [&_ul]:my-5 [&_li]:mb-2 [&_li]:leading-8 [&_li]:text-foreground/80 [&_p]:mb-5 [&_p]:text-base [&_p]:leading-8 [&_p]:text-foreground/80 [&_strong]:text-foreground"
+            class="text-foreground [&_blockquote]:text-foreground/70 [&_hr]:border-foreground/10 [&_li]:text-foreground/80 [&_p]:text-foreground/80 [&_strong]:text-foreground max-w-none font-serif [&_a]:font-medium [&_a]:text-blue-600 hover:[&_a]:underline [&_blockquote]:border-l-4 [&_blockquote]:border-cyan-500 [&_blockquote]:pl-4 [&_blockquote]:italic [&_h1]:mb-6 [&_h1]:text-4xl [&_h1]:font-bold [&_h1]:text-brandBlue dark:[&_h1]:text-[rgb(14,165,233)] [&_h2]:mb-5 [&_h2]:mt-2 [&_h2]:text-3xl [&_h2]:font-bold [&_h2]:text-brandBlue dark:[&_h2]:text-[rgb(14,165,233)] [&_h3]:mb-4 [&_h3]:mt-8 [&_h3]:text-2xl [&_h3]:font-semibold [&_h3]:text-brandBlue dark:[&_h3]:text-[rgb(14,165,233)] [&_h4]:mb-3 [&_h4]:mt-6 [&_h4]:text-xl [&_h4]:font-semibold [&_h4]:text-brandBlue dark:[&_h4]:text-[rgb(14,165,233)] [&_h5]:font-semibold [&_h5]:text-brandBlue dark:[&_h5]:text-[rgb(14,165,233)] [&_h6]:font-semibold [&_h6]:text-brandBlue dark:[&_h6]:text-[rgb(14,165,233)] [&_hr]:my-10 [&_img]:rounded-2xl [&_li]:mb-2 [&_li]:leading-8 [&_ol]:my-5 [&_p]:mb-5 [&_p]:text-base [&_p]:leading-8 [&_ul]:my-5"
           >
             <Content />
           </article>
@@ -112,7 +112,7 @@ if (!Content) {
 
           <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {relatedPosts.map((post) => (
-              <BlogCard
+              <ResearchCard
                 url={`/research/${post.id}`}
                 title={post.data.title}
                 description={post.data.description}
