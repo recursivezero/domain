@@ -1,6 +1,6 @@
 {
   "name": "@recursivezero/domain",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "main": "src/index.js",
   "author": {
     "name": "Founder",
@@ -25,7 +25,7 @@
     "github",
     "template"
   ],
-  "contributors": [ ],
+  "contributors": [],
   "timestamp": {
     "createdOn": "Sun, 07 Jan 2024 00:00:00 +05:30",
     "updatedOn": "Sun,15 June 2025 02:10:39 +05:30"
@@ -62,7 +62,6 @@
     "@astrojs/check": "0.9.2",
     "@astrojs/mdx": "5.0.6",
     "@astrojs/node": "^10.1.1",
-    "@astrojs/react": "5.0.5",
     "@astrojs/rss": "4.0.18",
     "@astrojs/tailwind": "6.0.2",
     "@fontsource/roboto": "5.1.0",

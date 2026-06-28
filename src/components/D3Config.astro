@@ -1,0 +1,16 @@
+---
+import { type ChartType, type DataPoint } from "@/utils/chart";
+
+interface Props {
+  data: DataPoint[];
+  chartType?: ChartType;
+}
+
+const { data, chartType = "bar" } = Astro.props;
+---
+
+<div data-d3-chart data-data={JSON.stringify(data)} data-chart-type={chartType}>
+  <svg class="w-full"></svg>
+</div>
+
+<script src="../scripts/d3-chart.ts"></script>

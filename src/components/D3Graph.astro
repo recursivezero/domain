@@ -1,0 +1,20 @@
+---
+import D3Config from "@/components/D3Config.astro";
+import type { ChartType, DataPoint } from "@/utils/chart";
+
+interface Props {
+  title: string;
+  data: DataPoint[];
+  chartType?: ChartType;
+}
+
+const { title, data, chartType = "bar" } = Astro.props;
+---
+
+<div class="border-foreground/10 my-10 rounded-2xl border p-6">
+  <h2 class="mb-6 text-2xl font-bold">
+    {title}
+  </h2>
+
+  <D3Config data={data} chartType={chartType} />
+</div>

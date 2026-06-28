@@ -1,5 +1,4 @@
 import mdx from "@astrojs/mdx";
-import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 import { defineConfig, passthroughImageService } from "astro/config";
 
@@ -15,9 +14,6 @@ export default defineConfig({
   },
   integrations: [
     mdx(),
-    react({
-      experimentalReactChildren: true
-    }),
     tailwind({
       applyBaseStyles: false,
       nesting: true
