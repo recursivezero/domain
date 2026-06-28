@@ -1,0 +1,86 @@
+---
+import ResearchCard from "@/components/ResearchCard.astro";
+import BaseLayout from "@/layouts/BaseLayout";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("research");
+
+const selectedCategory = Astro.url.searchParams.get("category");
+
+const filteredPosts = selectedCategory
+  ? posts.filter((post) => post.data.category === selectedCategory)
+  : posts.filter((post) => post.data.isActive);
+
+const featuredPost = !selectedCategory ? posts.find((post) => post.data.featured) : null;
+
+const gridPosts = selectedCategory
+  ? filteredPosts
+  : filteredPosts.filter((post) => !post.data.isActive || !post.data.featured);
+---
+
+<BaseLayout meta={{ title: "Research & White Papers" }}>
+  <main class="bg-background text-foreground">
+    <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+      <!-- Hero -->
+      <div class="text-center">
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-brandBlue dark:text-cyan-400">
+          Research Library
+        </p>
+
+        <h1 class="text-foreground text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+          Research & White Papers
+        </h1>
+
+        <p class="text-foreground/70 mx-auto mt-6 max-w-2xl text-lg leading-8">
+          Explore industry research, market analysis, case studies, AI trends, sustainability insights and product
+          vision papers.
+        </p>
+      </div>
+
+      <!-- Featured -->
+      {
+        featuredPost && (
+          <section class="mt-16">
+            <h2 class="text-foreground mb-8 text-3xl font-bold">Featured Research</h2>
+
+            <ResearchCard
+              url={`/research/${featuredPost.id}`}
+              title={featuredPost.data.title}
+              description={featuredPost.data.description}
+              image={featuredPost.data.image}
+              author={featuredPost.data.author}
+              date={featuredPost.data.date.toLocaleDateString()}
+              tags={featuredPost.data.tags}
+              featured={true}
+            />
+          </section>
+        )
+      }
+
+      <!-- Grid -->
+      <section class="mt-16">
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {
+            gridPosts.map((post) => (
+              <ResearchCard
+                url={`/research/${post.id}`}
+                title={post.data.title}
+                description={post.data.description}
+                image={post.data.image}
+                author={post.data.author}
+                date={post.data.date.toLocaleDateString()}
+                tags={post.data.tags}
+              />
+            ))
+          }
+        </div>
+
+        {
+          gridPosts.length === 0 && (
+            <p class="text-foreground/60 mt-10 text-center">No research articles found in this category.</p>
+          )
+        }
+      </section>
+    </section>
+  </main>
+</BaseLayout>

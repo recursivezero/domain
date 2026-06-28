@@ -1,0 +1,13 @@
+---
+const { data, chartType } = Astro.props;
+---
+
+<svg class="chart"></svg>
+
+<script type="module" define:vars={{ data, chartType }} is:inline>
+  import { drawChart } from "../utils/chart";
+
+  const svg = document.currentScript.previousElementSibling;
+
+  drawChart(svg, data, chartType);
+</script>

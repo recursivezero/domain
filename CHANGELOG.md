@@ -71,6 +71,10 @@ astro boilerplate
 - Removed unnecessary classes
 - improve page performance in light and dark mode
 
+## [1.4.1] - 2026-06-28
+
+- Added Research page
+
 ### [Unreleased]
 
 Here we write upgrading notes for brands. It's a team effort to make them as straightforward as possible.

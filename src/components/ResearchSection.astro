@@ -1,0 +1,48 @@
+---
+import { getCollection } from "astro:content";
+import ResearchCard from "./ResearchCard.astro";
+
+const posts = await getCollection("research");
+
+const slicedPosts = posts.slice(0, 3);
+---
+
+<section class="py-20">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10">
+    <!-- Top Heading -->
+    <div class="mb-14 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+      <div>
+        <p class="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">Research Library</p>
+
+        <h2 class="text-4xl font-bold tracking-tight md:text-5xl">Latest Research & White Papers</h2>
+      </div>
+
+      <a
+        href="/research"
+        class="inline-flex items-center gap-2 text-base font-semibold text-blue-600 transition hover:gap-3 dark:text-sky-500"
+      >
+        View All Research →
+      </a>
+    </div>
+
+    <!-- Research Grid -->
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {
+        slicedPosts
+          .filter((post) => post.data.isActive)
+          .map((post) => (
+            <ResearchCard
+              url={`/research/${post.id}`}
+              title={post.data.title}
+              description={post.data.description}
+              image={post.data.image}
+              author={post.data.author}
+              date={post.data.date.toLocaleDateString()}
+              tags={post.data.tags}
+              featured={false}
+            />
+          ))
+      }
+    </div>
+  </div>
+</section>
