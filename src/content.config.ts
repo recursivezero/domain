@@ -45,7 +45,8 @@ const research = defineCollection({
     tags: z.array(z.string()).default([]),
     category: z.string(),
     featured: z.boolean().default(false),
-    image: z.string().optional()
+    image: z.string().optional(),
+    isActive: z.boolean().default(true)
   })
 });
 

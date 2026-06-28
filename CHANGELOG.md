@@ -73,7 +73,7 @@ astro boilerplate
 
 ## [1.4.1] - 2026-06-28
 
-- Added research page
+- Added Research page
 
 ### [Unreleased]
 

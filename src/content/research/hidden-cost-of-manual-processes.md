@@ -8,6 +8,7 @@ tags:
   - operations
 category: "Case Studies"
 featured: false
+isActive: false
 ---
 
 ## Introduction

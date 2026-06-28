@@ -8,6 +8,7 @@ tags:
   - product
 category: "Product Vision"
 featured: false
+isActive: false
 ---
 
 ## Introduction

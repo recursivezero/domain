@@ -9,34 +9,31 @@ const selectedCategory = Astro.url.searchParams.get("category");
 
 const filteredPosts = selectedCategory
   ? posts.filter((post) => post.data.category === selectedCategory)
-  : posts;
+  : posts.filter((post) => post.data.isActive);
 
-const featuredPost = !selectedCategory
-  ? posts.find((post) => post.data.featured)
-  : null;
+const featuredPost = !selectedCategory ? posts.find((post) => post.data.featured) : null;
 
 const gridPosts = selectedCategory
   ? filteredPosts
-  : filteredPosts.filter((post) => !post.data.featured);
+  : filteredPosts.filter((post) => !post.data.isActive || !post.data.featured);
 ---
 
 <BaseLayout meta={{ title: "Research & White Papers" }}>
   <main class="bg-background text-foreground">
     <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-
       <!-- Hero -->
       <div class="text-center">
         <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-brandBlue dark:text-cyan-400">
           Research Library
         </p>
 
-        <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl">
+        <h1 class="text-foreground text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
           Research & White Papers
         </h1>
 
-        <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-foreground/70">
-          Explore industry research, market analysis, case studies,
-          AI trends, sustainability insights and product vision papers.
+        <p class="text-foreground/70 mx-auto mt-6 max-w-2xl text-lg leading-8">
+          Explore industry research, market analysis, case studies, AI trends, sustainability insights and product
+          vision papers.
         </p>
       </div>
 
@@ -44,9 +41,7 @@ const gridPosts = selectedCategory
       {
         featuredPost && (
           <section class="mt-16">
-            <h2 class="mb-8 text-3xl font-bold text-foreground">
-              Featured Research
-            </h2>
+            <h2 class="text-foreground mb-8 text-3xl font-bold">Featured Research</h2>
 
             <ResearchCard
               url={`/research/${featuredPost.id}`}
@@ -82,13 +77,10 @@ const gridPosts = selectedCategory
 
         {
           gridPosts.length === 0 && (
-            <p class="mt-10 text-center text-foreground/60">
-              No research articles found in this category.
-            </p>
+            <p class="text-foreground/60 mt-10 text-center">No research articles found in this category.</p>
           )
         }
       </section>
-
     </section>
   </main>
 </BaseLayout>
